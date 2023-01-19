@@ -2,27 +2,27 @@
 <testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-01-18T18:51:46 IST" name="Default suite" finished-at="2023-01-18T18:55:31 IST" duration-ms="225097">
+  <suite started-at="2023-01-19T15:57:14 IST" name="Default suite" finished-at="2023-01-19T16:00:31 IST" duration-ms="196633">
     <groups>
     </groups>
-    <test started-at="2023-01-18T18:51:46 IST" name="Default test" finished-at="2023-01-18T18:55:31 IST" duration-ms="225097">
+    <test started-at="2023-01-19T15:57:14 IST" name="Default test" finished-at="2023-01-19T16:00:31 IST" duration-ms="196633">
       <class name="implementation.ImplementCount">
-        <test-method is-config="true" signature="setBrowser()[pri:0, instance:implementation.ImplementCount@3b6ddd1d]" started-at="2023-01-18T18:51:46 IST" name="setBrowser" finished-at="2023-01-18T18:51:52 IST" duration-ms="6101" status="PASS">
+        <test-method is-config="true" signature="setBrowser()[pri:0, instance:implementation.ImplementCount@3b6ddd1d]" started-at="2023-01-19T15:57:14 IST" name="setBrowser" finished-at="2023-01-19T15:57:20 IST" duration-ms="5634" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setBrowser -->
-        <test-method signature="Login()[pri:1, instance:implementation.ImplementCount@3b6ddd1d]" started-at="2023-01-18T18:51:52 IST" name="Login" finished-at="2023-01-18T18:52:19 IST" duration-ms="27104" status="PASS">
+        <test-method signature="Login()[pri:1, instance:implementation.ImplementCount@3b6ddd1d]" started-at="2023-01-19T15:57:20 IST" name="Login" finished-at="2023-01-19T15:57:53 IST" duration-ms="33173" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method signature="CustomersCreate()[pri:2, instance:implementation.ImplementCount@3b6ddd1d]" started-at="2023-01-18T18:52:19 IST" name="CustomersCreate" finished-at="2023-01-18T18:53:12 IST" duration-ms="52552" status="PASS">
+        <test-method signature="SubEntity()[pri:4, instance:implementation.ImplementCount@3b6ddd1d]" started-at="2023-01-19T15:57:53 IST" name="SubEntity" finished-at="2023-01-19T15:59:36 IST" duration-ms="102817" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- CustomersCreate -->
-        <test-method signature="CustomersAssignment()[pri:3, instance:implementation.ImplementCount@3b6ddd1d]" started-at="2023-01-18T18:53:12 IST" name="CustomersAssignment" finished-at="2023-01-18T18:55:31 IST" duration-ms="139276" status="PASS">
+        </test-method> <!-- SubEntity -->
+        <test-method signature="Department()[pri:5, instance:implementation.ImplementCount@3b6ddd1d]" started-at="2023-01-19T15:59:36 IST" name="Department" finished-at="2023-01-19T16:00:31 IST" duration-ms="54951" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- CustomersAssignment -->
+        </test-method> <!-- Department -->
       </class> <!-- implementation.ImplementCount -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

@@ -166,7 +166,204 @@ public class ImplementMethods {
 						      Thread.sleep(5000);
 	}
 	
+	public static void SubEntity( WebDriver driver,ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+	{		
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (40));
+		Thread.sleep(3000);
+		
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[1]")));	//Wait until records table get visible.
+		
+			      action.moveToElement(ImplementPOM.clickManageUser(driver)).click().build().perform();
+			      Thread.sleep(3000);
+			      ImplementPOM.clickCustomers(driver).click();
+			      Thread.sleep(4000);
+			      ImplementPOM.clickSubEntity(driver).click();
+			      Thread.sleep(5000);
+			      ImplementPOM.SubEntityAddNew(driver).click();
+			      Thread.sleep(4000);
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='BodyContent_tbxName']")));	//Wait until records table get visible.
+			 sheet = workbook.getSheetAt(13);					//Retrieving fourth sheet of Workbook(Named - Update Tasks)
+				int row = 0;
+				Thread.sleep(500);
+				Row row0 = sheet.getRow(row);					//Selected 0th index row (First row)
+				Cell c1 = null;
+				row0= sheet.getRow(8);
+				c1 = row0.getCell(1);						//Selected cell (0 row,2 column)	(2 column = third column)
+				ImplementPOM.EnterName(driver).sendKeys(c1.getStringCellValue());	//Writing Task title
+				  Thread.sleep(2000);
+				  ImplementPOM.SubEntityType(driver).click();
+				  Thread.sleep(3000);
+				  ImplementPOM.LegalEntity(driver).click();
+				  Thread.sleep(2000);
+				  ImplementPOM.Type(driver).click();
+				  Thread.sleep(1000);
+				  ImplementPOM.DeemedPublicCompany(driver).click();
+				  Thread.sleep(2000);
+				  ImplementPOM.Industry(driver).click();
+				  Thread.sleep(2000);
+				  ImplementPOM.ClickCheck(driver).click();
+				  Thread.sleep(2000);
+				  ImplementPOM.Industry(driver).click();
+				  
+				  row0= sheet.getRow(9);
+					c1 = row0.getCell(1);						//Selected cell (0 row,2 column)	(2 column = third column)
+					ImplementPOM.AddressLine1(driver).sendKeys(c1.getStringCellValue());	//Writing Task title
+					  Thread.sleep(2000);
+					  ImplementPOM.State(driver).clear();
+					    Thread.sleep(2000);
+					    ImplementPOM.State(driver).sendKeys("Maharashtra");
+					    Thread.sleep(2000);
+					    ImplementPOM.Maharashtra(driver).click();
+					    Thread.sleep(2000);
+					    ImplementPOM.City(driver).clear();
+					    Thread.sleep(2000);
+					    ImplementPOM.City(driver).sendKeys("Ahmednagar");
+					    Thread.sleep(2000);
+					    ImplementPOM.Anagar(driver).click();
+					    Thread.sleep(2000);
+					    row0= sheet.getRow(10);
+						c1 = row0.getCell(1);						//Selected cell (0 row,2 column)	(2 column = third column)
+						ImplementPOM.ContactPerson(driver).sendKeys(c1.getStringCellValue());	//Writing Task title
+						  Thread.sleep(2000);
+						  row0= sheet.getRow(11);
+							c1 = row0.getCell(1);						//Selected cell (0 row,2 column)	(2 column = third column)
+							ImplementPOM.ContactEmail(driver).sendKeys(c1.getStringCellValue());	//Writing Task title
+							  Thread.sleep(3000);
+							  ImplementPOM.SaveSE(driver).click();
+					    
+							  Thread.sleep(4000);
+							  test.log(LogStatus.PASS, " Sub Entity- Add New Branch Successfully");
+							  Thread.sleep(1000);
+							  row0= sheet.getRow(8);
+								c1 = row0.getCell(1);						//Selected cell (0 row,2 column)	(2 column = third column)
+								ImplementPOM.FilterSE(driver).sendKeys(c1.getStringCellValue(),Keys.ENTER);	//Writing Task title
+								  Thread.sleep(4000);
+								  test.log(LogStatus.PASS, " Sub Entity-Filter Working Successfully");
+								  ImplementPOM.ClickExport(driver).click();
+								  Thread.sleep(4000);
+								  test.log(LogStatus.PASS, " Sub Entity- Export to Excel Successfully");
+								  ImplementPOM.ClickEditSE(driver).click();
+								  Thread.sleep(4000);
+								  ImplementPOM.Type(driver).click();
+								  Thread.sleep(1000);
+								  ImplementPOM.LLP(driver).click();
+								  Thread.sleep(3000);
+								  ImplementPOM.SaveSE(driver).click();
+								  test.log(LogStatus.PASS, " Sub Entity- Update Successfully");
+								  Thread.sleep(3000);
+								  ImplementPOM.ClickDeleteSE(driver).click();
+							String DeleteMsg=driver.switchTo().alert().getText();
+							  Thread.sleep(2000);
+							  driver.switchTo().alert().accept();
+							  Thread.sleep(2000);
+									
+									
+									if(DeleteMsg.equalsIgnoreCase("This will also delete all the sub-entities associated with current entity. Are you certain you want to delete this entity?"))
+									{
+										test.log(LogStatus.PASS, "Message displayed -" +DeleteMsg);
+									}
+									else
+									{
+										test.log(LogStatus.PASS, "Message displayed -" +DeleteMsg +"not Displayed");
+									}
+									
+	}
 	
+	public static void Department( WebDriver driver,ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+	{		
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (40));
+		Thread.sleep(3000);
+		
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[1]")));	//Wait until records table get visible.
+		
+			      action.moveToElement(ImplementPOM.clickManageUser(driver)).click().build().perform();
+			   
+			      Thread.sleep(4000);
+			      ImplementPOM.ClickDepartment(driver).click();
+			      Thread.sleep(4000);
+			      ImplementPOM.SelectCustomerDept(driver).clear();
+			      Thread.sleep(2000);
+			      ImplementPOM.SelectCustomerDept(driver).sendKeys("customer123");
+			      ImplementPOM.customer123(driver).click();
+			      Thread.sleep(3000);
+			      ImplementPOM.AddNewDept(driver).click();
+			      Thread.sleep(3000);
+			      sheet = workbook.getSheetAt(13);					//Retrieving fourth sheet of Workbook(Named - Update Tasks)
+					int row = 0;
+					Thread.sleep(500);
+					Row row0 = sheet.getRow(row);					//Selected 0th index row (First row)
+					Cell c1 = null;
+					row0= sheet.getRow(13);
+					c1 = row0.getCell(1);						//Selected cell (0 row,2 column)	(2 column = third column)
+					ImplementPOM.DepartmentName(driver).sendKeys(c1.getStringCellValue());	//Writing Task title
+					  Thread.sleep(2000);
+			      
+					  ImplementPOM.DepartmentSave(driver).click();
+					  Thread.sleep(2000);
+					String DeptSaveMsg= ImplementPOM.DepartmentSaveMsg(driver).getText();
+					
+					if(DeptSaveMsg.equalsIgnoreCase("Department saved successfully"))
+					{
+						test.log(LogStatus.PASS, "Message displayed -" +DeptSaveMsg);
+					}
+					else
+					{
+						test.log(LogStatus.PASS, "Message displayed - Department already exists");
+					}
+					Thread.sleep(2000);
+					 ImplementPOM.DepartmentClose(driver).click();
+					 Thread.sleep(3000);
+					 row0= sheet.getRow(13);
+						c1 = row0.getCell(1);						//Selected cell (0 row,2 column)	(2 column = third column)
+						ImplementPOM.DepartFilter(driver).sendKeys(c1.getStringCellValue(),Keys.ENTER);	//Writing Task title
+						  Thread.sleep(4000);
+						  test.log(LogStatus.PASS, " .Department-Filter Working Successfully");
+						  
+						  ImplementPOM.DepartEdit(driver).click();
+						  Thread.sleep(4000);
+						  ImplementPOM.DepartmentName(driver).clear();
+						  Thread.sleep(2000);
+						  row0= sheet.getRow(14);
+							c1 = row0.getCell(1);						//Selected cell (0 row,2 column)	(2 column = third column)
+							ImplementPOM.DepartmentName(driver).sendKeys(c1.getStringCellValue());	//Writing Task title
+							  Thread.sleep(2000);
+							  ImplementPOM.DepartmentSave(driver).click();
+							  Thread.sleep(3000);
+								String DeptUpdateMsg= ImplementPOM.DepartUpdateMsg(driver).getText();
+								
+								if(DeptUpdateMsg.equalsIgnoreCase("Department updated successfully"))
+								{
+									test.log(LogStatus.PASS, "Message displayed -" +DeptUpdateMsg);
+								}
+								else
+								{
+									test.log(LogStatus.PASS, "Message displayed - Department already exists");
+								}
+								
+								Thread.sleep(2000);
+								 ImplementPOM.DepartmentClose(driver).click();
+								 Thread.sleep(3000);
+								 
+								 ImplementPOM.DepartDelete(driver).click();
+								 String DeleteMsg=driver.switchTo().alert().getText();
+								  Thread.sleep(2000);
+								  driver.switchTo().alert().accept();
+								  Thread.sleep(2000);
+										
+										
+										if(DeleteMsg.equalsIgnoreCase("Are you certain you want to delete this Department Details?"))
+										{
+											test.log(LogStatus.PASS, "Message displayed -" +DeleteMsg);
+										}
+										else
+										{
+											test.log(LogStatus.PASS, "Message displayed -" +DeleteMsg +"not Displayed");
+										}
+										
+					
+	}
 	
 	
 	

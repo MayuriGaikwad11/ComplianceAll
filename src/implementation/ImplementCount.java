@@ -108,7 +108,7 @@ public class ImplementCount {
 		}
 	}
 	
-	@Test(priority = 2)
+	//@Test(priority = 2)
 	void CustomersCreate() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Customers Create");
@@ -120,13 +120,37 @@ public class ImplementCount {
 		extent.flush();
 	}
 	
-	@Test(priority = 3)
+	//@Test(priority = 3)
 	void CustomersAssignment() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Customers Assignment");
 		test.log(LogStatus.INFO, "Test Initiated");
 		
 		ImplementMethods.CustomersAssignment(driver,test,workbook);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 4)
+	void SubEntity() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Sub Entity");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		ImplementMethods.SubEntity(driver,test,workbook);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 5)
+	void Department() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Department");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		ImplementMethods.Department(driver,test,workbook);
 		
 		extent.endTest(test);
 		extent.flush();
