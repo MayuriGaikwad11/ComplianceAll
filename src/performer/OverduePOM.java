@@ -2075,8 +2075,8 @@ public class OverduePOM
 	
 	public static void MyReminder(WebDriver driver, ExtentTest test, String compliance) throws InterruptedException
 	{
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-		WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(30));
+		WebDriverWait wait = new WebDriverWait(driver, (30));
+		WebDriverWait wait1 = new WebDriverWait(driver, (30));
 		
 		Thread.sleep(500);
 		wait.until(ExpectedConditions.elementToBeClickable(clickMyReminder(driver)));
@@ -2282,7 +2282,7 @@ public class OverduePOM
 		Thread.sleep(500);
 		clickCriticalDocuments(driver).click();				//Clicking on 'Critical Documents'
 		
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		WebDriverWait wait = new WebDriverWait(driver, (20));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='ContentPlaceHolder1_grdFolderDetail']")));	//Wating till the content table gets visible
 		
 		Thread.sleep(500);
@@ -2442,7 +2442,7 @@ public class OverduePOM
 
 	public static void ReviseCompliance(WebDriver driver, ExtentTest test, int no) throws InterruptedException
 	{
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		WebDriverWait wait = new WebDriverWait(driver, (30));
 		
 		Thread.sleep(1500);
 		Actions action = new Actions(driver);

@@ -970,7 +970,7 @@ public class MethodsPOM
 	
 	public static void DashboardRejected(WebDriver driver, ExtentTest test, String Compliance) throws InterruptedException
 	{
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		WebDriverWait wait = new WebDriverWait(driver, (30));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='ContentPlaceHolder1_divPerformerRejectedPREOcount']")));	//Waiting for 'Statutory Reject' value to get visible on Dashboard
 		
 		String string_rejected = null;
@@ -1085,7 +1085,7 @@ public class MethodsPOM
 	
 	static void AssignTask(WebDriver driver, String task) throws InterruptedException
 	{
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		WebDriverWait wait = new WebDriverWait(driver, (30));
 		
 		Thread.sleep(1000);
 		wait.until(ExpectedConditions.visibilityOf(OverduePOM.clickComplianceLocation(driver)));
@@ -1177,7 +1177,7 @@ public class MethodsPOM
 		//-------------------------------Create Main Task--------------------------------------
 		
 		Thread.sleep(2000);
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		WebDriverWait wait = new WebDriverWait(driver, (30));
 		//wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@onclick='CheckProduct();']")));	//Waiting for 'My Workspace' link to be visible.
 		OverduePOM.clickMyWorkspace1(driver).click();		//Clicking on 'My Workspace'
 		
@@ -1432,8 +1432,7 @@ public class MethodsPOM
 	{
 		
 		Thread.sleep(2000);
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(80));
-		OverduePOM.clickMyWorkspace1(driver).click();		//Clicking on 'My Workspace'
+		WebDriverWait wait = new WebDriverWait(driver,  50);
 		
 		Thread.sleep(500);
 		OverduePOM.clickCompliance(driver).click();			//Clicking on 'Compliance' under My Workspace
@@ -1520,7 +1519,7 @@ public class MethodsPOM
 	{
 		
 		Thread.sleep(3000);
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(80));
+		WebDriverWait wait = new WebDriverWait(driver, (80));
 		OverduePOM.clickMyWorkspace1(driver).click();		//Clicking on 'My Workspace'
 		
 		Thread.sleep(1000);
@@ -1596,7 +1595,7 @@ public class MethodsPOM
 		Select drp = new Select(OverduePOM.selectStatutoryDropdown(driver));
 		drp.selectByIndex(1);
 		
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		WebDriverWait wait = new WebDriverWait(driver, (30));
 		Thread.sleep(1000);
 		
 				if(OverduePOM.fileUploadStatutory(driver).isEnabled())
@@ -1626,7 +1625,7 @@ public class MethodsPOM
 	public static void MyCalendarCompliance(WebDriver driver, ExtentTest test) throws InterruptedException
 	{
 		Thread.sleep(500);
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
+		WebDriverWait wait = new WebDriverWait(driver, (40));
 	//	wait.until(ExpectedConditions.elementToBeClickable(OverduePOM.clickStatutoryChecklist(driver)));
 	//	int oldStatutoryChecklistValue = Integer.parseInt(OverduePOM.clickStatutoryChecklist(driver).getText());	//Storing old value of Statutory Checkilist.
 	//	int oldOverdueStatutoryValue = Integer.parseInt(OverduePOM.clickStatutoryOverdue(driver).getText());
@@ -1803,7 +1802,7 @@ public class MethodsPOM
 	
 	public static void UpdateLeave(WebDriver driver, ExtentTest test) throws InterruptedException
 	{
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		WebDriverWait wait = new WebDriverWait(driver, (20));
 		wait.until(ExpectedConditions.elementToBeClickable(OverduePOM.clickMyWorkspace(driver)));	//Waiting for 'My Workspace' link to be visible.
 		OverduePOM.clickMyWorkspace(driver).click();		//Clicking on 'My Workspace'
 		
@@ -1886,7 +1885,7 @@ public class MethodsPOM
 	public static void UpcomingComplianceADView(WebDriver driver, ExtentTest test) throws InterruptedException
 	{
 		
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(50));
+		WebDriverWait wait = new WebDriverWait(driver,(50));
 		Thread.sleep(500);
 		wait.until(ExpectedConditions.elementToBeClickable(OverduePOM.clickUpcomingStatutory(driver)));	//Waiting for 'Upcoming Statutory' count to be clickable.
 		OverduePOM.clickUpcomingStatutory(driver).click();
@@ -1931,7 +1930,7 @@ public class MethodsPOM
 	
 	public static void UpcomingCompliance(WebDriver driver, ExtentTest test, String Compliance) throws InterruptedException
 	{
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
+		WebDriverWait wait = new WebDriverWait(driver, (40));
 		Thread.sleep(500);
 		wait.until(ExpectedConditions.elementToBeClickable(OverduePOM.clickUpcomingStatutory(driver)));	//Waiting for 'Upcoming Statutory' count to be clickable.
 		
@@ -2362,7 +2361,7 @@ public class MethodsPOM
 
 	public static void WorkspaceOverdueStatutory(WebDriver driver, ExtentTest test)throws InterruptedException
 	{
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		WebDriverWait wait = new WebDriverWait(driver, (30));
 		Thread.sleep(500);
 		OverduePOM.clickMyWorkspace(driver).click();		//Clicking on 'My Workspace'
 		
@@ -2427,7 +2426,7 @@ public class MethodsPOM
 	
 	public static void WorkspaceOverdueInternal(WebDriver driver, ExtentTest test)throws InterruptedException
 	{
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		WebDriverWait wait = new WebDriverWait(driver, (30));
 		Thread.sleep(500);
 		//wait.until(ExpectedConditions.visibilityOf(OverduePOM.clickMyWorkspace(driver)));
 		OverduePOM.clickMyWorkspace(driver).click();		//Clicking on 'My Workspace'
@@ -2501,7 +2500,7 @@ public class MethodsPOM
 	{
 
 		
-  		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
+  		WebDriverWait wait = new WebDriverWait(driver, (40));
 		Thread.sleep(500);
 		OverduePOM.clickMyWorkspace(driver).click();		//Clicking on 'My Workspace'
 		
@@ -2554,7 +2553,7 @@ public class MethodsPOM
 	{
 
 		
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
+		WebDriverWait wait = new WebDriverWait(driver, (40));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		
 		test.log(LogStatus.INFO, "***********Upcoming Statutory Performer Task-perform************ ");
@@ -2630,7 +2629,7 @@ public class MethodsPOM
 	public static void PerformUpcomingInternal(WebDriver driver, ExtentTest test)throws InterruptedException
 	{
 		
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		WebDriverWait wait = new WebDriverWait(driver, (30));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		
 		test.log(LogStatus.INFO, "***********Upcoming Internal Performer Task-perform************ ");
@@ -2711,7 +2710,7 @@ public class MethodsPOM
 	{
 
 		
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
+		WebDriverWait wait = new WebDriverWait(driver, (40));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		
 		test.log(LogStatus.INFO, "***********Overdue Statutory Performer Task-perform************ ");
@@ -2787,7 +2786,7 @@ public class MethodsPOM
 	public static void PerformOverdueInternal(WebDriver driver, ExtentTest test)throws InterruptedException
 	{
 		
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		WebDriverWait wait = new WebDriverWait(driver, (30));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		
 		test.log(LogStatus.INFO, "***********Overdue Internal Performer Task-perform************ ");
@@ -2868,7 +2867,7 @@ public class MethodsPOM
 	{
 
 		
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
+		WebDriverWait wait = new WebDriverWait(driver, (40));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		
 		test.log(LogStatus.INFO, "***********Overdue Rejected Performer Task-perform************ ");
@@ -2945,7 +2944,7 @@ public class MethodsPOM
 	public static void PerformRejectedInternal(WebDriver driver, ExtentTest test)throws InterruptedException
 	{
 		
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		WebDriverWait wait = new WebDriverWait(driver, (30));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		
 		test.log(LogStatus.INFO, "***********Rejected Internal Performer Task-perform************ ");
@@ -3025,7 +3024,7 @@ public class MethodsPOM
 	public static void TaskReport(WebDriver driver, ExtentTest test)throws InterruptedException
 	{
 		
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		WebDriverWait wait = new WebDriverWait(driver, (30));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		//------------------------------------- Statutory ------------------------------------
 		wait.until(ExpectedConditions.elementToBeClickable(CFOcountPOM.clickReports(driver)));
@@ -3073,7 +3072,7 @@ public class MethodsPOM
 	public static void EventReport(WebDriver driver, ExtentTest test)throws InterruptedException
 	{
 		
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		WebDriverWait wait = new WebDriverWait(driver, 30);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		
 		wait.until(ExpectedConditions.elementToBeClickable(CFOcountPOM.clickReports(driver)));
@@ -3110,7 +3109,7 @@ public class MethodsPOM
 	
 	public static void DetailedReportRisk(ExtentTest test, WebDriver driver, String user) throws InterruptedException, IOException
 	{		
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(120));
+		WebDriverWait wait = new WebDriverWait(driver, (120));
 	    
 		Thread.sleep(500);
 		CFOcountPOM.clickReports(driver).click();					//Clicking on 'My Reports'
@@ -3178,7 +3177,7 @@ public class MethodsPOM
 	
 	public static void DetailedReport1(ExtentTest test, WebDriver driver, String user) throws InterruptedException, IOException
 	{		
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(120));
+		WebDriverWait wait = new WebDriverWait(driver, (120));
 	    
 		Thread.sleep(500);
 		CFOcountPOM.clickReports(driver).click();					//Clicking on 'My Reports'
@@ -3321,7 +3320,7 @@ public class MethodsPOM
 
 	public static void DetailedReportIn(ExtentTest test, WebDriver driver, String user) throws InterruptedException, IOException
 	{		
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(120));
+		WebDriverWait wait = new WebDriverWait(driver, (120));
 	    
 		Thread.sleep(500);
 		CFOcountPOM.clickReports(driver).click();					//Clicking on 'My Reports'
@@ -3475,7 +3474,7 @@ public class MethodsPOM
 	public static void complianceRepository(ExtentTest test, WebDriver driver) throws InterruptedException, IOException
 	{
 		
-		 WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(160));
+		 WebDriverWait wait = new WebDriverWait(driver, (160));
 	 	    
 	 		Thread.sleep(500);
 	 		CFOcountPOM.clickReports(driver).click();					//Clicking on 'My Reports'
@@ -3497,7 +3496,7 @@ public class MethodsPOM
 	public static void complianceDocumentSta(ExtentTest test, WebDriver driver) throws InterruptedException, IOException
 	{
 
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(140));
+		WebDriverWait wait = new WebDriverWait(driver, (140));
 	    
 		Thread.sleep(500);
 		CFOcountPOM.clickDocuments(driver).click();					//Clicking on 'My Documents'
@@ -3609,7 +3608,7 @@ public class MethodsPOM
 	public static void complianceDocumentIn(ExtentTest test, WebDriver driver) throws InterruptedException, IOException
 	{
 		
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(140));
+		WebDriverWait wait = new WebDriverWait(driver, (140));
 	    
 		Thread.sleep(500);
 		CFOcountPOM.clickDocuments(driver).click();					//Clicking on 'My Documents'
@@ -3731,7 +3730,7 @@ public class MethodsPOM
 	{
 		
 		Thread.sleep(2000);
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
+		WebDriverWait wait = new WebDriverWait(driver,(40));
 		Thread.sleep(1000);
 		OverduePOM.ClickSupportTicket(driver).click();
 		Thread.sleep(4000);
@@ -3752,8 +3751,7 @@ public class MethodsPOM
 	public static void ActDocuments(ExtentTest test, WebDriver driver) throws InterruptedException, IOException
 	{
 		
-WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
-	    
+WebDriverWait wait = new WebDriverWait(driver, 30);
 		Thread.sleep(500);
 		CFOcountPOM.clickDocuments(driver).click();					//Clicking on 'My Documents'
 		Thread.sleep(3000);

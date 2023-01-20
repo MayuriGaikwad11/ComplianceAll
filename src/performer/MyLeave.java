@@ -99,7 +99,7 @@ public class MyLeave {
 	
 	public static void progress1(WebDriver driver)
 	{
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		WebDriverWait wait = new WebDriverWait(driver, (30));
 		try
 		{
 			Thread.sleep(500);
@@ -208,7 +208,7 @@ public class MyLeave {
 		Thread.sleep(8000);
 		OverduePOM.ClickAddNew(driver).click();
 		Thread.sleep(7000);
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
+		WebDriverWait wait = new WebDriverWait(driver, (40));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='ContentPlaceHolder1_rblcompliancetype']/tbody/tr/td[2]/label")));
 		driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_rblcompliancetype']/tbody/tr/td[2]/label")).click();
 		Thread.sleep(7000);
@@ -257,7 +257,7 @@ public class MyLeave {
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_grdLeave_LinkButton1_3']")).click();
 		Thread.sleep(8000);
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
+		WebDriverWait wait = new WebDriverWait(driver, (40));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='AuditAssignmentnew']")));
 		Thread.sleep(500);
 		Select performer=new Select(OverduePOM.userPerformerAssign(driver));

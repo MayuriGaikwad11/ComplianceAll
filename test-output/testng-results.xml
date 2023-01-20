@@ -1,28 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-01-19T15:57:14 IST" name="Default suite" finished-at="2023-01-19T16:00:31 IST" duration-ms="196633">
+  <suite started-at="2023-01-20T16:36:20 IST" name="Default suite" finished-at="2023-01-20T16:37:06 IST" duration-ms="46264">
     <groups>
     </groups>
-    <test started-at="2023-01-19T15:57:14 IST" name="Default test" finished-at="2023-01-19T16:00:31 IST" duration-ms="196633">
+    <test started-at="2023-01-20T16:36:20 IST" name="Default test" finished-at="2023-01-20T16:37:06 IST" duration-ms="46264">
       <class name="implementation.ImplementCount">
-        <test-method is-config="true" signature="setBrowser()[pri:0, instance:implementation.ImplementCount@3b6ddd1d]" started-at="2023-01-19T15:57:14 IST" name="setBrowser" finished-at="2023-01-19T15:57:20 IST" duration-ms="5634" status="PASS">
+        <test-method is-config="true" signature="setBrowser()[pri:0, instance:implementation.ImplementCount@3b6ddd1d]" started-at="2023-01-20T16:36:20 IST" name="setBrowser" finished-at="2023-01-20T16:36:25 IST" duration-ms="5089" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setBrowser -->
-        <test-method signature="Login()[pri:1, instance:implementation.ImplementCount@3b6ddd1d]" started-at="2023-01-19T15:57:20 IST" name="Login" finished-at="2023-01-19T15:57:53 IST" duration-ms="33173" status="PASS">
+        <test-method signature="Login()[pri:1, instance:implementation.ImplementCount@3b6ddd1d]" started-at="2023-01-20T16:36:25 IST" name="Login" finished-at="2023-01-20T16:36:33 IST" duration-ms="7264" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method signature="SubEntity()[pri:4, instance:implementation.ImplementCount@3b6ddd1d]" started-at="2023-01-19T15:57:53 IST" name="SubEntity" finished-at="2023-01-19T15:59:36 IST" duration-ms="102817" status="PASS">
+        <test-method signature="UsersandBranchUpload()[pri:7, instance:implementation.ImplementCount@3b6ddd1d]" started-at="2023-01-20T16:36:33 IST" name="UsersandBranchUpload" finished-at="2023-01-20T16:37:06 IST" duration-ms="33857" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- SubEntity -->
-        <test-method signature="Department()[pri:5, instance:implementation.ImplementCount@3b6ddd1d]" started-at="2023-01-19T15:59:36 IST" name="Department" finished-at="2023-01-19T16:00:31 IST" duration-ms="54951" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Department -->
+        </test-method> <!-- UsersandBranchUpload -->
       </class> <!-- implementation.ImplementCount -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

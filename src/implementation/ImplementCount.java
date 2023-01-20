@@ -132,7 +132,7 @@ public class ImplementCount {
 		extent.flush();
 	}
 	
-	@Test(priority = 4)
+//	@Test(priority = 4)
 	void SubEntity() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Sub Entity");
@@ -144,13 +144,37 @@ public class ImplementCount {
 		extent.flush();
 	}
 	
-	@Test(priority = 5)
+//	@Test(priority = 5)
 	void Department() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Department");
 		test.log(LogStatus.INFO, "Test Initiated");
 		
 		ImplementMethods.Department(driver,test,workbook);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	//@Test(priority = 6)
+	void Users() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Users");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		ImplementMethods.Users(driver,test,workbook);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	//@Test(priority = 7)
+	void UsersandBranchUpload() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Users");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		ImplementMethods.UserandBranchUpload(driver,test);
 		
 		extent.endTest(test);
 		extent.flush();

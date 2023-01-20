@@ -5,7 +5,8 @@
     <classes>
       <class name="implementation.ImplementCount">
         <methods>
-          <include name="Department"/>
+          <include name="Users"/>
+          <include name="Login"/>
           <include name="setBrowser"/>
         </methods>
       </class> <!-- implementation.ImplementCount -->
