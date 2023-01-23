@@ -2224,7 +2224,7 @@ public class CFOcountPOM
 		CFOcountPOM.clickLocation(driver).click();
 		Thread.sleep(500);
 		CFOcountPOM.clickBitaAurangabad(driver).click();
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		CFOcountPOM.clickClear(driver).click();
 		Thread.sleep(2000);
 		test.log(LogStatus.PASS, "Clear Button is working");	

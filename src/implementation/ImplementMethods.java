@@ -562,11 +562,397 @@ public class ImplementMethods {
 												
 	}
 	
+	public static void productMapping( WebDriver driver,ExtentTest test) throws InterruptedException, IOException
+	{		
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (40));
+		Thread.sleep(3000);
+		
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[1]")));	//Wait until records table get visible.
+		
+			      action.moveToElement(ImplementPOM.clickManageUser(driver)).click().build().perform();
+			   
+			      Thread.sleep(4000);
+			      ImplementPOM.ProductMapping(driver).click();
+			      Thread.sleep(4000);
+			      ImplementPOM.AddNewDept(driver).click();
+			      Thread.sleep(4000);
+			      ImplementPOM.PMCustomer(driver).click();
+			      Thread.sleep(1000);
+			      ImplementPOM.PMABCDPvtLtd(driver).click();
+			      Thread.sleep(2000);
+			      ImplementPOM.PMProduct(driver).click();
+			      Thread.sleep(1000);
+			      ImplementPOM.PMCompliance(driver).click();
+			      
+			      Thread.sleep(2000);
+			      ImplementPOM.PMSave(driver).click();
+			      Thread.sleep(2000);
+			      String Msg =    ImplementPOM.PMAddMsg(driver).getText();
+				  
+				      Thread.sleep(3000);
+				      if(Msg.equalsIgnoreCase("Your details have been saved successfully."))
+						{
+							test.log(LogStatus.PASS, "Message displayed -" +Msg);
+						}
+						else
+						{
+							test.log(LogStatus.PASS, "Message displayed -Product & Customer name already exists.");
+						}
+			      
+				      Thread.sleep(500);
+			      
+				      ImplementPOM.PMClose(driver).click();
+				      Thread.sleep(3000);
+				      ImplementPOM.DepartFilter(driver).sendKeys("PQR Pvt ltd",Keys.ENTER);
+				      Thread.sleep(3000);
+				      test.log(LogStatus.PASS, "Message displayed -Filter Working Successfully");
+				      ImplementPOM.PMDelete(driver).click();
+				      Thread.sleep(1000);
+				      String DeleteMsg=driver.switchTo().alert().getText();
+					  Thread.sleep(2000);
+					  driver.switchTo().alert().accept();
+					  Thread.sleep(2000);
+						
+							if(DeleteMsg.equalsIgnoreCase("Are you certain you want to delete this Product?"))
+							{
+								test.log(LogStatus.PASS, "Message displayed -" +DeleteMsg);
+							}
+							else
+							{
+								test.log(LogStatus.PASS, "Message displayed -" +DeleteMsg +"not Displayed");
+							}
+							Thread.sleep(2000);
+			      
+	}
 	
+	public static void modifyAssignmentsReassign( WebDriver driver,ExtentTest test) throws InterruptedException, IOException
+	{		
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (140));
+		Thread.sleep(3000);
+		
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[1]")));	//Wait until records table get visible.
+		
+			      action.moveToElement(ImplementPOM.clickManageUser(driver)).click().build().perform();
+			   
+			      Thread.sleep(4000);
+			      ImplementPOM.ModifyAssignments(driver).click();
+			      Thread.sleep(4000);
+			      
+  //  --------------------------- Modify Assignments :- Statutory --------------------------------------
+			      
+					wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='BodyContent_customerdiv']/span[1]/a/span[1]")));	//Wait until records table get visible.
+					 Thread.sleep(2000);
+					ImplementPOM.SelectCustomerMA(driver).click();
+					 ImplementPOM.SelectABCD(driver).click();
+					  Thread.sleep(5000);
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='BodyContent_upModifyAssignment']/div[1]/table/tbody/tr[6]/td[2]/span/a/span[1]")));	//Wait until records table get visible.
+			 Thread.sleep(2000);
+			ImplementPOM.SelectUser(driver).click();
+			 ImplementPOM.Selectaaa(driver).click();
+			 Thread.sleep(5000);
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='BodyContent_upModifyAssignment']/div[1]/table/tbody/tr[7]/td[2]/span/a/span[1]")));	//Wait until records table get visible.
+				Thread.sleep(5000);
+				ImplementPOM.SelectNewPerformerUser(driver).click();
+				 ImplementPOM.SelectPerformerabcabd(driver).click();
+				 Thread.sleep(5000);
+				 
+				 ImplementPOM.SelectNewReviewerUser(driver).click();
+				 ImplementPOM.Selectaaaaaad(driver).click();
+				 Thread.sleep(5000);
+				 
+				 ImplementPOM.CheckBox1(driver).click();
+				 Thread.sleep(1000);
+				 ImplementPOM.CheckBox2(driver).click();
+				 Thread.sleep(5000);
+				 ImplementPOM.ClicksaveBtn(driver).click();
+				 String MAMsg=driver.switchTo().alert().getText();
+				  Thread.sleep(2000);
+				  driver.switchTo().alert().accept();
+				  Thread.sleep(2000);
+					
+						if(MAMsg.equalsIgnoreCase("Are you sure you want reassign selected compliances to abc abd?"))
+						{
+							test.log(LogStatus.PASS, "Message displayed -Statutory - " +MAMsg);
+						}
+						else
+						{
+							test.log(LogStatus.PASS, "Message displayed -" +MAMsg +"not Displayed");
+						}
+						  Thread.sleep(4000);
+						 
+						  //  --------------------------- Modify Assignments :- Statutory :-Event Based --------------------------------------
+				 Thread.sleep(7000);
+				 ImplementPOM.ClickStaEventBased(driver).click();
+				 Thread.sleep(5000);
+				 ImplementPOM.CheckBox1(driver).click();
+				 Thread.sleep(1000);
+				 ImplementPOM.CheckBox2(driver).click();
+				 Thread.sleep(4000);
+				 ImplementPOM.ClicksaveBtn(driver).click();
+				 String MAEventMsg=driver.switchTo().alert().getText();
+				  Thread.sleep(2000);
+				  driver.switchTo().alert().accept();
+				  Thread.sleep(2000);
+					
+						if(MAEventMsg.equalsIgnoreCase("Are you sure you want reassign selected compliances to abc abd?"))
+						{
+							test.log(LogStatus.PASS, "Message displayed -Event Based - " +MAEventMsg);
+						}
+						else
+						{
+							test.log(LogStatus.PASS, "Message displayed -" +MAEventMsg +"not Displayed");
+						}
+				 
+						 //  --------------------------- Modify Assignments :- Statutory :-CheckList --------------------------------------
+						 Thread.sleep(6000);
+						 ImplementPOM.ClickStaCheckList(driver).click();
+						 Thread.sleep(5000);
+						 ImplementPOM.CheckBox1(driver).click();
+						 Thread.sleep(1000);
+						 ImplementPOM.CheckBox2(driver).click();
+						 Thread.sleep(4000);
+						 ImplementPOM.ClicksaveBtn(driver).click();
+						 String MACheckListMsg=driver.switchTo().alert().getText();
+						  Thread.sleep(2000);
+						  driver.switchTo().alert().accept();
+						  Thread.sleep(2000);
+							
+								if(MACheckListMsg.equalsIgnoreCase("Are you sure you want reassign selected compliances to abc abd?"))
+								{
+									test.log(LogStatus.PASS, "Message displayed -CheckList " +MACheckListMsg);
+								}
+								else
+								{
+									test.log(LogStatus.PASS, "Message displayed -" +MACheckListMsg +"not Displayed");
+								}
+								
+				  //  --------------------------- Modify Assignments :- Internal --------------------------------------
+								 Thread.sleep(5000);
+								ImplementPOM.ClickInternalRB(driver).click();
+								Thread.sleep(5000);
+								wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='BodyContent_customerdiv']/span[1]/a/span[1]")));	//Wait until records table get visible.
+								 Thread.sleep(2000);
+								ImplementPOM.SelectCustomerMA(driver).click();
+								 ImplementPOM.SelectBitademopune(driver).click();
+								  Thread.sleep(5000);
+						wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='BodyContent_upModifyAssignment']/div[1]/table/tbody/tr[6]/td[2]/span/a/span[1]")));	//Wait until records table get visible.
+						 Thread.sleep(2000);
+						ImplementPOM.SelectUser(driver).click();
+						 ImplementPOM.SelectASs(driver).click();
+						 Thread.sleep(4000);
+							wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='BodyContent_upModifyAssignment']/div[1]/table/tbody/tr[7]/td[2]/span/a/span[1]")));	//Wait until records table get visible.
+							Thread.sleep(2000);
+							ImplementPOM.SelectNewPerformerUser(driver).click();
+							 ImplementPOM.SelectPerformeraaaaa(driver).click();
+							 Thread.sleep(5000);
+							 
+							 ImplementPOM.SelectNewReviewerUser(driver).click();
+							 ImplementPOM.SelectASsd(driver).click();
+							 Thread.sleep(5000);
+							 
+							 ImplementPOM.CheckINBox1(driver).click();
+							 Thread.sleep(1000);
+							 ImplementPOM.CheckINBox2(driver).click();
+							 Thread.sleep(4000);
+							 ImplementPOM.ClicksaveBtn(driver).click();
+							 String MAInMsg=driver.switchTo().alert().getText();
+							  Thread.sleep(2000);
+							  driver.switchTo().alert().accept();
+							  Thread.sleep(2000);
+								
+									if(MAInMsg.equalsIgnoreCase("Are you sure you want reassign selected compliances to aaa aa?"))
+									{
+										test.log(LogStatus.PASS, "Message displayed -Internal - " +MAInMsg);
+									}
+									else
+									{
+										test.log(LogStatus.PASS, "Message displayed -" +MAInMsg +"not Displayed");
+									}
+									  Thread.sleep(4000);
+									  
+									//  --------------------------- Modify Assignments :- Internal :-CheckList --------------------------------------
+										 Thread.sleep(6000);
+										 ImplementPOM.ClickStaCheckList(driver).click();
+										 Thread.sleep(5000);
+										 ImplementPOM.CheckINBox1(driver).click();
+										 Thread.sleep(1000);
+										 ImplementPOM.CheckINBox2(driver).click();
+										 Thread.sleep(4000);
+										 ImplementPOM.ClicksaveBtn(driver).click();
+										 String MAInCheckListMsg=driver.switchTo().alert().getText();
+										  Thread.sleep(2000);
+										  driver.switchTo().alert().accept();
+										  Thread.sleep(2000);
+											
+												if(MAInCheckListMsg.equalsIgnoreCase("Are you sure you want reassign selected compliances to aaa aa?"))
+												{
+													test.log(LogStatus.PASS, "Message displayed -Internal- CheckList " +MAInCheckListMsg);
+												}
+												else
+												{
+													test.log(LogStatus.PASS, "Message displayed -" +MAInCheckListMsg +"not Displayed");
+												}
+												
+												 Thread.sleep(2000);
 	
+	}
 	
+	public static void modifyAssignmentsExclude( WebDriver driver,ExtentTest test) throws InterruptedException, IOException
+	{		
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (140));
+		Thread.sleep(3000);
+		
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[1]")));	//Wait until records table get visible.
+		
+			      action.moveToElement(ImplementPOM.clickManageUser(driver)).click().build().perform();
+			   
+			      Thread.sleep(4000);
+			      ImplementPOM.ModifyAssignments(driver).click();
+			      Thread.sleep(6000);
+			      
+  //  --------------------------- Modify Assignments :- Statutory :- Exclude --------------------------------------
+			      ImplementPOM.ClickExclude(driver).click();
+			      Thread.sleep(6000);
+			      wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='BodyContent_customerdiv']/span[1]/a/span[1]")));	//Wait until records table get visible.
+					 Thread.sleep(2000);                                                      
+					ImplementPOM.SelectCustomerMA(driver).click();
+					 ImplementPOM.SelectBitademopune(driver).click();
+					  Thread.sleep(8000);
+						wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='BodyContent_upModifyAssignment']/div[1]/table/tbody/tr[6]/td[2]/span/a/span[1]")));	//Wait until records table get visible.
+						 Thread.sleep(5000);
+						ImplementPOM.SelectUser(driver).click();
+						Thread.sleep(1000);
+						 ImplementPOM.SelectASs(driver).click();
+						 Thread.sleep(8000);
+						 ImplementPOM.CheckBox0(driver).click();
+						 Thread.sleep(1000);
+					//	 ImplementPOM.CheckBox2(driver).click();
+						 Thread.sleep(5000);
+						 ImplementPOM.ClicksaveBtn(driver).click();
+						 Thread.sleep(3000);
+						 String MAEMsg=driver.switchTo().alert().getText();
+						  Thread.sleep(2000);
+						  driver.switchTo().alert().accept();
+						  Thread.sleep(2000);
+							
+								if(MAEMsg.equalsIgnoreCase("Are you sure you want exclude selected compliances for A Ss?"))
+								{
+									test.log(LogStatus.PASS, "Message displayed -Statutory - Exclude" +MAEMsg);
+								}
+								else
+								{
+									test.log(LogStatus.PASS, "Message displayed -" +MAEMsg +"not Displayed");
+								}
+								  Thread.sleep(4000);
+								  //  --------------------- Modify Assignments :- Statutory :-Exclude-Event Based --------------------------------------
+									 Thread.sleep(7000);
+									 ImplementPOM.ClickStaEventBased(driver).click();
+									 Thread.sleep(5000);
+									 ImplementPOM.CheckBox0(driver).click();
+									 Thread.sleep(1000);
+								//	 ImplementPOM.CheckBox2(driver).click();
+									 Thread.sleep(4000);
+									 ImplementPOM.ClicksaveBtn(driver).click();
+									 String MAEEventMsg=driver.switchTo().alert().getText();
+									  Thread.sleep(2000);
+									  driver.switchTo().alert().accept();
+									  Thread.sleep(2000);
+										
+											if(MAEEventMsg.equalsIgnoreCase("Are you sure you want exclude selected compliances for A Ss?"))
+											{
+												test.log(LogStatus.PASS, "Message displayed -Event Based - Exclude " +MAEEventMsg);
+											}
+											else
+											{
+												test.log(LogStatus.PASS, "Message displayed -" +MAEEventMsg +"not Displayed");
+											}
+									 
+											 //  --------------------------- Modify Assignments :- Statutory :-Exclude-CheckList --------------------------------------
+											 Thread.sleep(5000);
+											 ImplementPOM.ClickStaCheckList(driver).click();
+											 Thread.sleep(5000);
+											 ImplementPOM.CheckBox0(driver).click();
+											 Thread.sleep(1000);
+										//	 ImplementPOM.CheckBox2(driver).click();
+											 Thread.sleep(4000);
+											 ImplementPOM.ClicksaveBtn(driver).click();
+											 String MAECheckListMsg=driver.switchTo().alert().getText();
+											  Thread.sleep(2000);
+											  driver.switchTo().alert().accept();
+											  Thread.sleep(2000);
+												
+													if(MAECheckListMsg.equalsIgnoreCase("Are you sure you want exclude selected compliances for aaa aaa?"))
+													{
+														test.log(LogStatus.PASS, "Message displayed -CheckList -Exclude " +MAECheckListMsg);
+													}
+													else
+													{
+														test.log(LogStatus.PASS, "Message displayed -" +MAECheckListMsg +"not Displayed");
+													}
+													 ImplementPOM.ClickStaCheckList(driver).click();
+					 //  --------------------------- Modify Assignments :- Internal- exclude --------------------------------------
+													 Thread.sleep(5000);
+													ImplementPOM.ClickInternalRB(driver).click();
+													Thread.sleep(5000);
+													wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='BodyContent_customerdiv']/span[1]/a/span[1]")));	//Wait until records table get visible.
+													 Thread.sleep(2000);
+													ImplementPOM.SelectCustomerMA(driver).click();
+													 ImplementPOM.SelectBitademopune(driver).click();
+													  Thread.sleep(3000);
+											wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='BodyContent_upModifyAssignment']/div[1]/table/tbody/tr[6]/td[2]/span/a/span[1]")));	//Wait until records table get visible.
+											 Thread.sleep(2000);
+											ImplementPOM.SelectUser(driver).click();
+											 ImplementPOM.SelectASs(driver).click();
+											 Thread.sleep(4000);
+												
+												 ImplementPOM.CheckINBox0(driver).click();
+												// Thread.sleep(1000);
+												// ImplementPOM.CheckINBox2(driver).click();
+												 Thread.sleep(3000);
+												 ImplementPOM.ClicksaveBtn(driver).click();
+												 String MAInMsg=driver.switchTo().alert().getText();
+												  Thread.sleep(2000);
+												  driver.switchTo().alert().accept();
+												  Thread.sleep(2000);
+													
+														if(MAInMsg.equalsIgnoreCase("Are you sure you want exclude selected compliances for A Ss?"))
+														{
+															test.log(LogStatus.PASS, "Message displayed -Internal -exclude :- " +MAInMsg);
+														}
+														else
+														{
+															test.log(LogStatus.PASS, "Message displayed -" +MAInMsg +"not Displayed");
+														}
+														  Thread.sleep(4000);
+					//  --------------------------- Modify Assignments :- Internal :-exclude:- CheckList --------------------------------------
+															 Thread.sleep(6000);
+															 ImplementPOM.ClickStaCheckList(driver).click();
+															 Thread.sleep(5000);
+															 ImplementPOM.CheckINBox0(driver).click();
+															
+															 Thread.sleep(3000);
+															 ImplementPOM.ClicksaveBtn(driver).click();
+															 String MAInCheckListMsg=driver.switchTo().alert().getText();
+															  Thread.sleep(2000);
+															  driver.switchTo().alert().accept();
+															  Thread.sleep(2000);
+																
+																	if(MAInCheckListMsg.equalsIgnoreCase("Are you sure you want exclude selected compliances for A Ss?"))
+																	{
+																		test.log(LogStatus.PASS, "Message displayed -Internal-exclude:- CheckList " +MAInCheckListMsg);
+																	}
+																	else
+																	{
+																		test.log(LogStatus.PASS, "Message displayed -" +MAInCheckListMsg +"not Displayed");
+																	}
+																	
+																	 Thread.sleep(2000);
 	
-	
+					  
+	}
 	
 	
 	

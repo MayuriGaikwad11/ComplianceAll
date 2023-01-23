@@ -168,13 +168,49 @@ public class ImplementCount {
 		extent.flush();
 	}
 	
-	//@Test(priority = 7)
+//	@Test(priority = 7)
 	void UsersandBranchUpload() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Users");
 		test.log(LogStatus.INFO, "Test Initiated");
 		
 		ImplementMethods.UserandBranchUpload(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+//	@Test(priority = 8)
+	void ProductMapping() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Product Mapping");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		ImplementMethods.productMapping(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	//@Test(priority = 9)
+	void ModifyAssignmentsR() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Modify Assignments - Reassign");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		ImplementMethods.modifyAssignmentsReassign(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 10)
+	void ModifyAssignmentsExclude() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Modify Assignments - Exclude");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		ImplementMethods.modifyAssignmentsExclude(driver,test);
 		
 		extent.endTest(test);
 		extent.flush();

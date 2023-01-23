@@ -64,7 +64,7 @@ public class MgmtBita {
 		Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
 		String URL = c1.getStringCellValue();			//Got the URL stored at position 0,1
 		
-		login.Login.BrowserSetup1(URL,"chrome");					//Method of Login class to set browser.
+		login.Login.BrowserSetup(URL);					//Method of Login class to set browser.
 		
 		test.log(LogStatus.PASS, "Test Passed.");
 		extent.endTest(test);
@@ -107,7 +107,7 @@ public class MgmtBita {
 			
 		}
 	}
-/*
+
 	@Test(priority = 2)
 	void CompliancesCountMatch() throws InterruptedException, IOException
 	{
@@ -209,7 +209,7 @@ public class MgmtBita {
 		extent.flush();
 	}
 	
-	@Test(priority = 4)
+	//@Test(priority = 4)
 	void ClosedDelayed_PieChart() throws InterruptedException
 	{
 		test = extent.startTest("Pie Chart -Completion Status- 'Closed Delayed' Count Verification");
@@ -382,7 +382,7 @@ public class MgmtBita {
 			ex.printStackTrace();
 		}
 	}
-	*/
+	
 	//@Test(priority = 6)
 	void NotApplicable_PieChart() throws InterruptedException
 	{

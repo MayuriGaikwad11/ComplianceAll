@@ -585,6 +585,208 @@ public class ImplementPOM {
 		return implement;                                     
 	}
 	
+	public static WebElement ProductMapping(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.xpath("//*[@id='CMPMenuBar:submenu:2']/li[6]/a"));
+		return implement;                                     
+	}
+	
+	public static WebElement PMCustomer(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.xpath("//*[@id='BodyContent_divCustomer']/span[1]/a"));
+		return implement;                                     
+	}
+	
+	public static WebElement PMABCDPvtLtd(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.linkText("ABCD Pvt Ltd"));
+		return implement;                                     
+	}
+	
+	public static WebElement PMCompliance(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.linkText("Compliance"));
+		return implement;                                     
+	}
+	
+	public static WebElement PMAddMsg(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.xpath("//*[@id='BodyContent_ValidationSummary1']/ul/li"));
+		return implement;                                     
+	}
+	
+	public static WebElement PMProduct(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.xpath("//*[@id='BodyContent_divProduct']/span/a/span[1]"));
+		return implement;                                     
+	}
+	
+	public static WebElement PMSave(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.xpath("//*[@id='BodyContent_btnSave']"));
+		return implement;                                     
+	}
+	
+	public static WebElement PMClose(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.xpath("//*[@id='BodyContent_btnCancel']"));
+		return implement;                                     
+	}
+	
+	public static WebElement PMDelete(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.xpath("//*[@id='BodyContent_grdUser_lbtnDelete_0']/img"));
+		return implement;                                     
+	}
+	
+	public static WebElement ModifyAssignments(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.xpath("//*[@id='CMPMenuBar:submenu:2']/li[9]/a"));
+		return implement;                                     
+	}
+	
+	public static WebElement SelectCustomerMA(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.xpath("//*[@id='BodyContent_customerdiv']/span[1]/a/span[1]"));
+		return implement;                                     
+	}
+	
+	public static WebElement SelectABCD(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.linkText("ABCD Pvt Ltd"));
+		return implement;                                  
+	}
+	
+	public static WebElement SelectBitademopune(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.linkText("Bitademopune"));
+		return implement;                                     
+	}
+	
+	public static WebElement SelectUser(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.xpath("//*[@id='BodyContent_upModifyAssignment']/div[1]/table/tbody/tr[6]/td[2]/span/a/span[1]"));
+		return implement;                                  
+	}
+	
+	public static WebElement Selectaaa(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.linkText("aaa aaa"));
+		return implement;                                     
+	}
+	
+	public static WebElement SelectASs(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.linkText("A Ss"));
+		return implement;                                     
+	}
+	
+	public static WebElement SelectNewPerformerUser(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.xpath("//*[@id='BodyContent_upModifyAssignment']/div[1]/table/tbody/tr[7]/td[2]/span/a/span[1]"));
+		return implement;                                     
+	}
+	
+	public static WebElement SelectPerformerabcabd(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.linkText("abc abd"));
+		return implement;                                     
+	}
+	
+	public static WebElement SelectPerformeraaaaa(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.linkText("aaa aa"));
+		return implement;                                     
+	}
+	
+	
+	public static WebElement SelectNewReviewerUser(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.xpath("//*[@id='BodyContent_upModifyAssignment']/div[1]/table/tbody/tr[7]/td[4]/span/a/span[1]"));
+		return implement;                                     
+	}
+	
+	public static WebElement Selectaaaaaad(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.linkText("aaa aaa"));
+		return implement;                                     
+	}
+	
+	public static WebElement SelectASsd(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.linkText("A Ss"));
+		return implement;                                     
+	}
+	
+	public static WebElement CheckBox0(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.id("BodyContent_grdComplianceInstances_chkCompliances_0"));
+		return implement;                                                
+	}
+	
+	public static WebElement CheckBox1(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.id("BodyContent_grdComplianceInstances_chkCompliances_1"));
+		return implement;                                                
+	}
+	
+	public static WebElement CheckBox2(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.xpath("//*[@id='BodyContent_grdComplianceInstances_chkCompliances_2']"));
+		return implement;                                    
+	}
+	
+	public static WebElement CheckINBox0(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.xpath("//*[@id='BodyContent_grdInternalComplianceInstances_chkICompliances_0']"));
+		return implement;                                   
+	}
+	
+	public static WebElement CheckINBox1(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.xpath("//*[@id='BodyContent_grdInternalComplianceInstances_chkICompliances_1']"));
+		return implement;                                   
+	}
+	
+	public static WebElement CheckINBox2(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.xpath("//*[@id='BodyContent_grdInternalComplianceInstances_chkICompliances_2']"));
+		return implement;                                    
+	}
+	
+	public static WebElement ClicksaveBtn(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.xpath("//*[@id='BodyContent_btnSaveAssignment']"));
+		return implement;                                     
+	}
+	
+	public static WebElement ClickStaEventBased(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.xpath("//*[@id='BodyContent_chkEvent']"));
+		return implement;                                  
+	}
+	
+	public static WebElement ClickStaCheckList(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.xpath("//*[@id='BodyContent_chkCheckList']"));
+		return implement;                                   
+	}
+	
+	public static WebElement ClickInternalRB(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.xpath("//*[@id='BodyContent_rbtSelectionType_1']"));
+		return implement;                                     
+	}
+	
+	public static WebElement ClickExclude(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.xpath("//*[@id='BodyContent_rbtModifyAction_1']"));
+		return implement;                                     
+	}
+	
+	
+	
+	
 	
 	
 	
