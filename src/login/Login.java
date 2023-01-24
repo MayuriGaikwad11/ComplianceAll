@@ -128,7 +128,7 @@ public class Login
 			{
 				ans1 = getAnswerFE(que1);						//Storing the answer in ans variable.
 			}
-			else if(method.equalsIgnoreCase("GMT") )
+			else if(method.equalsIgnoreCase("GMTA") )
 			{
 				ans1 = getAnswerMGMT(que1);						//Storing the answer in ans variable.
 			}
@@ -186,7 +186,7 @@ public class Login
 			{
 				ans2 = getAnswerFE(que2);						//Storing the answer in ans variable.
 			}
-			else if(method.equalsIgnoreCase("GMT") )
+			else if(method.equalsIgnoreCase("GMTA") )
 			{
 				ans2 = getAnswerMGMT(que2);						//Storing the answer in ans variable.
 			}

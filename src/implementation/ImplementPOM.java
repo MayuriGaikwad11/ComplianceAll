@@ -669,6 +669,19 @@ public class ImplementPOM {
 		return implement;                                  
 	}
 	
+	public static WebElement SearchUser(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.xpath("//*[@id='BodyContent_upModifyAssignment']/div[1]/table/tbody/tr[6]/td[2]/span/input"));
+		return implement;                                  
+	}
+	
+	public static WebElement SelectDevanshNew(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.linkText("Devansh New"));
+		return implement;                                     
+	}
+	
+	
 	public static WebElement Selectaaa(WebDriver driver)		//Method for closing Message Popup
 	{
 		implement = driver.findElement(By.linkText("aaa aaa"));
@@ -784,9 +797,23 @@ public class ImplementPOM {
 		return implement;                                     
 	}
 	
+	public static WebElement ClickTask(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.xpath("//*[@id='BodyContent_rbtSelectType_1']"));
+		return implement;                                     
+	}
 	
+	public static WebElement ChechBoxInTask0(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.xpath("//*[@id='BodyContent_grdTask_chkTask_0']"));
+		return implement;                                           
+	}
 	
-	
+	public static WebElement ChechBoxInTask1(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.xpath("//*[@id='BodyContent_grdTask_chkTask_1']"));
+		return implement;                                     
+	}
 	
 	
 	

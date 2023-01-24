@@ -1,4 +1,4 @@
-package implementation;
+package cfo;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -13,7 +13,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -21,10 +20,10 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
-import companyadmin.CompanyMethods;
+import implementation.ImplementMethods;
 
-public class ImplementCount {
-	
+public class MgmtAvantis {
+
 	public static WebDriver driver = null;		//WebDriver instance created
 	public static WebElement upload = null;		//WebElement to get upload button
 	public static ExtentReports extent;			//Instance created for report file
@@ -42,21 +41,20 @@ public class ImplementCount {
 	public int interest = 0;					//Variable created for reading Interest
 	public int penalty = 0;						//Variable created for reading Penalty
 	
-	
-	public static String link = "Implementation";  
+	public static String link = "GMTA";  
 	
 	public static XSSFSheet ReadExcel() throws IOException
 	{
-		fis = new FileInputStream("C:\\Users\\Mayuri Gaikwad\\Desktop\\PerformerPom\\TestData\\ComplianceSheet.xlsx");
+		fis = new FileInputStream("C:/Users/Mayuri Gaikwad/Desktop/PerformerPom/TestData/ComplianceSheet.xlsx");
 		workbook = new XSSFWorkbook(fis);
-		sheet = workbook.getSheetAt(13);					//Retrieving third sheet of Workbook
+		sheet = workbook.getSheetAt(14);					//Retrieving third sheet of Workbook
 		return sheet;
 	}
 	
 	@BeforeTest
-	void setBrowser() throws InterruptedException, IOException
+	void setBrowser() throws Exception
 	{
-		extent = new com.relevantcodes.extentreports.ExtentReports("C:\\Users\\Mayuri Gaikwad\\Desktop\\PerformerPom\\Reports\\Implementation.html",true);
+		extent = new com.relevantcodes.extentreports.ExtentReports("C:/Users/Mayuri Gaikwad/Desktop/PerformerPom/Reports/CFOResultsStatotory.html",true);
 		test = extent.startTest("Verify OpenBrowser");
 		test.log(LogStatus.INFO, "Browser test is initiated");
 		
@@ -75,7 +73,7 @@ public class ImplementCount {
 	@Test(priority = 1)
 	void Login() throws InterruptedException, IOException
 	{
-		test = extent.startTest("Loging In - Implementation ");
+		test = extent.startTest("Loging In - MGMT (Statutory)");
 		test.log(LogStatus.INFO, "Logging into system");
 		
 		XSSFSheet sheet = ReadExcel();
@@ -89,6 +87,7 @@ public class ImplementCount {
 		
 		driver = login.Login.UserLogin(uname,password,link);		//Method of Login class to login user.
 		
+			
 		test.log(LogStatus.PASS, "Test Passed.");
 		extent.endTest(test);
 		extent.flush();
@@ -96,7 +95,7 @@ public class ImplementCount {
 	
 	public static void progress1(WebDriver driver)
 	{
-		WebDriverWait wait = new WebDriverWait(driver, (30));
+		WebDriverWait wait = new WebDriverWait(driver,20);
 		try
 		{
 			Thread.sleep(500);
@@ -108,134 +107,30 @@ public class ImplementCount {
 		}
 	}
 	
-	//@Test(priority = 2)
-	void CustomersCreate() throws InterruptedException, IOException
+	@Test(priority = 2)
+	void MyTask() throws InterruptedException, IOException
 	{
-		test = extent.startTest("Customers Create");
+		test = extent.startTest("My Task");
 		test.log(LogStatus.INFO, "Test Initiated");
 		
-		ImplementMethods.CreateCustomers(driver,test,workbook);
+		MgmtAMethod.myTask(driver,test,workbook);
 		
 		extent.endTest(test);
 		extent.flush();
 	}
 	
-	//@Test(priority = 3)
-	void CustomersAssignment() throws InterruptedException, IOException
+	@Test(priority = 3)
+	void myTaskSubTask() throws InterruptedException, IOException
 	{
-		test = extent.startTest("Customers Assignment");
+		test = extent.startTest("My Task -Sub Task");
 		test.log(LogStatus.INFO, "Test Initiated");
 		
-		ImplementMethods.CustomersAssignment(driver,test,workbook);
+		MgmtAMethod.myTaskSubTask(driver,test,workbook);
 		
 		extent.endTest(test);
 		extent.flush();
 	}
-	
-//	@Test(priority = 4)
-	void SubEntity() throws InterruptedException, IOException
-	{
-		test = extent.startTest("Sub Entity");
-		test.log(LogStatus.INFO, "Test Initiated");
-		
-		ImplementMethods.SubEntity(driver,test,workbook);
-		
-		extent.endTest(test);
-		extent.flush();
-	}
-	
-//	@Test(priority = 5)
-	void Department() throws InterruptedException, IOException
-	{
-		test = extent.startTest("Department");
-		test.log(LogStatus.INFO, "Test Initiated");
-		
-		ImplementMethods.Department(driver,test,workbook);
-		
-		extent.endTest(test);
-		extent.flush();
-	}
-	
-	//@Test(priority = 6)
-	void Users() throws InterruptedException, IOException
-	{
-		test = extent.startTest("Users");
-		test.log(LogStatus.INFO, "Test Initiated");
-		
-		ImplementMethods.Users(driver,test,workbook);
-		
-		extent.endTest(test);
-		extent.flush();
-	}
-	
-//	@Test(priority = 7)
-	void UsersandBranchUpload() throws InterruptedException, IOException
-	{
-		test = extent.startTest("Users");
-		test.log(LogStatus.INFO, "Test Initiated");
-		
-		ImplementMethods.UserandBranchUpload(driver,test);
-		
-		extent.endTest(test);
-		extent.flush();
-	}
-	
-//	@Test(priority = 8)
-	void ProductMapping() throws InterruptedException, IOException
-	{
-		test = extent.startTest("Product Mapping");
-		test.log(LogStatus.INFO, "Test Initiated");
-		
-		ImplementMethods.productMapping(driver,test);
-		
-		extent.endTest(test);
-		extent.flush();
-	}
-	
-	//@Test(priority = 9)
-	void ModifyAssignmentsR() throws InterruptedException, IOException
-	{
-		test = extent.startTest("Modify Assignments - Reassign");
-		test.log(LogStatus.INFO, "Test Initiated");
-		
-		ImplementMethods.modifyAssignmentsReassign(driver,test);
-		
-		extent.endTest(test);
-		extent.flush();
-	}
-	
-//	@Test(priority = 10)
-	void ModifyAssignmentsExclude() throws InterruptedException, IOException
-	{
-		test = extent.startTest("Modify Assignments - Exclude");
-		test.log(LogStatus.INFO, "Test Initiated");
-		
-		ImplementMethods.modifyAssignmentsExclude(driver,test);
-		
-		extent.endTest(test);
-		extent.flush();
-	}
-	
-//	@Test(priority = 11)
-	void ModifyAssignmentsTask() throws InterruptedException, IOException
-	{
-		test = extent.startTest("Modify Assignments - Task");
-		test.log(LogStatus.INFO, "Test Initiated");
-		
-		ImplementMethods.modifyAssignmentsTask(driver,test);
-		
-		extent.endTest(test);
-		extent.flush();
-	}
-	
-	
-	//@AfterTest
-		void Closing() throws InterruptedException
-		{
-			Thread.sleep(1000);
-			driver.close();
-		}	 
-	
 	
 
+	
 }

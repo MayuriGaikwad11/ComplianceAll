@@ -99,7 +99,7 @@ public class ReviewerCount
 		test = extent.startTest("Statutory Review Count when Approved");
 		test.log(LogStatus.INFO, "Test initiated");
 		
-		WebDriverWait wait = new WebDriverWait(driver,  Duration.ofSeconds(30));
+		WebDriverWait wait = new WebDriverWait(driver,  30);
 		//Thread.sleep(1000);
 		wait.until(ExpectedConditions.visibilityOf(ReviewerPOM.clickStatutoryReview(driver)));	//Wait until Statutory Pending For Review count gets visible.
 		
@@ -263,7 +263,7 @@ public class ReviewerCount
 		test = extent.startTest("Statutory 'Pending For Review' and 'Rejected' Count when Rejected");
 		test.log(LogStatus.INFO, "Test initiated");
 		
-		WebDriverWait wait = new WebDriverWait(driver,  Duration.ofSeconds(30));
+		WebDriverWait wait = new WebDriverWait(driver, (30));
 		
 		wait.until(ExpectedConditions.visibilityOf(ReviewerPOM.clickStatutoryReview(driver)));	//Wait until Statutory Pending For Review count gets visible.
 		int oldStatutoryReviewValue = Integer.parseInt(ReviewerPOM.clickStatutoryReview(driver).getText());	//Reading old value of Statutory Pending For Review
@@ -618,7 +618,7 @@ public class ReviewerCount
   	{
     	  test = extent.startTest("Statutory 'Pending For Review' - Reviewer Task");
   		test.log(LogStatus.INFO, "Test initiated");
-  		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
+  		WebDriverWait wait = new WebDriverWait(driver, (40));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		
 		test.log(LogStatus.INFO, "***********Statutory 'Pending For Review'************ ");
@@ -811,7 +811,7 @@ extent.flush();
     	{
       	  test = extent.startTest("Internal 'Pending For Review' - Reviewer Task");
     		test.log(LogStatus.INFO, "Test initiated");
-    		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+    		WebDriverWait wait = new WebDriverWait(driver, (30));
   		JavascriptExecutor js = (JavascriptExecutor) driver;
   		
   		test.log(LogStatus.INFO, "***********Internal 'Pending For Review'************ ");
@@ -997,7 +997,7 @@ extent.flush();
     	  	{
     	    	  test = extent.startTest("Statutory 'Due But Not Submitted' - Reviewer Task");
     	  		test.log(LogStatus.INFO, "Test initiated");
-    	  		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+    	  		WebDriverWait wait = new WebDriverWait(driver, (30));
     			JavascriptExecutor js = (JavascriptExecutor) driver;
     			
     			test.log(LogStatus.INFO, "***********Statutory 'Due But Not Submitted  '************ ");
@@ -1190,7 +1190,7 @@ extent.flush();
         	{
           	  test = extent.startTest("Internal 'Due But Not Submitted' - Reviewer Task");
         		test.log(LogStatus.INFO, "Test initiated");
-        		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        		WebDriverWait wait = new WebDriverWait(driver,(30));
       		JavascriptExecutor js = (JavascriptExecutor) driver;
       		
       		test.log(LogStatus.INFO, "***********Internal 'Due But Not Submitted'************ ");
@@ -1559,7 +1559,7 @@ extent.flush();
         		{
         			test = extent.startTest(" Message Center - Verification");
         			test.log(LogStatus.INFO, "Test Initiated");
-        			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        			WebDriverWait wait = new WebDriverWait(driver, (30));
         			Thread.sleep(8000);
         			CFOcountPOM.clickMessageCenter(driver).click();
         			Thread.sleep(4000);
@@ -1577,7 +1577,7 @@ extent.flush();
         		{
         			test = extent.startTest("My Notifications - Verification");
         			test.log(LogStatus.INFO, "Test Initiated");
-        			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        			WebDriverWait wait = new WebDriverWait(driver, (30));
         			Thread.sleep(8000);
         			CFOcountPOM.clickMyNotifications(driver).click();
         			Thread.sleep(4000);
@@ -1608,7 +1608,7 @@ extent.flush();
      				test = extent.startTest("'Internal Msg  '  Verification");
      				test.log(LogStatus.INFO, "Test Initiated");
      					Thread.sleep(1000);
-     				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
+     				WebDriverWait wait = new WebDriverWait(driver, (40));
      				Thread.sleep(500);
      				OverduePOM.ClickInternalMsg(driver).click();
      				Thread.sleep(4000);

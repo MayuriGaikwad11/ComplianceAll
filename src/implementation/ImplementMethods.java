@@ -950,10 +950,114 @@ public class ImplementMethods {
 																	}
 																	
 																	 Thread.sleep(2000);
-	
 					  
 	}
 	
+	public static void modifyAssignmentsTask( WebDriver driver,ExtentTest test) throws InterruptedException, IOException
+	{		
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (140));
+		Thread.sleep(3000);
+		
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[1]")));	//Wait until records table get visible.
+		
+			      action.moveToElement(ImplementPOM.clickManageUser(driver)).click().build().perform();
+			   
+			      Thread.sleep(4000);
+			      ImplementPOM.ModifyAssignments(driver).click();
+			      Thread.sleep(4000);
+			      
+  //  --------------------------- Modify Assignments :- Statutory :-Task :-Reassign -------------------------------------
+			      ImplementPOM.ClickTask(driver).click();
+			      Thread.sleep(1000);
+					wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='BodyContent_customerdiv']/span[1]/a/span[1]")));	//Wait until records table get visible.
+					 Thread.sleep(2000);
+					ImplementPOM.SelectCustomerMA(driver).click();
+					 ImplementPOM.SelectABCD(driver).click();
+					  Thread.sleep(5000);
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='BodyContent_upModifyAssignment']/div[1]/table/tbody/tr[6]/td[2]/span/a/span[1]")));	//Wait until records table get visible.
+			 Thread.sleep(2000);
+			ImplementPOM.SelectUser(driver).click();
+			 ImplementPOM.Selectaaa(driver).click();
+			 Thread.sleep(5000);
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='BodyContent_upModifyAssignment']/div[1]/table/tbody/tr[7]/td[2]/span/a/span[1]")));	//Wait until records table get visible.
+				Thread.sleep(5000);
+				ImplementPOM.SelectNewPerformerUser(driver).click();
+				 ImplementPOM.SelectPerformerabcabd(driver).click();
+				 Thread.sleep(5000);
+				 
+				 ImplementPOM.SelectNewReviewerUser(driver).click();
+				 ImplementPOM.Selectaaaaaad(driver).click();
+				 Thread.sleep(5000);
+				 
+				 ImplementPOM.ChechBoxInTask0(driver).click();
+			//	 Thread.sleep(1000);
+			//	 ImplementPOM.CheckBox1(driver).click();
+				 Thread.sleep(5000);
+				 ImplementPOM.ClicksaveBtn(driver).click();
+				 String MAMsg=driver.switchTo().alert().getText();
+				  Thread.sleep(2000);
+				  driver.switchTo().alert().accept();
+				  Thread.sleep(2000);
+					
+						if(MAMsg.equalsIgnoreCase("Are you sure you want reassign selected compliance tasks to abc abd?"))
+						{
+							test.log(LogStatus.PASS, "Message displayed -Statutory -Task :- Reassign " +MAMsg);
+						}
+						else
+						{
+							test.log(LogStatus.PASS, "Message displayed -" +MAMsg +"not Displayed");
+						}
+						  Thread.sleep(4000);
+						  
+						  //  --------------------------- Modify Assignments :- Internal Task :- Reassign --------------------------------------
+							 Thread.sleep(2000);
+							ImplementPOM.ClickInternalRB(driver).click();
+							Thread.sleep(5000);
+							wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='BodyContent_customerdiv']/span[1]/a/span[1]")));	//Wait until records table get visible.
+							 Thread.sleep(2000);
+							ImplementPOM.SelectCustomerMA(driver).click();
+							 ImplementPOM.SelectABCD(driver).click();
+							  Thread.sleep(5000);
+					wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='BodyContent_upModifyAssignment']/div[1]/table/tbody/tr[6]/td[2]/span/a/span[1]")));	//Wait until records table get visible.
+					 Thread.sleep(2000);
+					ImplementPOM.SelectUser(driver).click();
+					 Thread.sleep(500);
+					
+					 Thread.sleep(500);
+					 ImplementPOM.Selectaaa(driver).click();
+					 Thread.sleep(5000);
+						wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='BodyContent_upModifyAssignment']/div[1]/table/tbody/tr[7]/td[2]/span/a/span[1]")));	//Wait until records table get visible.
+						Thread.sleep(2000);
+						ImplementPOM.SelectNewPerformerUser(driver).click();
+						 ImplementPOM.Selectaaaaaad(driver).click();
+						 Thread.sleep(5000);
+						 
+						 ImplementPOM.SelectNewReviewerUser(driver).click();
+						 ImplementPOM.SelectPerformerabcabd(driver).click();
+						 Thread.sleep(5000);
+						 
+						 ImplementPOM.ChechBoxInTask0(driver).click();
+					//	 Thread.sleep(1000);
+					//	 ImplementPOM.ChechBoxInTask1(driver).click();
+						 Thread.sleep(4000);
+						 ImplementPOM.ClicksaveBtn(driver).click();
+						 String MAInMsg=driver.switchTo().alert().getText();
+						  Thread.sleep(2000);
+						  driver.switchTo().alert().accept();
+						  Thread.sleep(2000);
+							
+								if(MAInMsg.equalsIgnoreCase("Are you sure you want reassign selected compliance tasks to aaa aaa?"))
+								{
+									test.log(LogStatus.PASS, "Message displayed -Internal -Task :- Reassign " +MAInMsg);
+								}
+								else
+								{
+									test.log(LogStatus.PASS, "Message displayed -" +MAInMsg +"not Displayed");
+								}
+								  Thread.sleep(4000);
+						 
+	}
 	
 	
 	

@@ -3,12 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="implementation.ImplementCount">
+      <class name="cfo.MgmtAvantis">
         <methods>
-          <include name="ModifyAssignmentsExclude"/>
           <include name="setBrowser"/>
+          <include name="myTaskSubTask"/>
         </methods>
-      </class> <!-- implementation.ImplementCount -->
+      </class> <!-- cfo.MgmtAvantis -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -30,7 +30,7 @@ public class ReMethodsPOM
 	
 	public static void SubmittedInterimReview(WebDriver driver, ExtentTest test) throws InterruptedException
 	{
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(35));
+		WebDriverWait wait = new WebDriverWait(driver, (35));
 		wait.until(ExpectedConditions.elementToBeClickable(ReviewerPOM.clickStatutoryReview(driver)));	//Waiting for Pending Review Count to be visible.
 		
 		int oldValue = Integer.parseInt(ReviewerPOM.clickStatutoryReview(driver).getText());			//Reading old value of Statutory Pending For Review
@@ -126,7 +126,7 @@ public class ReMethodsPOM
 	
 	public static void MyEscalationReviewer(WebDriver driver, ExtentTest test) throws InterruptedException
 	{
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
+		WebDriverWait wait = new WebDriverWait(driver, (40));
 		Thread.sleep(500);
 		wait.until(ExpectedConditions.elementToBeClickable(ReviewerPOM.clickMyEscalation(driver)));	//Waiting for My Escalation link to be visible.
 		
@@ -240,7 +240,7 @@ public class ReMethodsPOM
 	
 	public static void ReassignPerformer(WebDriver driver, ExtentTest test) throws InterruptedException
 	{
-		WebDriverWait wait = new WebDriverWait(driver,  Duration.ofSeconds(30));
+		WebDriverWait wait = new WebDriverWait(driver,  (30));
 		Thread.sleep(1000);
 		wait.until(ExpectedConditions.elementToBeClickable(OverduePOM.clickMyWorkspace(driver)));	//Waiting for 'My Workspace' link to be visible.
 		OverduePOM.clickMyWorkspace(driver).click();				//Clicking on 'My Workspace'
@@ -316,7 +316,7 @@ public class ReMethodsPOM
 	
 	public static void PendingReviewStatutoryASApprove(WebDriver driver, ExtentTest test)throws InterruptedException
 	{
-		WebDriverWait wait = new WebDriverWait(driver,  Duration.ofSeconds(35));
+		WebDriverWait wait = new WebDriverWait(driver, (35));
 		
 		wait.until(ExpectedConditions.visibilityOf(ReviewerPOM.clickStatutoryReview(driver)));	//Wait until Statutory Pending For Review count gets visible.
 		
@@ -363,7 +363,7 @@ public class ReMethodsPOM
 	
 	public static void PendingReviewStatutoryASReject(WebDriver driver, ExtentTest test)throws InterruptedException
 	{
-		WebDriverWait wait = new WebDriverWait(driver,  Duration.ofSeconds(35));
+		WebDriverWait wait = new WebDriverWait(driver, (35));
 		
 		wait.until(ExpectedConditions.visibilityOf(ReviewerPOM.clickStatutoryReview(driver)));	//Wait until Statutory Pending For Review count gets visible.
 		
@@ -409,7 +409,7 @@ public class ReMethodsPOM
 		
 	public static void PendingReviewInternalASApprove(WebDriver driver, ExtentTest test)throws InterruptedException
 	{
-		WebDriverWait wait = new WebDriverWait(driver,  Duration.ofSeconds(35));
+		WebDriverWait wait = new WebDriverWait(driver,  (35));
 		
 		wait.until(ExpectedConditions.visibilityOf(ReviewerPOM.clickInternalReview(driver)));	//Wait until Statutory Pending For Review count gets visible.
 		
@@ -456,7 +456,7 @@ public class ReMethodsPOM
 	
 	public static void PendingReviewInternalASReject(WebDriver driver, ExtentTest test)throws InterruptedException
 	{
-		WebDriverWait wait = new WebDriverWait(driver,  Duration.ofSeconds(35));
+		WebDriverWait wait = new WebDriverWait(driver,  (35));
 		
 		wait.until(ExpectedConditions.visibilityOf(ReviewerPOM.clickInternalReview(driver)));	//Wait until Statutory Pending For Review count gets visible.
 		
@@ -505,7 +505,7 @@ public class ReMethodsPOM
 	
 	public static void PendingReviewInternal(WebDriver driver, ExtentTest test, XSSFSheet sheet, String clickButton)throws InterruptedException
 	{
-		WebDriverWait wait = new WebDriverWait(driver,  Duration.ofSeconds(35));
+		WebDriverWait wait = new WebDriverWait(driver,  (35));
 		
 		Thread.sleep(1000);
 		wait.until(ExpectedConditions.visibilityOf(ReviewerPOM.clickInternalReview(driver)));	//Wait until Internal Pending For Review count gets visible.
@@ -707,7 +707,7 @@ public class ReMethodsPOM
 	
 	public static void CompletedStatutory(WebDriver driver, ExtentTest test)throws InterruptedException
 	{
-		WebDriverWait wait = new WebDriverWait(driver,  Duration.ofSeconds(35));
+		WebDriverWait wait = new WebDriverWait(driver,  (35));
 		
 		Thread.sleep(1000);
 		wait.until(ExpectedConditions.visibilityOf(ReviewerPOM.ClickCompletedSta(driver)));	//Wait until Internal Pending For Review count gets visible.
@@ -769,7 +769,7 @@ public class ReMethodsPOM
 	
 	public static void CompletedInternal(WebDriver driver, ExtentTest test)throws InterruptedException
 	{
-		WebDriverWait wait = new WebDriverWait(driver,  Duration.ofSeconds(35));
+		WebDriverWait wait = new WebDriverWait(driver,  (35));
 		
 		Thread.sleep(1000);
 		wait.until(ExpectedConditions.visibilityOf(ReviewerPOM.ClickCompletedIn(driver)));	//Wait until Internal Pending For Review count gets visible.
@@ -830,7 +830,7 @@ public class ReMethodsPOM
 	
 	public static void  OverdueStatutory(WebDriver driver, ExtentTest test)throws InterruptedException
 	{
-		WebDriverWait wait = new WebDriverWait(driver,  Duration.ofSeconds(35));
+		WebDriverWait wait = new WebDriverWait(driver,  (35));
 		
 		Thread.sleep(1000);
 		wait.until(ExpectedConditions.visibilityOf(ReviewerPOM.ClickOverdueSta(driver)));	//Wait until Internal Pending For Review count gets visible.
@@ -892,7 +892,7 @@ public class ReMethodsPOM
 	
 	public static void OverdueInternal(WebDriver driver, ExtentTest test)throws InterruptedException
 	{
-		WebDriverWait wait = new WebDriverWait(driver,  Duration.ofSeconds(35));
+		WebDriverWait wait = new WebDriverWait(driver,  (35));
 		
 		Thread.sleep(1000);
 		wait.until(ExpectedConditions.visibilityOf(ReviewerPOM.ClickOverdueIn(driver)));	//Wait until Internal Pending For Review count gets visible.
@@ -952,7 +952,7 @@ public class ReMethodsPOM
 	
 	public static void Events(WebDriver driver, ExtentTest test)throws InterruptedException
 	{
-		WebDriverWait wait = new WebDriverWait(driver,  Duration.ofSeconds(35));
+		WebDriverWait wait = new WebDriverWait(driver, (35));
 		
 		Thread.sleep(1000);
 		wait.until(ExpectedConditions.visibilityOf(ReviewerPOM.ClickEvents(driver)));	//Wait until Internal Pending For Review count gets visible.
@@ -1012,7 +1012,7 @@ public class ReMethodsPOM
 	
 	public static void ActivatedEvents(WebDriver driver, ExtentTest test)throws InterruptedException
 	{
-		WebDriverWait wait = new WebDriverWait(driver,  Duration.ofSeconds(35));
+		WebDriverWait wait = new WebDriverWait(driver, (35));
 		
 		Thread.sleep(1000);
 		wait.until(ExpectedConditions.visibilityOf(ReviewerPOM.ClickActivatedEvents(driver)));	//Wait until Internal Pending For Review count gets visible.
@@ -1072,7 +1072,7 @@ public class ReMethodsPOM
 	
 	public static void ClosedEvents(WebDriver driver, ExtentTest test)throws InterruptedException
 	{
-		WebDriverWait wait = new WebDriverWait(driver,  Duration.ofSeconds(35));
+		WebDriverWait wait = new WebDriverWait(driver, (35));
 		
 		Thread.sleep(1000);
 		wait.until(ExpectedConditions.visibilityOf(ReviewerPOM.ClickClosedEvents(driver)));	//Wait until Internal Pending For Review count gets visible.
@@ -1134,7 +1134,7 @@ public class ReMethodsPOM
 	
 	public static void DetailedReport1(ExtentTest test, WebDriver driver, String user) throws InterruptedException, IOException
 	{		
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(120));
+		WebDriverWait wait = new WebDriverWait(driver, (120));
 	    
 		Thread.sleep(500);
 		CFOcountPOM.clickReports(driver).click();					//Clicking on 'My Reports'
@@ -1267,7 +1267,7 @@ public class ReMethodsPOM
 
 	public static void DetailedReportIn(ExtentTest test, WebDriver driver, String user) throws InterruptedException, IOException
 	{		
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(120));
+		WebDriverWait wait = new WebDriverWait(driver, (120));
 	    
 		Thread.sleep(500);
 		CFOcountPOM.clickReports(driver).click();					//Clicking on 'My Reports'
@@ -1421,7 +1421,7 @@ jse.executeScript("arguments[0].click();", ClickSta);
 	{
 		
 		Thread.sleep(3000);
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
+		WebDriverWait wait = new WebDriverWait(driver, (60));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,650)");					//Scrolling down window by 2600 px.
 		Thread.sleep(5000);
@@ -1441,7 +1441,7 @@ jse.executeScript("arguments[0].click();", ClickSta);
 	{
 		
 		Thread.sleep(3000);
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
+		WebDriverWait wait = new WebDriverWait(driver, (60));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,650)");					//Scrolling down window by 2600 px.
 		Thread.sleep(8000);
@@ -1495,7 +1495,7 @@ jse.executeScript("arguments[0].click();", ClickSta);
 	{
 		
 		Thread.sleep(3000);
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
+		WebDriverWait wait = new WebDriverWait(driver,(60));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,650)");					//Scrolling down window by 2600 px.
 		Thread.sleep(8000);

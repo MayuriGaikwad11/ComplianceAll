@@ -1350,6 +1350,20 @@ public class OverduePOM
 		return performer;
 	}
 	
+	public static WebElement clickStatutoryRB(WebDriver driver)			//Searching Task Type Drop Down
+	{
+		performer = driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_rdoStatutory']"));
+		return performer;
+	}
+	
+	public static WebElement ShowAssignment(WebDriver driver)			//Searching Task Type Drop Down
+	{
+		performer = driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_grdTask_LinkButton3_1']"));
+		return performer;
+	}
+	
+	
+	
 	public static WebElement clickSubTaskType(WebDriver driver)			//Searching Sub Task Type Drop Down
 	{
 		performer = driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_ddlSubTaskType']"));
@@ -1478,6 +1492,25 @@ public class OverduePOM
 		performer = driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_tbxFilterLocation']"));
 		return performer;
 	}
+	
+	public static WebElement SubTaskEdit(WebDriver driver)	//Searching Compliance Location text box
+	{
+		performer = driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_grdTask_lbtEdit_0']"));
+		return performer;
+	}
+	
+	public static WebElement UpdateMsg(WebDriver driver)	//Searching Compliance Location text box
+	{
+		performer = driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_ctl03']/ul/li"));
+		return performer;
+	}
+	
+	public static WebElement SubTaskDelete(WebDriver driver)	//Searching Compliance Location text box
+	{
+		performer = driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_grdTask_lbtDelete_0']"));
+		return performer;
+	}
+	
 	
 	public static WebElement clickReportingLocation(WebDriver driver)	//Searching Reporting Location text box
 	{
@@ -1727,12 +1760,127 @@ public class OverduePOM
 		return performer;
 	}
 	
+	public static WebElement STAfterClickDelete(WebDriver driver)		//
+	{
+		performer = driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_ctl01']/ul/li"));
+		return performer;
+	}
+	
+	public static WebElement BacktoTask(WebDriver driver)		//
+	{
+		performer = driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_dlBreadcrumb']/span/a"));
+		return performer;                        
+	}
+	
 	
 	public static WebElement ComplianceLocation(WebDriver driver)		//
 	{
 		performer = driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_tbxFilterLocation1']"));
-		return performer;
+		return performer;                        
+	}//*[@id="ContentPlaceHolder1_tbxFilterLocation1"]
+	
+	public static WebElement ComplianceLocationST(WebDriver driver)		//
+	{
+		performer = driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_tbxFilterLocation']"));
+		return performer;                        
 	}
+	
+	public static WebElement ComplianceLocationACD(WebDriver driver)		//
+	{
+		performer = driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_tvFilterLocationn1']"));
+		return performer;                        
+	}
+	
+	public static WebElement CLLPvt(WebDriver driver)		//
+	{
+		performer = driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_tvFilterLocationn2CheckBox']"));
+		return performer;                        
+	}
+	
+	public static WebElement ReportingLocation(WebDriver driver)		//
+	{
+		performer = driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_tbxFilterLocationTask']"));
+		return performer;                        
+	}
+	
+	public static WebElement ReportingLocationAB(WebDriver driver)		//
+	{
+		performer = driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_tvFilterLocationTaskn0']"));
+		return performer;                        
+	}
+	
+	public static WebElement ReportingLocationA(WebDriver driver)		//
+	{
+		performer = driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_tvFilterLocationTaskt10']"));
+		return performer;                        
+	}
+	
+	public static WebElement STPerformer(WebDriver driver)		//
+	{
+		performer = driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_ddlPerformerAssign_chosen']/a"));
+		return performer;                        
+	}
+	
+	public static WebElement STPerformerText(WebDriver driver)		//
+	{
+		performer = driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_ddlPerformerAssign_chosen']/div/div/input"));
+		return performer;                        
+	}
+	
+	public static WebElement abcExternal(WebDriver driver)		//
+	{
+		performer = driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_ddlPerformerAssign_chosen']/div/ul/li[2]"));
+		return performer;                        
+	}
+	
+	public static WebElement Reviewer(WebDriver driver)		//
+	{
+		performer = driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_ddlReviewerAssign']"));
+		return performer;                        
+	}
+	
+	public static WebElement ReviewerText(WebDriver driver)		//
+	{
+		performer = driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_ddlReviewerAssign_chosen']/div/div/input"));
+		return performer;                        
+	}
+	
+	public static WebElement abclawyer(WebDriver driver)		//
+	{
+		performer = driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_ddlReviewerAssign_chosen']/div/ul/li[3]"));
+		return performer;                        
+	}
+	
+	public static WebElement SaveBtn(WebDriver driver)		//
+	{
+		performer = driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_btnSaveTaskAssignment']"));
+		return performer;                        
+	}
+	
+	public static WebElement Startdate(WebDriver driver)		//
+	{
+		performer = driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_tbxStartDate']"));
+		return performer;                        
+	}
+	
+	public static WebElement date18(WebDriver driver)		//
+	{
+		performer = driver.findElement(By.linkText("18"));
+		return performer;                        
+	}
+	
+	public static WebElement TAmsg(WebDriver driver)		//
+	{
+		performer = driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_ctl06']/ul/li"));
+		return performer;                        
+	}
+	
+	public static WebElement CloseTab(WebDriver driver)		//
+	{
+		performer = driver.findElement(By.xpath("//*[@id='divAssignmentDetailsDialog']/div/div/div[1]/button"));
+		return performer;                        
+	}
+	
 	
 	public static WebElement clickMyWorkspace2(WebDriver driver)					//
 	{

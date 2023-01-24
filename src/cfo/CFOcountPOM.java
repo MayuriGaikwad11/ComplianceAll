@@ -2103,6 +2103,12 @@ public class CFOcountPOM
 		return reports; 
 	}
 	
+	public static WebElement clickMyTask(WebDriver driver)		//Method for reading Compliances value on Dashboard
+	{
+		compliances = driver.findElement(By.xpath("//*[@id='main-content']/header/div[2]/ul/li[4]/ul/li[4]"));
+		return compliances;
+	} 
+	
 	public static void CategoriesCountMatch(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
 	{
 	
