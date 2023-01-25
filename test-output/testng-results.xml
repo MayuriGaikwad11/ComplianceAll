@@ -1,65 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="3" passed="2" failed="1" skipped="0">
+<testng-results ignored="0" total="2" passed="1" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-01-24T18:59:54 IST" name="Default suite" finished-at="2023-01-24T19:02:31 IST" duration-ms="156606">
+  <suite started-at="2023-01-25T18:10:19 IST" name="Default suite" finished-at="2023-01-25T18:11:59 IST" duration-ms="99995">
     <groups>
     </groups>
-    <test started-at="2023-01-24T18:59:54 IST" name="Default test" finished-at="2023-01-24T19:02:31 IST" duration-ms="156606">
-      <class name="cfo.MgmtAvantis">
-        <test-method is-config="true" signature="setBrowser()[pri:0, instance:cfo.MgmtAvantis@3b6ddd1d]" started-at="2023-01-24T18:59:54 IST" name="setBrowser" finished-at="2023-01-24T19:00:00 IST" duration-ms="5355" status="PASS">
+    <test started-at="2023-01-25T18:10:19 IST" name="Default test" finished-at="2023-01-25T18:11:59 IST" duration-ms="99995">
+      <class name="performer.OverdueCount">
+        <test-method is-config="true" signature="setBrowser()[pri:0, instance:performer.OverdueCount@3f6b0be5]" started-at="2023-01-25T18:10:19 IST" name="setBrowser" finished-at="2023-01-25T18:10:25 IST" duration-ms="5772" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setBrowser -->
-        <test-method signature="Login()[pri:1, instance:cfo.MgmtAvantis@3b6ddd1d]" started-at="2023-01-24T19:00:00 IST" name="Login" finished-at="2023-01-24T19:00:23 IST" duration-ms="22876" status="PASS">
+        <test-method signature="Login()[pri:1, instance:performer.OverdueCount@3f6b0be5]" started-at="2023-01-25T18:10:25 IST" name="Login" finished-at="2023-01-25T18:11:46 IST" duration-ms="81183" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method signature="MyTask()[pri:2, instance:cfo.MgmtAvantis@3b6ddd1d]" started-at="2023-01-24T19:00:23 IST" name="MyTask" finished-at="2023-01-24T19:01:43 IST" duration-ms="80181" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- MyTask -->
-        <test-method signature="myTaskSubTask()[pri:3, instance:cfo.MgmtAvantis@3b6ddd1d]" started-at="2023-01-24T19:01:43 IST" name="myTaskSubTask" finished-at="2023-01-24T19:02:31 IST" duration-ms="48123" status="FAIL">
-          <exception class="org.openqa.selenium.NoSuchElementException">
+        <test-method signature="StatutoryChecklistAction1()[pri:6, instance:performer.OverdueCount@3f6b0be5]" started-at="2023-01-25T18:11:46 IST" name="StatutoryChecklistAction1" finished-at="2023-01-25T18:11:59 IST" duration-ms="12980" status="FAIL">
+          <exception class="java.lang.IndexOutOfBoundsException">
             <message>
-              <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id='ContentPlaceHolder1_ddlPerformerAssign_chosen']/div/ul/li[2]"}
-  (Session info: chrome=109.0.5414.75)
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.141.0', revision: '2ecb7d9a', time: '2018-10-31T20:09:30'
-System info: host: 'DESKTOP-J8VA1KP', ip: '192.168.1.2', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.5'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 109.0.5414.75, chrome: {chromedriverVersion: 108.0.5359.71 (1e0e3868ee06..., userDataDir: C:\Users\MAYURI~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:56364}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 1f25665bbb9a040b5ac153ef65d61f77
-*** Element info: {Using=xpath, value=//*[@id='ContentPlaceHolder1_ddlPerformerAssign_chosen']/div/ul/li[2]}]]>
+              <![CDATA[Index 0 out of bounds for length 0]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id='ContentPlaceHolder1_ddlPerformerAssign_chosen']/div/ul/li[2]"}
-  (Session info: chrome=109.0.5414.75)
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.141.0', revision: '2ecb7d9a', time: '2018-10-31T20:09:30'
-System info: host: 'DESKTOP-J8VA1KP', ip: '192.168.1.2', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.5'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 109.0.5414.75, chrome: {chromedriverVersion: 108.0.5359.71 (1e0e3868ee06..., userDataDir: C:\Users\MAYURI~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:56364}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 1f25665bbb9a040b5ac153ef65d61f77
-*** Element info: {Using=xpath, value=//*[@id='ContentPlaceHolder1_ddlPerformerAssign_chosen']/div/ul/li[2]}
-at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
-at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
-at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
-at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-at performer.OverduePOM.abcExternal(OverduePOM.java:1832)
-at cfo.MgmtAMethod.myTaskSubTask(MgmtAMethod.java:331)
-at cfo.MgmtAvantis.myTaskSubTask(MgmtAvantis.java:128)
+              <![CDATA[java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
+at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
+at java.base/java.util.Objects.checkIndex(Objects.java:359)
+at java.base/java.util.ArrayList.get(ArrayList.java:427)
+at performer.MethodsPOM.CheckList(MethodsPOM.java:320)
+at performer.MethodsPOM.StatutoryCheckListCheckbox(MethodsPOM.java:467)
+at performer.OverdueCount.StatutoryChecklistAction1(OverdueCount.java:346)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -90,11 +60,15 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
+          </exception> <!-- java.lang.IndexOutOfBoundsException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- myTaskSubTask -->
-      </class> <!-- cfo.MgmtAvantis -->
+        </test-method> <!-- StatutoryChecklistAction1 -->
+        <test-method is-config="true" signature="Closing()[pri:0, instance:performer.OverdueCount@3f6b0be5]" started-at="2023-01-25T18:11:59 IST" name="Closing" finished-at="2023-01-25T18:11:59 IST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Closing -->
+      </class> <!-- performer.OverdueCount -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

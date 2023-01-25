@@ -3,12 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="cfo.MgmtAvantis">
+      <class name="performer.OverdueCount">
         <methods>
           <include name="setBrowser"/>
-          <include name="myTaskSubTask"/>
+          <include name="Closing"/>
+          <include name="StatutoryChecklistAction1"/>
         </methods>
-      </class> <!-- cfo.MgmtAvantis -->
+      </class> <!-- performer.OverdueCount -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

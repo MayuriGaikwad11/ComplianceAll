@@ -51,7 +51,7 @@ public class OverdueCount
 	public static XSSFSheet ReadExcel() throws IOException
 	{
 		//String workingDir = System.getProperty("user.dir");
-		fis = new FileInputStream("C:/March2022/PerformerPom/TestData/ComplianceSheet.xlsx");
+		fis = new FileInputStream("C:\\Users\\Mayuri Gaikwad\\Desktop\\PerformerPom\\TestData\\ComplianceSheet.xlsx");
 		workbook = new XSSFWorkbook(fis);
 		sheet = workbook.getSheetAt(0);					//Retrieving third sheet of Workbook
 		return sheet;
@@ -61,7 +61,7 @@ public class OverdueCount
 	void setBrowser() throws InterruptedException, IOException
 	{
 		//String workingDir = System.getProperty("user.dir");
-		extent = new com.relevantcodes.extentreports.ExtentReports("C:/March2022/PerformerPom/Reports/PerformerResults.html",true);
+		extent = new com.relevantcodes.extentreports.ExtentReports("C:\\Users\\Mayuri Gaikwad\\Desktop\\PerformerPom\\Reports\\PerformerResults.html",true);
 		test = extent.startTest("Verify Browser Opening");
 		test.log(LogStatus.INFO, "Browser test is initiated");
 		
@@ -128,7 +128,7 @@ public class OverdueCount
 		extent.flush();
 	}
 	
-	@Test(priority = 2)//pass
+	//@Test(priority = 2)//pass
 	void Upcoming_ComplianceStatutoryCkeckView() throws InterruptedException
 	{
 		test = extent.startTest("Statutory Upcoming Compliance Check View Button Verification");
@@ -325,13 +325,25 @@ public class OverdueCount
 		extent.flush();
 	}
 	
-//	@Test(priority = 6) //pass
+	//@Test(priority = 6) //pass
 	void StatutoryChecklistAction() throws InterruptedException
 	{
 		test = extent.startTest("Statutory Checklist Count Through Action");
 		test.log(LogStatus.INFO, "Test Initiated");
 		
 		MethodsPOM.StatutoryCheckListAction(driver, test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 6) //pass
+	void StatutoryChecklistAction1() throws InterruptedException
+	{
+		test = extent.startTest("Statutory Checklist Count Through Action");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		MethodsPOM.StatutoryCheckListCheckbox(driver, test);
 		
 		extent.endTest(test);
 		extent.flush();
@@ -2379,7 +2391,7 @@ public class OverdueCount
   		extent.endTest(test);
   		extent.flush();
 			}
-      @Test(priority = 61)
+   //   @Test(priority = 61)
   	void ActDocuments() throws InterruptedException, IOException
   	{
   		test = extent.startTest("Act Documents  verification");

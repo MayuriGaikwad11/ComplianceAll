@@ -304,22 +304,22 @@ public class MethodsPOM
 	static void CheckList(WebDriver driver, String action) throws InterruptedException
 	{
 		Thread.sleep(2000);
-		WebDriverWait wait = new WebDriverWait(driver, (30));
+		WebDriverWait wait = new WebDriverWait(driver, (140));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='grid']/div[4]"))); //Waiting until grid/kendo gets visible.
 		//div[@class = 'k-multiselect-wrap k-floatwrap']
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		Thread.sleep(3000);
-		js.executeScript("window.scrollBy(0,4000)");			//Sometimes it doesn't scrolls down so extra query added.
+	//	js.executeScript("window.scrollBy(0,4000)");			//Sometimes it doesn't scrolls down so extra query added.
 		
 		//driver.findElement(By.xpath("//div[@class = 'k-multiselect-wrap k-floatwrap']")).click();
-		Thread.sleep(500);
+		Thread.sleep(5000);
 		//driver.findElement(By.xpath("//div[@class='k-grouping-header']")).click();
-		OverduePOM.clickAdvancedSearch(driver).sendKeys(Keys.PAGE_DOWN);
-		OverduePOM.clickAdvancedSearch(driver).sendKeys(Keys.PAGE_DOWN);
-		
+	//	OverduePOM.clickAdvancedSearch(driver).sendKeys(Keys.PAGE_DOWN);
+	//	OverduePOM.clickAdvancedSearch(driver).sendKeys(Keys.PAGE_DOWN);
+		Thread.sleep(3000);
 		wait.until(ExpectedConditions.visibilityOf(OverduePOM.clickCheckboxesList(driver).get(0)));
 		//checkboxesList =OverduePOM.clickCheckboxesList(driver);		//Getting multiple check boxes
-		checkboxesList.get(0).click();
+		checkboxesList.get(1).click();
 		checkboxesList.get(2).click();									//Clicking on 2,3 check box
 		
 		if(action.equalsIgnoreCase("submit"))
@@ -343,12 +343,12 @@ public class MethodsPOM
 	static void Action(WebDriver driver, String action, String frame) throws InterruptedException
 	{
 		Thread.sleep(2000);
-		WebDriverWait wait = new WebDriverWait(driver, (60));
+		WebDriverWait wait = new WebDriverWait(driver, (140));
 		
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='grid']/div[4]"))); //Waiting until grid/kendo gets visible.
 		Thread.sleep(3000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		js.executeScript("window.scrollBy(0,4000)");			//Sometimes it doesn't scrolls down so extra query added.
 		
 		/*driver.findElement(By.xpath("//div[@class = 'k-multiselect-wrap k-floatwrap']")).click();

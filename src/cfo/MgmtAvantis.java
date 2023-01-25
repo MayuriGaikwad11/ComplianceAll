@@ -108,9 +108,9 @@ public class MgmtAvantis {
 	}
 	
 	@Test(priority = 2)
-	void MyTask() throws InterruptedException, IOException
+	void MyTaskStatutory() throws InterruptedException, IOException
 	{
-		test = extent.startTest("My Task");
+		test = extent.startTest("My Task - Statutory");
 		test.log(LogStatus.INFO, "Test Initiated");
 		
 		MgmtAMethod.myTask(driver,test,workbook);
@@ -120,12 +120,36 @@ public class MgmtAvantis {
 	}
 	
 	@Test(priority = 3)
-	void myTaskSubTask() throws InterruptedException, IOException
+	void myTaskSubTaskSta() throws InterruptedException, IOException
 	{
-		test = extent.startTest("My Task -Sub Task");
+		test = extent.startTest("My Task - Statutory :- Sub Task");
 		test.log(LogStatus.INFO, "Test Initiated");
 		
 		MgmtAMethod.myTaskSubTask(driver,test,workbook);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 4)
+	void MyTaskInternal() throws InterruptedException, IOException
+	{
+		test = extent.startTest("My Task - Internal");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		MgmtAMethod.myTaskInternal(driver,test,workbook);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 5)
+	void MyTaskSTInternal() throws InterruptedException, IOException
+	{
+		test = extent.startTest("My Task :- Internal :- Sub Task ");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		MgmtAMethod.myTaskSubTaskIn(driver,test,workbook);
 		
 		extent.endTest(test);
 		extent.flush();
