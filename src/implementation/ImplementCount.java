@@ -228,6 +228,78 @@ public class ImplementCount {
 		extent.flush();
 	}
 	
+//	@Test(priority = 12)
+	void UsageReportCustomer() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Report - Usage Report Customer");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		ImplementMethods.UsageReportCustomer(driver,test,"Usage Report Customer");
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+//	@Test(priority = 13)
+	void UsageReport() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Report - Usage Report ");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		ImplementMethods.UsageReport(driver,test,"Usage Report ");
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+//	@Test(priority = 14)
+	void StatutoryAssignmentReport() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Report - Usage Report ");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		ImplementMethods.StatutoryAssignmentReport(driver,test,"Statutory Assignment Report ");
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	//@Test(priority = 15)
+	void CheckListAssignmentReport() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Report - CheckList Assignment Report  ");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		ImplementMethods.StatutoryAssignmentReport(driver,test,"CheckList Assignment Report");
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+//	@Test(priority = 16)
+	void EventBasedAssignmentReport() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Report - EventBased Assignment Report   ");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		ImplementMethods.EventBasedAssignmentReport(driver,test,"EventBased Assignment Report");
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	//@Test(priority = 17)
+	void InternalAssignmentReport() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Report - Internal Assignment Report   ");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		ImplementMethods.InternalAssignmentReport(driver,test,"Internal Assignment Report");
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
 	
 	//@AfterTest
 		void Closing() throws InterruptedException

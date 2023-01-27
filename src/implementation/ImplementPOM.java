@@ -815,6 +815,167 @@ public class ImplementPOM {
 		return implement;                                     
 	}
 	
+	public static WebElement ClickReport(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.xpath("//*[@id='CMPMenuBar']/ul/li[4]"));
+		return implement;                                     
+	}
+	
+	public static WebElement UsageReportCustomer(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.xpath("//*[@id='CMPMenuBar:submenu:91']/li[1]/a"));
+		return implement;                                     
+	}
+	
+	public static WebElement SelectCustomerRe(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.xpath("//*[@id='BodyContent_DivCustomer1']/div/div/span[1]"));
+		return implement;                                 
+	}
+	
+	public static WebElement SelectABCpvtltd(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.xpath("(//span[@class='k-checkbox-label checkbox-span'])[2]"));
+		return implement;                                     
+	}
+	
+	public static WebElement FromDate(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.xpath("//*[@id='BodyContent_Div31']/span/span/span/span"));
+		return implement;                                     
+	}
+	
+	public static WebElement January19(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.linkText("19"));
+		return implement;                                     
+	}
+	
+	public static WebElement ToDate(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.xpath("//*[@id='BodyContent_Div41']/span/span/span/span"));
+		return implement;                                     
+	}
+	
+	public static WebElement January25(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.linkText("25"));
+		return implement;                                     
+	}
+	
+	public static WebElement ClickExportRe(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.xpath("//*[@id='exportReport']"));
+		return implement;                                     
+	}
+	
+	public static WebElement ClickClearBtn(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.xpath("//*[@id='Clearfilter']"));
+		return implement;                                     
+	}
+	
+	public static WebElement ClickUsageReport(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.xpath("//*[@id='CMPMenuBar:submenu:91']/li[2]/a"));
+		return implement;                                     
+	}
+	
+	public static WebElement SelectCustomerUR(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.xpath("//*[@id='BodyContent_ddlCustomer']"));
+		return implement;                                     
+	}
+	
+	public static WebElement SelectBitademopuneRE(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.xpath("//*[@id='BodyContent_ddlCustomer']/option[2]"));
+		return implement;                                     
+	}
+	
+	public static WebElement SelectABitaPharmaCompany(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.xpath("//*[@id='BodyContent_tvBranchest0']"));
+		return implement;                                     
+	}
+	
+	public static WebElement FromDateUR(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.xpath("//*[@id='BodyContent_txtStartDate']"));
+		return implement;                                     
+	}
+	
+	public static WebElement ToDateUR(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.xpath("//*[@id='BodyContent_txtEndDate']"));
+		return implement;                                     
+	}
+	
+	public static WebElement ExportToExcel(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.xpath("//*[@id='BodyContent_btnExportExcel']"));
+		return implement;                                     
+	}
+	
+	public static WebElement StatutoryAssignment(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.xpath("//*[@id='CMPMenuBar:submenu:91']/li[3]/a"));
+		return implement;                                     
+	}
+	
+	public static WebElement SelectCustomerSA(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.xpath("//*[@id='BodyContent_ddlcustomer']"));
+		return implement;                                     
+	}
+	
+	public static WebElement SelectBitademopuneSA(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.xpath("//*[@id='BodyContent_ddlcustomer']/option[2]"));
+		return implement;                                     
+	}
+	
+	public static WebElement ClickExportSA(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.xpath("//*[@id='BodyContent_lbtnExportExcel']/img"));
+		return implement;                                     
+	}
+	
+	public static WebElement CheckListAssignment(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.xpath("//*[@id='CMPMenuBar:submenu:91']/li[4]/a"));
+		return implement;                                     
+	}
+	
+	public static WebElement EventBasedAssignment(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.xpath("//*[@id='CMPMenuBar:submenu:91']/li[5]/a"));
+		return implement;                                     
+	}
+	
+	public static WebElement InternalAssignment(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.xpath("//*[@id='CMPMenuBar:submenu:91']/li[6]/a"));
+		return implement;                                     
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

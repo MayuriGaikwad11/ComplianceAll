@@ -204,13 +204,19 @@ public class OverduePOM
 	
 	public static WebElement clickComplianceSubmit(WebDriver driver)		//Method for searching button for Submit Form
 	{
-		submit = driver.findElement(By.xpath("//input[@value ='Submit']"));
+		submit = driver.findElement(By.xpath("//*[@id='btnSave']"));
 		return submit;//*[@id="btnSave"]
 	}
 	
 	public static WebElement clickComplianceSubmit1(WebDriver driver)		//Method for searching button for Submit Form
 	{
 		submit = driver.findElement(By.xpath("//*[@id='btnSave']"));
+		return submit;//*[@id="btnSave"]
+	}
+	
+	public static WebElement clickClosedDelayed(WebDriver driver)		//Method for searching button for Submit Form
+	{
+		submit = driver.findElement(By.xpath("//*[@id='btnClosedDelayed']"));
 		return submit;//*[@id="btnSave"]
 	}
 	
@@ -225,6 +231,13 @@ public class OverduePOM
 	{
 	//	dashboard = driver.findElement(By.xpath("//button[@id='AdavanceSearch']"));
 		dashboard = driver.findElement(By.xpath("//*[@id='AdavanceSearch']"));
+		return dashboard;
+	}
+	
+	public static WebElement clickClose(WebDriver driver)
+	{
+	
+		dashboard = driver.findElement(By.xpath("//*[@id='btnCancel']"));
 		return dashboard;
 	}
 	
@@ -359,6 +372,12 @@ public class OverduePOM
 	public static WebElement clickSubmit(WebDriver driver)					//Method to search Submit button.
 	{
 		checklistSubmit = driver.findElement(By.xpath("//*[@id='dvbtnSubmit']"));
+		return checklistSubmit;
+	}
+	
+	public static WebElement ClickClosedDelayed(WebDriver driver)					//Method to search Submit button.
+	{
+		checklistSubmit = driver.findElement(By.xpath("//*[@id='dvbtnClosedDelayed']"));
 		return checklistSubmit;
 	}
 	

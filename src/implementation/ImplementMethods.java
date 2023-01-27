@@ -1,5 +1,6 @@
 package implementation;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 
@@ -18,6 +19,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
+import cfo.CFOcountPOM;
 import companyadmin.CompanyPOM;
 import performer.OverduePOM;
 
@@ -1058,6 +1060,268 @@ public class ImplementMethods {
 								  Thread.sleep(4000);
 						 
 	}
+	
+	public static void UsageReportCustomer( WebDriver driver,ExtentTest test,String report) throws InterruptedException, IOException
+	{		
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (40));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[4]")));	//Wait until records table get visible.
+		
+			      action.moveToElement(ImplementPOM.ClickReport(driver)).click().build().perform();
+			      Thread.sleep(1000);
+			      ImplementPOM.UsageReportCustomer(driver).click();
+			      Thread.sleep(3000);
+			      ImplementPOM.SelectCustomerRe(driver).click();
+			      Thread.sleep(500);
+			      ImplementPOM.SelectABCpvtltd(driver).click();
+			      Thread.sleep(1000);
+			      ImplementPOM.SelectCustomerRe(driver).click();
+			      Thread.sleep(500);
+			      ImplementPOM.FromDate(driver).click();
+			      Thread.sleep(500);
+			      ImplementPOM.January19(driver).click();
+			      Thread.sleep(1000);
+			      ImplementPOM.ToDate(driver).click();
+			      Thread.sleep(500);
+			      ImplementPOM.January25(driver).click();
+			      Thread.sleep(1000);
+			      
+			      File dir = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+					File[] dirContents = dir.listFiles();						//Counting number of files in directory before download
+					
+					Thread.sleep(500);
+					ImplementPOM.ClickExportRe(driver).click();				//Exporting (Downloading) file
+					
+					Thread.sleep(3000);//C://Users//jiya//Downloads//
+					File dir1 = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+					File[] allFilesNew = dir1.listFiles();						//Counting number of files in directory after download
+					Thread.sleep(3000);
+					if(dirContents.length < allFilesNew.length)
+					{
+						test.log(LogStatus.PASS, report+" :- File downloaded successfully.");	
+					}
+					else
+					{
+						test.log(LogStatus.INFO, report+" :- File does not downloaded.");
+					}
+					
+					if( ImplementPOM.ClickClearBtn(driver).isEnabled()) {
+						
+						ImplementPOM.ClickClearBtn(driver).click();
+						test.log(LogStatus.PASS, " :-Clear Button Working successfully.");	
+					}else
+					{
+						test.log(LogStatus.FAIL, " :-Clear Button is not  Working successfully.");	
+					}
+										
+				}
+	
+	public static void UsageReport( WebDriver driver,ExtentTest test,String report) throws InterruptedException, IOException
+	{		
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (40));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[4]")));	//Wait until records table get visible.
+		
+			      action.moveToElement(ImplementPOM.ClickReport(driver)).click().build().perform();
+			      Thread.sleep(1000);
+			      ImplementPOM.ClickUsageReport(driver).click();
+			      Thread.sleep(3000);
+			      ImplementPOM.SelectCustomerUR(driver).click();
+			      Thread.sleep(500);
+			      ImplementPOM.SelectBitademopuneRE(driver).click();
+			      Thread.sleep(500);
+			      ImplementPOM.SelectABitaPharmaCompany(driver).click();
+			      ImplementPOM.FromDateUR(driver).click();
+			      Thread.sleep(500);
+			      ImplementPOM.January19(driver).click();
+			      Thread.sleep(1000);
+			      ImplementPOM.ToDateUR(driver).click();
+			      Thread.sleep(500);
+			      ImplementPOM.January25(driver).click();
+			      Thread.sleep(1000);
+			      
+			      File dir = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+					File[] dirContents = dir.listFiles();						//Counting number of files in directory before download
+					
+					Thread.sleep(500);
+					ImplementPOM.ExportToExcel(driver).click();				//Exporting (Downloading) file
+					
+					Thread.sleep(3000);//C://Users//jiya//Downloads//
+					File dir1 = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+					File[] allFilesNew = dir1.listFiles();						//Counting number of files in directory after download
+					Thread.sleep(3000);
+					if(dirContents.length < allFilesNew.length)
+					{
+						test.log(LogStatus.PASS, report+" :- File downloaded successfully.");	
+					}
+					else
+					{
+						test.log(LogStatus.INFO, report+" :- File does not downloaded.");
+					}
+												
+	}
+	
+	public static void StatutoryAssignmentReport( WebDriver driver,ExtentTest test,String report) throws InterruptedException, IOException
+	{		
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (40));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[4]")));	//Wait until records table get visible.
+		
+			      action.moveToElement(ImplementPOM.ClickReport(driver)).click().build().perform();
+			      Thread.sleep(1000);
+			      ImplementPOM.StatutoryAssignment(driver).click();
+			      Thread.sleep(3000);
+			      ImplementPOM.SelectCustomerSA(driver).click();
+			      
+			      ImplementPOM.SelectBitademopuneSA(driver).click();
+			      Thread.sleep(7000);
+			      File dir = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+					File[] dirContents = dir.listFiles();						//Counting number of files in directory before download
+					
+					Thread.sleep(500);
+					ImplementPOM.ClickExportSA(driver).click();				//Exporting (Downloading) file
+					
+					Thread.sleep(3000);//C://Users//jiya//Downloads//
+					File dir1 = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+					File[] allFilesNew = dir1.listFiles();						//Counting number of files in directory after download
+					Thread.sleep(3000);
+					if(dirContents.length < allFilesNew.length)
+					{
+						test.log(LogStatus.PASS, report+" :- File downloaded successfully.");	
+					}
+					else
+					{
+						test.log(LogStatus.INFO, report+" :- File does not downloaded.");
+					}
+												
+	}
+					public static void CheckListAssignmentReport( WebDriver driver,ExtentTest test,String report) throws InterruptedException, IOException
+					{		
+						Actions action = new Actions(driver);
+						WebDriverWait wait = new WebDriverWait(driver, (40));
+						Thread.sleep(3000);
+
+						wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[4]")));	//Wait until records table get visible.
+						
+							      action.moveToElement(ImplementPOM.ClickReport(driver)).click().build().perform();
+							      Thread.sleep(1000);
+							      ImplementPOM.CheckListAssignment(driver).click();
+							      Thread.sleep(3000);
+							      ImplementPOM.SelectCustomerSA(driver).click();
+							      
+							      ImplementPOM.SelectBitademopuneSA(driver).click();
+							      Thread.sleep(7000);
+							      File dir = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+									File[] dirContents = dir.listFiles();						//Counting number of files in directory before download
+									
+									Thread.sleep(500);
+									ImplementPOM.ClickExportSA(driver).click();				//Exporting (Downloading) file
+									
+									Thread.sleep(3000);//C://Users//jiya//Downloads//
+									File dir1 = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+									File[] allFilesNew = dir1.listFiles();						//Counting number of files in directory after download
+									Thread.sleep(3000);
+									if(dirContents.length < allFilesNew.length)
+									{
+										test.log(LogStatus.PASS, report+" :- File downloaded successfully.");	
+									}
+									else
+									{
+										test.log(LogStatus.INFO, report+" :- File does not downloaded.");
+									}
+										
+					}
+					
+									public static void EventBasedAssignmentReport( WebDriver driver,ExtentTest test,String report) throws InterruptedException, IOException
+									{		
+										Actions action = new Actions(driver);
+										WebDriverWait wait = new WebDriverWait(driver, (40));
+										Thread.sleep(3000);
+
+										wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[4]")));	//Wait until records table get visible.
+										
+											      action.moveToElement(ImplementPOM.ClickReport(driver)).click().build().perform();
+											      Thread.sleep(1000);
+											      ImplementPOM.EventBasedAssignment(driver).click();
+											      Thread.sleep(3000);
+											      ImplementPOM.SelectCustomerSA(driver).click();
+											      
+											      ImplementPOM.SelectBitademopuneSA(driver).click();
+											      Thread.sleep(8000);
+											      File dir = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+													File[] dirContents = dir.listFiles();						//Counting number of files in directory before download
+													
+													Thread.sleep(500);
+													ImplementPOM.ClickExportSA(driver).click();				//Exporting (Downloading) file
+													
+													Thread.sleep(3000);//C://Users//jiya//Downloads//
+													File dir1 = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+													File[] allFilesNew = dir1.listFiles();						//Counting number of files in directory after download
+													Thread.sleep(3000);
+													if(dirContents.length < allFilesNew.length)
+													{
+														test.log(LogStatus.PASS, report+" :- File downloaded successfully.");	
+													}
+													else
+													{
+														test.log(LogStatus.INFO, report+" :- File does not downloaded.");
+													}
+																				
+											      
+				
+	}
+	
+									public static void InternalAssignmentReport( WebDriver driver,ExtentTest test,String report) throws InterruptedException, IOException
+									{		
+										Actions action = new Actions(driver);
+										WebDriverWait wait = new WebDriverWait(driver, (40));
+										Thread.sleep(3000);
+
+										wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[4]")));	//Wait until records table get visible.
+										
+											      action.moveToElement(ImplementPOM.ClickReport(driver)).click().build().perform();
+											      Thread.sleep(1000);
+											      ImplementPOM.InternalAssignment(driver).click();
+											      Thread.sleep(3000);
+											      ImplementPOM.SelectCustomerSA(driver).click();
+											      
+											      ImplementPOM.SelectBitademopuneSA(driver).click();
+											      Thread.sleep(7000);
+											      File dir = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+													File[] dirContents = dir.listFiles();						//Counting number of files in directory before download
+													
+													Thread.sleep(500);
+													ImplementPOM.ClickExportSA(driver).click();				//Exporting (Downloading) file
+													
+													Thread.sleep(3000);//C://Users//jiya//Downloads//
+													File dir1 = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+													File[] allFilesNew = dir1.listFiles();						//Counting number of files in directory after download
+													Thread.sleep(3000);
+													if(dirContents.length < allFilesNew.length)
+													{
+														test.log(LogStatus.PASS, report+" :- File downloaded successfully.");	
+													}
+													else
+													{
+														test.log(LogStatus.INFO, report+" :- File does not downloaded.");
+													}
+														
+									}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

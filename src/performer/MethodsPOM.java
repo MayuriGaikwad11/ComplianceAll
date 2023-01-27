@@ -319,13 +319,20 @@ public class MethodsPOM
 		Thread.sleep(3000);
 		wait.until(ExpectedConditions.visibilityOf(OverduePOM.clickCheckboxesList(driver).get(0)));
 		//checkboxesList =OverduePOM.clickCheckboxesList(driver);		//Getting multiple check boxes
-		checkboxesList.get(1).click();
-		checkboxesList.get(2).click();									//Clicking on 2,3 check box
+		OverduePOM.clickCheckboxesList(driver).get(1).click();
+		OverduePOM.clickCheckboxesList(driver).get(2).click();									//Clicking on 2,3 check box
 		
 		if(action.equalsIgnoreCase("submit"))
 		{
 			Thread.sleep(1000);
 			OverduePOM.clickSubmit(driver).click();						//Clicking on 'Submit' button on top.
+			Thread.sleep(500);
+			driver.switchTo().alert().accept();							//Clicking on alert to accept the message.
+		}else
+		if(action.equalsIgnoreCase("ClosedDelayed"))
+		{
+			Thread.sleep(1000);
+			OverduePOM.ClickClosedDelayed(driver).click();						//Clicking on 'Submit' button on top.
 			Thread.sleep(500);
 			driver.switchTo().alert().accept();							//Clicking on alert to accept the message.
 		}
@@ -367,28 +374,36 @@ public class MethodsPOM
 		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(frame));	//Switching to iFrame
 		js.executeScript("window.scrollBy(0,1500)");
 		
-		if(action.equalsIgnoreCase("submit"))
+		if(action.equalsIgnoreCase("submit")||action.equalsIgnoreCase("Closed Delayed"))
 		{
 			Thread.sleep(500);
 			wait.until(ExpectedConditions.elementToBeClickable(OverduePOM.fileUploadStatutory(driver)));
-			OverduePOM.fileUploadStatutory(driver).sendKeys("C:/Users/sandip/Downloads/Holiday List 2022.xlsx");	//Providing Compliance Documents link
+			OverduePOM.fileUploadStatutory(driver).sendKeys("C:\\Users\\Mayuri Gaikwad\\Downloads\\Report .xlsx");	//Providing Compliance Documents link
 		//	OverduePOM.statutoryAddLinkButton(driver).click();						//Clicking on 'Add Link' button of Compliance Documents
 			
 			Thread.sleep(1000);
 			js.executeScript("window.scrollBy(0,1500)"," ");				//Scrolling down window by 2000 px.
 			OverduePOM.remark(driver).sendKeys("Automation Testing");
 			Thread.sleep(500);
-		//	OverduePOM.clickComplianceSubmit(driver).click();				//Clicking on 'Submit' button.
-			driver.findElement(By.xpath("//*[@id='btnSave']")).click();
-			driver.switchTo().alert().accept();
+			if(action.equalsIgnoreCase("submit")){
+			
+			OverduePOM.clickComplianceSubmit(driver).click();				//Clicking on 'Submit' button.
+			//driver.findElement(By.xpath("//*[@id='btnSave']")).click();
+		//	driver.switchTo().alert().accept();
+			}else
+				if(action.equalsIgnoreCase("Closed Delayed")) {
+					OverduePOM.clickClosedDelayed(driver).click();	  //Clicking on 'Closed Delayed' button.
+				//	driver.switchTo().alert().accept();
+				}
+			//driver.switchTo().alert().accept();
 			try
 			{
 				Thread.sleep(1000);
-			//	driver.switchTo().alert().accept();							//Clicking on OK of alert.
+				driver.switchTo().alert().accept();							//Clicking on OK of alert.
 			}
 			catch(Exception e)
 			{
-				
+				OverduePOM.clickClose(driver).click();
 			}
 			driver.switchTo().parentFrame();								//Switching back to parent frame.
 		}
@@ -412,7 +427,7 @@ public class MethodsPOM
 		js.executeScript("window.scrollBy(0,1500)");
 		Thread.sleep(500);
 		wait.until(ExpectedConditions.elementToBeClickable(OverduePOM.fileUploadStatutory(driver)));
-		OverduePOM.fileUploadStatutory(driver).sendKeys("C:/Users/sandip/Downloads/Holiday List 2022.xlsx");	//Providing Compliance Documents link
+		OverduePOM.fileUploadStatutory(driver).sendKeys("C:\\Users\\Mayuri Gaikwad\\Downloads\\Report .xlsx");	//Providing Compliance Documents link
 	//	OverduePOM.statutoryAddLinkButton(driver).click();						//Clicking on 'Add Link' button of Compliance Documents
 		
 		Thread.sleep(1000);
@@ -420,15 +435,32 @@ public class MethodsPOM
 		OverduePOM.remark(driver).sendKeys("Automation Testing");
 		Thread.sleep(500);
 	//	OverduePOM.clickComplianceSubmit(driver).click();				//Clicking on 'Submit' button.
-		driver.findElement(By.xpath("//*[@id='btnSave']")).click();
-		driver.switchTo().alert().accept();
+	//	driver.findElement(By.xpath("//*[@id='btnSave']")).click();
+if(action.equalsIgnoreCase("submit")){
+			
+			OverduePOM.clickComplianceSubmit(driver).click();				//Clicking on 'Submit' button.
+			
+			}else
+				if(action.equalsIgnoreCase("Closed Delayed")) {
+					OverduePOM.clickClosedDelayed(driver).click();	  //Clicking on 'Closed Delayed' button.
+				}Thread.sleep(1000);
+		//driver.switchTo().alert().accept();
+		try
+		{
+			Thread.sleep(1000);
+			driver.switchTo().alert().accept();							//Clicking on OK of alert.
+		}
+		catch(Exception e)
+		{
+			OverduePOM.clickClose(driver).click();
+		}
 		driver.switchTo().parentFrame();
 		
 		Thread.sleep(4000);
 		driver.findElement(By.xpath("//*[@class='k-button k-bare k-button-icon k-window-action']")).click();
 		Thread.sleep(4000);
 		
-		By locator = By.xpath("//*[@id='sel_chkbx']");
+	/*	By locator = By.xpath("//*[@id='sel_chkbx']");
 
 		wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 		Thread.sleep(4000);
@@ -449,13 +481,13 @@ public class MethodsPOM
 		
 		Thread.sleep(4000);
 		driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_lbtnExportExcel']")).click();
-		Thread.sleep(4000);
+		Thread.sleep(4000);*/
 		OverduePOM.clickDashboard(driver).click();						//Clicking on Dashboard.
 	}
 
 	public static void StatutoryCheckListCheckbox(WebDriver driver, ExtentTest test) throws InterruptedException
 	{
-		//-----------------------------Submit after multiple checkbox click--------------------
+		//-----------------------------Closed Timely after multiple checkbox click--------------------
 		
 		Thread.sleep(1000);
 		int oldStatutoryChecklistValue = Integer.parseInt(OverduePOM.clickStatutoryChecklist(driver).getText());	//Storing old value of Statutory Checkilist.
@@ -471,14 +503,37 @@ public class MethodsPOM
 		
 		if(newStatutoryChecklistValue < oldStatutoryChecklistValue)
 		{
-			test.log(LogStatus.PASS, "Checkbox 'Submit' - Statutory 'Checklist' value decremented. Old value = " +oldStatutoryChecklistValue +" | New Value = "+ newStatutoryChecklistValue);
+			test.log(LogStatus.PASS, "Checkbox 'Closed Timely' - Statutory 'Checklist' value decremented. Old value = " +oldStatutoryChecklistValue +" | New Value = "+ newStatutoryChecklistValue);
 		}
 		else
 		{
 			test.log(LogStatus.FAIL, "Test Failed.");
 		}
 		
-		//--------------------------------Not Applicable after multiple checkbox click--------------------
+	//-----------------------------Closed Delayed after multiple checkbox click--------------------
+		
+		Thread.sleep(1000);
+	  oldStatutoryChecklistValue = Integer.parseInt(OverduePOM.clickStatutoryChecklist(driver).getText());	//Storing old value of Statutory Checkilist.
+		
+		OverduePOM.clickStatutoryChecklist(driver).click();				//Clicking on Statutory Checklist value
+		
+		Thread.sleep(500);
+		
+		CheckList(driver, "Closed Delayed");									//Will click on 'Submit' button
+		
+		Thread.sleep(1000);
+	 newStatutoryChecklistValue = Integer.parseInt(OverduePOM.clickStatutoryChecklist(driver).getText());	//Storing new value of Statutory Checkilist.
+		
+		if(newStatutoryChecklistValue < oldStatutoryChecklistValue)
+		{
+			test.log(LogStatus.PASS, "Checkbox 'Closed Delayed' - Statutory 'Checklist' value decremented. Old value = " +oldStatutoryChecklistValue +" | New Value = "+ newStatutoryChecklistValue);
+		}
+		else
+		{
+			test.log(LogStatus.FAIL, "Test Failed.");
+		}
+		
+	/*	//--------------------------------Not Applicable after multiple checkbox click--------------------
 		
 		Thread.sleep(1000);
 		oldStatutoryChecklistValue = Integer.parseInt(OverduePOM.clickStatutoryChecklist(driver).getText());	//Storing old value of Statutory Checkilist.
@@ -497,7 +552,7 @@ public class MethodsPOM
 		else
 		{
 			test.log(LogStatus.FAIL, "Test Failed.");
-		}
+		}*/
 	}
 	
 	public static void StatutoryCheckListAction(WebDriver driver, ExtentTest test) throws InterruptedException
@@ -524,6 +579,29 @@ public class MethodsPOM
 			test.log(LogStatus.FAIL, "Test Failed.");
 		}
 		
+		//--------------------------------Closed Delayed after Action button click--------------------------
+			
+				Thread.sleep(1000);
+				oldStatutoryChecklistValue = Integer.parseInt(OverduePOM.clickStatutoryChecklist(driver).getText());	//Storing old value of Statutory Checkilist.
+				
+				OverduePOM.clickStatutoryChecklist(driver).click();									//Clicking on Statutory Checklist value
+				
+				Action(driver, "Closed Delayed", "iPerformerFrame");								//Will click on 'Not Applicable' button
+				
+				Thread.sleep(1000);
+				newStatutoryChecklistValue = Integer.parseInt(OverduePOM.clickStatutoryChecklist(driver).getText());	//Storing new value of Statutory Checkilist.
+				
+				if(newStatutoryChecklistValue < oldStatutoryChecklistValue)
+				{
+					test.log(LogStatus.PASS, "Action 'Closed Delayed - Statutory 'Checklist' value decremented. Old value = " +oldStatutoryChecklistValue +" | New Value = "+ newStatutoryChecklistValue);
+				}
+				else
+				{
+					test.log(LogStatus.FAIL, "Test Failed.");
+				}
+		
+		
+		
 		//--------------------------------Not Applicable after Action button click--------------------------
 		/*
 		Thread.sleep(1000);
@@ -549,7 +627,7 @@ public class MethodsPOM
 	
 	public static void InternalCheckListCheckbox(WebDriver driver, ExtentTest test) throws InterruptedException
 	{
-		//-----------------------------Submit after multiple checkbox click--------------------
+		//-----------------------------Closed Timely after multiple checkbox click--------------------
 		
 		Thread.sleep(1000);
 		int oldInternalChecklistValue = Integer.parseInt(OverduePOM.clickInternalChecklist(driver).getText());	//Storing old value of Internal Checkilist.
@@ -562,14 +640,34 @@ public class MethodsPOM
 		
 		if(newInternalChecklistValue < oldInternalChecklistValue)
 		{
-			test.log(LogStatus.PASS, "Checkbox 'Submit' - Internal 'Checklist' value decremented. Old value = " +oldInternalChecklistValue +" | New Value = "+ newInternalChecklistValue);
+			test.log(LogStatus.PASS, "Checkbox 'Closed Timely' - Internal 'Checklist' value decremented. Old value = " +oldInternalChecklistValue +" | New Value = "+ newInternalChecklistValue);
 		}
 		else
 		{
 			test.log(LogStatus.FAIL, "Test Failed.");
 		}
 		
-		//--------------------------------Not Applicable after multiple checkbox click--------------------
+		//-----------------------------Closed Delayed after multiple checkbox click--------------------
+		
+				Thread.sleep(1000);
+				 oldInternalChecklistValue = Integer.parseInt(OverduePOM.clickInternalChecklist(driver).getText());	//Storing old value of Internal Checkilist.
+				OverduePOM.clickInternalChecklist(driver).click();				//Clicking on Internal Checklist value.
+				
+				CheckList(driver, "Closed Delayed");									//Will click on 'Submit' button
+				
+				Thread.sleep(1000);
+				 newInternalChecklistValue = Integer.parseInt(OverduePOM.clickInternalChecklist(driver).getText());	//Storing new value of Internal Checkilist.
+				
+				if(newInternalChecklistValue < oldInternalChecklistValue)
+				{
+					test.log(LogStatus.PASS, "Checkbox 'Closed Delayed' - Internal 'Checklist' value decremented. Old value = " +oldInternalChecklistValue +" | New Value = "+ newInternalChecklistValue);
+				}
+				else
+				{
+					test.log(LogStatus.FAIL, "Test Failed.");
+				}
+		
+	/*	//--------------------------------Not Applicable after multiple checkbox click--------------------
 		
 		Thread.sleep(1000);
 		oldInternalChecklistValue = Integer.parseInt(OverduePOM.clickInternalChecklist(driver).getText());	//Storing old value of Internal Checkilist.
@@ -588,7 +686,7 @@ public class MethodsPOM
 		{
 			test.log(LogStatus.FAIL, "Test Failed.");
 		}
-		
+		*/
 	}
 	
 	public static void InternalCheckListAction(WebDriver driver, ExtentTest test) throws InterruptedException
@@ -620,7 +718,7 @@ public class MethodsPOM
 		
 		Thread.sleep(500);
 		wait.until(ExpectedConditions.elementToBeClickable(OverduePOM.fileUploadInternal(driver)));
-		OverduePOM.fileUploadInternal(driver).sendKeys("C:/Users/sandip/Downloads/Holiday List 2022.xlsx");	//Providing Compliance Documents link
+		OverduePOM.fileUploadInternal(driver).sendKeys("C:\\Users\\Mayuri Gaikwad\\Downloads\\Report .xlsx");	//Providing Compliance Documents link
 		//OverduePOM.statutoryAddLinkButton(driver).click();						//Clicking on 'Add Link' button of Compliance Documents
 		OverduePOM.remark(driver).sendKeys("Automation Testing");
 		Thread.sleep(500);
@@ -648,7 +746,7 @@ public class MethodsPOM
 		
 		Thread.sleep(500);
 		wait.until(ExpectedConditions.elementToBeClickable(OverduePOM.fileUploadInternal(driver)));
-		OverduePOM.fileUploadInternal(driver).sendKeys("C:/Users/sandip/Downloads/Holiday List 2022.xlsx");	//Providing Compliance Documents link
+		OverduePOM.fileUploadInternal(driver).sendKeys("C:\\Users\\Mayuri Gaikwad\\Downloads\\Report .xlsx");	//Providing Compliance Documents link
 		//OverduePOM.statutoryAddLinkButton(driver).click();						//Clicking on 'Add Link' button of Compliance Documents
 		OverduePOM.remark(driver).sendKeys("Automation Testing");
 		Thread.sleep(500);
@@ -660,7 +758,7 @@ public class MethodsPOM
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//*[@class='k-button k-bare k-button-icon k-window-action']")).click();
 		Thread.sleep(4000);
-		By locator = By.xpath("//*[@id='sel_chkbx']");
+	/*	By locator = By.xpath("//*[@id='sel_chkbx']");
 		
 		wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 		Thread.sleep(4000);
@@ -682,7 +780,7 @@ public class MethodsPOM
 		Thread.sleep(4000);
 		driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_lbtnExportExcel']")).click();
 		Thread.sleep(4000);
-		
+		*/
 		Thread.sleep(2000);
 		OverduePOM.clickDashboard(driver).click();						//Click on Dashboard
 		Thread.sleep(1000);
@@ -696,6 +794,89 @@ public class MethodsPOM
 		{
 			test.log(LogStatus.FAIL, "Test Failed.");
 		}
+		
+		//--------------------------------Closed Delayed after Action button click------------------------------
+		
+				Thread.sleep(1000);
+				 oldInternalChecklistValue = Integer.parseInt(OverduePOM.clickInternalChecklist(driver).getText());		//Storing old value of Internal Checkilist.
+				
+				OverduePOM.clickInternalChecklist(driver).click();					//Clicking on Internal Checklist Value
+				
+				//WebDriverWait wait = new WebDriverWait(driver, (30));
+			//	JavascriptExecutor js = (JavascriptExecutor) driver;
+				
+				Thread.sleep(1000);
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='grid']/div[4]"))); //Waiting until grid/kendo gets visible.
+				
+				Thread.sleep(3000);
+				js.executeScript("window.scrollBy(0,2000)");
+				Thread.sleep(3000);
+				wait.until(ExpectedConditions.visibilityOfAllElements(OverduePOM.clickStatutoryChecklistAction(driver).get(0)));	//Waiting until all Action buttons get visible.
+				OverduePOM.clickStatutoryChecklistAction(driver).get(0).click();	//Clicking on first Action button inside Internal Checklist click (Using Statutory xpath)
+				
+				Thread.sleep(500);
+				wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("iInternalPerformerFrame"));	//Switching to iFrame
+				
+				Thread.sleep(500);
+				js.executeScript("window.scrollBy(0,2000)");
+				
+				Thread.sleep(500);
+				wait.until(ExpectedConditions.elementToBeClickable(OverduePOM.fileUploadInternal(driver)));
+				OverduePOM.fileUploadInternal(driver).sendKeys("C:\\Users\\Mayuri Gaikwad\\Downloads\\Report .xlsx");	//Providing Compliance Documents link
+				//OverduePOM.statutoryAddLinkButton(driver).click();						//Clicking on 'Add Link' button of Compliance Documents
+				OverduePOM.remark(driver).sendKeys("Automation Testing");
+				Thread.sleep(500);
+				//OverduePOM.clickComplianceSubmit(driver).click();				//Clicking on 'Submit' button.	
+				driver.findElement(By.xpath("//*[@id='btnClosedDelayed']")).click();
+				Thread.sleep(1000);
+				driver.switchTo().alert().accept();								//Clicking on alert to accept the message.
+				driver.switchTo().parentFrame();								//Switching back to parent frame.
+				Thread.sleep(2000);
+				OverduePOM.clickAdvancedSearch(driver).click();
+				Thread.sleep(2000);
+				
+				Thread.sleep(1000);
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='grid1']"))); //Waiting until grid/kendo gets visible.
+				
+				Thread.sleep(3000);
+				wait.until(ExpectedConditions.visibilityOfAllElements(OverduePOM.clickStatutoryChecklistAction1(driver).get(0)));	//Waiting until all Action buttons get visible.
+				OverduePOM.clickStatutoryChecklistAction1(driver).get(0).click();	//Clicking on first Action button inside Internal Checklist click (Using Statutory xpath)
+				
+				Thread.sleep(500);
+				wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("iInternalPerformerFrame"));	//Switching to iFrame
+				
+				Thread.sleep(500);
+				js.executeScript("window.scrollBy(0,2000)");
+				
+				Thread.sleep(500);
+				wait.until(ExpectedConditions.elementToBeClickable(OverduePOM.fileUploadInternal(driver)));
+				OverduePOM.fileUploadInternal(driver).sendKeys("C:\\Users\\Mayuri Gaikwad\\Downloads\\Report .xlsx");	//Providing Compliance Documents link
+				//OverduePOM.statutoryAddLinkButton(driver).click();						//Clicking on 'Add Link' button of Compliance Documents
+				OverduePOM.remark(driver).sendKeys("Automation Testing");
+				Thread.sleep(500);
+				//OverduePOM.clickComplianceSubmit(driver).click();				//Clicking on 'Submit' button.	
+				driver.findElement(By.xpath("//*[@id='btnClosedDelayed']")).click();
+				Thread.sleep(1000);
+				driver.switchTo().alert().accept();								//Clicking on alert to accept the message.
+				driver.switchTo().parentFrame();								//Switching back to parent frame.
+				Thread.sleep(2000);
+				driver.findElement(By.xpath("//*[@class='k-button k-bare k-button-icon k-window-action']")).click();
+				Thread.sleep(4000);
+			
+				Thread.sleep(2000);
+				OverduePOM.clickDashboard(driver).click();						//Click on Dashboard
+				Thread.sleep(1000);
+				 newInternalChecklistValue = Integer.parseInt(OverduePOM.clickInternalChecklist(driver).getText());	//Storing old value of Statutory Checkilist.
+				
+				if(newInternalChecklistValue < oldInternalChecklistValue)
+				{
+					test.log(LogStatus.PASS, "Action 'Closed Delayed' - Internal 'Checklist' value decremented. Old value = " +oldInternalChecklistValue +" New Value = "+ newInternalChecklistValue);
+				}
+				else
+				{
+					test.log(LogStatus.FAIL, "Test Failed.");
+				}
+				
 		
 		//--------------------------------Not Applicable after Action button click--------------------------
 	/*	

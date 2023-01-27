@@ -48,7 +48,7 @@ public class CompanyCount {
 	
 	public static XSSFSheet ReadExcel() throws IOException
 	{
-		fis = new FileInputStream("C:/March2022/PerformerPom/TestData/ComplianceSheet.xlsx");
+		fis = new FileInputStream("C:\\Users\\Mayuri Gaikwad\\Desktop\\PerformerPom\\TestData\\ComplianceSheet.xlsx");
 		workbook = new XSSFWorkbook(fis);
 		sheet = workbook.getSheetAt(12);					//Retrieving third sheet of Workbook
 		return sheet;
@@ -57,7 +57,7 @@ public class CompanyCount {
 	@BeforeTest
 	void setBrowser() throws InterruptedException, IOException
 	{
-		extent = new com.relevantcodes.extentreports.ExtentReports("C:/March2022/PerformerPom/Reports/CFOResultsStatotory.html",true);
+		extent = new com.relevantcodes.extentreports.ExtentReports("C:\\Users\\Mayuri Gaikwad\\Desktop\\PerformerPom\\Reports\\CFOResultsStatotory.html",true);
 		test = extent.startTest("Verify OpenBrowser");
 		test.log(LogStatus.INFO, "Browser test is initiated");
 		
@@ -109,7 +109,7 @@ public class CompanyCount {
 		}
 	}
 	
-	@Test(priority = 2)
+	/*@Test(priority = 2)
 	void Reports() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Reports");
@@ -121,7 +121,7 @@ public class CompanyCount {
 		extent.flush();
 	}
 	
-	
+	*/
 	 @AfterTest
 		void Closing() throws InterruptedException
 		{

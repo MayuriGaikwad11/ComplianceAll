@@ -325,7 +325,7 @@ public class OverdueCount
 		extent.flush();
 	}
 	
-	//@Test(priority = 6) //pass
+	@Test(priority = 6) //pass
 	void StatutoryChecklistAction() throws InterruptedException
 	{
 		test = extent.startTest("Statutory Checklist Count Through Action");
@@ -337,10 +337,10 @@ public class OverdueCount
 		extent.flush();
 	}
 	
-	@Test(priority = 6) //pass
-	void StatutoryChecklistAction1() throws InterruptedException
+	@Test(priority = 7) //pass
+	void StatutoryChecklistBox() throws InterruptedException
 	{
-		test = extent.startTest("Statutory Checklist Count Through Action");
+		test = extent.startTest("Statutory Checklist CheckBoxes check ");
 		test.log(LogStatus.INFO, "Test Initiated");
 		
 		MethodsPOM.StatutoryCheckListCheckbox(driver, test);
@@ -349,13 +349,25 @@ public class OverdueCount
 		extent.flush();
 	}
 	
-	//@Test(priority = 7)  //pass
+	@Test(priority = 8)  //pass
 	void InternalCheckListAction() throws InterruptedException
 	{
 		test = extent.startTest("Internal Checklist Count Through Action");
 		test.log(LogStatus.INFO, "Test Initiated");
 		
 		MethodsPOM.InternalCheckListAction(driver, test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 9)  //pass
+	void InternalCheckListCheckBox() throws InterruptedException
+	{
+		test = extent.startTest("Internal Checklist CheckBoxes check");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		MethodsPOM.InternalCheckListCheckbox(driver, test);
 		
 		extent.endTest(test);
 		extent.flush();
