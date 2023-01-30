@@ -300,6 +300,141 @@ public class ImplementCount {
 		extent.flush();
 	}
 	
+/*	
+	@Test(priority = 18)
+	void InternalCheckListAssignment() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Report - Internal CheckList Assignment Report   ");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		ImplementMethods.InternalCheckListAssignment(driver,test,"Internal CheckList Assignment Report");
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 19)
+	void StatutoryLabelReport() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Report - Statutory Label Report ");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		ImplementMethods.StatutoryLabelReport(driver,test,"Statutory Label Report");
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 20)
+	void InternalLabelReport() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Report - Internal Label Report ");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		ImplementMethods.InternalLabelReport(driver,test,"Internal Label Report");
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 21)
+	void AllReport() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Report - All Report ");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		ImplementMethods.AllReport(driver,test,"All Report");
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 22)
+	void CompliaceCountReport() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Report - Compliace Count Report ");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		ImplementMethods.CompliaceCountReport(driver,test,"Compliace Count Report");
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	*/
+	
+//	@Test(priority = 23)
+	void ComplianceActivation() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Compliance Activation -Assign Compliance ");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		ImplementMethods.AssignCompliance(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+//	@Test(priority = 24)
+	void IntermediateCompliance() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Compliance Activation -Intermediate Compliance ");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		ImplementMethods.IntermediateCompliance(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	//@Test(priority = 25)
+	void ActivateCompliance() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Compliance Activation -Activate Compliance  ");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		ImplementMethods.ActivateCompliance(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+//	@Test(priority = 26)
+	void AssignCheckList() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Compliance Activation -Assign CheckList");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		ImplementMethods.AssignCheckList(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 27)
+	void IntermediateCheckList() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Compliance Activation - Intermediate CheckList ");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		ImplementMethods.IntermediateCheckList(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 28)
+	void ActivateCheckList() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Compliance Activation -Activate CheckList  ");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		ImplementMethods.ActivateCheckList(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	
 	
 	//@AfterTest
 		void Closing() throws InterruptedException

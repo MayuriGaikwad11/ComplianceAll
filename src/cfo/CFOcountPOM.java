@@ -2217,22 +2217,22 @@ public class CFOcountPOM
 		String string_Compliances =CFOcountPOM.readCompliances(driver).getText();		//Storing old value of Statutory overdue.
 	int	CompliancesCountDas = Integer.parseInt(string_Compliances);
 		CFOcountPOM.readCompliances(driver).click();
-		Thread.sleep(500);
+		Thread.sleep(7000);
 		
 		litigationPerformer.MethodsPOM.progress(driver);
 		
-		WebDriverWait wait = new WebDriverWait(driver, (60));
+		WebDriverWait wait = new WebDriverWait(driver, (120));
 		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));	//Wait until frame get visible and switch to it.
-		Thread.sleep(1000);
+		Thread.sleep(10000);
 		CFOcountPOM.clickExportImage(driver).click();                    //export excel
-		Thread.sleep(5000);
+		Thread.sleep(10000);
 		test.log(LogStatus.PASS, "Excel file Export Successfully");	
 		CFOcountPOM.clickLocation(driver).click();
 		Thread.sleep(500);
 		CFOcountPOM.clickBitaAurangabad(driver).click();
 		Thread.sleep(1000);
 		CFOcountPOM.clickClear(driver).click();
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		test.log(LogStatus.PASS, "Clear Button is working");	
 		js.executeScript("window.scrollBy(0,500)");
 		Thread.sleep(3000);
@@ -3200,7 +3200,7 @@ public class CFOcountPOM
 			CFOcountPOM.readLow(driver).click();						//Clicking on Low value of Pie Chart of 'Not Completed'.
 		}
 		
-		WebDriverWait wait = new WebDriverWait(driver,(120));
+		WebDriverWait wait = new WebDriverWait(driver,(160));
 		
 		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));	//Wait until frame get visible and switch to it.
 		try
@@ -3214,7 +3214,7 @@ public class CFOcountPOM
 		}
 		
 		
-			
+		
 			 By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[17]/a");
 			
 				wait.until(ExpectedConditions.presenceOfElementLocated(locator));

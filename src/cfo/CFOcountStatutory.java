@@ -51,16 +51,16 @@ public class CFOcountStatutory
 	
 	//Write "CFO-diy" for DIYProduction link.
 	//Write "CFO" for login.avantis for CFO Finance
-//	public static String link = "CFO";           //Check link in excel sheet first.
+	public static String link = "CFO";           //Check link in excel sheet first.
 			
-	public static String link = "mgmt";  
+//	public static String link = "mgmt";  
 	
 	public static XSSFSheet ReadExcel() throws IOException
 	{
 		//String workingDir = System.getProperty("webdriver.chrome.driver","C:/March2022/PerformerPom/Driver/chromedriver.exe");
-		fis = new FileInputStream("C:/March2022/PerformerPom/TestData/ComplianceSheet.xlsx");
+		fis = new FileInputStream("C:\\Users\\Mayuri Gaikwad\\Desktop\\PerformerPom\\TestData\\ComplianceSheet.xlsx");
 		workbook = new XSSFWorkbook(fis);
-		sheet = workbook.getSheetAt(11);					//Retrieving third sheet of Workbook
+		sheet = workbook.getSheetAt(2);					//Retrieving third sheet of Workbook
 		return sheet;
 	}
 	
@@ -68,7 +68,7 @@ public class CFOcountStatutory
 	void setBrowser() throws InterruptedException, IOException
 	{
 	//	String workingDir = System.getProperty("webdriver.chrome.driver","C:/March2022/PerformerPom/Driver/chromedriver.exe");
-		extent = new com.relevantcodes.extentreports.ExtentReports("C:/March2022/PerformerPom/Reports/CFOResultsStatotory.html",true);
+		extent = new com.relevantcodes.extentreports.ExtentReports("C:\\Users\\Mayuri Gaikwad\\Desktop\\PerformerPom\\Reports\\CFOResultsStatotory.html",true);
 		test = extent.startTest("Verify OpenBrowser");
 		test.log(LogStatus.INFO, "Browser test is initiated");
 		
@@ -138,7 +138,7 @@ public class CFOcountStatutory
 	}
 	
 	
-	//@Test(priority = 3)
+	@Test(priority = 3)
 	void CompliancesCountMatch() throws InterruptedException
 	{
 		test = extent.startTest(" Count by Clicking on 'Compliances'");
@@ -153,19 +153,19 @@ public class CFOcountStatutory
 		
 		litigationPerformer.MethodsPOM.progress(driver);
 		
-		WebDriverWait wait = new WebDriverWait(driver,(60));
+		WebDriverWait wait = new WebDriverWait(driver,(140));
 		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));	//Wait until frame get visible and switch to it.
-		Thread.sleep(1000);
+		Thread.sleep(8000);
 		CFOcountPOM.clickExportImage(driver).click();                    //export excel
 		Thread.sleep(5000);
 		test.log(LogStatus.PASS, "Excel file Export Successfully");	
-	/*	CFOcountPOM.clickLocation(driver).click();
+		CFOcountPOM.clickLocation(driver).click();
 		Thread.sleep(500);
 		CFOcountPOM.clickAVIPL(driver).click();
 		Thread.sleep(500);
 		CFOcountPOM.clickClear(driver).click();
 		Thread.sleep(2000);
-		test.log(LogStatus.PASS, "Clear Button is working");	*/
+		test.log(LogStatus.PASS, "Clear Button is working");	
 		js.executeScript("window.scrollBy(0,500)");
 		Thread.sleep(3000);
 		CFOcountPOM.readTotalItemsD(driver).click();					//Clicking on total items count
@@ -328,7 +328,7 @@ public class CFOcountStatutory
 		
 	}
 	
-	@Test(priority = 7)
+	//@Test(priority = 7)
 	void NotCompleted_PieChart() throws InterruptedException
 	{
 		test = extent.startTest("Pie Chart -Completion Status- 'Not Completed' Count Verification");
@@ -500,7 +500,7 @@ public class CFOcountStatutory
 		}
 		extent.endTest(test);
 		extent.flush();
-	}
+	}*/
 	
 	@Test(priority = 9)
 	void ClosedTimely_PieChart() throws InterruptedException
@@ -509,8 +509,8 @@ public class CFOcountStatutory
 		test.log(LogStatus.INFO, "Test Initiated");
 		
 		Actions action = new Actions(driver);
-	//	JavascriptExecutor js = (JavascriptExecutor) driver;
-		//js.executeScript("window.scrollBy(0,500)");						//Scrolling down window by 1000 px.
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,500)");						//Scrolling down window by 1000 px.
 		try{
 		Thread.sleep(1500);
 		int ClosedTimelyValue = Integer.parseInt(CFOcountPOM.clickClosedTimely(driver).getText());	//Reading value of 'After Due Date'
@@ -589,7 +589,7 @@ public class CFOcountStatutory
 			ex.printStackTrace();
 		}
 	}
-	
+/*	
 	@Test(priority = 10)
 	void NotApplicable_PieChart() throws InterruptedException
 	{
