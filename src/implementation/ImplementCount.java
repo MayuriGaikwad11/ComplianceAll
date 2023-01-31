@@ -360,12 +360,12 @@ public class ImplementCount {
 		extent.endTest(test);
 		extent.flush();
 	}
-	*/
 	
-//	@Test(priority = 23)
+	
+	@Test(priority = 23)
 	void ComplianceActivation() throws InterruptedException, IOException
 	{
-		test = extent.startTest("Compliance Activation -Assign Compliance ");
+		test = extent.startTest("Internal Compliances - Compliance Activation -Assign Compliance ");
 		test.log(LogStatus.INFO, "Test Initiated");
 		
 		ImplementMethods.AssignCompliance(driver,test);
@@ -374,10 +374,10 @@ public class ImplementCount {
 		extent.flush();
 	}
 	
-//	@Test(priority = 24)
+	@Test(priority = 24)
 	void IntermediateCompliance() throws InterruptedException, IOException
 	{
-		test = extent.startTest("Compliance Activation -Intermediate Compliance ");
+		test = extent.startTest("Internal Compliances - Compliance Activation -Intermediate Compliance ");
 		test.log(LogStatus.INFO, "Test Initiated");
 		
 		ImplementMethods.IntermediateCompliance(driver,test);
@@ -386,10 +386,10 @@ public class ImplementCount {
 		extent.flush();
 	}
 	
-	//@Test(priority = 25)
+	@Test(priority = 25)
 	void ActivateCompliance() throws InterruptedException, IOException
 	{
-		test = extent.startTest("Compliance Activation -Activate Compliance  ");
+		test = extent.startTest("Internal Compliances- Compliance Activation -Activate Compliance  ");
 		test.log(LogStatus.INFO, "Test Initiated");
 		
 		ImplementMethods.ActivateCompliance(driver,test);
@@ -398,10 +398,10 @@ public class ImplementCount {
 		extent.flush();
 	}
 	
-//	@Test(priority = 26)
+	@Test(priority = 26)
 	void AssignCheckList() throws InterruptedException, IOException
 	{
-		test = extent.startTest("Compliance Activation -Assign CheckList");
+		test = extent.startTest("Internal Compliances - Compliance Activation -Assign CheckList");
 		test.log(LogStatus.INFO, "Test Initiated");
 		
 		ImplementMethods.AssignCheckList(driver,test);
@@ -413,7 +413,7 @@ public class ImplementCount {
 	@Test(priority = 27)
 	void IntermediateCheckList() throws InterruptedException, IOException
 	{
-		test = extent.startTest("Compliance Activation - Intermediate CheckList ");
+		test = extent.startTest(" Internal Compliances - Compliance Activation - Intermediate CheckList ");
 		test.log(LogStatus.INFO, "Test Initiated");
 		
 		ImplementMethods.IntermediateCheckList(driver,test);
@@ -425,10 +425,34 @@ public class ImplementCount {
 	@Test(priority = 28)
 	void ActivateCheckList() throws InterruptedException, IOException
 	{
-		test = extent.startTest("Compliance Activation -Activate CheckList  ");
+		test = extent.startTest("Internal Compliances - Compliance Activation -Activate CheckList  ");
 		test.log(LogStatus.INFO, "Test Initiated");
 		
 		ImplementMethods.ActivateCheckList(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	*/
+//	@Test(priority = 29)
+	void ComplianceCategory() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Internal Compliances - Masters - Compliance Category  ");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		ImplementMethods.ComplianceCategory(driver,test,workbook);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 30)
+	void Compliances() throws InterruptedException, IOException
+	{
+		test = extent.startTest(" Internal Compliances - Masters - Compliances");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		ImplementMethods.Compliances(driver,test,workbook);
 		
 		extent.endTest(test);
 		extent.flush();
