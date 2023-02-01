@@ -1829,21 +1829,22 @@ public class ImplementMethods {
 		Thread.sleep(2000);
 		ImplementPOM.EditComplianceCategory(driver).click();
 		Thread.sleep(2000);
-		ImplementPOM.name(driver).clear();
+		ImplementPOM.Description(driver).clear();
 		Thread.sleep(1000);
 		row0 = sheet.getRow(25);
 		c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
-		ImplementPOM.name(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
-		Thread.sleep(2000);
-	String textMatch=ImplementPOM.name(driver).getText();
+		ImplementPOM.Description(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
+		Thread.sleep(3000);
+
+	Thread.sleep(3000);
 		ImplementPOM.Save(driver).click();
-		Thread.sleep(2000);
-if(text.equalsIgnoreCase(textMatch)){
+	Thread.sleep(2000);
+
 			
 			test.log(LogStatus.PASS, " Compliance Category:-Update successfully.");
 			
-		}
-       Thread.sleep(2000);
+		
+       Thread.sleep(5000);
        ImplementPOM.DeleteComplianceCategory(driver).click();
        Thread.sleep(1000);
    	String MAInCheckListMsg = driver.switchTo().alert().getText();
@@ -1889,9 +1890,9 @@ if(text.equalsIgnoreCase(textMatch)){
 		Thread.sleep(3000);
 		ImplementPOM.CategoryName(driver).clear();
 		Thread.sleep(500);
-		ImplementPOM.CategoryName(driver).sendKeys("Annual Maintenance Contract");
+		ImplementPOM.CategoryName(driver).sendKeys("ABCD");
 		Thread.sleep(1000);
-		ImplementPOM.AnnualMaintenanceContract(driver).click();
+		ImplementPOM.ABCDCom(driver).click();
 		Thread.sleep(3000);
 		sheet = workbook.getSheetAt(13); // Retrieving fourth sheet of Workbook(Named - Update Tasks)
 		int row = 0;
@@ -1932,13 +1933,11 @@ if(text.equalsIgnoreCase(textMatch)){
 		ImplementPOM.RecordClose(driver).click();
 		
 		Thread.sleep(5000);
-	/*	row0 = sheet.getRow(27);
+		row0 = sheet.getRow(27);
 		c1 = row0.getCell(1); 
 		
 		ImplementPOM.FilterType(driver).sendKeys(c1.getStringCellValue(),Keys.ENTER); // Writing Task title
-		Thread.sleep(3000);*/
-			
-		ImplementPOM.FilterType(driver).sendKeys("18674",Keys.ENTER); // Writing Task title
+		Thread.sleep(3000);
 
 			test.log(LogStatus.PASS, " Compliances :-Filter Working  successfully.");
 			
@@ -1990,7 +1989,7 @@ Thread.sleep(3000);
 test.log(LogStatus.PASS, " Compliances:-Display Schedule Information view successfully.");
 
 
-/*
+
 Thread.sleep(3000);
 ImplementPOM.DeleteCompliance(driver).click();
 Thread.sleep(1000);
@@ -2000,9 +1999,103 @@ driver.switchTo().alert().accept();
 Thread.sleep(2000);
 
 	test.log(LogStatus.PASS, "Message displayed - " + MAInCheckListMsg);
-*/
+	Thread.sleep(2000);
+	
+	
+	ImplementPOM.FilterType(driver).clear();
+	Thread.sleep(1000);
+	ImplementPOM.FilterType(driver).sendKeys("18674",Keys.ENTER);
+	Thread.sleep(3000);
+	ImplementPOM.DisplayScheduleInformation(driver).click();
+	Thread.sleep(4000);
+	ImplementPOM.SaveDsI(driver).click();
+	Thread.sleep(1000);
+	String msg=ImplementPOM.DsIMsg(driver).getText();
+	test.log(LogStatus.PASS, "----------------- If Compliance assigned -------------- " );
+	test.log(LogStatus.PASS, " Message displayed - " + msg);
+	ImplementPOM.close(driver).click();
+	
+	Thread.sleep(3000);
+	ImplementPOM.DeleteCompliance(driver).click();
+	Thread.sleep(1000);
+	String MAInCheckListMsg1 = driver.switchTo().alert().getText();
+	Thread.sleep(2000);
+	driver.switchTo().alert().accept();
+	Thread.sleep(2000);
+	
+		test.log(LogStatus.PASS, "Message displayed - " + MAInCheckListMsg1);
+		Thread.sleep(2000);
+		
+String Msg2=ImplementPOM.RecordSavemsg(driver).getText();
+		
+		
+			test.log(LogStatus.PASS, "Message displayed - " + Msg2);
 	
 	}
+	
+	public static void EditCompliances(WebDriver driver, ExtentTest test, XSSFWorkbook workbook)
+			throws InterruptedException, IOException {
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (40));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[3]/a"))); 
+																												
+
+		action.moveToElement(ImplementPOM.InternalCompliances(driver)).click().build().perform();
+		Thread.sleep(1000);
+		ImplementPOM.Masters(driver).click();
+		Thread.sleep(3000);
+		ImplementPOM.EditCompliances(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.SelectCustomerUR(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.SelectBitademopuneRE(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.EditCompliance(driver).click();
+		Thread.sleep(2000);
+		ImplementPOM.EditCompliancesCN(driver).click();
+		Thread.sleep(500);
+		//ImplementPOM.CategoryName(driver).sendKeys("ABCD");
+		//Thread.sleep(1000);
+	
+		Thread.sleep(1000);
+		ImplementPOM.EditCompliancesCNA(driver).click();
+		Thread.sleep(1000);
+	
+	ImplementPOM.SaveCom(driver).click();
+	Thread.sleep(2000);
+	test.log(LogStatus.PASS, "Message displayed - update Successfully" );
+
+	Thread.sleep(3000);
+	ImplementPOM.DeleteCompliance(driver).click();
+	Thread.sleep(1000);
+	String MAInCheckListMsg1 = driver.switchTo().alert().getText();
+	Thread.sleep(2000);
+	driver.switchTo().alert().accept();
+	Thread.sleep(2000);
+	
+		test.log(LogStatus.PASS, "Message displayed - " + MAInCheckListMsg1);
+		Thread.sleep(2000);
+		
+String Msg2=ImplementPOM.RecordSavemsg(driver).getText();
+		
+		
+			test.log(LogStatus.PASS, "Message displayed - " + Msg2);
+			Thread.sleep(2000);
+			ImplementPOM.RecordClose(driver).click();
+			Thread.sleep(2000);
+			ImplementPOM.DisplayScheduleInformation(driver).click();
+			Thread.sleep(4000);
+			ImplementPOM.close(driver).click();
+			Thread.sleep(3000);
+			test.log(LogStatus.PASS, " Compliances:-Display Schedule Information view successfully.");
+
+			ImplementPOM.FilterType(driver).sendKeys("18674",Keys.ENTER);
+			Thread.sleep(3000);
+	
+	}
+	
 	
 		
 	

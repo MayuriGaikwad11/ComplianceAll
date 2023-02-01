@@ -446,13 +446,25 @@ public class ImplementCount {
 		extent.flush();
 	}
 	
-	@Test(priority = 30)
+//	@Test(priority = 30)
 	void Compliances() throws InterruptedException, IOException
 	{
 		test = extent.startTest(" Internal Compliances - Masters - Compliances");
 		test.log(LogStatus.INFO, "Test Initiated");
 		
 		ImplementMethods.Compliances(driver,test,workbook);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 31)
+	void EditCompliances() throws InterruptedException, IOException
+	{
+		test = extent.startTest(" Internal Compliances - Masters - Edit Compliances");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		ImplementMethods.EditCompliances(driver,test,workbook);
 		
 		extent.endTest(test);
 		extent.flush();

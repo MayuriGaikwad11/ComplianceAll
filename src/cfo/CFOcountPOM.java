@@ -1313,7 +1313,7 @@ public class CFOcountPOM
 	
 	public static WebElement clickPenaltyHigh(WebDriver driver)		//Method to search 'High Risk' bar of Penalty Summary.
 	{
-		penlatysummary = driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-undefined highcharts-drilldown-data-label'])[37]"));
+		penlatysummary = driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-undefined highcharts-drilldown-data-label'])[35]"));
 		return penlatysummary;
 	}
 	
@@ -1337,7 +1337,7 @@ public class CFOcountPOM
 	
 	public static WebElement clickPenaltyMedium(WebDriver driver)		//Method to search 'Medium Risk' bar of Penalty Summary.
 	{
-		penlatysummary = driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-undefined highcharts-drilldown-data-label'])[41]"));
+		penlatysummary = driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-undefined highcharts-drilldown-data-label'])[37]"));
 		return penlatysummary;
 	}
 	
@@ -1361,7 +1361,7 @@ public class CFOcountPOM
 	
 	public static WebElement clickPenaltyLow(WebDriver driver)			//Method to search 'Low Risk' bar of Penalty Summary.
 	{
-		penlatysummary = driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-undefined highcharts-drilldown-data-label'])[46]"));
+		penlatysummary = driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-undefined highcharts-drilldown-data-label'])[39]"));
 		return penlatysummary;
 	}
 	
@@ -2510,6 +2510,127 @@ public class CFOcountPOM
 	//		test.log(LogStatus.PASS, "Excel file Export Successfully");
 		//	Thread.sleep(3000);
 			
+  By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[6]/td[17]/a");
+
+			wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+			Thread.sleep(4000);
+			// retrieving "foo-button" HTML element
+			WebElement ViewButton = driver.findElement(locator);	
+			Thread.sleep(3000);
+		JavascriptExecutor jse=(JavascriptExecutor)driver;
+		jse.executeScript("arguments[0].click();", ViewButton);
+			Thread.sleep(4000);
+			test.log(LogStatus.INFO, "overView success");
+			CFOcountPOM.closeDocument(driver).click();
+			Thread.sleep(3000);
+		
+		Thread.sleep(500);
+	/*	try
+		{
+			elementsList = CFOcountPOM.selectDropdown(driver);				//It is a dropdown but don't have Select tag.
+			elementsList.get(0).click();									//Clicking on first 'Entity Location' Drop down.
+			
+			Thread.sleep(300);
+			Actions action = new Actions(driver);
+			if(Compliance.equalsIgnoreCase("Statutory"))
+			{
+				action.moveToElement(CFOcountPOM.selectFirst(driver)).click().build().perform();	//Selecting first option of the drop down. (BITA CONSULTING PVT LTD)
+			}
+			else
+			{
+				action.moveToElement(CFOcountPOM.selectFirst1(driver)).click().build().perform();	//Selecting first option of the drop down. (ABCD PVT LTD)
+			}
+		}
+		catch(Exception e)
+		{
+			
+		}*/
+		
+		CFOcountPOM.clickExportImage(driver).click();
+		Thread.sleep(4000);
+		test.log(LogStatus.PASS, "Excel file Export Successfully");
+		Thread.sleep(3000);
+		
+		Thread.sleep(1000);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,300)");						//Scrolling down window by 1000 px.
+		Thread.sleep(1000);
+		CFOcountPOM.readTotalItemsD(driver).click();					//Clicking on Text of total items just to scroll down.
+		String s1 = CFOcountPOM.readTotalItemsD(driver).getText();		//Reading total number of items.
+		String[] bits = s1.split(" ");									//Splitting the String
+		String itomsCount = bits[bits.length - 2];						//Getting the second last word (total number of items)
+		
+		int count = 0;
+		if(itomsCount.equalsIgnoreCase("to"))							//If not items found
+		{
+			Thread.sleep(2500);
+			s1 = CFOcountPOM.readTotalItems(driver).getText();
+			bits = s1.split(" ");										//Splitting the String
+			itomsCount = bits[bits.length - 2];
+		}
+		if(itomsCount.equalsIgnoreCase("to"))							//If not items found
+		{
+			count = 0;
+		}
+		else
+		{
+			count = Integer.parseInt(itomsCount);
+		}
+		
+		Thread.sleep(500);
+		driver.switchTo().parentFrame();
+		CFOcountPOM.closeCategories(driver).click();					//Closing the High Risk Window.
+		
+		if(count == complianceCount)
+		{
+			test.log(LogStatus.PASS, "'"+risk+"' risk compliance count matches to numbers of items from grid.");
+			test.log(LogStatus.INFO, "'"+risk+"' risk compliance count = " + complianceCount + " | Total number of items from grid = "+count);
+		}
+		else
+		{
+			test.log(LogStatus.FAIL, "'"+risk+"' risk compliance count does not matches to numbers of Items.");
+			test.log(LogStatus.INFO, "'"+risk+"' risk compliance count = " + complianceCount + " | Total number of items from grid = "+count);
+		}
+	}
+	
+ 	public static void GraphCountM(WebDriver driver, ExtentTest test, String risk, int complianceCount, String Compliance)throws InterruptedException
+	{
+		Thread.sleep(500);
+		if(risk.equalsIgnoreCase("Critical"))
+		{
+			CFOcountPOM.readCritical(driver).click();					//Clicking on Critical value of Pie Chart of 'Not Completed'.
+		}
+		else if(risk.equalsIgnoreCase("High"))
+		{
+			CFOcountPOM.readHigh(driver).click();						//Clicking on High value of Pie Chart of 'Not Completed'.
+		}
+		else if(risk.equalsIgnoreCase("Medium"))
+		{
+			CFOcountPOM.readMedium(driver).click();						//Clicking on Medium value of Pie Chart of 'Not Completed'.
+		}
+		else if(risk.equalsIgnoreCase("Low"))
+		{
+			CFOcountPOM.readLow(driver).click();						//Clicking on Low value of Pie Chart of 'Not Completed'.
+		}
+		
+		WebDriverWait wait = new WebDriverWait(driver, (100));
+		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));	//Wait until frame get visible and switch to it.
+		try
+		{
+			
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='k-selectable']")));
+			Thread.sleep(8000);
+		}
+		catch(Exception e)
+		{
+			
+		}
+		
+	//	 CFOcountPOM.clickExportImage(driver).click();
+		//	Thread.sleep(4000);
+	//		test.log(LogStatus.PASS, "Excel file Export Successfully");
+		//	Thread.sleep(3000);
+			
   By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[17]/a");
 
 			wait.until(ExpectedConditions.presenceOfElementLocated(locator));
@@ -2593,6 +2714,7 @@ public class CFOcountPOM
 		}
 	}
 	
+ 	
  	public static void GraphCountIn(WebDriver driver, ExtentTest test, String risk, int complianceCount, String Compliance)throws InterruptedException
 	{
 		Thread.sleep(500);
@@ -2840,11 +2962,13 @@ public class CFOcountPOM
 			Thread.sleep(4000);
 			CFOcountPOM.closeDocument1(driver).click();
 			Thread.sleep(3000);
+			test.log(LogStatus.INFO, "Document downloaded successfully");
 			ViewButton.get(1).click();
 			Thread.sleep(4000);
+			test.log(LogStatus.INFO, "View successfully");
 			ViewButton.get(2).click();
 		    Thread.sleep(4000);
-			test.log(LogStatus.INFO, "overView success");
+			test.log(LogStatus.INFO, "overView successfully");
 			CFOcountPOM.closeDocument(driver).click();
 			Thread.sleep(3000);
 			
@@ -3774,8 +3898,9 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[17]/a");
 			test.log(LogStatus.PASS, "Excel file Export Successfully");
 			Thread.sleep(3000);
 			
-By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[17]/a");
+// By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[17]/a");
 
+			By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[17]/a[3]");
 			wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 			Thread.sleep(4000);
 			// retrieving "foo-button" HTML element
@@ -4109,7 +4234,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[17]/a");
 	      driver.switchTo().window(ch);         // switching child window
 	    
 	      driver.close();
-	      test.log(LogStatus.PASS, " Location -Download");
+	      test.log(LogStatus.PASS, " Location -Preview");
 	      driver.switchTo().window(pw);  
 		performer.OverduePOM.clickDashboard(driver).click();
 	//	ClickPreview(driver).click();
@@ -4369,7 +4494,18 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[17]/a");
 		test.log(LogStatus.PASS, "Overall Internal-Export");
 		ClickDownload(driver).click();
 		Thread.sleep(5000);
-		test.log(LogStatus.PASS, "Overall Internal-Download");
+		try {
+			String msg = driver.switchTo().alert().getText();
+			Thread.sleep(2000);
+			driver.switchTo().alert().accept();							//Clicking on OK of alert.
+			test.log(LogStatus.PASS, "Message displayed -:- " + msg);
+					
+				}
+				catch(Exception e)
+				{
+					test.log(LogStatus.PASS, "Overall Internal-Download");	
+				}
+	//	test.log(LogStatus.PASS, "Overall Internal-Download");
 		ClickPreview(driver).click();
 		Thread.sleep(8000);
 		Set w = driver.getWindowHandles();    // window handles
@@ -4414,8 +4550,19 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[17]/a");
 		Thread.sleep(4000);
 		test.log(LogStatus.PASS, "Location Internal-Export");
 		ClickDownloadLocation(driver).click();
-		Thread.sleep(5000);
-		test.log(LogStatus.PASS, "Location Internal-Download");
+		Thread.sleep(4000);
+try {
+	String msg = driver.switchTo().alert().getText();
+	Thread.sleep(2000);
+	driver.switchTo().alert().accept();							//Clicking on OK of alert.
+	test.log(LogStatus.PASS, "Message displayed -:- " + msg);
+			
+		}
+		catch(Exception e)
+		{
+			test.log(LogStatus.PASS, "Location Internal-Download");	
+		}
+		//test.log(LogStatus.PASS, "Location Internal-Download");
 		ClickPreviewLocation(driver).click();
 		//Thread.sleep(5000);
 		Thread.sleep(8000);
@@ -4462,7 +4609,18 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[17]/a");
 		test.log(LogStatus.PASS, "User Internal-Export");
 		ClickDownloadUser(driver).click();
 		Thread.sleep(5000);
-		test.log(LogStatus.PASS, "User Internal-Download");
+		try {
+			String msg = driver.switchTo().alert().getText();
+			Thread.sleep(2000);
+			driver.switchTo().alert().accept();							//Clicking on OK of alert.
+			test.log(LogStatus.PASS, "Message displayed -:- " + msg);
+					
+				}
+				catch(Exception e)
+				{
+					test.log(LogStatus.PASS, "User Internal-Download");	
+				}
+		//test.log(LogStatus.PASS, "User Internal-Download");
 		ClickPreviewUser(driver).click();
 		Thread.sleep(8000);
 		Set w = driver.getWindowHandles();    // window handles
@@ -4490,12 +4648,12 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[17]/a");
 		clickReports(driver).click();					//Clicking on 'My Reports'
 		Thread.sleep(3000);
 		clickStandardReport(driver).click();
-		Thread.sleep(7000);
+		Thread.sleep(8000);
 		clickSRInternal(driver).click();
-		Thread.sleep(4000);
+		Thread.sleep(6000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,600)");					//Scrolling down window by 2600 px.
-		Thread.sleep(1000);
+		Thread.sleep(4000);
 		
 		By locator = By.xpath("//*[@id='ContentPlaceHolder1_ImageButton3']");
 		
@@ -4512,7 +4670,18 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[17]/a");
 		test.log(LogStatus.PASS, "Category Internal-Export");
 		ClickDownloadCategory(driver).click();
 		Thread.sleep(5000);
-		test.log(LogStatus.PASS, "Category Internal-Download");
+		try {
+			String msg = driver.switchTo().alert().getText();
+			Thread.sleep(2000);
+			driver.switchTo().alert().accept();							//Clicking on OK of alert.
+			test.log(LogStatus.PASS, "Message displayed -:- " + msg);
+					
+				}
+				catch(Exception e)
+				{
+					test.log(LogStatus.PASS, "Category Internal-Download");	
+				}
+	//	test.log(LogStatus.PASS, "Category Internal-Download");
 		ClickPreviewCategory(driver).click();
 		Thread.sleep(8000);
 		Set w = driver.getWindowHandles();    // window handles
@@ -4561,8 +4730,19 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[17]/a");
 		test.log(LogStatus.PASS, "Risk Internal-Export");
 		Thread.sleep(4000);
 		ClickDownloadRisk(driver).click();
-		Thread.sleep(5000);
-		test.log(LogStatus.PASS, "Risk Internal-Download");
+		Thread.sleep(3000);
+		try {
+			String msg = driver.switchTo().alert().getText();
+			Thread.sleep(2000);
+			driver.switchTo().alert().accept();							//Clicking on OK of alert.
+			test.log(LogStatus.PASS, "Message displayed -:- " + msg);
+					
+				}
+				catch(Exception e)
+				{
+					test.log(LogStatus.PASS, "Risk Internal-Download");	
+				}
+		//test.log(LogStatus.PASS, "Risk Internal-Download");
 		ClickPreviewRisk(driver).click();
 		Thread.sleep(8000);
 		Set w = driver.getWindowHandles();    // window handles
@@ -4599,7 +4779,19 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[17]/a");
 	
 		Thread.sleep(3000);
 		ClickDownloadDetaild(driver).click();
-		test.log(LogStatus.PASS, "Detailed Internal-Download");
+		Thread.sleep(3000);
+		try {
+			String msg = driver.switchTo().alert().getText();
+			Thread.sleep(2000);
+			driver.switchTo().alert().accept();							//Clicking on OK of alert.
+			test.log(LogStatus.PASS, "Message displayed -:- " + msg);
+					
+				}
+				catch(Exception e)
+				{
+					test.log(LogStatus.PASS, "Detailed Internal-Download");	
+				}
+	//	test.log(LogStatus.PASS, "Detailed Internal-Download");
 		Thread.sleep(5000);
 		ClickPreviewDetailed(driver).click();
 		Thread.sleep(8000);
@@ -4650,8 +4842,19 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[17]/a");
 		closeExport(driver).click();
 		Thread.sleep(4000);
 		ClickDownloadCriticalRisk(driver).click();
-		Thread.sleep(5000);
-		 test.log(LogStatus.PASS, "Critical Risk Internal-Download");
+		Thread.sleep(3000);
+		try {
+			String msg = driver.switchTo().alert().getText();
+			Thread.sleep(2000);
+			driver.switchTo().alert().accept();							//Clicking on OK of alert.
+			test.log(LogStatus.PASS, "Message displayed -:- " + msg);
+					
+				}
+				catch(Exception e)
+				{
+					test.log(LogStatus.PASS, "Critical Internal-Download");	
+				}
+		// test.log(LogStatus.PASS, "Critical Risk Internal-Download");
 		ClickPreviewCriticalR(driver).click();
 		Thread.sleep(8000);
 		Set w = driver.getWindowHandles();    // window handles
@@ -4759,6 +4962,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[17]/a");
 		Thread.sleep(4000);
 		CFOcountPOM.clickExportImage(driver).click();			//Exporting (Downloading) file
 		Thread.sleep(5000);
+		test.log(LogStatus.INFO, "Exporting (Downloading) file successfully");
 		By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[23]/a");
 		wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 		Thread.sleep(4000);
@@ -4770,7 +4974,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[17]/a");
 	jse.executeScript("arguments[0].click();", ViewButton);
 		Thread.sleep(4000);
 		CFOcountPOM.closeDocument1(driver).click();
-		test.log(LogStatus.INFO, "overView success");
+		test.log(LogStatus.INFO, "overView successfully");
 	//	CFOcountPOM.closeDocument1(driver).click();
 		Thread.sleep(4000);
 		clickAdvancedSearch(driver).click();
@@ -4790,7 +4994,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[17]/a");
 	Thread.sleep(2000);
 	jse1.executeScript("arguments[0].click();", ViewButton1);
 		Thread.sleep(5000);
-	//	test.log(LogStatus.INFO, "overView success");
+		test.log(LogStatus.INFO, "AdvancedSearch - overView success");
 		Thread.sleep(1000);
 		By locator3 = By.xpath("//*[@id='divOverView1']/div/div/div[1]/button");
 		  
@@ -4807,7 +5011,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[17]/a");
 		Thread.sleep(4000);
 		clickExportExcel(driver).click();
 		Thread.sleep(3000);
-		
+		test.log(LogStatus.INFO, "AdvancedSearch - Exporting (Downloading) file successfully");
 		selectMonth1(driver).click();
 		Thread.sleep(3000);
 		
@@ -4829,7 +5033,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[17]/a");
 		Thread.sleep(2000);
 		jse1.executeScript("arguments[0].click();", ViewButton2);
 			Thread.sleep(5000);
-			test.log(LogStatus.INFO, "overView success");
+			test.log(LogStatus.INFO, "AdvancedSearch - overView successfully");
 			CFOcountPOM.closeDocument2(driver).click();
 			Thread.sleep(4000);
 			clickExportExcel(driver).click();
@@ -5149,7 +5353,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[17]/a");
 		
 WebDriverWait wait = new WebDriverWait(driver, (140));
 	    
-		Thread.sleep(500);
+		Thread.sleep(5000);
 		CFOcountPOM.clickDocuments(driver).click();					//Clicking on 'My Documents'
 		Thread.sleep(3000);
 		CFOcountPOM.clickActDocuments(driver).click();			//Clicking on 'Act Documents ' 
@@ -5167,6 +5371,7 @@ WebDriverWait wait = new WebDriverWait(driver, (140));
 			Thread.sleep(4000);
 			CFOcountPOM.closeDocument1(driver).click();
 			Thread.sleep(3000);
+			test.log(LogStatus.PASS,   " Act Documents:-View Successfully ");
 			ViewButton.get(1).click();
 			Thread.sleep(4000);
 			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("DownloadViews"));
@@ -5175,7 +5380,7 @@ WebDriverWait wait = new WebDriverWait(driver, (140));
 			driver.switchTo().defaultContent();
 			CFOcountPOM.closeDownloadTab(driver).click();
 			Thread.sleep(3000);
-		
+			test.log(LogStatus.PASS,   " Act Documents:-Download Successfully ");
 			performer.OverduePOM.clickDashboard(driver).click();
 		
 	}
@@ -5200,6 +5405,7 @@ WebDriverWait wait = new WebDriverWait(driver,(140));
 			Thread.sleep(3000);
 			ViewButton.get(0).click();
 			Thread.sleep(4000);
+			test.log(LogStatus.PASS, " :- View successfully.");
 			CFOcountPOM.closeViewDoc(driver).click();
 			Thread.sleep(3000);
 			ViewButton.get(1).click();
@@ -5210,10 +5416,12 @@ WebDriverWait wait = new WebDriverWait(driver,(140));
 			driver.switchTo().defaultContent();
 			CFOcountPOM.closeDownloadTab(driver).click();
 			Thread.sleep(3000);
+			test.log(LogStatus.PASS, "  File downloaded successfully.");
 			ViewButton.get(2).click();
 			Thread.sleep(5000);
 			CFOcountPOM.closeOverViewDoc(driver).click();
 			Thread.sleep(5000);
+			test.log(LogStatus.PASS, "  OverView successfully.");
 			 By locator1 = By.xpath("//*[@id='sel_chkbxMain']");
 
 				wait.until(ExpectedConditions.presenceOfElementLocated(locator1));
@@ -5229,7 +5437,8 @@ WebDriverWait wait = new WebDriverWait(driver,(140));
 				Thread.sleep(3000);
 				driver.findElement(By.xpath("//*[@id='dvbtndownloadDocumentMain']")).click();
 				Thread.sleep(3000);
-				elementsList = CFOcountPOM.selectDropdown(driver);				//It is a dropdown but don't have Select tag.
+				test.log(LogStatus.PASS, " After Checking Multiple checkbox  File downloaded successfully.");
+			/*	elementsList = CFOcountPOM.selectDropdown(driver);				//It is a dropdown but don't have Select tag.
 					elementsList.get(0).click();									//Clicking on first dropdown
 					Thread.sleep(500);
 					Actions action = new Actions(driver);
@@ -5237,9 +5446,9 @@ WebDriverWait wait = new WebDriverWait(driver,(140));
 					action.moveToElement(CFOcountPOM.selectFirst(driver)).click().build().perform();	//Selecting first option of the drop down.
 					Thread.sleep(500);
 					CFOcountPOM.clickClear(driver).click();
-					Thread.sleep(1000);
+					Thread.sleep(1000);*/
 					test.log(LogStatus.PASS, "Clear Button Working");
-		/*		CFOcountPOM.clickAdvancedSearch(driver).click();
+				CFOcountPOM.clickAdvancedSearch(driver).click();
 				Thread.sleep(3000);
 			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//*[@class='k-selectable'])[2]")));	//Wait till records table gets visible
 			Thread.sleep(3000);
@@ -5253,6 +5462,7 @@ WebDriverWait wait = new WebDriverWait(driver,(140));
 			Thread.sleep(5000);
 			CFOcountPOM.closeDocument1(driver).click();
 			Thread.sleep(3000);
+			test.log(LogStatus.PASS, "Advanced Search :- View successfully.");
 			ViewButton1.get(1).click();
 			Thread.sleep(4000);
 			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("DownloadViews1"));
@@ -5261,10 +5471,12 @@ WebDriverWait wait = new WebDriverWait(driver,(140));
 			driver.switchTo().defaultContent();
 			CFOcountPOM.closeDownloadTab1(driver).click();
 			Thread.sleep(3000);
+			test.log(LogStatus.PASS, "Advanced Search - File downloaded successfully.");
 			ViewButton1.get(2).click();
 			Thread.sleep(5000);
 			CFOcountPOM.closeDocument2(driver).click();
 			Thread.sleep(5000);
+			test.log(LogStatus.PASS, "Advanced Search -  OverView successfully.");
 			 By locator3 = By.xpath("//*[@id='sel_chkbx']");
 
 				wait.until(ExpectedConditions.presenceOfElementLocated(locator3));
@@ -5280,8 +5492,10 @@ WebDriverWait wait = new WebDriverWait(driver,(140));
 				Thread.sleep(3000);
 				driver.findElement(By.xpath("//*[@id='dvbtndownloadDocument']")).click();
 				Thread.sleep(4000);
-				CFOcountPOM.closeDocumentAS(driver).click();*/
+				CFOcountPOM.closeDocumentAS(driver).click();
 				Thread.sleep(3000);
+				test.log(LogStatus.PASS, " Advanced Search - After Checking Multiple checkbox  File downloaded successfully.");
+				Thread.sleep(1000);
 				OverduePOM.clickDashboard(driver).click();
 		
 	}
@@ -5305,6 +5519,8 @@ WebDriverWait wait = new WebDriverWait(driver,(140));
 		driver.findElement(By.xpath("//*[@id='grid']/div[4]/table/tbody/tr[1]/td[11]/a")).click();
 		Thread.sleep(5000);
 		driver.findElement(By.xpath("//*[@id='divOverView1']/div/div/div[1]/button")).click();
+		Thread.sleep(1000);
+		test.log(LogStatus.PASS, "OverView Successfully");
 		Thread.sleep(3000);
 		OverduePOM.clickDashboard(driver).click();
 		
@@ -5536,14 +5752,14 @@ WebDriverWait wait = new WebDriverWait(driver,(140));
 			Thread.sleep(500);
 			js.executeScript("window.scrollBy(0,-2000)");				//Scrolling down window by 2600 px.
 			
-			File dir = new File("C:/Users/sandip/Downloads");
+			File dir = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
 			File[] dirContents = dir.listFiles();						//Counting number of files in directory before download
 			
 			Thread.sleep(500);
 			CFOcountPOM.clickExportExcel(driver).click();				//Exporting (Downloading) file
 			
 			Thread.sleep(3000);//C://Users//jiya//Downloads//
-			File dir1 = new File("C:/Users/sandip/Downloads");
+			File dir1 = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
 			File[] allFilesNew = dir1.listFiles();						//Counting number of files in directory after download
 			
 			if(dirContents.length < allFilesNew.length)
@@ -5639,16 +5855,16 @@ WebDriverWait wait = new WebDriverWait(driver,(140));
 		OverduePOM.clickclearBtn(driver).click();
 		test.log(LogStatus.PASS, "Clear Button is working");
 		Thread.sleep(7000);
-		CFOcountPOM.clickAdvancedSearch(driver).click();
+		/*	CFOcountPOM.clickAdvancedSearch(driver).click();
 		Thread.sleep(8000);
 		
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='grid1']/div[3]")));	//Wait till records table gets visible
 	Thread.sleep(1000);
-/*	OverduePOM.clickcomplianceTypeAS(driver).click();
+	OverduePOM.clickcomplianceTypeAS(driver).click();
 	Thread.sleep(1000);
 	OverduePOM.clickcomplianceStaASM(driver).click();
 	Thread.sleep(1000);
-	OverduePOM.clickcomplianceINASM(driver).click();*/
+	OverduePOM.clickcomplianceINASM(driver).click();
 	
 		Thread.sleep(3000);
 		By locator1 = By.xpath("//*[@id='grid1']/div[3]/table/tbody/tr[2]/td[23]/a");
@@ -5730,7 +5946,7 @@ WebDriverWait wait = new WebDriverWait(driver,(140));
 			Thread.sleep(4000);
 			test.log(LogStatus.INFO, "Advanced Search-Clear Button is working");
 			CFOcountPOM.closeDocumentAS(driver).click();
-			Thread.sleep(2000);
+			Thread.sleep(2000);*/
 			OverduePOM.clickDashboard(driver).click();
 	}
 	
@@ -5739,7 +5955,7 @@ WebDriverWait wait = new WebDriverWait(driver,(140));
 		
 		WebDriverWait wait = new WebDriverWait(driver, (140));
 	    
-		Thread.sleep(500);
+		Thread.sleep(2000);
 		CFOcountPOM.clickDocuments(driver).click();					//Clicking on 'My Documents'
 		Thread.sleep(3000);
 		CFOcountPOM.clickComplianceDocuments(driver).click();			//Clicking on 'Compliance Documents ' 

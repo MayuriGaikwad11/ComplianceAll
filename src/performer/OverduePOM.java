@@ -1182,6 +1182,13 @@ public class OverduePOM
 		return performer;                        //*[@id="divOpenPermissionPopup"]/div/div/div[2]/div[3]/div/span/div/ul/li[25]/a/label/text()
 	}
 	
+	public static WebElement clickPeopleCheckBox1(WebDriver driver)		//Clicking on Checkbox in front of name
+	{
+		performer = driver.findElement(By.xpath("//*[@id='divOpenPermissionPopup']/div/div/div[2]/div[3]/div/span/div/ul/li[5]/a/label"));
+		return performer;                        //*[@id="divOpenPermissionPopup"]/div/div/div[2]/div[3]/div/span/div/ul/li[25]/a/label/text()
+	}
+	
+	
 	public static WebElement clickLabel(WebDriver driver)				//Searching label to click on it.
 	{
 		performer = driver.findElement(By.xpath("//*[@class='modal-header-custom']"));
@@ -2519,7 +2526,7 @@ public class OverduePOM
 		Thread.sleep(1000);
 		clickMyDocuments(driver).click();					//Clicking on 'My Documents'
 		
-		Thread.sleep(500);
+		Thread.sleep(1000);
 		clickCriticalDocuments(driver).click();				//Clicking on 'Critical Documents'
 		
 		WebDriverWait wait = new WebDriverWait(driver, (20));
@@ -2595,7 +2602,7 @@ public class OverduePOM
 		
 		Thread.sleep(500);
 		String workingDir = System.getProperty("user.dir");
-		uploadNewFile(driver).sendKeys("C:/March2022/PerformerPom/Reports/PerformerResults.html");	//uploading new file		
+		uploadNewFile(driver).sendKeys("C:\\Users\\Mayuri Gaikwad\\Desktop\\PerformerPom\\Reports\\PerformerResults.html");	//uploading new file		
 		
 		Thread.sleep(500);
 		wait.until(ExpectedConditions.elementToBeClickable(clickUploadDocument(driver)));
@@ -2626,9 +2633,9 @@ public class OverduePOM
 		
 		Thread.sleep(500);
 	//	clickSearchPeople(driver).sendKeys("amol");			//Writing user name to search for  CFO
-		clickSearchPeople(driver).sendKeys("Company");	        // Auditor
+	//	clickSearchPeople(driver).sendKeys("Company");	        // Auditor
 		Thread.sleep(500);
-		clickPeopleCheckBox(driver).click();				//Clicking on label to get out from people search box
+		clickPeopleCheckBox1(driver).click();				//Clicking on label to get out from people search box
 		driver.findElement(By.xpath("//*[@id='divOpenPermissionPopup']/div/div/div[2]")).click();
 		
 		Thread.sleep(1000);
@@ -2674,7 +2681,7 @@ public class OverduePOM
 		driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_btnCreateFolder1']")).click();
 	*/	Thread.sleep(3000);
 		driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_tbxFilter']")).sendKeys(folder,Keys.ENTER);   //search folder
-
+		test.log(LogStatus.PASS, "Filter Working Successfully");
 		Thread.sleep(1000);
 		wait.until(ExpectedConditions.elementToBeClickable(OverduePOM.clickDashboard(driver)));
 		OverduePOM.clickDashboard(driver).click();			//Clicking on Dashboard
