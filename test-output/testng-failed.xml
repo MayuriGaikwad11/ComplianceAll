@@ -3,13 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="management.MgmtTestCountThree">
+      <class name="implementation.ImplementCount">
         <methods>
+          <include name="WidgetMaster"/>
           <include name="setBrowser"/>
-          <include name="StandardReportCategoryIn"/>
-          <include name="Closing"/>
         </methods>
-      </class> <!-- management.MgmtTestCountThree -->
+      </class> <!-- implementation.ImplementCount -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

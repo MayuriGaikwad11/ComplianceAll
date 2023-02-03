@@ -9,8 +9,10 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -2096,8 +2098,651 @@ String Msg2=ImplementPOM.RecordSavemsg(driver).getText();
 	
 	}
 	
+	public static void UploadAssignment(WebDriver driver, ExtentTest test)
+			throws InterruptedException, IOException {
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (40));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[3]/a"))); 
+																												
+
+		action.moveToElement(ImplementPOM.InternalCompliances(driver)).click().build().perform();
+		Thread.sleep(1000);
+		ImplementPOM.UploadUtility(driver).click();
+		Thread.sleep(3000);
+		ImplementPOM.UploadAssignment(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.SelectCustomerU(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.BitademopuneU(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.UploadFileU(driver).sendKeys("C:\\Users\\Mayuri Gaikwad\\Downloads\\ComplianceAssignmentFormat (7) (2).xlsx");
+		
+		ImplementPOM.Upload(driver).click();
+		Thread.sleep(1000);
+	String msg=	ImplementPOM.UploadMsg(driver).getText();
+		Thread.sleep(500);
+		if(msg.equalsIgnoreCase("Data uploaded successfully.")) {
+			
+			test.log(LogStatus.PASS, "Message displayed - " + msg);
+			
+		}else {
+			
+			test.log(LogStatus.FAIL, "Message displayed - " + msg);
+			
+		}
+		
+		
+	}
+	
+	public static void PreviousInternalComplianceDepartmentMapping(WebDriver driver, ExtentTest test)
+			throws InterruptedException, IOException {
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (40));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[3]/a"))); 
+																												
+
+		action.moveToElement(ImplementPOM.InternalCompliances(driver)).click().build().perform();
+		Thread.sleep(1000);
+		ImplementPOM.UploadUtility(driver).click();
+		Thread.sleep(3000);
+		ImplementPOM.PreviousInternalComplianceDepartmentMapping(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.SelectCustomerPICDM(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.ABCDPvtLtd(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.SelectEntityLocation(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.ExpandABCDPvtLtd(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.AWSGFJBitaLimited(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.select(driver).click();
+		Thread.sleep(500);
+		
+		File dir = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
+
+		Thread.sleep(1000);
+		ImplementPOM.Export(driver).click(); // Exporting (Downloading) file
+
+		Thread.sleep(3000);// C://Users//jiya//Downloads//
+		File dir1 = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
+		Thread.sleep(3000);
+		if (dirContents.length < allFilesNew.length) {
+			test.log(LogStatus.PASS, " File downloaded successfully.");
+		} else {
+			test.log(LogStatus.INFO,  "  File does not downloaded.");
+		}
+		Thread.sleep(500);
+		ImplementPOM.FilterType(driver).sendKeys("18557",Keys.ENTER);
+		Thread.sleep(3000);
+	String text=ImplementPOM.InternalComplianceID(driver).getText();
+	if(text.equalsIgnoreCase("18557")) {
+		test.log(LogStatus.PASS, " Filter Working  successfully.");
+	} else {
+		test.log(LogStatus.INFO,  "Filter not working");
+	}
 	
 		
+	}
+	
+	public static void EntitiesAssignments(WebDriver driver, ExtentTest test)
+			throws InterruptedException, IOException {
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (80));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[3]/a"))); 
+					//---------------------------Add New Entities Assignments	--------------------------------																						
+
+		action.moveToElement(ImplementPOM.InternalCompliances(driver)).click().build().perform();
+		Thread.sleep(1000);
+		ImplementPOM.EntitiesAssignments(driver).click();
+		Thread.sleep(3000);
+		ImplementPOM.EntitiesAssignments1(driver).click();
+		Thread.sleep(8000);
+	//	wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("BodyContent_ddlFiltercustomer"))); 
+
+		By locator = By.cssSelector("//select[@class='txtbox']");
+
+		wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+		Thread.sleep(4000);
+		
+		WebElement ViewButton = driver.findElement(locator);	
+		Thread.sleep(3000);
+	JavascriptExecutor jse=(JavascriptExecutor)driver;
+	jse.executeScript("arguments[0].click();", ViewButton);
+		Thread.sleep(4000);
+	//	ImplementPOM.SelectCustomerPICDM(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.ABCDPvtLtd(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.AddNew(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.CustomerAE(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.ABCDPvtLtdEA(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.LocationExpand(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.ASDAZFTextile(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.selectAE(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.User(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.mgmtf(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.Location(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.ComplianceCategoryAE(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.JuneCompliance(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.SaveAE(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.SelectEntityLocation(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.ExpandABCDPvtLtd(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.AWSGFJBitaLimited(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.select(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.SelectUserAE(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.mgmtf(driver).click();
+		Thread.sleep(500);
+		test.log(LogStatus.PASS, "Entities Assignments successfully.");
+		//---------------------------Delete Entities --------------------------------																						
+
+		Thread.sleep(500);
+		ImplementPOM.DeleteEntities(driver).click();
+		Thread.sleep(3000);
+		ImplementPOM.DeleteCustomer(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.DeleteABCDPvtLtd(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.DeleteExpand(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.DeleteTextile(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.DeleteLocation(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.DeleteUser(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.mgmtf(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.DeleteLocation(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.DeleteCategory(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.JuneCompliance(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.DeleteAE(driver).click();
+		Thread.sleep(4000);
+		String Msg = driver.switchTo().alert().getText();
+		Thread.sleep(1000);
+		driver.switchTo().alert().accept();
+
+		test.log(LogStatus.PASS, "Message displayed -:- " + Msg);
+		Thread.sleep(4000);
+		
+		//----------------Export file-----------------------
+		
+		Thread.sleep(3000);
+		File dir = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
+
+		Thread.sleep(500);
+		ImplementPOM.ClickExport(driver).click(); // Exporting (Downloading) file
+
+		Thread.sleep(3000);
+		File dir1 = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
+		Thread.sleep(3000);
+		if (dirContents.length < allFilesNew.length) {
+			test.log(LogStatus.PASS,  " :- File downloaded successfully.");
+		} else {
+			test.log(LogStatus.INFO,  " :- File does not downloaded.");
+		}
+		
+		
+	}
+		
+	public static void LicenseEntitiesAssignments(WebDriver driver, ExtentTest test)
+			throws InterruptedException, IOException {
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (80));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[3]/a"))); 
+					//---------------------------Add New Entities Assignments	--------------------------------																						
+
+		action.moveToElement(ImplementPOM.InternalCompliances(driver)).click().build().perform();
+		Thread.sleep(1000);
+		ImplementPOM.EntitiesAssignments(driver).click();
+		Thread.sleep(3000);
+		ImplementPOM.LicenseEntitiesAssignments(driver).click();
+		Thread.sleep(3000);
+		ImplementPOM.LicenseCustomer(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.BitademopuneU(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.AddNew(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.LicenseCustomerAE(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.BitademopuneU(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.LicenseExpand(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.ABitaPharmaCompany(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.selectAe(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.Licenseuser(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.CFOFinance(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.LicenseLocation(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.LicenseType(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.aaaaaa(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.LicenseLocation(driver).click();
+		Thread.sleep(2000);
+		ImplementPOM.SaveAE(driver).click();
+		Thread.sleep(4000);
+		//---------------------Export------------------------
+		Thread.sleep(3000);
+		File dir = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
+
+		Thread.sleep(500);
+		ImplementPOM.ClickExport(driver).click(); // Exporting (Downloading) file
+
+		Thread.sleep(3000);
+		File dir1 = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
+		Thread.sleep(3000);
+		if (dirContents.length < allFilesNew.length) {
+			test.log(LogStatus.PASS,  " :- File downloaded successfully.");
+		} else {
+			test.log(LogStatus.INFO,  " :- File does not downloaded.");
+		}
+		
+		//---------------------------Delete Entities --------------------------------																						
+
+				Thread.sleep(500);
+				ImplementPOM.LicenseDeleteEntities(driver).click();
+				Thread.sleep(6000);
+				ImplementPOM.LicenseDeleteC(driver).click();
+				Thread.sleep(500);
+				ImplementPOM.BitademopuneU(driver).click();
+				Thread.sleep(4000);
+				ImplementPOM.LicenseDeleteLocExpand(driver).click();
+				Thread.sleep(500);
+				ImplementPOM.LicenseDeleteABitPharmaCompany(driver).click();
+				Thread.sleep(1000);
+				ImplementPOM.LicenseDeleteC(driver).click();
+				Thread.sleep(8000);
+				ImplementPOM.LicenseDeleteLoc(driver).click();
+				Thread.sleep(4000);
+				ImplementPOM.LicenseDeleteUser(driver).click();
+				Thread.sleep(500);
+				ImplementPOM.CFOFinance(driver).click();
+				Thread.sleep(4000);
+				ImplementPOM.LicenseDeleteLoc(driver).click();
+				Thread.sleep(500);
+				ImplementPOM.LicenseDeleteType(driver).click();
+				Thread.sleep(500);
+				ImplementPOM.aaaaaa(driver).click();
+				Thread.sleep(4000);
+				ImplementPOM.LicenseDeleteLoc(driver).click();
+				Thread.sleep(2000);
+				ImplementPOM.LicenseDelete(driver).click();
+				Thread.sleep(4000);
+			/*	String Msg = driver.switchTo().alert().getText();
+				Thread.sleep(1000);
+				driver.switchTo().alert().accept();
+
+				test.log(LogStatus.PASS, "Message displayed -:- " + Msg);
+				Thread.sleep(4000);
+				*/
+		
+	}
+	
+	public static void MasterCompliances(WebDriver driver, ExtentTest test)
+			throws InterruptedException, IOException {
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (80));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[2]/a"))); 
+					
+		action.moveToElement(ImplementPOM.ManageCompliances(driver)).click().build().perform();
+		Thread.sleep(1000);
+		ImplementPOM.MastersMC(driver).click();
+		Thread.sleep(3000);
+		ImplementPOM.CompliancesMC(driver).click();
+		Thread.sleep(6000);
+		ImplementPOM.ComplianceCatagory(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.ClientSpecific(driver).click();
+		Thread.sleep(5000);
+		ImplementPOM.ActGroup(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.ActDemo1(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.CompliancesType(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.CentralMC(driver).click();
+		Thread.sleep(8000);
+		ImplementPOM.EditComplianceMC(driver).click();
+		Thread.sleep(3000);
+	/*	String actualTitle=ImplementPOM.ComplianceDetails(driver).getText();
+		
+		if(actualTitle.equalsIgnoreCase("Compliance Details")) {
+			test.log(LogStatus.PASS,  " Edit Compliance - view Successfully");
+		}else {
+			test.log(LogStatus.FAIL,  "Edit Compliance - view Successfully");
+
+		}*/
+	//	JavascriptExecutor js = (JavascriptExecutor) driver;
+		//js.executeScript("window.scrollBy(0,400)");
+
+		ImplementPOM.EditComplianceClose(driver).click();
+		Thread.sleep(5000);
+		
+		test.log(LogStatus.PASS,  " Edit Compliance - view Successfully");
+		ImplementPOM.DisplaySchedule(driver).click();
+		Thread.sleep(3000);
+		ImplementPOM.DisplayScheduleClose(driver).click();
+		Thread.sleep(5000);
+		test.log(LogStatus.PASS,  " Display Schedule Information - view Successfully");
+		ImplementPOM.FilterType(driver).sendKeys("111854",Keys.ENTER); // Writing Task title
+		Thread.sleep(3000);
+	String match=	ImplementPOM.idMatch(driver).getText();
+		if(match.equalsIgnoreCase("111854")){
+			test.log(LogStatus.PASS,  " Filter Working  successfully.");
+		}else
+		{
+			test.log(LogStatus.PASS,  " Filter not Working properly ");
+		}
+	}
+	
+	public static void Acts(WebDriver driver, ExtentTest test)
+			throws InterruptedException, IOException {
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (80));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[2]/a"))); 
+					
+		action.moveToElement(ImplementPOM.ManageCompliances(driver)).click().build().perform();
+		Thread.sleep(1000);
+		ImplementPOM.MastersMC(driver).click();
+		Thread.sleep(3000);
+		ImplementPOM.Acts(driver).click();
+		Thread.sleep(6000);
+		
+		ImplementPOM.ActsCatrgory(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.ClientSpecific(driver).click();
+		Thread.sleep(2000);
+		ImplementPOM.ActsType(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.CentralMC(driver).click();
+		Thread.sleep(6000);
+		ImplementPOM.EditAct(driver).click();
+		Thread.sleep(3000);
+		
+	/*	String actualTitle=ImplementPOM.Act(driver).getText();
+		
+		if(actualTitle.equalsIgnoreCase("Act")) {
+			test.log(LogStatus.PASS,  " Edit Act - view Successfully");
+		}else {
+			test.log(LogStatus.FAIL,  "Edit Act - view Successfully");
+
+		}*/
+	//	JavascriptExecutor js = (JavascriptExecutor) driver;
+	//	js.executeScript("window.scrollBy(0,400)");
+		test.log(LogStatus.PASS,  " Edit Act - view Successfully");
+
+		ImplementPOM.EditActClose(driver).click();
+		Thread.sleep(5000);
+		
+		ImplementPOM.FilterType(driver).sendKeys("2708",Keys.ENTER); // Writing Task title
+		Thread.sleep(8000);
+	String match=	ImplementPOM.idCheck(driver).getText();
+	Thread.sleep(5000);
+		if(match.equalsIgnoreCase("2708")){
+			test.log(LogStatus.PASS,  " Filter Working  successfully.");
+		}else
+		{
+			test.log(LogStatus.PASS,  " Filter not Working properly ");
+		}
+		Thread.sleep(8000);
+	}
+	
+	public static void HolidayMaster(WebDriver driver, ExtentTest test, XSSFWorkbook workbook)
+			throws InterruptedException, IOException {
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (80));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[2]/a"))); 
+			//----------------------Add New --------------------------		
+		action.moveToElement(ImplementPOM.ManageCompliances(driver)).click().build().perform();
+		Thread.sleep(1000);
+		ImplementPOM.MastersMC(driver).click();
+		Thread.sleep(3000);
+		ImplementPOM.HolidayMaster(driver).click();
+		Thread.sleep(6000);
+		ImplementPOM.SelectComplianceType(driver).click();
+		Thread.sleep(3000);
+		ImplementPOM.ComplianceTypeCentral(driver).click();
+		Thread.sleep(3000);
+		ImplementPOM.AddNewHM(driver).click();
+		Thread.sleep(3000);
+		sheet = workbook.getSheetAt(13); // Retrieving fourth sheet of Workbook(Named - Update Tasks)
+		int row = 0;
+		Thread.sleep(500);
+		Row row0 = sheet.getRow(row); // Selected 0th index row (First row)
+		Cell c1 = null;
+		row0 = sheet.getRow(32);
+		c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+		ImplementPOM.Name(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
+		Thread.sleep(2000);
+		ImplementPOM.TypeHM(driver).click();
+		Thread.sleep(2000);
+		ImplementPOM.CentralMC(driver).click();
+		Thread.sleep(2000);
+		ImplementPOM.Date(driver).click();
+		Thread.sleep(2000);
+		ImplementPOM.Date15(driver).click();
+		Thread.sleep(2000);
+		ImplementPOM.save(driver).click();
+		Thread.sleep(2000);
+	String msg=	ImplementPOM.savemsg(driver).getText();
+	if(msg.equalsIgnoreCase("Record Saved Sucessfully.")){
+		test.log(LogStatus.PASS,  "Message displayed :- " +msg);
+	}else
+	{
+		test.log(LogStatus.PASS,  "Message displayed :- " +msg);
+	}
+	Thread.sleep(2000);
+	
+	ImplementPOM.Close(driver).click();
+	Thread.sleep(2000);
+	//-------------------------Filter-------------------------
+	row0 = sheet.getRow(32);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	ImplementPOM.FilterM(driver).sendKeys(c1.getStringCellValue(),Keys.ENTER); // Writing Task title
+	Thread.sleep(2000);
+	String match=	ImplementPOM.namecheck(driver).getText();
+	Thread.sleep(5000);
+		if(match.equalsIgnoreCase("Shehal Patil")){
+			test.log(LogStatus.PASS,  " Filter Working  successfully.");
+		}else
+		{
+			test.log(LogStatus.PASS,  " Filter not Working properly ");
+		}
+		Thread.sleep(4000);
+		///-------------------Update-------------------------
+		ImplementPOM.EditHoliday(driver).click();
+		Thread.sleep(2000);
+		ImplementPOM.Date(driver).click();
+		Thread.sleep(2000);
+		ImplementPOM.Date16(driver).click();
+		Thread.sleep(2000);
+		ImplementPOM.save(driver).click();
+		Thread.sleep(2000);
+	String msg1=	ImplementPOM.savemsg(driver).getText();
+	if(msg1.equalsIgnoreCase("Record Updated Sucessfully.")){
+		test.log(LogStatus.PASS,  "Message displayed :- " +msg1);
+	}else
+	{
+		test.log(LogStatus.PASS,  "Message displayed :- " +msg1);
+	}
+	Thread.sleep(2000);
+	
+	ImplementPOM.Close(driver).click();
+	Thread.sleep(2000);
+	//---------------------Delete----------------
+	ImplementPOM.DeleteHM(driver).click();
+	Thread.sleep(1000);
+	String MAInCheckListMsg1 = driver.switchTo().alert().getText();
+	Thread.sleep(2000);
+	driver.switchTo().alert().accept();
+	Thread.sleep(2000);
+	
+		test.log(LogStatus.PASS, "Message displayed - " + MAInCheckListMsg1);
+		Thread.sleep(2000);
+		
+	
+	}
+	
+	public static void WidgetMaster(WebDriver driver, ExtentTest test, XSSFWorkbook workbook)
+			throws InterruptedException, IOException {
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (80));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[2]/a"))); 
+			//----------------------Add New --------------------------		
+		action.moveToElement(ImplementPOM.ManageCompliances(driver)).click().build().perform();
+		Thread.sleep(1000);
+		ImplementPOM.MastersMC(driver).click();
+		Thread.sleep(3000);
+		ImplementPOM.WidgetMaster(driver).click();
+		Thread.sleep(8000);
+		ImplementPOM.WidgeC(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.ABCDPvtLtd1(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.WidgetAddNew(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.WidgetCustomer(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.WidgetABCDPvtLtd(driver).click();
+		Thread.sleep(2000);
+		ImplementPOM.WidgetLocation(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.AWSGFJBitaLimited1(driver).click();
+		Thread.sleep(2000);
+		sheet = workbook.getSheetAt(13); // Retrieving fourth sheet of Workbook(Named - Update Tasks)
+		int row = 0;
+		Thread.sleep(500);
+		Row row0 = sheet.getRow(row); // Selected 0th index row (First row)
+		Cell c1 = null;
+		row0 = sheet.getRow(34);
+		c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+		ImplementPOM.WidgetName(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
+		Thread.sleep(2000);
+		ImplementPOM.WidgetAct(driver).click();
+		Thread.sleep(2000);
+		ImplementPOM.WidgetActCheckBox(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.WidgetOk(driver).click();
+		Thread.sleep(2000);
+		
+		ImplementPOM.WidgetCompliance(driver).click();
+		Thread.sleep(2000);
+		ImplementPOM.WidgetCompliancecheck(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.WidgetComplianceOk(driver).click();
+		Thread.sleep(2000);
+		ImplementPOM.WidgetSave(driver).click();
+		Thread.sleep(2000);
+		String msg=	ImplementPOM.WidgetSavemsg(driver).getText();
+		if(msg.equalsIgnoreCase("Widget Details Saved Successfully.")){
+			test.log(LogStatus.PASS,  "Message displayed :- " +msg);
+		}else
+		{
+			test.log(LogStatus.PASS,  "Message displayed :- " +msg);
+		}
+		Thread.sleep(2000);
+		
+		ImplementPOM.WidgetClose(driver).click();
+		Thread.sleep(2000);
+		//----------------------Filter --------------------------
+		row0 = sheet.getRow(34);
+		c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+		ImplementPOM.FilterM(driver).sendKeys(c1.getStringCellValue(),Keys.ENTER); // Writing Task title
+		Thread.sleep(2000);
+		String match=	ImplementPOM.WidgetNameCheck(driver).getText();
+		Thread.sleep(5000);
+			if(match.equalsIgnoreCase("PQRS")){
+				test.log(LogStatus.PASS,  " Filter Working  successfully.");
+			}else
+			{
+				test.log(LogStatus.PASS,  " Filter not Working properly ");
+			}
+			
+			//----------------------Updated --------------------------
+
+			ImplementPOM.WidgetEdit(driver).click();
+			Thread.sleep(3000);
+			ImplementPOM.WidgetName(driver).clear();
+			row0 = sheet.getRow(35);
+			c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+			ImplementPOM.WidgetName(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
+			Thread.sleep(2000);
+			ImplementPOM.WidgetSave(driver).click();
+			Thread.sleep(2000);
+			String msg1=	ImplementPOM.WidgetSavemsg(driver).getText();
+			if(msg1.equalsIgnoreCase("Widget details updated successfully")){
+				test.log(LogStatus.PASS,  "Message displayed :- " +msg1);
+			}else
+			{
+				test.log(LogStatus.PASS,  "Message displayed :- " +msg1);
+			}
+			Thread.sleep(2000);
+			
+			ImplementPOM.WidgetClose(driver).click();
+			Thread.sleep(2000);
+			//---------------------Delete----------------
+			ImplementPOM.WidgetDeletet(driver).click();
+			Thread.sleep(1000);
+			String MAInCheckListMsg1 = driver.switchTo().alert().getText();
+			Thread.sleep(2000);
+			driver.switchTo().alert().accept();
+			Thread.sleep(2000);
+			
+				test.log(LogStatus.PASS, "Message displayed - " + MAInCheckListMsg1);
+				Thread.sleep(2000);
+				
+			
+	}
 	
 	
 	

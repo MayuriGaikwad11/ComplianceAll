@@ -458,7 +458,7 @@ public class ImplementCount {
 		extent.flush();
 	}
 	
-	@Test(priority = 31)
+//	@Test(priority = 31)
 	void EditCompliances() throws InterruptedException, IOException
 	{
 		test = extent.startTest(" Internal Compliances - Masters - Edit Compliances");
@@ -470,7 +470,101 @@ public class ImplementCount {
 		extent.flush();
 	}
 	
+//	@Test(priority = 32)
+	void UploadAssignment() throws InterruptedException, IOException
+	{
+		test = extent.startTest(" Internal Compliances - Upload Utility - Upload Assignment");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		ImplementMethods.UploadAssignment(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
 	
+//	@Test(priority = 32)
+	void PreviousInternalComplianceDepartmentMapping () throws InterruptedException, IOException
+	{
+		test = extent.startTest(" Internal Compliances - Upload Utility - Previous Internal Compliance Department Mapping");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		ImplementMethods.PreviousInternalComplianceDepartmentMapping(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	//@Test(priority = 33)
+	void EntitiesAssignments () throws InterruptedException, IOException
+	{
+		test = extent.startTest(" Internal Compliances -Entities Assignments - Entities Assignments");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		ImplementMethods.EntitiesAssignments(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+//	@Test(priority = 34)
+	void LicenseEntitiesAssignments() throws InterruptedException, IOException
+	{
+		test = extent.startTest(" Internal Compliances -Entities Assignments -License Entities Assignments");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		ImplementMethods.LicenseEntitiesAssignments(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	//@Test(priority = 35)
+	void MasterCompliances() throws InterruptedException, IOException
+	{
+		test = extent.startTest(" Manage Compliances-Masters - Compliances ");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		ImplementMethods.MasterCompliances(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+//	@Test(priority = 36)
+	void Acts() throws InterruptedException, IOException
+	{
+		test = extent.startTest(" Manage Compliances-Masters - Acts ");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		ImplementMethods.Acts(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+//	@Test(priority = 37)
+	void HolidayMaster() throws InterruptedException, IOException
+	{
+		test = extent.startTest(" Manage Compliances-Masters - Holiday Master ");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		ImplementMethods.HolidayMaster(driver,test,workbook);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 38)
+	void WidgetMaster() throws InterruptedException, IOException
+	{
+		test = extent.startTest(" Manage Compliances-Masters - Widget Master ");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		ImplementMethods.WidgetMaster(driver,test,workbook);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
 	
 	//@AfterTest
 		void Closing() throws InterruptedException
