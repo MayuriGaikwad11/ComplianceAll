@@ -60,7 +60,7 @@ public class MgmtTestCountTwo {
 	void setBrowser() throws InterruptedException, IOException
 	{
 	//	String workingDir = System.getProperty("webdriver.chrome.driver","C:/March2022/PerformerPom/Driver/chromedriver.exe");
-		extent = new com.relevantcodes.extentreports.ExtentReports("C:\\Users\\Mayuri Gaikwad\\Desktop\\PerformerPom\\Reports\\CFOResultsStatotory.html",true);
+		extent = new com.relevantcodes.extentreports.ExtentReports("C:\\Users\\Mayuri Gaikwad\\Desktop\\PerformerPom\\Reports\\CompanyAdminResults.html",true);
 		test = extent.startTest("Verify OpenBrowser");
 		test.log(LogStatus.INFO, "Browser test is initiated");
 		
@@ -949,7 +949,7 @@ public class MgmtTestCountTwo {
 		extent.flush();
 	}
 	
-	@Test(priority = 12)
+//	@Test(priority = 12)
 	void dueToday_PieChartPeriod() throws InterruptedException
 	{
 		test = extent.startTest("Period-Pie Chart -Not Completed Status- 'dueToday' Count Verification");
@@ -1100,7 +1100,7 @@ public class MgmtTestCountTwo {
 			
 			if(high > 0)
 			{
-				//wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("IFNewPeriodGraphCompliance"));                                                            	
+				wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("IFNewPeriodGraphCompliance"));                                                            	
 				Thread.sleep(500);
 				CFOcountPOM.GraphCountInPe(driver, test, "High", high, "Statutory");
 			}

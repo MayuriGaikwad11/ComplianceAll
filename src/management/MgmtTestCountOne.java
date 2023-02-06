@@ -157,9 +157,9 @@ public class MgmtTestCountOne {
 		test.log(LogStatus.PASS, "Clear Button is working");*/	
 		js.executeScript("window.scrollBy(0,500)");
 		Thread.sleep(3000);
-		CFOcountPOM.readTotalItemsD(driver).click();					//Clicking on total items count
+		CFOcountPOM.readTotalItems3(driver).click();					//Clicking on total items count
 		Thread.sleep(500);
-		String item = CFOcountPOM.readTotalItemsD(driver).getText();	//Reading total items String value
+		String item = CFOcountPOM.readTotalItems3(driver).getText();	//Reading total items String value
 		String[] bits = item.split(" ");								//Splitting the String
 		String compliancesCount = bits[bits.length - 2];				//Getting the second last word (total number of users)
 		int ComcountGrid = Integer.parseInt(compliancesCount);
@@ -361,14 +361,14 @@ public class MgmtTestCountOne {
 		{
 			if(critical > 0)
 			{
-				CFOcountPOM.GraphCount(driver, test, "Critical", critical, "Statutory");
+				CFOcountPOM.GraphCountM(driver, test, "Critical", critical, "Statutory");
 			}
 			else
 			{
 				test.log(LogStatus.SKIP, "'Critical' Risk Compliance Count = "+critical);
 			}
 			
-	/*		if(high > 0)
+			if(high > 0)
 			{
 				CFOcountPOM.GraphCount(driver, test, "High", high, "Statutory");
 			}
@@ -376,10 +376,10 @@ public class MgmtTestCountOne {
 			{
 				test.log(LogStatus.SKIP, "'High' Risk Compliance Count = "+high);
 			}
-			*/
+			
 			if(medium > 0)
 			{
-				CFOcountPOM.GraphCount(driver, test, "Medium", medium, "Statutory");
+				CFOcountPOM.GraphCountM(driver, test, "Medium", medium, "Statutory");
 			}
 			else
 			{
@@ -388,7 +388,7 @@ public class MgmtTestCountOne {
 			
 			if(low > 0)
 			{
-				CFOcountPOM.GraphCount(driver, test, "Low", low, "Statutory");
+				CFOcountPOM.GraphCountM(driver, test, "Low", low, "Statutory");
 			}
 			else
 			{
@@ -1311,8 +1311,8 @@ public class MgmtTestCountOne {
 			Actions actions = new Actions(driver);
 		
 			actions.moveToElement(element).click().perform();				//Clicking on Back button of Bar Graph.
-			Thread.sleep(500);
-			performer.OverduePOM.clickDashboard(driver).click();
+			Thread.sleep(1000);
+		//	performer.OverduePOM.clickDashboard(driver).click();
 		}
 		else
 		{
@@ -1337,8 +1337,9 @@ public class MgmtTestCountOne {
 		//JavascriptExecutor js = (JavascriptExecutor) driver;
 		//js.executeScript("window.scrollBy(0,925)");						//Scrolling down window by 1000 px.
 		
-		Thread.sleep(5000);
+		Thread.sleep(8000);
 		int IndustrySpeMedium = Integer.parseInt(CFOcountPOM.clickIndustrySpeMedium(driver).getText());	//Reading the Medium value of Labour compliance
+		Thread.sleep(2000);
 		CFOcountPOM.clickIndustrySpeMedium(driver).click();					//Clicking on High bar of Labour  
 		
 		Thread.sleep(500);
@@ -1424,7 +1425,7 @@ public class MgmtTestCountOne {
 	//	js.executeScript("window.scrollBy(0,925)");						//Scrolling down window by 1000 px.
 		
 		
-		Thread.sleep(4000);
+		Thread.sleep(5000);
 		int IndustrySpeLow = Integer.parseInt(CFOcountPOM.clickIndustrySpeLow(driver).getText());	//Reading the Medium value of Labour compliance
 		Thread.sleep(1000);
 		CFOcountPOM.clickIndustrySpeLow(driver).click();					//Clicking on low bar of Indistry Specific  

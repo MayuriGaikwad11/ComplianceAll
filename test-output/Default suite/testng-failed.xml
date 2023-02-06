@@ -5,7 +5,7 @@
     <classes>
       <class name="implementation.ImplementCount">
         <methods>
-          <include name="WidgetMaster"/>
+          <include name="UploadAssignmentUU"/>
           <include name="setBrowser"/>
         </methods>
       </class> <!-- implementation.ImplementCount -->

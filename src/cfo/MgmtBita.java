@@ -55,7 +55,7 @@ public class MgmtBita {
 	@BeforeTest
 	void setBrowser() throws Exception
 	{
-		extent = new com.relevantcodes.extentreports.ExtentReports("C:/Users/Mayuri Gaikwad/Desktop/PerformerPom/Reports/CFOResultsStatotory.html",true);
+		extent = new com.relevantcodes.extentreports.ExtentReports("C:\\Users\\Mayuri Gaikwad\\Desktop\\PerformerPom\\Reports\\ReviewerResults.html",true);
 		test = extent.startTest("Verify OpenBrowser");
 		test.log(LogStatus.INFO, "Browser test is initiated");
 		

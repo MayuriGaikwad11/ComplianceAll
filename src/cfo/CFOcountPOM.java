@@ -599,10 +599,18 @@ public class CFOcountPOM
 		return piechart;
 	}
 	
+	public static WebElement readTotalItems3(WebDriver driver)				//Method to read total no of items.
+	{
+	
+		piechart=driver.findElement(By.xpath("//*[@id='grid']/div[3]/span[2]"));
+		return piechart;
+	}
+	
+	
 	public static WebElement readTotalItemsD(WebDriver driver)				//Method to read total no of items.
 	{
-	//	piechart = driver.findElement(By.xpath("//*[@class='k-pager-info k-label']"));
-		piechart = driver.findElement(By.xpath("//*[@id='grid']/div[4]/span[2]"));
+		piechart = driver.findElement(By.xpath("//*[@class='k-pager-info k-label']"));
+	//	piechart = driver.findElement(By.xpath("//*[@id='grid']/div[4]/span[2]"));
 		return piechart;//*[@id="grid"]/div[5]/span[2]
 	}//*[@id="grid"]/div[4]/span[2]
 	
@@ -1929,7 +1937,7 @@ public class CFOcountPOM
 	public static WebElement readTotalPages1(WebDriver driver) 				//Method to search Total pages count string
 	{
 		reports = driver.findElement(By.xpath("//span[@class='k-pager-info k-label']"));
-		return reports;
+		return reports;//*[@id="grid"]/div[4]/span[2]
 	}
 	
 	public static WebElement clickNextButton(WebDriver driver)				//Method to click on 'Next Button' arrow
@@ -2124,7 +2132,7 @@ public class CFOcountPOM
 		WebDriverWait wait = new WebDriverWait(driver, (70));
 		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));	//Wait until frame get visible and switch to it.
 		
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[3]/td[4]/div")));
+	//	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[3]/td[4]/div")));
 		Thread.sleep(3000);
 		js.executeScript("window.scrollBy(0,500)");
 		Thread.sleep(3000);
@@ -2510,7 +2518,7 @@ public class CFOcountPOM
 	//		test.log(LogStatus.PASS, "Excel file Export Successfully");
 		//	Thread.sleep(3000);
 			
-  By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[6]/td[17]/a");
+  By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[5]/td[17]/a");
 
 			wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 			Thread.sleep(4000);
@@ -3580,12 +3588,12 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[3]/td[17]/a");
 			test.log(LogStatus.INFO, "overView success");
 			CFOcountPOM.closeDocument(driver).click();
 			Thread.sleep(3000);
-		
+	/*	
 		elementsList = CFOcountPOM.selectDropdown(driver);				//It is a dropdown but don't have Select tag.
 		elementsList.get(0).click();									//Clicking on first dropdown
 		Thread.sleep(500);
 		action.moveToElement(CFOcountPOM.selectFirst(driver)).click().build().perform();	//Selecting first option of the drop down.
-		
+		*/
 		Thread.sleep(1000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,300)");						//Scrolling down window by 1000 px.
@@ -3900,7 +3908,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[17]/a");
 			
 // By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[17]/a");
 
-			By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[17]/a[3]");
+			By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[3]/td[17]/a[3]");
 			wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 			Thread.sleep(4000);
 			// retrieving "foo-button" HTML element
@@ -4963,7 +4971,8 @@ try {
 		CFOcountPOM.clickExportImage(driver).click();			//Exporting (Downloading) file
 		Thread.sleep(5000);
 		test.log(LogStatus.INFO, "Exporting (Downloading) file successfully");
-		By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[23]/a");
+	//	By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[23]/a");
+		By locator = By.xpath("//*[@id='grid']/div[2]/table/tbody/tr[1]/td/a");
 		wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 		Thread.sleep(4000);
 		// retrieving "foo-button" HTML element
@@ -4982,8 +4991,9 @@ try {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='grid1']/div[3]")));	//Wait till records table gets visible
 	Thread.sleep(5000);
 	//	clickExportExcel(driver).click();
-		Thread.sleep(3000);
-		By locator1 = By.xpath("//*[@id='grid1']/div[3]/table/tbody/tr[1]/td[23]/a");
+		Thread.sleep(3000);//*[@id="grid"]/div[2]/table/tbody/tr[1]/td/a
+	//	By locator1 = By.xpath("//*[@id='grid1']/div[3]/table/tbody/tr[1]/td[23]/a");
+		By locator1 = By.xpath("//*[@id='grid1']/div[2]/table/tbody/tr[1]/td/a");
 		
 		wait.until(ExpectedConditions.presenceOfElementLocated(locator1));
 		Thread.sleep(4000);
@@ -5021,8 +5031,8 @@ try {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='grid1']/div[3]")));	//Wait till records table gets visible
 		Thread.sleep(5000);
 		//	clickExportExcel(driver).click();
-			Thread.sleep(2000);
-			By locator2 = By.xpath("//*[@id='grid1']/div[3]/table/tbody/tr[1]/td[23]/a");
+			Thread.sleep(2000);//*[@id="grid1"]/div[2]/table/tbody/tr[1]/td/a
+			By locator2 = By.xpath("//*[@id='grid1']/div[2]/table/tbody/tr[1]/td/a");
 			
 			wait.until(ExpectedConditions.presenceOfElementLocated(locator2));
 			Thread.sleep(4000);
@@ -5734,9 +5744,9 @@ WebDriverWait wait = new WebDriverWait(driver,(140));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,2000)");				//Scrolling down window by 2600 px.
 		
-		Thread.sleep(500);
+		Thread.sleep(3000);
 		CFOcountPOM.readTotalPages1(driver).click();					//CLicking on Total Pages value to scroll down
-		
+		Thread.sleep(500);
 		String s1 = CFOcountPOM.readTotalPages1(driver).getText();	//Reading the total items count in String
 		String[] bits = s1.split(" ");								//Splitting the String
 		String itomsCount = bits[bits.length - 2];					//Getting the second last word (total number of items)
@@ -5826,8 +5836,9 @@ WebDriverWait wait = new WebDriverWait(driver,(140));
 		CFOcountPOM.clickExportImage(driver).click();			//Exporting (Downloading) file
 		Thread.sleep(500);
 		test.log(LogStatus.PASS, "Export successfully");
-		Thread.sleep(4000);
-		By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[23]/a");
+		Thread.sleep(4000);//*[@id="grid"]/div[2]/table/tbody/tr[1]/td/a
+		//By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[23]/a");
+		By locator = By.xpath("//*[@id='grid']/div[2]/table/tbody/tr[1]/td/a");
 		wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 		Thread.sleep(4000);
 		

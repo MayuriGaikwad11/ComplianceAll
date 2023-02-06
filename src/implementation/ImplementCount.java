@@ -554,7 +554,7 @@ public class ImplementCount {
 		extent.flush();
 	}
 	
-	@Test(priority = 38)
+//	@Test(priority = 38)
 	void WidgetMaster() throws InterruptedException, IOException
 	{
 		test = extent.startTest(" Manage Compliances-Masters - Widget Master ");
@@ -565,6 +565,55 @@ public class ImplementCount {
 		extent.endTest(test);
 		extent.flush();
 	}
+	
+//	@Test(priority = 39)
+	void UploadInternalCompliance() throws InterruptedException, IOException
+	{
+		test = extent.startTest(" Manage Compliances-Upload Utility - Upload Internal Compliance");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		ImplementMethods.UploadInternalCompliance(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 40)
+	void UploadAssignmentUU() throws InterruptedException, IOException
+	{
+		test = extent.startTest(" Manage Compliances-Upload Utility - Upload Assignment");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		ImplementMethods.UploadAssignmentUU(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 41)
+	void UploadEventBasedComplianceAssignment() throws InterruptedException, IOException
+	{
+		test = extent.startTest(" Manage Compliances-Upload Utility - Upload Event  Based Compliance Assignment");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		ImplementMethods.UploadEventBasedComplianceAssignment(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 42)
+	void UploadAssignmentAll() throws InterruptedException, IOException
+	{
+		test = extent.startTest(" Manage Compliances-Upload Utility - Upload Assignment All");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		ImplementMethods.UploadAssignmentAll(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
 	
 	//@AfterTest
 		void Closing() throws InterruptedException

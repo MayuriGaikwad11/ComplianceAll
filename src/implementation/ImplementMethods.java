@@ -2701,7 +2701,7 @@ String Msg2=ImplementPOM.RecordSavemsg(driver).getText();
 		Thread.sleep(2000);
 		String match=	ImplementPOM.WidgetNameCheck(driver).getText();
 		Thread.sleep(5000);
-			if(match.equalsIgnoreCase("PQRS")){
+			if(match.equalsIgnoreCase("ABCDA")){
 				test.log(LogStatus.PASS,  " Filter Working  successfully.");
 			}else
 			{
@@ -2730,6 +2730,15 @@ String Msg2=ImplementPOM.RecordSavemsg(driver).getText();
 			
 			ImplementPOM.WidgetClose(driver).click();
 			Thread.sleep(2000);
+			ImplementPOM.WidgeC(driver).click();
+			Thread.sleep(1000);
+			ImplementPOM.ABCDPvtLtd1(driver).click();
+			Thread.sleep(4000);
+			
+			row0 = sheet.getRow(35);
+			c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+			ImplementPOM.FilterM(driver).sendKeys(c1.getStringCellValue(),Keys.ENTER); // Writing Task title
+			Thread.sleep(5000);
 			//---------------------Delete----------------
 			ImplementPOM.WidgetDeletet(driver).click();
 			Thread.sleep(1000);
@@ -2744,6 +2753,137 @@ String Msg2=ImplementPOM.RecordSavemsg(driver).getText();
 			
 	}
 	
+	public static void UploadInternalCompliance(WebDriver driver, ExtentTest test)
+			throws InterruptedException, IOException {
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (80));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[2]/a"))); 
+					
+		action.moveToElement(ImplementPOM.ManageCompliances(driver)).click().build().perform();
+		Thread.sleep(1000);
+		ImplementPOM.UploadUtilityMC(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.UploadInternalCompliance(driver).click();
+		Thread.sleep(3000);
+		ImplementPOM.CustomerMC(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.BitademopuneU(driver).click();
+		Thread.sleep(3000);
+		ImplementPOM.UploadFileCM(driver).sendKeys("C:\\Users\\Mayuri Gaikwad\\Downloads\\Internal Compliance Upload Format.xlsx");
+		Thread.sleep(3000);
+		ImplementPOM.UploadMC(driver).click();
+		Thread.sleep(3000);
+String Msg1=ImplementPOM.ReadMsg(driver).getText();
+		
+		test.log(LogStatus.PASS, "Message displayed - " + Msg1);
+		
+		Thread.sleep(3000);
+		ImplementPOM.AddChecklist(driver).click();
+		Thread.sleep(3000);
+		ImplementPOM.checklistcustomer(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.BitademopuneU(driver).click();
+		Thread.sleep(3000);
+		ImplementPOM.CheckListFileUpload(driver).sendKeys("C:\\Users\\Mayuri Gaikwad\\Downloads\\Internal Compliance Upload Format (2).xlsx");
+		Thread.sleep(3000);
+		ImplementPOM.ChecklistUploadFile(driver).click();
+		Thread.sleep(3000);
+String Msg2=ImplementPOM.ReadMsg1(driver).getText();
+		
+		test.log(LogStatus.PASS, "Message displayed - " + Msg2);
+		
+		Thread.sleep(3000);
+		
+	}
+	
+	public static void UploadAssignmentUU(WebDriver driver, ExtentTest test)
+			throws InterruptedException, IOException {
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (80));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[2]/a"))); 
+					
+		action.moveToElement(ImplementPOM.ManageCompliances(driver)).click().build().perform();
+		Thread.sleep(1000);
+		ImplementPOM.UploadUtilityMC(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.UploadAssignmentMC(driver).click();
+		Thread.sleep(3000);
+		ImplementPOM.SelectCustomerUA(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.BitademopuneU(driver).click();
+		Thread.sleep(3000);
+		ImplementPOM.UploadFileCM(driver).sendKeys("C:\\Users\\Mayuri Gaikwad\\Downloads\\ManageComplinace_UploadUtility_UploadAssignment.xlsx");
+		Thread.sleep(3000);
+		ImplementPOM.UploadMC(driver).click();
+		Thread.sleep(3000);
+String Msg1=ImplementPOM.ReadMsg(driver).getText();
+		
+		test.log(LogStatus.PASS, "UploadAssignment - Message displayed - " + Msg1);
+		
+		Thread.sleep(3000);
+	}
+	
+	public static void UploadEventBasedComplianceAssignment(WebDriver driver, ExtentTest test)
+			throws InterruptedException, IOException {
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (80));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[2]/a"))); 
+					
+		action.moveToElement(ImplementPOM.ManageCompliances(driver)).click().build().perform();
+		Thread.sleep(1000);
+		ImplementPOM.UploadUtilityMC(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.UploadEventBasedComplianceAssignment(driver).click();
+		Thread.sleep(3000);
+		ImplementPOM.SelectCustomerUE(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.BitademopuneUE(driver).click();
+		Thread.sleep(3000);
+		ImplementPOM.UploadFileCM(driver).sendKeys("C:\\Users\\Mayuri Gaikwad\\Downloads\\ManageComplinace_UploadUtility_EventBasedComplianceMapping.xlsx");
+		Thread.sleep(3000);
+		ImplementPOM.UploadMC(driver).click();
+		Thread.sleep(3000);
+String Msg1=ImplementPOM.ReadMsg(driver).getText();
+		
+		test.log(LogStatus.PASS, "Upload Event Based Compliance Assignment -Message displayed - " + Msg1);
+		
+		Thread.sleep(3000);
+	}
+	
+	public static void UploadAssignmentAll(WebDriver driver, ExtentTest test)
+			throws InterruptedException, IOException {
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (80));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[2]/a"))); 
+					
+		action.moveToElement(ImplementPOM.ManageCompliances(driver)).click().build().perform();
+		Thread.sleep(1000);
+		ImplementPOM.UploadUtilityMC(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.UploadAssignmentAll(driver).click();
+		Thread.sleep(3000);
+		ImplementPOM.SelectCustomerUA(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.BitademopuneU(driver).click();
+		Thread.sleep(3000);
+		ImplementPOM.UploadFileCM(driver).sendKeys("C:\\Users\\Mayuri Gaikwad\\Downloads\\ManageComplinace_UploadUtility_UploadAssignmentAll.xlsx");
+		Thread.sleep(3000);
+		ImplementPOM.UploadMC(driver).click();
+		Thread.sleep(3000);
+String Msg1=ImplementPOM.ReadMsg(driver).getText();
+		
+		test.log(LogStatus.PASS, "Message displayed - " + Msg1);
+		
+		Thread.sleep(3000);
+	}
 	
 	
 	

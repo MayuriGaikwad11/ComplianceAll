@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>1/1/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>3/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Fri Feb 03 18:38:28 IST 2023</td>
+<td>Started on:</td><td>Mon Feb 06 17:52:36 IST 2023</td>
 </tr>
-<tr><td>Total time:</td><td>54 seconds (54257 ms)</td>
+<tr><td>Total time:</td><td>110 seconds (110666 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,15 +75,16 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='implementation.ImplementCount.WidgetMaster()'><b>WidgetMaster</b><br>Test class: implementation.ImplementCount</td>
-<td><div><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
+<td title='implementation.ImplementCount.UploadAssignmentUU()'><b>UploadAssignmentUU</b><br>Test class: implementation.ImplementCount</td>
+<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//*[@id=&apos;BodyContent_ValidationSummary1&apos;]/ul/li&quot;}
   (Session info: chrome=109.0.5414.120)
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/stale_element_reference.html
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: &apos;3.141.0&apos;, revision: &apos;2ecb7d9a&apos;, time: &apos;2018-10-31T20:09:30&apos;
-System info: host: &apos;DESKTOP-J8VA1KP&apos;, ip: &apos;192.168.188.200&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.5&apos;
+System info: host: &apos;DESKTOP-J8VA1KP&apos;, ip: &apos;192.168.1.2&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.5&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 109.0.5414.120, chrome: {chromedriverVersion: 108.0.5359.71 (1e0e3868ee06..., userDataDir: C:\Users\MAYURI~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:51999}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 57a17ad30728bffc2457473902177ebb
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 109.0.5414.120, chrome: {chromedriverVersion: 108.0.5359.71 (1e0e3868ee06..., userDataDir: C:\Users\MAYURI~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:57491}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 694b4992df4d2e3e82371c447d6b3198
+*** Element info: {Using=xpath, value=//*[@id=&apos;BodyContent_ValidationSummary1&apos;]/ul/li}
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -95,10 +96,13 @@ Session ID: 57a17ad30728bffc2457473902177ebb
 	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
-	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
-	at implementation.ImplementMethods.WidgetMaster(ImplementMethods.java:2658)
-	at implementation.ImplementCount.WidgetMaster(ImplementCount.java:563)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at implementation.ImplementPOM.ReadMsg(ImplementPOM.java:2217)
+	at implementation.ImplementMethods.UploadAssignmentUU(ImplementMethods.java:2823)
+	at implementation.ImplementCount.UploadAssignmentUU(ImplementCount.java:587)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -127,15 +131,16 @@ Session ID: 57a17ad30728bffc2457473902177ebb
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1977189075", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1977189075'><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
+</pre></div><a href='#' onClick='toggleBox("stack-trace408543908", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace408543908'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//*[@id=&apos;BodyContent_ValidationSummary1&apos;]/ul/li&quot;}
   (Session info: chrome=109.0.5414.120)
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/stale_element_reference.html
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: &apos;3.141.0&apos;, revision: &apos;2ecb7d9a&apos;, time: &apos;2018-10-31T20:09:30&apos;
-System info: host: &apos;DESKTOP-J8VA1KP&apos;, ip: &apos;192.168.188.200&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.5&apos;
+System info: host: &apos;DESKTOP-J8VA1KP&apos;, ip: &apos;192.168.1.2&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.5&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 109.0.5414.120, chrome: {chromedriverVersion: 108.0.5359.71 (1e0e3868ee06..., userDataDir: C:\Users\MAYURI~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:51999}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 57a17ad30728bffc2457473902177ebb
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 109.0.5414.120, chrome: {chromedriverVersion: 108.0.5359.71 (1e0e3868ee06..., userDataDir: C:\Users\MAYURI~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:57491}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 694b4992df4d2e3e82371c447d6b3198
+*** Element info: {Using=xpath, value=//*[@id=&apos;BodyContent_ValidationSummary1&apos;]/ul/li}
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -147,10 +152,13 @@ Session ID: 57a17ad30728bffc2457473902177ebb
 	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
-	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
-	at implementation.ImplementMethods.WidgetMaster(ImplementMethods.java:2658)
-	at implementation.ImplementCount.WidgetMaster(ImplementCount.java:563)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at implementation.ImplementPOM.ReadMsg(ImplementPOM.java:2217)
+	at implementation.ImplementMethods.UploadAssignmentUU(ImplementMethods.java:2823)
+	at implementation.ImplementCount.UploadAssignmentUU(ImplementCount.java:587)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -180,7 +188,7 @@ Session ID: 57a17ad30728bffc2457473902177ebb
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>34</td>
+<td>28</td>
 <td>implementation.ImplementCount@3b6ddd1d</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-passed'>
@@ -191,9 +199,19 @@ Session ID: 57a17ad30728bffc2457473902177ebb
 <td><b>Instance</b></td>
 </tr>
 <tr>
+<td title='implementation.ImplementCount.UploadEventBasedComplianceAssignment()'><b>UploadEventBasedComplianceAssignment</b><br>Test class: implementation.ImplementCount</td>
+<td></td>
+<td>35</td>
+<td>implementation.ImplementCount@3b6ddd1d</td></tr>
+<tr>
 <td title='implementation.ImplementCount.Login()'><b>Login</b><br>Test class: implementation.ImplementCount</td>
 <td></td>
-<td>11</td>
+<td>7</td>
+<td>implementation.ImplementCount@3b6ddd1d</td></tr>
+<tr>
+<td title='implementation.ImplementCount.UploadAssignmentAll()'><b>UploadAssignmentAll</b><br>Test class: implementation.ImplementCount</td>
+<td></td>
+<td>33</td>
 <td>implementation.ImplementCount@3b6ddd1d</td></tr>
 </table><p>
 </body>
