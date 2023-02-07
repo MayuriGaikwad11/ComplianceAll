@@ -62,7 +62,7 @@ public class MgmtTestCountOne {
 	//	String workingDir = System.getProperty("webdriver.chrome.driver","C:/March2022/PerformerPom/Driver/chromedriver.exe");
 		extent = new com.relevantcodes.extentreports.ExtentReports("C:\\Users\\Mayuri Gaikwad\\Desktop\\PerformerPom\\Reports\\CFOResultsStatotory.html",true);
 		test = extent.startTest("Verify OpenBrowser");
-		test.log(LogStatus.INFO, "Browser test is initiated");
+		test.log(LogStatus.PASS, "Browser test is initiated");
 		
 		XSSFSheet sheet = ReadExcel();
 		Row row0 = sheet.getRow(0);						//Selected 0th index row (First row)
@@ -80,7 +80,7 @@ public class MgmtTestCountOne {
 	void Login() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Loging In - MGMT (Statutory)");
-		test.log(LogStatus.INFO, "Logging into system");
+		test.log(LogStatus.PASS, "Logging into system");
 		
 		XSSFSheet sheet = ReadExcel();
 		Row row1 = sheet.getRow(1);						//Selected 1st index row (Second row)
@@ -119,7 +119,7 @@ public class MgmtTestCountOne {
 	void CategoriesCountMatch() throws InterruptedException, IOException
 	{
 		test = extent.startTest(" Count by Clicking on 'Categories'");
-		test.log(LogStatus.INFO, "Test Initiated");
+		test.log(LogStatus.PASS, "Test Initiated");
 		
 		CFOcountPOM.CategoriesCountMatch(driver,test);
 		
@@ -131,7 +131,7 @@ public class MgmtTestCountOne {
 	void CompliancesCountMatch() throws InterruptedException
 	{
 		test = extent.startTest(" Count by Clicking on 'Compliances'");
-		test.log(LogStatus.INFO, "Test Initiated");
+		test.log(LogStatus.PASS, "Test Initiated");
 		
 		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -166,12 +166,12 @@ public class MgmtTestCountOne {
 		if(CompliancesCountDas == ComcountGrid)
 		{
 			test.log(LogStatus.PASS, "Number of Compliances grid matches to Dashboard Compliances  Count.");
-			test.log(LogStatus.INFO, "No of Compliances in the grid = "+ComcountGrid+" | Dashboard Compliances  Count = "+CompliancesCountDas);
+			test.log(LogStatus.PASS, "No of Compliances in the grid = "+ComcountGrid+" | Dashboard Compliances  Count = "+CompliancesCountDas);
 		}
 		else
 		{
 			test.log(LogStatus.FAIL, "Number of compliances does not matches to Dashboard Statutory Compliances Count.");
-			test.log(LogStatus.INFO, "No of Compliances in the grid = "+ComcountGrid+" | Dashboard Compliances  Count = "+CompliancesCountDas);
+			test.log(LogStatus.FAIL, "No of Compliances in the grid = "+ComcountGrid+" | Dashboard Compliances  Count = "+CompliancesCountDas);
 		}
 		js.executeScript("window.scrollBy(500,0)");						//Scrolling UP window by 2000 px.
 		driver.switchTo().defaultContent();
@@ -185,7 +185,7 @@ public class MgmtTestCountOne {
 	void UsersCountMatch() throws InterruptedException
 	{
 		test = extent.startTest(" Count by Clicking on 'Users'");
-		test.log(LogStatus.INFO, "Test Initiated");
+		test.log(LogStatus.PASS, "Test Initiated");
 		
 		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -210,12 +210,12 @@ public class MgmtTestCountOne {
 		if(UserCountDas == UserGrid)
 		{
 			test.log(LogStatus.PASS, "Number of User grid matches to Dashboard User  Count.");
-			test.log(LogStatus.INFO, "No of User in the grid = "+UserGrid+" | Dashboard User  Count = "+UserCountDas);
+			test.log(LogStatus.PASS, "No of User in the grid = "+UserGrid+" | Dashboard User  Count = "+UserCountDas);
 		}
 		else
 		{
 			test.log(LogStatus.FAIL, "Number of User does not matches to Dashboard User  Count.");
-			test.log(LogStatus.INFO, "No of User in the grid = "+UserGrid+" | Dashboard User  Count = "+UserCountDas);
+			test.log(LogStatus.FAIL, "No of User in the grid = "+UserGrid+" | Dashboard User  Count = "+UserCountDas);
 		}
 		
 		js.executeScript("window.scrollBy(500,0)");						//Scrolling UP window by 2000 px.
@@ -235,7 +235,7 @@ public class MgmtTestCountOne {
 	void clickPenaltyStatutory() throws InterruptedException
 	{
 		test = extent.startTest("'Penalty' Export");
-		test.log(LogStatus.INFO, "Test Initiated");
+		test.log(LogStatus.PASS, "Test Initiated");
 		
 		Thread.sleep(1500);
 	//	String oldStr = CFOcountPOM.readPenaltyCount(driver).getText();
@@ -273,7 +273,7 @@ public class MgmtTestCountOne {
 	void SummaryofOverdueCompliances() throws InterruptedException
 	{
 		test = extent.startTest(" Summary of Overdue Compliances");
-		test.log(LogStatus.INFO, "Test Initiated");
+		test.log(LogStatus.PASS, "Test Initiated");
 		
 		Thread.sleep(4000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -305,7 +305,7 @@ public class MgmtTestCountOne {
 			List<WebElement> ViewButtons = driver.findElements(locator);							
 			ViewButtons.get(1).click();
 			Thread.sleep(3000);
-			test.log(LogStatus.INFO, "overView success");
+			test.log(LogStatus.PASS, "overView success");
 			CFOcountPOM.closeDocument(driver).click();
 			Thread.sleep(3000);
 			OverduePOM.clickRiskShowAll(driver).click();
@@ -313,7 +313,7 @@ public class MgmtTestCountOne {
 			OverduePOM.clickRiskSAhigh(driver).click();
 			Thread.sleep(1000);
 			OverduePOM.clickclearBtn(driver).click();
-			test.log(LogStatus.INFO, "Clear successfully");
+			test.log(LogStatus.PASS, "Clear successfully");
 			driver.switchTo().defaultContent();
 			Thread.sleep(3000);
 			CFOcountPOM.closeCategories(driver).click();
@@ -327,7 +327,7 @@ public class MgmtTestCountOne {
 	void NotCompleted_PieChart() throws InterruptedException
 	{
 		test = extent.startTest("Pie Chart -Completion Status- 'Not Completed' Count Verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		test.log(LogStatus.PASS, "Test Initiated");
 		
 		Thread.sleep(1000);
 		Actions action = new Actions(driver);
@@ -349,12 +349,12 @@ public class MgmtTestCountOne {
 		if(NotCompletedValue == total)
 		{
 			test.log(LogStatus.PASS, "Not Completed' Compliance Count matches to sum of all risked compliances.");
-			test.log(LogStatus.INFO, "Total Not Completed' Compliances : "+total);
+			test.log(LogStatus.PASS, "Total Not Completed' Compliances : "+total);
 		}
 		else
 		{
 			test.log(LogStatus.FAIL, "'Not Completed' Compliance Count doesn't matches to sum of all risked compliances.");
-			test.log(LogStatus.INFO, "Total 'Not Completed' Compliances : "+total+" | Total Sum : "+NotCompletedValue);
+			test.log(LogStatus.FAIL, "Total 'Not Completed' Compliances : "+total+" | Total Sum : "+NotCompletedValue);
 		}
 	
 		if(NotCompletedValue > 0)
@@ -415,7 +415,7 @@ public class MgmtTestCountOne {
 	void ClosedDelayed_PieChart() throws InterruptedException
 	{
 		test = extent.startTest("Pie Chart -Completion Status- 'Closed Delayed' Count Verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		test.log(LogStatus.PASS, "Test Initiated");
 		
 		Actions action = new Actions(driver);
 	//	JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -437,12 +437,12 @@ public class MgmtTestCountOne {
 		if(ClosedDelayedValue == total)
 		{
 			test.log(LogStatus.PASS, "'Closed Delayed' Compliance Count matches to sum of all risked compliances.");
-			test.log(LogStatus.INFO, "Total 'Closed Delayed' Compliances : "+total);
+			test.log(LogStatus.PASS, "Total 'Closed Delayed' Compliances : "+total);
 		}
 		else
 		{
 			test.log(LogStatus.FAIL, "'Closed Delayed' Compliance Count doesn't matches to sum of all risked compliances.");
-			test.log(LogStatus.INFO, "Total 'Closed Delayed' Compliances : "+total+" | Total Sum : "+ClosedDelayedValue);
+			test.log(LogStatus.FAIL, "Total 'Closed Delayed' Compliances : "+total+" | Total Sum : "+ClosedDelayedValue);
 		}
 		
 		if(ClosedDelayedValue > 0)
@@ -501,7 +501,7 @@ public class MgmtTestCountOne {
 	void ClosedTimely_PieChart() throws InterruptedException
 	{
 		test = extent.startTest("Pie Chart -Completion Status- 'Closed Timely' Count Verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		test.log(LogStatus.PASS, "Test Initiated");
 		
 		Actions action = new Actions(driver);
 	//	JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -522,12 +522,12 @@ public class MgmtTestCountOne {
 		if(ClosedTimelyValue == total)
 		{
 			test.log(LogStatus.PASS, "'Closed Timely' Compliance Count matches to sum of all risked compliances.");
-			test.log(LogStatus.INFO, "Total 'Closed Timely' Compliances : "+total);
+			test.log(LogStatus.PASS, "Total 'Closed Timely' Compliances : "+total);
 		}
 		else
 		{
 			test.log(LogStatus.FAIL, "'Closed Timely' Compliance Count doesn't matches to sum of all risked compliances.");
-			test.log(LogStatus.INFO, "Total 'Closed Timely' Compliances : "+total+" | Total Sum : "+ClosedTimelyValue);
+			test.log(LogStatus.FAIL, "Total 'Closed Timely' Compliances : "+total+" | Total Sum : "+ClosedTimelyValue);
 		}
 		
 		if(ClosedTimelyValue > 0)
@@ -589,7 +589,7 @@ public class MgmtTestCountOne {
 	void NotApplicable_PieChart() throws InterruptedException
 	{
 		test = extent.startTest("Pie Chart -Completion Status- 'Not Applicable' Count Verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		test.log(LogStatus.PASS, "Test Initiated");
 	//	JavascriptExecutor js = (JavascriptExecutor) driver;
 		//	js.executeScript("window.scrollBy(0,500)");	
 		Actions action = new Actions(driver);
@@ -611,12 +611,12 @@ public class MgmtTestCountOne {
 		if(NotApplicableValue == total)
 		{
 			test.log(LogStatus.PASS, "'Not Applicable' Compliance Count matches to sum of all risked compliances.");
-			test.log(LogStatus.INFO, "Total 'Not Applicable' Compliances : "+total);
+			test.log(LogStatus.PASS, "Total 'Not Applicable' Compliances : "+total);
 		}
 		else
 		{
 			test.log(LogStatus.FAIL, "'Not Applicable' Compliance Count doesn't matches to sum of all risked compliances.");
-			test.log(LogStatus.INFO, "Total 'Not Applicable' Compliances : "+total+" | Total Sum : "+NotApplicableValue);
+			test.log(LogStatus.FAIL, "Total 'Not Applicable' Compliances : "+total+" | Total Sum : "+NotApplicableValue);
 		}
 		
 		if(NotApplicableValue > 0)
@@ -681,7 +681,7 @@ public class MgmtTestCountOne {
 	void Overdue_PieChart() throws InterruptedException
 	{
 		test = extent.startTest("Pie Chart -Not Completed Status- 'Overdue' Count Verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		test.log(LogStatus.PASS, "Test Initiated");
 		
 		Thread.sleep(1000);
 		Actions action = new Actions(driver);
@@ -703,12 +703,12 @@ public class MgmtTestCountOne {
 		if(OverdueValue == total)
 		{
 			test.log(LogStatus.PASS, "' Overdue' Compliance Count matches to sum of all risked compliances.");
-			test.log(LogStatus.INFO, "Total Overdue' Compliances : "+total);
+			test.log(LogStatus.PASS, "Total Overdue' Compliances : "+total);
 		}
 		else
 		{
 			test.log(LogStatus.FAIL, "'Overdue' Compliance Count doesn't matches to sum of all risked compliances.");
-			test.log(LogStatus.INFO, "Total 'Overdue' Compliances : "+total+" | Total Sum : "+OverdueValue);
+			test.log(LogStatus.FAIL, "Total 'Overdue' Compliances : "+total+" | Total Sum : "+OverdueValue);
 		}
 	
 		if(OverdueValue > 0)
@@ -774,7 +774,7 @@ public class MgmtTestCountOne {
 	void dueToday_PieChart() throws InterruptedException
 	{
 		test = extent.startTest("Pie Chart -Not Completed Status- 'dueToday' Count Verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		test.log(LogStatus.PASS, "Test Initiated");
 		
 		Thread.sleep(1000);
 		Actions action = new Actions(driver);
@@ -796,12 +796,12 @@ public class MgmtTestCountOne {
 		if(dueTodayValue == total)
 		{
 			test.log(LogStatus.PASS, "' dueToday' Compliance Count matches to sum of all risked compliances.");
-			test.log(LogStatus.INFO, "Total Overdue' Compliances : "+total);
+			test.log(LogStatus.PASS, "Total Overdue' Compliances : "+total);
 		}
 		else
 		{
 			test.log(LogStatus.FAIL, "'dueToday' Compliance Count doesn't matches to sum of all risked compliances.");
-			test.log(LogStatus.INFO, "Total 'Overdue' Compliances : "+total+" | Total Sum : "+dueTodayValue);
+			test.log(LogStatus.FAIL, "Total 'Overdue' Compliances : "+total+" | Total Sum : "+dueTodayValue);
 		}
 	
 		if(dueTodayValue > 0)
@@ -867,7 +867,7 @@ public class MgmtTestCountOne {
 	void pendingForReview_PieChart() throws InterruptedException
 	{
 		test = extent.startTest("Pie Chart -Not Completed Status- 'Pending For Review' Count Verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		test.log(LogStatus.PASS, "Test Initiated");
 		
 		Thread.sleep(3000);
 		Actions action = new Actions(driver);
@@ -889,12 +889,12 @@ public class MgmtTestCountOne {
 		if(pendingForReviewValue == total)
 		{
 			test.log(LogStatus.PASS, "' Pending For Review' Compliance Count matches to sum of all risked compliances.");
-			test.log(LogStatus.INFO, "Total Overdue' Compliances : "+total);
+			test.log(LogStatus.PASS, "Total Overdue' Compliances : "+total);
 		}
 		else
 		{
 			test.log(LogStatus.FAIL, "'Pending For Review' Compliance Count doesn't matches to sum of all risked compliances.");
-			test.log(LogStatus.INFO, "Total 'Overdue' Compliances : "+total+" | Total Sum : "+pendingForReviewValue);
+			test.log(LogStatus.FAIL, "Total 'Overdue' Compliances : "+total+" | Total Sum : "+pendingForReviewValue);
 		}
 	
 		if(pendingForReviewValue > 0)
@@ -960,7 +960,7 @@ public class MgmtTestCountOne {
 	void inProgress_PieChart() throws InterruptedException
 	{
 		test = extent.startTest("Pie Chart -Not Completed Status- 'In Progress' Count Verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		test.log(LogStatus.PASS, "Test Initiated");
 		
 		Thread.sleep(500);
 		Actions action = new Actions(driver);
@@ -982,12 +982,12 @@ public class MgmtTestCountOne {
 		if(inProgressValue == total)
 		{
 			test.log(LogStatus.PASS, "' In Progress' Compliance Count matches to sum of all risked compliances.");
-			test.log(LogStatus.INFO, "Total Overdue' Compliances : "+total);
+			test.log(LogStatus.PASS, "Total Overdue' Compliances : "+total);
 		}
 		else
 		{
 			test.log(LogStatus.FAIL, "'In Progress' Compliance Count doesn't matches to sum of all risked compliances.");
-			test.log(LogStatus.INFO, "Total 'Overdue' Compliances : "+total+" | Total Sum : "+inProgressValue);
+			test.log(LogStatus.FAIL, "Total 'Overdue' Compliances : "+total+" | Total Sum : "+inProgressValue);
 		}
 	
 		if(inProgressValue > 0)
@@ -1053,7 +1053,7 @@ public class MgmtTestCountOne {
 	void rejected_PieChart() throws InterruptedException
 	{
 		test = extent.startTest("Pie Chart -Not Completed Status- ' Rejected' Count Verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		test.log(LogStatus.PASS, "Test Initiated");
 	//	driver.navigate().refresh();
 		Thread.sleep(2000);
 		Actions action = new Actions(driver);
@@ -1075,12 +1075,12 @@ public class MgmtTestCountOne {
 		if(rejectedValue == total)
 		{
 			test.log(LogStatus.PASS, "' Rejected' Compliance Count matches to sum of all risked compliances.");
-			test.log(LogStatus.INFO, "Total Overdue' Compliances : "+total);
+			test.log(LogStatus.PASS, "Total Overdue' Compliances : "+total);
 		}
 		else
 		{
 			test.log(LogStatus.FAIL, "'Rejected' Compliance Count doesn't matches to sum of all risked compliances.");
-			test.log(LogStatus.INFO, "Total 'Overdue' Compliances : "+total+" | Total Sum : "+rejectedValue);
+			test.log(LogStatus.FAIL, "Total 'Overdue' Compliances : "+total+" | Total Sum : "+rejectedValue);
 		}
 	
 		if(rejectedValue > 0)
@@ -1146,7 +1146,7 @@ public class MgmtTestCountOne {
 	void BargraphIndustrySpeCriticalStatutory() throws InterruptedException
 	{
 		test = extent.startTest("Bar Graph - 'Industry Specific' Count Verification with 'Critical' Risk");
-		test.log(LogStatus.INFO, "Test Initiated");
+		test.log(LogStatus.PASS, "Test Initiated");
 		
 		Thread.sleep(1000);
 		//performer.OverduePOM.clickDashboard(driver).click();			//Clicking on Dashboard
@@ -1173,12 +1173,12 @@ public class MgmtTestCountOne {
 		if(IndustrySpeCritical == total)
 		{
 			test.log(LogStatus.PASS, "'Industry Specific' - Critical' Compliance Count matches to sum of all types of compliances.");
-			test.log(LogStatus.INFO, "Total 'Industry Specific - Critical' Compliances : "+total);
+			test.log(LogStatus.PASS, "Total 'Industry Specific - Critical' Compliances : "+total);
 		}
 		else
 		{
 			test.log(LogStatus.FAIL, "'Industry Specific' - Critical' Compliance Count doesn't matches to sum of all types of compliances.");
-			test.log(LogStatus.INFO, "Total 'Industry Specific - Critical' Compliances : "+total+" | Total Sum : "+IndustrySpeCritical);
+			test.log(LogStatus.FAIL, "Total 'Industry Specific - Critical' Compliances : "+total+" | Total Sum : "+IndustrySpeCritical);
 		}
 		
 		if(IndustrySpeCritical > 0)
@@ -1239,7 +1239,7 @@ public class MgmtTestCountOne {
 	void BargraphIndustrySpeHighStatutory() throws InterruptedException
 	{
 		test = extent.startTest("Bar Graph - 'Industry Specific' Count Verification with 'High' risk");
-		test.log(LogStatus.INFO, "Test Initiated");
+		test.log(LogStatus.PASS, "Test Initiated");
 		Thread.sleep(4000);
 	//	JavascriptExecutor js = (JavascriptExecutor) driver;
 	//	js.executeScript("window.scrollBy(0,925)");						//Scrolling down window by 1000 px.
@@ -1262,12 +1262,12 @@ public class MgmtTestCountOne {
 		if(IndustrySpeHigh == total)
 		{
 			test.log(LogStatus.PASS, "'Industry Specific - High' Compliance Count matches to sum of all types of compliances.");
-			test.log(LogStatus.INFO, "Total 'Industry Specific - High' Compliances : "+total);
+			test.log(LogStatus.PASS, "Total 'Industry Specific - High' Compliances : "+total);
 		}
 		else
 		{
 			test.log(LogStatus.FAIL, "'Industry Specific - High' Compliance Count doesn't matches to sum of all types of compliances.");
-			test.log(LogStatus.INFO, "Total 'Industry Specific - High' Compliances : "+total+" | Total Sum : "+IndustrySpeHigh);
+			test.log(LogStatus.FAIL, "Total 'Industry Specific - High' Compliances : "+total+" | Total Sum : "+IndustrySpeHigh);
 		}
 		
 		if(IndustrySpeHigh > 0)
@@ -1332,7 +1332,7 @@ public class MgmtTestCountOne {
 	void BargraphIndustrySpeMediumStatutory() throws InterruptedException
 	{
 		test = extent.startTest("Bar Graph - 'Industry Specific' Count Verification with 'Medium' risk");
-		test.log(LogStatus.INFO, "Test Initiated");
+		test.log(LogStatus.PASS, "Test Initiated");
 		
 		//JavascriptExecutor js = (JavascriptExecutor) driver;
 		//js.executeScript("window.scrollBy(0,925)");						//Scrolling down window by 1000 px.
@@ -1353,12 +1353,12 @@ public class MgmtTestCountOne {
 		if(IndustrySpeMedium == total)
 		{
 			test.log(LogStatus.PASS, "'Industry Specific - High' Compliance Count matches to sum of all types of compliances.");
-			test.log(LogStatus.INFO, "Total 'Industry Specific - High' Compliances : "+total);
+			test.log(LogStatus.PASS, "Total 'Industry Specific - High' Compliances : "+total);
 		}
 		else
 		{
 			test.log(LogStatus.FAIL, "'Industry Specific - High' Compliance Count doesn't matches to sum of all types of compliances.");
-			test.log(LogStatus.INFO, "Total 'Industry Specific - High' Compliances : "+total+" | Total Sum : "+IndustrySpeMedium);
+			test.log(LogStatus.FAIL, "Total 'Industry Specific - High' Compliances : "+total+" | Total Sum : "+IndustrySpeMedium);
 		}
 		
 		if(IndustrySpeMedium > 0)
@@ -1419,7 +1419,7 @@ public class MgmtTestCountOne {
 	void BargraphIndustrySpeLowStatutory() throws InterruptedException
 	{
 		test = extent.startTest("Bar Graph - 'Indistry Specific' Count Verification with 'Low' risk");
-		test.log(LogStatus.INFO, "Test Initiated");
+		test.log(LogStatus.PASS, "Test Initiated");
 		
 	//	JavascriptExecutor js = (JavascriptExecutor) driver;
 	//	js.executeScript("window.scrollBy(0,925)");						//Scrolling down window by 1000 px.
@@ -1441,12 +1441,12 @@ public class MgmtTestCountOne {
 		if(IndustrySpeLow == total)
 		{
 			test.log(LogStatus.PASS, "'Indistry Specific - High' Compliance Count matches to sum of all types of compliances.");
-			test.log(LogStatus.INFO, "Total 'Indistry Specific - High' Compliances : "+total);
+			test.log(LogStatus.PASS, "Total 'Indistry Specific - High' Compliances : "+total);
 		}
 		else
 		{
 			test.log(LogStatus.FAIL, "'Indistry Specific - High' Compliance Count doesn't matches to sum of all types of compliances.");
-			test.log(LogStatus.INFO, "Total 'Indistry Specific - High' Compliances : "+total+" | Total Sum : "+IndustrySpeLow);
+			test.log(LogStatus.FAIL, "Total 'Indistry Specific - High' Compliances : "+total+" | Total Sum : "+IndustrySpeLow);
 		}
 		
 		if(IndustrySpeLow > 0)
@@ -1514,7 +1514,7 @@ public class MgmtTestCountOne {
 		{
 		 test = extent.startTest("Verify Close Browser");
 			Thread.sleep(1000);
-			test.log(LogStatus.INFO, "Browser Close");
+			test.log(LogStatus.PASS, "Browser Close");
 			driver.close();
 			extent.endTest(test);
 			extent.flush();

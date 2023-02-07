@@ -63,7 +63,7 @@ public class MgmtTestCountThree {
 	//	String workingDir = System.getProperty("webdriver.chrome.driver","C:/March2022/PerformerPom/Driver/chromedriver.exe");
 		extent = new com.relevantcodes.extentreports.ExtentReports("C:\\Users\\Mayuri Gaikwad\\Desktop\\PerformerPom\\Reports\\LitigationPerformer.html",true);
 		test = extent.startTest("Verify OpenBrowser");
-		test.log(LogStatus.INFO, "Browser test is initiated");
+		test.log(LogStatus.PASS, "Browser test is initiated");
 		
 		XSSFSheet sheet = ReadExcel();
 		Row row0 = sheet.getRow(0);						//Selected 0th index row (First row)
@@ -81,7 +81,7 @@ public class MgmtTestCountThree {
 	void Login() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Loging In - MGMT (Statutory)");
-		test.log(LogStatus.INFO, "Logging into system");
+		test.log(LogStatus.PASS, "Logging into system");
 		
 		XSSFSheet sheet = ReadExcel();
 		Row row1 = sheet.getRow(1);						//Selected 1st index row (Second row)
@@ -120,7 +120,7 @@ public class MgmtTestCountThree {
 	void StandardReportOverall() throws InterruptedException, IOException
 	{
 		test = extent.startTest("My Reports - Standard Report -Overall Verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		test.log(LogStatus.PASS, "Test Initiated");
 		
 		CFOcountPOM.StandardReportOverall(test, driver, "cfo");
 		
@@ -132,7 +132,7 @@ public class MgmtTestCountThree {
 	void StandardReportLocation() throws InterruptedException, IOException
 	{
 		test = extent.startTest("My Reports - Standard Report -Location Verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		test.log(LogStatus.PASS, "Test Initiated");
 		
 		CFOcountPOM.StandardReportLocation(test, driver, "cfo");
 		
@@ -144,7 +144,7 @@ public class MgmtTestCountThree {
 	void StandardReportUser() throws InterruptedException, IOException
 	{
 		test = extent.startTest("My Reports - Standard Report -User Verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		test.log(LogStatus.PASS, "Test Initiated");
 		
 		CFOcountPOM.StandardReportUser(test, driver, "cfo");
 		
@@ -156,7 +156,7 @@ public class MgmtTestCountThree {
 	void StandardReportCategory() throws InterruptedException, IOException
 	{
 		test = extent.startTest("My Reports - Standard Report -Category  Verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		test.log(LogStatus.PASS, "Test Initiated");
 		
 		CFOcountPOM.StandardReportCategory(test, driver, "cfo");
 		
@@ -168,7 +168,7 @@ public class MgmtTestCountThree {
 	void StandardReportRisk() throws InterruptedException, IOException
 	{
 		test = extent.startTest("My Reports - Standard Report -Risk  Verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		test.log(LogStatus.PASS, "Test Initiated");
 		
 		CFOcountPOM.StandardReportRisk(test, driver, "cfo");
 		
@@ -180,7 +180,7 @@ public class MgmtTestCountThree {
 	void StandardReportDetailed() throws InterruptedException, IOException
 	{
 		test = extent.startTest("My Reports - Standard Report -Detailed  Verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		test.log(LogStatus.PASS, "Test Initiated");
 		
 		CFOcountPOM.StandardReportDetailed(test, driver, "cfo");
 		
@@ -192,7 +192,7 @@ public class MgmtTestCountThree {
 	void StandardReportCriticalRisk() throws InterruptedException, IOException
 	{
 		test = extent.startTest("My Reports - Standard Report -Critical Risk  Verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		test.log(LogStatus.PASS, "Test Initiated");
 		
 		CFOcountPOM.StandardReportCriticalRisk(test, driver, "cfo");
 		
@@ -204,7 +204,7 @@ public class MgmtTestCountThree {
 	void StandardReportOverallIN() throws InterruptedException, IOException
 	{
 		test = extent.startTest("My Reports - Standard Report Internal -Overall Verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		test.log(LogStatus.PASS, "Test Initiated");
 		
 		CFOcountPOM.StandardReportOverallIn(test, driver, "cfo");
 		
@@ -216,7 +216,7 @@ public class MgmtTestCountThree {
 	void StandardReportLocationIN() throws InterruptedException, IOException
 	{
 		test = extent.startTest("My Reports - Standard Report Internal -Location Verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		test.log(LogStatus.PASS, "Test Initiated");
 		
 		CFOcountPOM.StandardReportLocationIN(test, driver, "cfo");
 		
@@ -228,7 +228,7 @@ public class MgmtTestCountThree {
 	void StandardReportUserIn() throws InterruptedException, IOException
 	{
 		test = extent.startTest("My Reports - Standard Report Internal -User Verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		test.log(LogStatus.PASS, "Test Initiated");
 		
 		CFOcountPOM.StandardReportUserIN(test, driver, "cfo");
 		
@@ -240,7 +240,7 @@ public class MgmtTestCountThree {
 	void StandardReportCategoryIn() throws InterruptedException, IOException
 	{
 		test = extent.startTest("My Reports -Standard Report Internal -Category  Verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		test.log(LogStatus.PASS, "Test Initiated");
 		
 		CFOcountPOM.StandardReportCategoryIN(test, driver, "cfo");
 		
@@ -252,7 +252,7 @@ public class MgmtTestCountThree {
 	void StandardReportRiskIN() throws InterruptedException, IOException
 	{
 		test = extent.startTest("My Reports - Standard Report Internal-Risk  Verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		test.log(LogStatus.PASS, "Test Initiated");
 		
 		CFOcountPOM.StandardReportRiskIN(test, driver, "cfo");
 		
@@ -264,7 +264,7 @@ public class MgmtTestCountThree {
 	void StandardReportDetailedIN() throws InterruptedException, IOException
 	{
 		test = extent.startTest("My Reports - Standard Report Internal-Detailed  Verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		test.log(LogStatus.PASS, "Test Initiated");
 		
 		CFOcountPOM.StandardReportDetailedIN(test, driver, "cfo");
 		
@@ -276,7 +276,7 @@ public class MgmtTestCountThree {
 	void StandardReportCriticalRiskIN() throws InterruptedException, IOException
 	{
 		test = extent.startTest("My Reports -Standard Report Internal -Critical Risk  Verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		test.log(LogStatus.PASS, "Test Initiated");
 		
 		CFOcountPOM.StandardReportCriticalRiskIN(test, driver, "cfo");
 		
@@ -288,7 +288,7 @@ public class MgmtTestCountThree {
 	void DetailedReport() throws InterruptedException, IOException
 	{
 		test = extent.startTest("My Reports - Detailed Report Count Verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		test.log(LogStatus.PASS, "Test Initiated");
 		
 		CFOcountPOM.DetailedReport1(test, driver, "cfo");
 		
@@ -300,7 +300,7 @@ public class MgmtTestCountThree {
 	void DetailedReportIn() throws InterruptedException, IOException
 	{
 		test = extent.startTest("My Reports - Detailed Report -Internal Count Verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		test.log(LogStatus.PASS, "Test Initiated");
 		
 		CFOcountPOM.DetailedReportIn(test, driver, "cfo");
 		
@@ -312,7 +312,7 @@ public class MgmtTestCountThree {
 	void AssignmentReport() throws InterruptedException, IOException
 	{
 		test = extent.startTest("My Reports - Assignment Report verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		test.log(LogStatus.PASS, "Test Initiated");
 		
 		CFOcountPOM.AssignmentReport(test, driver);
 		
@@ -325,7 +325,7 @@ public class MgmtTestCountThree {
 	void UsageReport() throws InterruptedException
 	{
 		test = extent.startTest("My Reports - Usage Report verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		test.log(LogStatus.PASS, "Test Initiated");
 		
 		Thread.sleep(1000);
 		CFOcountPOM.clickReports(driver).click();				//Clicking on 'My Reports'
@@ -373,7 +373,7 @@ public class MgmtTestCountThree {
 	void AuditReport() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Audit Report verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		test.log(LogStatus.PASS, "Test Initiated");
 		
 		CFOcountPOM.AuditReport(test, driver);
 		
@@ -385,7 +385,7 @@ public class MgmtTestCountThree {
 	void ActRepository() throws InterruptedException, IOException
 	{
 		test = extent.startTest("My Reports - Act Repository  verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		test.log(LogStatus.PASS, "Test Initiated");
 		
 		CFOcountPOM.ActRepository(test,driver);
 		
@@ -397,7 +397,7 @@ public class MgmtTestCountThree {
 	void ComplianceDocuments() throws InterruptedException, IOException
 	{
 		test = extent.startTest("My Documents - Compliance Documents  verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		test.log(LogStatus.PASS, "Test Initiated");
 		
 		CFOcountPOM.ComplianceDocuments(test,driver);
 		
@@ -409,7 +409,7 @@ public class MgmtTestCountThree {
 	void ComplianceDocumentsIN() throws InterruptedException, IOException
 	{
 		test = extent.startTest("My Documents - Compliance Documents-Internal  verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		test.log(LogStatus.PASS, "Test Initiated");
 		
 		CFOcountPOM.complianceDocumentIn(test,driver);
 		
@@ -421,7 +421,7 @@ public class MgmtTestCountThree {
 	void CriticalDocuments() throws InterruptedException, IOException
 	{
 		test = extent.startTest("My Documents Critical Document Verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		test.log(LogStatus.PASS, "Test Initiated");
 		
 		OverduePOM.CriticalDocuments(driver, test);
 		
@@ -434,7 +434,7 @@ public class MgmtTestCountThree {
 	void ActDocuments() throws InterruptedException, IOException
 	{
 		test = extent.startTest("My Documents -Act Documents  verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		test.log(LogStatus.PASS, "Test Initiated");
 		
 		CFOcountPOM.ActDocuments(test,driver);
 		extent.endTest(test);
@@ -445,7 +445,7 @@ public class MgmtTestCountThree {
 	void MyReminderStatutory() throws InterruptedException, IOException
 	{
 		test = extent.startTest("My Reminder - Statutory Count Verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		test.log(LogStatus.PASS, "Test Initiated");
 		
 		OverduePOM.MyReminder(driver, test, "Statutory");
 		
@@ -458,7 +458,7 @@ public class MgmtTestCountThree {
 	void MyEscalation() throws InterruptedException, IOException
 	{
 		test = extent.startTest("My  Escalation - Verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		test.log(LogStatus.PASS, "Test Initiated");
 		WebDriverWait wait = new WebDriverWait(driver,(30));
 		CFOcountPOM.clickMyEscalation(driver).click();
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='grid']/div[3]/table")));	//Wait till records table gets visible
@@ -480,7 +480,7 @@ public class MgmtTestCountThree {
 	void MyNotifications() throws InterruptedException, IOException
 	{
 		test = extent.startTest("My Notifications - Verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		test.log(LogStatus.PASS, "Test Initiated");
 		WebDriverWait wait = new WebDriverWait(driver, (30));
 		Thread.sleep(8000);
 		CFOcountPOM.clickMyNotifications(driver).click();
@@ -489,7 +489,7 @@ public class MgmtTestCountThree {
 		Thread.sleep(4000);
 		CFOcountPOM.CloseViewNO(driver).click();
 		Thread.sleep(4000);
-		test.log(LogStatus.INFO, "View Successfully");	
+		test.log(LogStatus.PASS, "View Successfully");	
 		driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_GridNotifications_chkCompliances_0']")).click();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_GridNotifications_chkCompliances_1']")).click();
@@ -509,7 +509,7 @@ public class MgmtTestCountThree {
 	void MessageCenter() throws InterruptedException, IOException
 	{
 		test = extent.startTest(" Message Center - Verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		test.log(LogStatus.PASS, "Test Initiated");
 		WebDriverWait wait = new WebDriverWait(driver, (30));
 		Thread.sleep(8000);
 		CFOcountPOM.clickMessageCenter(driver).click();
@@ -528,7 +528,7 @@ public class MgmtTestCountThree {
 		{
 			Thread.sleep(500);		
 			test = extent.startTest("'Internal Msg  '  Verification");
-			test.log(LogStatus.INFO, "Test Initiated");
+			test.log(LogStatus.PASS, "Test Initiated");
 				Thread.sleep(1000);
 			WebDriverWait wait = new WebDriverWait(driver, (40));
 			Thread.sleep(500);
@@ -553,7 +553,7 @@ public class MgmtTestCountThree {
 		JavascriptExecutor jse=(JavascriptExecutor)driver;
 		jse.executeScript("arguments[0].click();", ViewButton);
 			Thread.sleep(5000);
-			test.log(LogStatus.INFO, "Internal Message working Succefully");
+			test.log(LogStatus.PASS, "Internal Message working Succefully");
 			Thread.sleep(1000);
 			extent.endTest(test);
 			extent.flush();
@@ -564,7 +564,7 @@ public class MgmtTestCountThree {
 			{
 				Thread.sleep(1000);		
 				test = extent.startTest("'Support Ticket  '  Verification");
-				test.log(LogStatus.INFO, "Test Initiated");
+				test.log(LogStatus.PASS, "Test Initiated");
 				
 				MethodsPOM.SupportTicket(test,driver);
 				
@@ -577,7 +577,7 @@ public class MgmtTestCountThree {
 			{
 			 test = extent.startTest("Verify Close Browser");
 				Thread.sleep(1000);
-				test.log(LogStatus.INFO, "Browser Close");
+				test.log(LogStatus.PASS, "Browser Close");
 				driver.close();
 				extent.endTest(test);
 				extent.flush();

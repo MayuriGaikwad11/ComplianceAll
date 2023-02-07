@@ -578,7 +578,7 @@ public class ImplementCount {
 		extent.flush();
 	}
 	
-	@Test(priority = 40)
+//	@Test(priority = 40)
 	void UploadAssignmentUU() throws InterruptedException, IOException
 	{
 		test = extent.startTest(" Manage Compliances-Upload Utility - Upload Assignment");
@@ -590,7 +590,7 @@ public class ImplementCount {
 		extent.flush();
 	}
 	
-	@Test(priority = 41)
+//	@Test(priority = 41)
 	void UploadEventBasedComplianceAssignment() throws InterruptedException, IOException
 	{
 		test = extent.startTest(" Manage Compliances-Upload Utility - Upload Event  Based Compliance Assignment");
@@ -602,13 +602,109 @@ public class ImplementCount {
 		extent.flush();
 	}
 	
-	@Test(priority = 42)
+	//@Test(priority = 42)
 	void UploadAssignmentAll() throws InterruptedException, IOException
 	{
 		test = extent.startTest(" Manage Compliances-Upload Utility - Upload Assignment All");
 		test.log(LogStatus.INFO, "Test Initiated");
 		
 		ImplementMethods.UploadAssignmentAll(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 43)
+	void AssignComplianceCA() throws InterruptedException, IOException
+	{
+		test = extent.startTest(" Manage Compliances-Compliance Assignment - Assign Compliance");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		ImplementMethods.AssignComplianceCA(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 44)
+	void IntermediateComplianceCA() throws InterruptedException, IOException
+	{
+		test = extent.startTest(" Manage Compliances-Compliance Assignment - Intermediate Compliance");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		ImplementMethods.IntermediateComplianceCA(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 45)
+	void ActivateComplianceCA() throws InterruptedException, IOException
+	{
+		test = extent.startTest(" Manage Compliances-Compliance Assignment - Activate Compliance");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		ImplementMethods.ActivateComplianceCA(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 46)
+	void AssignCheckListCA() throws InterruptedException, IOException
+	{
+		test = extent.startTest(" Manage Compliances-Compliance Assignment -Assign CheckList");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		ImplementMethods.AssignCheckListCA(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 47)
+	void IntermediateCheckListCA() throws InterruptedException, IOException
+	{
+		test = extent.startTest(" Manage Compliances-Compliance Assignment - Intermediate CheckList");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		ImplementMethods.IntermediateCheckListCA(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 48)
+	void ActivateCheckListCA() throws InterruptedException, IOException
+	{
+		test = extent.startTest(" Manage Compliances-Compliance Assignment - Activate CheckList");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		ImplementMethods.ActivateCheckListCA(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 49)
+	void EntitiesAssignmentsMC() throws InterruptedException, IOException
+	{
+		test = extent.startTest(" Manage Compliances-Entities Assignment - Entities Assignments");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		ImplementMethods.EntitiesAssignmentsMC(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 50)
+	void LicenseEntitiesAssignmentsMC() throws InterruptedException, IOException
+	{
+		test = extent.startTest(" Manage Compliances-Entities Assignment - License Entities Assignments");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		ImplementMethods.LicenseEntitiesAssignmentsMC(driver,test);
 		
 		extent.endTest(test);
 		extent.flush();

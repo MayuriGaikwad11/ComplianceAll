@@ -5,8 +5,8 @@
     <classes>
       <class name="implementation.ImplementCount">
         <methods>
-          <include name="UploadAssignmentUU"/>
           <include name="setBrowser"/>
+          <include name="LicenseEntitiesAssignmentsMC"/>
         </methods>
       </class> <!-- implementation.ImplementCount -->
     </classes>
