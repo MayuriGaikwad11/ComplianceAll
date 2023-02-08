@@ -3,12 +3,23 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="implementation.ImplementCount">
+      <class name="cfo.CFOcountInternal">
         <methods>
+          <include name="StandardReportCategoryIn"/>
+          <include name="StandardReportLocationIN"/>
+          <include name="StandardReportDetailedIN"/>
+          <include name="Closing"/>
+          <include name="StandardReportCriticalRiskIN"/>
+          <include name="StandardReportOverallIN"/>
+          <include name="DailyUpdates"/>
+          <include name="NewsLetter"/>
+          <include name="complianceCalendar"/>
+          <include name="StandardReportRiskIN"/>
+          <include name="StandardReportUserIn"/>
+          <include name="GradingReportInternal"/>
           <include name="setBrowser"/>
-          <include name="LicenseEntitiesAssignmentsMC"/>
         </methods>
-      </class> <!-- implementation.ImplementCount -->
+      </class> <!-- cfo.CFOcountInternal -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

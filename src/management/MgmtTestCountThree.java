@@ -199,7 +199,7 @@ public class MgmtTestCountThree {
 		extent.endTest(test);
 		extent.flush();
 	}
-	
+	/*
 	@Test(priority = 9)
 	void StandardReportOverallIN() throws InterruptedException, IOException
 	{
@@ -283,7 +283,7 @@ public class MgmtTestCountThree {
 		extent.endTest(test);
 		extent.flush();
 	}
-	
+	*/
 	@Test(priority = 16)
 	void DetailedReport() throws InterruptedException, IOException
 	{

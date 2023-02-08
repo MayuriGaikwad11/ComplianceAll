@@ -88,7 +88,7 @@ public class CFOcountPOM
 	public static WebElement readCompliancesInternal(WebDriver driver)		//Method for reading Compliances value on Dashboard
 	{
 		compliances = driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_divCompliancesCount']"));
-		return compliances;
+		return compliances;//*[@id="ContentPlaceHolder1_divCompliancesCount"]
 	}      
 	
 	public static WebElement clickLocation(WebDriver driver)		//Method for reading Compliances value on Dashboard
@@ -606,6 +606,13 @@ public class CFOcountPOM
 		return piechart;
 	}
 	
+	public static WebElement readTotalItems4(WebDriver driver)				//Method to read total no of items.
+	{
+	
+		piechart=driver.findElement(By.xpath("//*[@id='grid']/div[4]/span[2]"));
+		return piechart;
+	}
+	
 	
 	public static WebElement readTotalItemsD(WebDriver driver)				//Method to read total no of items.
 	{
@@ -1017,7 +1024,7 @@ public class CFOcountPOM
 	
 	public static WebElement clickFinanceOverdueInternal(WebDriver driver)		//Method to search 'High Risk' bar of Department Summary.
 	{
-		department = driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-undefined '])[31]"));
+		department = driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-undefined '])[29]"));
 		return department;
 	}
 	
@@ -2761,7 +2768,7 @@ public class CFOcountPOM
 			test.log(LogStatus.PASS, "Excel file Export Successfully");
 			Thread.sleep(3000);
 			
-  By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[16]/a");
+  By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[17]/a");
 
 			wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 			Thread.sleep(4000);
@@ -3824,7 +3831,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[17]/a");
 			Thread.sleep(4000);
 			test.log(LogStatus.PASS, "Excel file Export Successfully");
 			Thread.sleep(3000);
-
+			
 			 By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[17]/a");
 
 				wait.until(ExpectedConditions.presenceOfElementLocated(locator));

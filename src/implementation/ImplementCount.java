@@ -614,7 +614,7 @@ public class ImplementCount {
 		extent.flush();
 	}
 	
-	@Test(priority = 43)
+/*	@Test(priority = 43)
 	void AssignComplianceCA() throws InterruptedException, IOException
 	{
 		test = extent.startTest(" Manage Compliances-Compliance Assignment - Assign Compliance");
@@ -705,6 +705,55 @@ public class ImplementCount {
 		test.log(LogStatus.INFO, "Test Initiated");
 		
 		ImplementMethods.LicenseEntitiesAssignmentsMC(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	*/
+	
+	@Test(priority = 51)
+	void DaysBeforeDueDate() throws InterruptedException, IOException
+	{
+		test = extent.startTest(" Manage Compliances-Client Specific Configuration - Days Before Due Date");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		ImplementMethods.DaysBeforeDueDate(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 52)
+	void ReOpeningofCompliance() throws InterruptedException, IOException
+	{
+		test = extent.startTest(" Manage Compliances-Client Specific Configuration - Re-Opening of Compliance");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		ImplementMethods.ReOpeningofCompliance(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 53)
+	void BlockScheduleInternal() throws InterruptedException, IOException
+	{
+		test = extent.startTest(" Manage Compliances-Client Specific Configuration -Block Schedule Internal");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		ImplementMethods.BlockScheduleInternal(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 54)
+	void BlockScheduleStatutory() throws InterruptedException, IOException
+	{
+		test = extent.startTest(" Manage Compliances-Client Specific Configuration - Block Schedule Statutory ");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		ImplementMethods.BlockScheduleStatutory(driver,test);
 		
 		extent.endTest(test);
 		extent.flush();

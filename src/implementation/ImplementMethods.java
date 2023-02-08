@@ -3455,7 +3455,274 @@ String Msg1=ImplementPOM.ReadMsg(driver).getText();
 
 				test.log(LogStatus.PASS, "Message displayed -:- " + Msg);
 				Thread.sleep(4000);
-				
+		
+	}
+	
+	public static void DaysBeforeDueDate(WebDriver driver, ExtentTest test)
+			throws InterruptedException, IOException {
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (80));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[2]/a"))); 
+					//---------------------------Add New Entities Assignments	--------------------------------																						
+
+		action.moveToElement(ImplementPOM.ManageCompliances(driver)).click().build().perform();
+		Thread.sleep(1000);
+		ImplementPOM.ClientSpecificConfiguration(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.DaysBeforeDueDate(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.CustomerDB(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.test1(driver).click();
+		Thread.sleep(5000);
+		ImplementPOM.Monthly(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.Text1(driver).clear();
+		Thread.sleep(2000);
+		ImplementPOM.Monthly(driver).click();
+		Thread.sleep(2000);
+		ImplementPOM.Text1(driver).sendKeys("1");
+		Thread.sleep(1000);
+		ImplementPOM.Quarterly(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.Text2(driver).clear();
+		Thread.sleep(500);
+		ImplementPOM.Quarterly(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.Text2(driver).sendKeys("2");
+		Thread.sleep(1000);
+		ImplementPOM.HalfYearly(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.Text3(driver).clear();
+		Thread.sleep(500);
+		ImplementPOM.HalfYearly(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.Text3(driver).sendKeys("3");
+		Thread.sleep(1000);
+		ImplementPOM.Annual1(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.Text4(driver).clear();
+		Thread.sleep(500);
+		ImplementPOM.Annual1(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.Text4(driver).sendKeys("4");
+		Thread.sleep(1000);
+		ImplementPOM.FourMonthly(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.Text5(driver).clear();
+		Thread.sleep(500);
+		ImplementPOM.FourMonthly(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.Text5(driver).sendKeys("5");
+		Thread.sleep(1000);
+		ImplementPOM.TwoYearly(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.Text6(driver).clear();
+		Thread.sleep(500);
+		ImplementPOM.TwoYearly(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.Text6(driver).sendKeys("6");
+		Thread.sleep(1000);
+		ImplementPOM.SevenYearly(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.Text7(driver).clear();
+		Thread.sleep(500);
+		ImplementPOM.SevenYearly(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.Text7(driver).sendKeys("7");
+		Thread.sleep(1000);
+		ImplementPOM.ThreeYearly(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.Text8(driver).clear();
+		Thread.sleep(500);
+		ImplementPOM.ThreeYearly(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.Text8(driver).sendKeys("8");
+		Thread.sleep(1000);
+		ImplementPOM.FiveYearly(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.Text9(driver).clear();
+		Thread.sleep(500);
+		ImplementPOM.FiveYearly(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.Text9(driver).sendKeys("9");
+		Thread.sleep(1000);
+		ImplementPOM.Fortnightly(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.Text10(driver).clear();
+		Thread.sleep(500);
+		ImplementPOM.Fortnightly(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.Text10(driver).sendKeys("10");
+		Thread.sleep(2000);
+		ImplementPOM.SaveBtn(driver).click();
+		Thread.sleep(1000);
+		String Msg = driver.switchTo().alert().getText();
+		Thread.sleep(1000);
+		driver.switchTo().alert().accept();
+
+		test.log(LogStatus.PASS, "Message displayed -:- " + Msg);
+		Thread.sleep(4000);
+	}
+	
+	public static void ReOpeningofCompliance(WebDriver driver, ExtentTest test)
+			throws InterruptedException, IOException {
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (80));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[2]/a"))); 
+					//---------------------------Add New Entities Assignments	--------------------------------																						
+
+		action.moveToElement(ImplementPOM.ManageCompliances(driver)).click().build().perform();
+		Thread.sleep(1000);
+		ImplementPOM.ClientSpecificConfiguration(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.ReOpeningofCompliance(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.CustomerReopen(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.AvantisTest1(driver).click();
+		Thread.sleep(5000);
+		ImplementPOM.ApproverCB(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.AuditorCB(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.SaveREOpen(driver).click();
+		Thread.sleep(1000);
+		String Msg = driver.switchTo().alert().getText();
+		Thread.sleep(1000);
+		driver.switchTo().alert().accept();
+
+		test.log(LogStatus.PASS, "Message displayed -:- " + Msg);
+		Thread.sleep(2000);
+		String Msg1 = driver.switchTo().alert().getText();
+		Thread.sleep(1000);
+		driver.switchTo().alert().accept();
+
+		test.log(LogStatus.PASS, "Message displayed -:- " + Msg1);
+		Thread.sleep(4000);
+	}
+	
+	public static void BlockScheduleInternal(WebDriver driver, ExtentTest test)
+			throws InterruptedException, IOException {
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (80));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[2]/a"))); 
+					//---------------------------Add New Entities Assignments	--------------------------------																						
+
+		action.moveToElement(ImplementPOM.ManageCompliances(driver)).click().build().perform();
+		Thread.sleep(1000);
+		ImplementPOM.ClientSpecificConfiguration(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.BlockScheduleInternal(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.CustomerBSI(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.customer123Users(driver).click();
+		Thread.sleep(3000);
+		ImplementPOM.ComplianceCategoryBSI(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.ABCD(driver).click();
+		Thread.sleep(3000);
+		ImplementPOM.DescriptionBSI(driver).sendKeys("ABCD");
+		Thread.sleep(3000);
+		ImplementPOM.BlockDate(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.Date14(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.BlockCheckBox(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.keep(driver).click();
+		Thread.sleep(1000);
+		String Msg = driver.switchTo().alert().getText();
+		Thread.sleep(1000);
+		driver.switchTo().alert().accept();
+
+		test.log(LogStatus.PASS, "Message displayed -:- " + Msg);
+		Thread.sleep(2000);
+		ImplementPOM.BlockDelete(driver).click();
+		Thread.sleep(1000);
+		String Msg1 = driver.switchTo().alert().getText();
+		Thread.sleep(1000);
+		driver.switchTo().alert().accept();
+
+		test.log(LogStatus.PASS, "Message displayed -:- " + Msg1);
+		Thread.sleep(2000);
+		
+	}
+	
+	public static void BlockScheduleStatutory(WebDriver driver, ExtentTest test)
+			throws InterruptedException, IOException {
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (80));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[2]/a"))); 
+					//---------------------------Add New Entities Assignments	--------------------------------																						
+
+		action.moveToElement(ImplementPOM.ManageCompliances(driver)).click().build().perform();
+		Thread.sleep(1000);
+		ImplementPOM.ClientSpecificConfiguration(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.BlockScheduleStatutory(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.CustomerBSI(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.customer123Users(driver).click();
+		Thread.sleep(3000);
+		ImplementPOM.ComplianceCategoryBSI(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.ClientSpecific(driver).click();
+		Thread.sleep(3000);
+		ImplementPOM.DescriptionBSI(driver).sendKeys("ABCD");
+		Thread.sleep(3000);
+		ImplementPOM.BlockDate(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.Date14(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.BlockCheckBox(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.keep(driver).click();
+		Thread.sleep(1000);
+		String Msg = driver.switchTo().alert().getText();
+		Thread.sleep(1000);
+		driver.switchTo().alert().accept();
+
+		test.log(LogStatus.PASS, "Keep - Message displayed -:- " + Msg);
+		Thread.sleep(2000);
+		String Msg1 = driver.switchTo().alert().getText();
+		Thread.sleep(1000);
+		driver.switchTo().alert().accept();
+
+		test.log(LogStatus.PASS, "Keep - Message displayed -:- " + Msg1);
+		Thread.sleep(2000);
+		ImplementPOM.DescriptionBSI(driver).sendKeys("ABCDE");
+		Thread.sleep(3000);
+		ImplementPOM.BlockDate(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.Date14(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.BlockCheckBox(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.BlockDelete(driver).click();
+		Thread.sleep(1000);
+		String Msg2 = driver.switchTo().alert().getText();
+		Thread.sleep(1000);
+		driver.switchTo().alert().accept();
+
+		test.log(LogStatus.PASS, "Delete - Message displayed -:- " + Msg2);
+		Thread.sleep(2000);
+		String Msg3 = driver.switchTo().alert().getText();
+		Thread.sleep(1000);
+		driver.switchTo().alert().accept();
+
+		test.log(LogStatus.PASS, "Delete - Message displayed -:- " + Msg3);
+		Thread.sleep(2000);
 		
 	}
 	
