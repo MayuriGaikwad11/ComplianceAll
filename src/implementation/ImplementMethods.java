@@ -3726,6 +3726,231 @@ String Msg1=ImplementPOM.ReadMsg(driver).getText();
 		
 	}
 	
+	public static void DocumentMandatoryNonMandatory(WebDriver driver, ExtentTest test)
+			throws InterruptedException, IOException {
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (80));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[2]/a"))); 
+																										
+
+		action.moveToElement(ImplementPOM.ManageCompliances(driver)).click().build().perform();
+		Thread.sleep(1000);
+		ImplementPOM.ClientSpecificConfiguration(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.DocumentMandatoryNonMandatory(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.DocumentCustomer(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.customer123Users(driver).click();
+		Thread.sleep(4000);
+		//---------------------Export------------------------
+	//	Thread.sleep(3000);
+		File dir = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
+
+		Thread.sleep(500);
+		ImplementPOM.ExportBtn(driver).click(); // Exporting (Downloading) file
+
+		Thread.sleep(3000);
+		File dir1 = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
+		Thread.sleep(3000);
+		if (dirContents.length < allFilesNew.length) {
+			test.log(LogStatus.PASS,  " :- File downloaded successfully.");
+		} else {
+			test.log(LogStatus.INFO,  " :- File does not downloaded.");
+		}
+		Thread.sleep(1000);
+		ImplementPOM.FilterType(driver).sendKeys("2153",Keys.ENTER);
+		Thread.sleep(3000);
+		test.log(LogStatus.PASS,  " :- Filter Working  successfully.");
+	}
+	
+	public static void StartDateChange(WebDriver driver, ExtentTest test)
+			throws InterruptedException, IOException {
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (80));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[2]/a"))); 
+																										
+   //----------------Keep-----------------------------
+		action.moveToElement(ImplementPOM.ManageCompliances(driver)).click().build().perform();
+		Thread.sleep(1000);
+		ImplementPOM.ClientSpecificConfiguration(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.StartDateChange(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.StartDateCustomer(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.customer123Users(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.SelectLocationCA(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.LocationCA(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.ASDAZFTextileA(driver).click();
+		Thread.sleep(2000);
+		ImplementPOM.ActName(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.ActName1(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.Compliance(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.Compliance1(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.selectDate(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.Date2(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.keep(driver).click();
+		Thread.sleep(1000);
+		String Msg3 = driver.switchTo().alert().getText();
+		Thread.sleep(1000);
+		driver.switchTo().alert().accept();
+
+		test.log(LogStatus.PASS, " Message displayed -:- " + Msg3);
+		Thread.sleep(2000);
+	String Msg=	ImplementPOM.StartDateMsg(driver).getText();
+	test.log(LogStatus.PASS, " Message displayed -:- " + Msg);
+	
+	  //----------------Delete-----------------------------
+			action.moveToElement(ImplementPOM.ManageCompliances(driver)).click().build().perform();
+			Thread.sleep(1000);
+			ImplementPOM.ClientSpecificConfiguration(driver).click();
+			Thread.sleep(1000);
+			ImplementPOM.StartDateChange(driver).click();
+			Thread.sleep(4000);
+			ImplementPOM.StartDateCustomer(driver).click();
+			Thread.sleep(1000);
+			ImplementPOM.customer123Users(driver).click();
+			Thread.sleep(4000);
+			ImplementPOM.SelectLocationCA(driver).click();
+			Thread.sleep(1000);
+			ImplementPOM.LocationCA(driver).click();
+			Thread.sleep(1000);
+			ImplementPOM.ASDAZFTextileA(driver).click();
+			Thread.sleep(2000);
+			ImplementPOM.ActName(driver).click();
+			Thread.sleep(1000);
+			ImplementPOM.ActName1(driver).click();
+			Thread.sleep(1000);
+			ImplementPOM.Compliance(driver).click();
+			Thread.sleep(1000);
+			ImplementPOM.Compliance1(driver).click();
+			Thread.sleep(1000);
+			ImplementPOM.selectDate(driver).click();
+			Thread.sleep(1000);
+			ImplementPOM.Date2(driver).click();
+			Thread.sleep(1000);
+			ImplementPOM.DeleteStart(driver).click();
+			Thread.sleep(3000);
+			String Msg4 = driver.switchTo().alert().getText();
+			Thread.sleep(1000);
+			driver.switchTo().alert().accept();
+
+			test.log(LogStatus.PASS, " Message displayed -:- " + Msg4);
+			Thread.sleep(2000);
+		String Msg5=	ImplementPOM.StartDateMsg(driver).getText();
+		test.log(LogStatus.PASS, " Message displayed -:- " + Msg5);
+		
+	}
+	
+	public static void ChangeDueDate(WebDriver driver, ExtentTest test)
+			throws InterruptedException, IOException {
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (80));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[2]/a"))); 
+																										
+   //----------------Add New-----------------------------
+		action.moveToElement(ImplementPOM.ManageCompliances(driver)).click().build().perform();
+		Thread.sleep(1000);
+		ImplementPOM.ClientSpecificConfiguration(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.ChangeDueDate(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.DocumentCustomer(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.customer123Users(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.AddNew1(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.CustomerName1(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.customer123Users(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.ActNameDueDate(driver).clear();
+		Thread.sleep(1000);
+		ImplementPOM.ActNameDueDate(driver).sendKeys("Act 19122022 Latest");
+		Thread.sleep(1000);
+		ImplementPOM.ActNameDueDateLatest(driver).click();
+		Thread.sleep(2000);
+		ImplementPOM.ShortDescription1(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.ShortDescription12(driver).click();
+		Thread.sleep(2000);
+		ImplementPOM.DueDate(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.Date2(driver).click();
+		Thread.sleep(2000);
+		ImplementPOM.DueDateSave(driver).click();
+		Thread.sleep(2000);
+		String Msg4 = ImplementPOM.DueDateSaveMsg(driver).getText();
+
+		test.log(LogStatus.PASS, " Message displayed -:- " + Msg4);
+		Thread.sleep(2000);
+		ImplementPOM.DueDateClose(driver).click();
+		Thread.sleep(2000);
+		//--------------------- Filter --------------------------
+		Thread.sleep(1000);
+		ImplementPOM.FilterType(driver).sendKeys("Act 19122022 Latest",Keys.ENTER);
+		Thread.sleep(3000);
+		String Msg5 = ImplementPOM.ActNameText(driver).getText();
+		Thread.sleep(2000);
+ if(Msg5.equalsIgnoreCase("Act 19122022 Latest")) {
+	
+	test.log(LogStatus.PASS,  " :- Filter Working  successfully.");
+     }else {
+	
+	test.log(LogStatus.FAIL,  " :- Filter is not Working  successfully.");
+	
+ }
+//--------------------- Edit --------------------------
+ Thread.sleep(2000);
+	ImplementPOM.Edit(driver).click();
+	Thread.sleep(2000);
+	Thread.sleep(2000);
+	ImplementPOM.DueDate(driver).click();
+	Thread.sleep(1000);
+	ImplementPOM.Date4(driver).click();
+	Thread.sleep(2000);
+	ImplementPOM.DueDateSave(driver).click();
+	Thread.sleep(4000);
+	String Msg6 = ImplementPOM.DueDateSaveMsg(driver).getText();
+
+	test.log(LogStatus.PASS, " Message displayed -:- " + Msg6);
+	Thread.sleep(2000);
+	ImplementPOM.DueDateClose(driver).click();
+	Thread.sleep(2000);
+	ImplementPOM.DisplayScheduleInformation1(driver).click();
+	Thread.sleep(2000);
+	ImplementPOM.DisplayScheduleInformationSave(driver).click();
+	Thread.sleep(2000);
+	test.log(LogStatus.PASS,  " :- Filter Working  successfully.");
+		//----------------- File Upload ----------------
+	ImplementPOM.Choose(driver).sendKeys("C:\\Users\\Mayuri Gaikwad\\Downloads\\UploadClientBasedDueDate.xlsx");
+	Thread.sleep(2000);
+	ImplementPOM.Upload1(driver).click();
+	String Msg7 = ImplementPOM.Uploadmsg(driver).getText();
+
+	test.log(LogStatus.PASS, " Message displayed -:- " + Msg7);
+	Thread.sleep(2000);
+	}
+	
 	
 	
 	

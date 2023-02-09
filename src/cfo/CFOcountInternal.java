@@ -421,7 +421,7 @@ public class CFOcountInternal
 			List<WebElement> ViewButtons = driver.findElements(locator);							
 			ViewButtons.get(1).click();
 			Thread.sleep(3000);
-			test.log(LogStatus.INFO, "overView success");
+			test.log(LogStatus.PASS, "overView successfully");
 			CFOcountPOM.closeDocument(driver).click();
 			Thread.sleep(3000);
 			driver.switchTo().defaultContent();
@@ -787,7 +787,7 @@ public class CFOcountInternal
 	@Test(priority = 10)
 	void PFR_PieChartInternal() throws InterruptedException
 	{
-		test = extent.startTest("Pie Chart - 'Overdue' Count Verification");
+		test = extent.startTest("Pie Chart - 'Pending for Review' Count Verification");
 		test.log(LogStatus.PASS, "Test Initiated");
 		test.log(LogStatus.PASS, "---After selecting all location from 'Entity/Sub-Entity/Location' drop down.");
 		//driver.navigate().refresh();

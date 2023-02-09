@@ -709,7 +709,7 @@ public class ImplementCount {
 		extent.endTest(test);
 		extent.flush();
 	}
-	*/
+	
 	
 	@Test(priority = 51)
 	void DaysBeforeDueDate() throws InterruptedException, IOException
@@ -757,8 +757,43 @@ public class ImplementCount {
 		
 		extent.endTest(test);
 		extent.flush();
+	}*/
+	
+	@Test(priority = 55)
+	void DocumentMandatoryNonMandatory() throws InterruptedException, IOException
+	{
+		test = extent.startTest(" Manage Compliances-Client Specific Configuration - Document Mandatory Non Mandatory ");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		ImplementMethods.DocumentMandatoryNonMandatory(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
 	}
 	
+	@Test(priority = 56)
+	void StartDateChange() throws InterruptedException, IOException
+	{
+		test = extent.startTest(" Manage Compliances-Client Specific Configuration - Start Date Change ");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		ImplementMethods.StartDateChange(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 57)
+	void ChangeDueDate() throws InterruptedException, IOException
+	{
+		test = extent.startTest(" Manage Compliances-Client Specific Configuration - Change Due Date");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		ImplementMethods.ChangeDueDate(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
 	
 	//@AfterTest
 		void Closing() throws InterruptedException
