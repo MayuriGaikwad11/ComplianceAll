@@ -58,7 +58,6 @@ public class ImplementCount {
 	{
 		extent = new com.relevantcodes.extentreports.ExtentReports("C:\\Users\\Mayuri Gaikwad\\Desktop\\PerformerPom\\Reports\\Implementation.html",true);
 		test = extent.startTest("Verify OpenBrowser");
-		test.log(LogStatus.INFO, "Browser test is initiated");
 		
 		XSSFSheet sheet = ReadExcel();
 		Row row0 = sheet.getRow(0);						//Selected 0th index row (First row)
@@ -76,7 +75,7 @@ public class ImplementCount {
 	void Login() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Loging In - Implementation ");
-		test.log(LogStatus.INFO, "Logging into system");
+		test.log(LogStatus.PASS, "Logging into system");
 		
 		XSSFSheet sheet = ReadExcel();
 		Row row1 = sheet.getRow(1);						//Selected 1st index row (Second row)
@@ -112,7 +111,6 @@ public class ImplementCount {
 	void CustomersCreate() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Customers Create");
-		test.log(LogStatus.INFO, "Test Initiated");
 		
 		ImplementMethods.CreateCustomers(driver,test,workbook);
 		
@@ -124,7 +122,6 @@ public class ImplementCount {
 	void CustomersAssignment() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Customers Assignment");
-		test.log(LogStatus.INFO, "Test Initiated");
 		
 		ImplementMethods.CustomersAssignment(driver,test,workbook);
 		
@@ -136,7 +133,6 @@ public class ImplementCount {
 	void SubEntity() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Sub Entity");
-		test.log(LogStatus.INFO, "Test Initiated");
 		
 		ImplementMethods.SubEntity(driver,test,workbook);
 		
@@ -148,7 +144,6 @@ public class ImplementCount {
 	void Department() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Department");
-		test.log(LogStatus.INFO, "Test Initiated");
 		
 		ImplementMethods.Department(driver,test,workbook);
 		
@@ -160,7 +155,6 @@ public class ImplementCount {
 	void Users() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Users");
-		test.log(LogStatus.INFO, "Test Initiated");
 		
 		ImplementMethods.Users(driver,test,workbook);
 		
@@ -450,7 +444,6 @@ public class ImplementCount {
 	void Compliances() throws InterruptedException, IOException
 	{
 		test = extent.startTest(" Internal Compliances - Masters - Compliances");
-		test.log(LogStatus.INFO, "Test Initiated");
 		
 		ImplementMethods.Compliances(driver,test,workbook);
 		
@@ -462,7 +455,6 @@ public class ImplementCount {
 	void EditCompliances() throws InterruptedException, IOException
 	{
 		test = extent.startTest(" Internal Compliances - Masters - Edit Compliances");
-		test.log(LogStatus.INFO, "Test Initiated");
 		
 		ImplementMethods.EditCompliances(driver,test,workbook);
 		
@@ -474,7 +466,6 @@ public class ImplementCount {
 	void UploadAssignment() throws InterruptedException, IOException
 	{
 		test = extent.startTest(" Internal Compliances - Upload Utility - Upload Assignment");
-		test.log(LogStatus.INFO, "Test Initiated");
 		
 		ImplementMethods.UploadAssignment(driver,test);
 		
@@ -486,7 +477,6 @@ public class ImplementCount {
 	void PreviousInternalComplianceDepartmentMapping () throws InterruptedException, IOException
 	{
 		test = extent.startTest(" Internal Compliances - Upload Utility - Previous Internal Compliance Department Mapping");
-		test.log(LogStatus.INFO, "Test Initiated");
 		
 		ImplementMethods.PreviousInternalComplianceDepartmentMapping(driver,test);
 		
@@ -498,7 +488,6 @@ public class ImplementCount {
 	void EntitiesAssignments () throws InterruptedException, IOException
 	{
 		test = extent.startTest(" Internal Compliances -Entities Assignments - Entities Assignments");
-		test.log(LogStatus.INFO, "Test Initiated");
 		
 		ImplementMethods.EntitiesAssignments(driver,test);
 		
@@ -510,7 +499,6 @@ public class ImplementCount {
 	void LicenseEntitiesAssignments() throws InterruptedException, IOException
 	{
 		test = extent.startTest(" Internal Compliances -Entities Assignments -License Entities Assignments");
-		test.log(LogStatus.INFO, "Test Initiated");
 		
 		ImplementMethods.LicenseEntitiesAssignments(driver,test);
 		
@@ -522,7 +510,6 @@ public class ImplementCount {
 	void MasterCompliances() throws InterruptedException, IOException
 	{
 		test = extent.startTest(" Manage Compliances-Masters - Compliances ");
-		test.log(LogStatus.INFO, "Test Initiated");
 		
 		ImplementMethods.MasterCompliances(driver,test);
 		
@@ -534,7 +521,6 @@ public class ImplementCount {
 	void Acts() throws InterruptedException, IOException
 	{
 		test = extent.startTest(" Manage Compliances-Masters - Acts ");
-		test.log(LogStatus.INFO, "Test Initiated");
 		
 		ImplementMethods.Acts(driver,test);
 		
@@ -546,7 +532,6 @@ public class ImplementCount {
 	void HolidayMaster() throws InterruptedException, IOException
 	{
 		test = extent.startTest(" Manage Compliances-Masters - Holiday Master ");
-		test.log(LogStatus.INFO, "Test Initiated");
 		
 		ImplementMethods.HolidayMaster(driver,test,workbook);
 		
@@ -558,7 +543,6 @@ public class ImplementCount {
 	void WidgetMaster() throws InterruptedException, IOException
 	{
 		test = extent.startTest(" Manage Compliances-Masters - Widget Master ");
-		test.log(LogStatus.INFO, "Test Initiated");
 		
 		ImplementMethods.WidgetMaster(driver,test,workbook);
 		
@@ -570,7 +554,6 @@ public class ImplementCount {
 	void UploadInternalCompliance() throws InterruptedException, IOException
 	{
 		test = extent.startTest(" Manage Compliances-Upload Utility - Upload Internal Compliance");
-		test.log(LogStatus.INFO, "Test Initiated");
 		
 		ImplementMethods.UploadInternalCompliance(driver,test);
 		
@@ -582,7 +565,6 @@ public class ImplementCount {
 	void UploadAssignmentUU() throws InterruptedException, IOException
 	{
 		test = extent.startTest(" Manage Compliances-Upload Utility - Upload Assignment");
-		test.log(LogStatus.INFO, "Test Initiated");
 		
 		ImplementMethods.UploadAssignmentUU(driver,test);
 		
@@ -594,7 +576,6 @@ public class ImplementCount {
 	void UploadEventBasedComplianceAssignment() throws InterruptedException, IOException
 	{
 		test = extent.startTest(" Manage Compliances-Upload Utility - Upload Event  Based Compliance Assignment");
-		test.log(LogStatus.INFO, "Test Initiated");
 		
 		ImplementMethods.UploadEventBasedComplianceAssignment(driver,test);
 		
@@ -606,7 +587,6 @@ public class ImplementCount {
 	void UploadAssignmentAll() throws InterruptedException, IOException
 	{
 		test = extent.startTest(" Manage Compliances-Upload Utility - Upload Assignment All");
-		test.log(LogStatus.INFO, "Test Initiated");
 		
 		ImplementMethods.UploadAssignmentAll(driver,test);
 		
@@ -618,7 +598,6 @@ public class ImplementCount {
 	void AssignComplianceCA() throws InterruptedException, IOException
 	{
 		test = extent.startTest(" Manage Compliances-Compliance Assignment - Assign Compliance");
-		test.log(LogStatus.INFO, "Test Initiated");
 		
 		ImplementMethods.AssignComplianceCA(driver,test);
 		
@@ -630,7 +609,6 @@ public class ImplementCount {
 	void IntermediateComplianceCA() throws InterruptedException, IOException
 	{
 		test = extent.startTest(" Manage Compliances-Compliance Assignment - Intermediate Compliance");
-		test.log(LogStatus.INFO, "Test Initiated");
 		
 		ImplementMethods.IntermediateComplianceCA(driver,test);
 		
@@ -642,7 +620,6 @@ public class ImplementCount {
 	void ActivateComplianceCA() throws InterruptedException, IOException
 	{
 		test = extent.startTest(" Manage Compliances-Compliance Assignment - Activate Compliance");
-		test.log(LogStatus.INFO, "Test Initiated");
 		
 		ImplementMethods.ActivateComplianceCA(driver,test);
 		
@@ -654,7 +631,6 @@ public class ImplementCount {
 	void AssignCheckListCA() throws InterruptedException, IOException
 	{
 		test = extent.startTest(" Manage Compliances-Compliance Assignment -Assign CheckList");
-		test.log(LogStatus.INFO, "Test Initiated");
 		
 		ImplementMethods.AssignCheckListCA(driver,test);
 		
@@ -666,7 +642,6 @@ public class ImplementCount {
 	void IntermediateCheckListCA() throws InterruptedException, IOException
 	{
 		test = extent.startTest(" Manage Compliances-Compliance Assignment - Intermediate CheckList");
-		test.log(LogStatus.INFO, "Test Initiated");
 		
 		ImplementMethods.IntermediateCheckListCA(driver,test);
 		
@@ -678,7 +653,6 @@ public class ImplementCount {
 	void ActivateCheckListCA() throws InterruptedException, IOException
 	{
 		test = extent.startTest(" Manage Compliances-Compliance Assignment - Activate CheckList");
-		test.log(LogStatus.INFO, "Test Initiated");
 		
 		ImplementMethods.ActivateCheckListCA(driver,test);
 		
@@ -690,7 +664,6 @@ public class ImplementCount {
 	void EntitiesAssignmentsMC() throws InterruptedException, IOException
 	{
 		test = extent.startTest(" Manage Compliances-Entities Assignment - Entities Assignments");
-		test.log(LogStatus.INFO, "Test Initiated");
 		
 		ImplementMethods.EntitiesAssignmentsMC(driver,test);
 		
@@ -702,7 +675,7 @@ public class ImplementCount {
 	void LicenseEntitiesAssignmentsMC() throws InterruptedException, IOException
 	{
 		test = extent.startTest(" Manage Compliances-Entities Assignment - License Entities Assignments");
-		test.log(LogStatus.INFO, "Test Initiated");
+		
 		
 		ImplementMethods.LicenseEntitiesAssignmentsMC(driver,test);
 		
@@ -715,7 +688,7 @@ public class ImplementCount {
 	void DaysBeforeDueDate() throws InterruptedException, IOException
 	{
 		test = extent.startTest(" Manage Compliances-Client Specific Configuration - Days Before Due Date");
-		test.log(LogStatus.INFO, "Test Initiated");
+		
 		
 		ImplementMethods.DaysBeforeDueDate(driver,test);
 		
@@ -727,7 +700,7 @@ public class ImplementCount {
 	void ReOpeningofCompliance() throws InterruptedException, IOException
 	{
 		test = extent.startTest(" Manage Compliances-Client Specific Configuration - Re-Opening of Compliance");
-		test.log(LogStatus.INFO, "Test Initiated");
+		
 		
 		ImplementMethods.ReOpeningofCompliance(driver,test);
 		
@@ -739,7 +712,7 @@ public class ImplementCount {
 	void BlockScheduleInternal() throws InterruptedException, IOException
 	{
 		test = extent.startTest(" Manage Compliances-Client Specific Configuration -Block Schedule Internal");
-		test.log(LogStatus.INFO, "Test Initiated");
+		
 		
 		ImplementMethods.BlockScheduleInternal(driver,test);
 		
@@ -751,19 +724,19 @@ public class ImplementCount {
 	void BlockScheduleStatutory() throws InterruptedException, IOException
 	{
 		test = extent.startTest(" Manage Compliances-Client Specific Configuration - Block Schedule Statutory ");
-		test.log(LogStatus.INFO, "Test Initiated");
+		
 		
 		ImplementMethods.BlockScheduleStatutory(driver,test);
 		
 		extent.endTest(test);
 		extent.flush();
 	}*/
-	
+/*	
 	@Test(priority = 55)
 	void DocumentMandatoryNonMandatory() throws InterruptedException, IOException
 	{
 		test = extent.startTest(" Manage Compliances-Client Specific Configuration - Document Mandatory Non Mandatory ");
-		test.log(LogStatus.INFO, "Test Initiated");
+		
 		
 		ImplementMethods.DocumentMandatoryNonMandatory(driver,test);
 		
@@ -775,7 +748,7 @@ public class ImplementCount {
 	void StartDateChange() throws InterruptedException, IOException
 	{
 		test = extent.startTest(" Manage Compliances-Client Specific Configuration - Start Date Change ");
-		test.log(LogStatus.INFO, "Test Initiated");
+		
 		
 		ImplementMethods.StartDateChange(driver,test);
 		
@@ -787,9 +760,45 @@ public class ImplementCount {
 	void ChangeDueDate() throws InterruptedException, IOException
 	{
 		test = extent.startTest(" Manage Compliances-Client Specific Configuration - Change Due Date");
-		test.log(LogStatus.INFO, "Test Initiated");
+		
 		
 		ImplementMethods.ChangeDueDate(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}*/
+	
+	//@Test(priority = 58)
+	void CertificateFrequencyMapping() throws InterruptedException, IOException
+	{
+		test = extent.startTest(" Manage Compliances-Client Specific Configuration -Certificate Frequency Mapping");
+		
+		
+		ImplementMethods.CertificateFrequencyMapping(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	//@Test(priority = 59)
+	void ClientComplianceRiskMapping() throws InterruptedException, IOException
+	{
+		test = extent.startTest(" Manage Compliances-Client Specific Configuration -Client Compliance Risk Mapping");
+		
+		
+		ImplementMethods.ClientComplianceRiskMapping(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+//	@Test(priority = 60)
+	void PreviousComplianceDepartmentMapping() throws InterruptedException, IOException
+	{
+		test = extent.startTest(" Manage Compliances-Client Specific Configuration -Previous  ComplianceDepartment Mapping");
+		
+		
+		ImplementMethods.PreviousComplianceDepartmentMapping(driver,test);
 		
 		extent.endTest(test);
 		extent.flush();

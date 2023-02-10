@@ -24,7 +24,7 @@ public class Login
 	
 	public static void BrowserSetup(String URL)
 	{
-		System.setProperty("webdriver.chrome.driver","C:\\Users\\Mayuri Gaikwad\\Desktop\\PerformerPom\\Driver1\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver","C:\\Users\\Mayuri Gaikwad\\Desktop\\PerformerPom\\Chrome\\chromedriver.exe");
 		//System.setProperty("webdriver.chrome.driver","/usr/bin/chromedriver"); //Set the Chrome driver variable
 	
 	//	WebDriverManager.chromedriver().setup();

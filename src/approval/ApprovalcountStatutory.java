@@ -55,7 +55,7 @@ public class ApprovalcountStatutory {
 	public static XSSFSheet ReadExcel() throws IOException
 	{
 		//String workingDir = System.getProperty("webdriver.chrome.driver","C:/March2022/PerformerPom/Driver/chromedriver.exe");
-		fis = new FileInputStream("C:/March2022/PerformerPom/TestData/ComplianceSheet.xlsx");
+		fis = new FileInputStream("C:\\Users\\Mayuri Gaikwad\\Desktop\\PerformerPom\\TestData\\ComplianceSheet.xlsx");
 		workbook = new XSSFWorkbook(fis);
 		sheet = workbook.getSheetAt(6);					//Retrieving third sheet of Workbook
 		return sheet;
@@ -65,9 +65,9 @@ public class ApprovalcountStatutory {
 	void setBrowser() throws InterruptedException, IOException
 	{
 	//	String workingDir = System.getProperty("webdriver.chrome.driver","C:/March2022/PerformerPom/Driver/chromedriver.exe");
-		extent = new com.relevantcodes.extentreports.ExtentReports("C:/March2022/PerformerPom/Reports/CFOResultsStatotory.html",true);
+		extent = new com.relevantcodes.extentreports.ExtentReports("C:\\Users\\Mayuri Gaikwad\\Desktop\\PerformerPom\\Reports\\Approver.html",true);
 		test = extent.startTest("Verify OpenBrowser");
-		test.log(LogStatus.INFO, "Browser test is initiated");
+		test.log(LogStatus.PASS, "Browser test is initiated");
 		
 		XSSFSheet sheet = ReadExcel();
 		Row row0 = sheet.getRow(0);						//Selected 0th index row (First row)
@@ -85,7 +85,7 @@ public class ApprovalcountStatutory {
 	void Login() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Loging In - Approval (Statutory)");
-		test.log(LogStatus.INFO, "Logging into system");
+		test.log(LogStatus.PASS, "Logging into system");
 		
 		XSSFSheet sheet = ReadExcel();
 		Row row1 = sheet.getRow(1);						//Selected 1st index row (Second row)
@@ -124,11 +124,11 @@ public class ApprovalcountStatutory {
 		}
 	}
 	
-//	@Test(priority = 2)
+	@Test(priority = 2)
 	void FilterWiseCategoriesCountMatch() throws InterruptedException
 	{
 		test = extent.startTest(" Count Match Filter Wise by Clicking on 'Categories' - Compliances ");
-		test.log(LogStatus.INFO, "Test Initiated");
+		
 		
 		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -141,7 +141,7 @@ public class ApprovalcountStatutory {
 		WebDriverWait wait = new WebDriverWait(driver, (70));
 		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));	//Wait until frame get visible and switch to it.
 		
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[3]/td[4]/div")));
+	//	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[3]/td[4]/div")));
 		Thread.sleep(3000);
 		CFOcountPOM.clickLocation(driver).click();
 		Thread.sleep(1000);
@@ -201,7 +201,6 @@ public class ApprovalcountStatutory {
 	void CategoriesCountMatch() throws InterruptedException
 	{
 		test = extent.startTest(" Count by Clicking on 'Categories'");
-		test.log(LogStatus.INFO, "Test Initiated");
 		
 		Thread.sleep(4000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -215,7 +214,7 @@ public class ApprovalcountStatutory {
 		WebDriverWait wait = new WebDriverWait(driver, (70));
 		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));	//Wait until frame get visible and switch to it.
 		
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[3]/td[4]/div")));
+		//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[3]/td[4]/div")));
 		Thread.sleep(3000);
 		js.executeScript("window.scrollBy(0,500)");
 		Thread.sleep(3000);
@@ -233,7 +232,7 @@ public class ApprovalcountStatutory {
 		Thread.sleep(1000);
 		CFOcountPOM.clickExportImage(driver).click();                    //export excel
 		Thread.sleep(5000);
-		test.log(LogStatus.INFO, "Excel file Export Successfully");	
+		test.log(LogStatus.PASS, "Excel file Export Successfully");	
 		driver.switchTo().parentFrame();								//Switching back to parent frame.
 		Thread.sleep(3000);
 		CFOcountPOM.closeCategories_Compliances(driver).click();		//Closing the 'Compliances' pup up.
@@ -282,12 +281,12 @@ public class ApprovalcountStatutory {
 		if(CategoriesCountDas == CatcountGrid)
 		{
 			test.log(LogStatus.PASS, "Number of Categories grid matches to Dashboard Categories  Count.");
-			test.log(LogStatus.INFO, "No of Categories in the grid = "+CatcountGrid+" | Dashboard Categories  Count = "+CategoriesCountDas);
+			test.log(LogStatus.PASS, "No of Categories in the grid = "+CatcountGrid+" | Dashboard Categories  Count = "+CategoriesCountDas);
 		}
 		else
 		{
 			test.log(LogStatus.FAIL, "Number of Categories does not matches to Dashboard Categories  Count.");
-			test.log(LogStatus.INFO, "No of Categories in the grid = "+CatcountGrid+" | Dashboard Categories  Count = "+CategoriesCountDas);
+			test.log(LogStatus.FAIL, "No of Categories in the grid = "+CatcountGrid+" | Dashboard Categories  Count = "+CategoriesCountDas);
 		}
 		Thread.sleep(3000);
 		js.executeScript("window.scrollBy(2000,0)");     //Scrolling UP window by 2000 px.
@@ -306,7 +305,7 @@ public class ApprovalcountStatutory {
 	void UniqueCompliancesCountMatch() throws InterruptedException
 	{
 		test = extent.startTest(" Count by Clicking on 'Unique Compliances'");
-		test.log(LogStatus.INFO, "Test Initiated");
+		//test.log(LogStatus.INFO, "Test Initiated");
 		
 		Thread.sleep(3000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -334,12 +333,12 @@ public class ApprovalcountStatutory {
 		if(CompliancesCountDas == ComcountGrid)
 		{
 			test.log(LogStatus.PASS, "Number of Unique Compliances grid matches to Dashboard Unique Compliances  Count.");
-			test.log(LogStatus.INFO, "No of Unique Compliances in the grid = "+ComcountGrid+" | Dashboard Unique Compliances  Count = "+CompliancesCountDas);
+			test.log(LogStatus.PASS, "No of Unique Compliances in the grid = "+ComcountGrid+" | Dashboard Unique Compliances  Count = "+CompliancesCountDas);
 		}
 		else
 		{
 			test.log(LogStatus.FAIL, "Number of Unique compliances does not matches to Dashboard Statutory Overdue Count.");
-			test.log(LogStatus.INFO, "No of Unique Compliances in the grid = "+ComcountGrid+" | Dashboard Unique Compliances  Count = "+CompliancesCountDas);
+			test.log(LogStatus.FAIL, "No of Unique Compliances in the grid = "+ComcountGrid+" | Dashboard Unique Compliances  Count = "+CompliancesCountDas);
 		}
 		js.executeScript("window.scrollBy(500,0)");						//Scrolling UP window by 2000 px.
 		driver.switchTo().defaultContent();
@@ -353,7 +352,7 @@ public class ApprovalcountStatutory {
 	void TotalCompliancesCountMatch() throws InterruptedException
 	{
 		test = extent.startTest(" Count by Clicking on 'Total Compliances'");
-		test.log(LogStatus.INFO, "Test Initiated");
+		//test.log(LogStatus.INFO, "Test Initiated");
 		
 		Thread.sleep(3000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -381,12 +380,12 @@ public class ApprovalcountStatutory {
 		if(CompliancesCountDas == ComcountGrid)
 		{
 			test.log(LogStatus.PASS, "Number of Total Compliances grid matches to Dashboard Total Compliances  Count.");
-			test.log(LogStatus.INFO, "No of Total Compliances in the grid = "+ComcountGrid+" | Dashboard Total Compliances  Count = "+CompliancesCountDas);
+			test.log(LogStatus.PASS, "No of Total Compliances in the grid = "+ComcountGrid+" | Dashboard Total Compliances  Count = "+CompliancesCountDas);
 		}
 		else
 		{
 			test.log(LogStatus.FAIL, "Number of Total compliances does not matches to Dashboard Statutory Overdue Count.");
-			test.log(LogStatus.INFO, "No of Total Compliances in the grid = "+ComcountGrid+" | Dashboard Total Compliances  Count = "+CompliancesCountDas);
+			test.log(LogStatus.FAIL, "No of Total Compliances in the grid = "+ComcountGrid+" | Dashboard Total Compliances  Count = "+CompliancesCountDas);
 		}
 		js.executeScript("window.scrollBy(500,0)");						//Scrolling UP window by 2000 px.
 		driver.switchTo().defaultContent();
@@ -400,7 +399,7 @@ public class ApprovalcountStatutory {
 	void UsersCountMatch() throws InterruptedException
 	{
 		test = extent.startTest(" Count by Clicking on 'Users'");
-		test.log(LogStatus.INFO, "Test Initiated");
+	//	test.log(LogStatus.INFO, "Test Initiated");
 		
 		Thread.sleep(4000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -425,12 +424,12 @@ public class ApprovalcountStatutory {
 		if(UserCountDas == UserGrid)
 		{
 			test.log(LogStatus.PASS, "Number of User grid matches to Dashboard User  Count.");
-			test.log(LogStatus.INFO, "No of User in the grid = "+UserGrid+" | Dashboard User  Count = "+UserCountDas);
+			test.log(LogStatus.PASS, "No of User in the grid = "+UserGrid+" | Dashboard User  Count = "+UserCountDas);
 		}
 		else
 		{
 			test.log(LogStatus.FAIL, "Number of User does not matches to Dashboard User  Count.");
-			test.log(LogStatus.INFO, "No of User in the grid = "+UserGrid+" | Dashboard User  Count = "+UserCountDas);
+			test.log(LogStatus.FAIL, "No of User in the grid = "+UserGrid+" | Dashboard User  Count = "+UserCountDas);
 		}
 		
 		js.executeScript("window.scrollBy(500,0)");						//Scrolling UP window by 2000 px.
@@ -450,7 +449,7 @@ public class ApprovalcountStatutory {
 	void SummaryofOverdueCompliances() throws InterruptedException
 	{
 		test = extent.startTest(" Summary of Overdue Compliances");
-		test.log(LogStatus.INFO, "Test Initiated");
+		//test.log(LogStatus.INFO, "Test Initiated");
 		
 		Thread.sleep(4000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -482,7 +481,7 @@ public class ApprovalcountStatutory {
 			List<WebElement> ViewButtons = driver.findElements(locator);							
 			ViewButtons.get(1).click();
 			Thread.sleep(3000);
-			test.log(LogStatus.INFO, "overView success");
+			test.log(LogStatus.PASS, "overView success");
 			CFOcountPOM.closeDocument(driver).click();
 			Thread.sleep(3000);
 			driver.switchTo().defaultContent();
@@ -498,7 +497,7 @@ public class ApprovalcountStatutory {
 	void NotCompleted_PieChart() throws InterruptedException
 	{
 		test = extent.startTest("Pie Chart -Completion Status- 'Not Completed' Count Verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		//test.log(LogStatus.INFO, "Test Initiated");
 		
 		Thread.sleep(3000);
 		Actions action = new Actions(driver);
@@ -520,12 +519,12 @@ public class ApprovalcountStatutory {
 		if(NotCompletedValue == total)
 		{
 			test.log(LogStatus.PASS, "Not Completed' Compliance Count matches to sum of all risked compliances.");
-			test.log(LogStatus.INFO, "Total Not Completed' Compliances : "+total);
+			test.log(LogStatus.PASS, "Total Not Completed' Compliances : "+total);
 		}
 		else
 		{
 			test.log(LogStatus.FAIL, "'Not Completed' Compliance Count doesn't matches to sum of all risked compliances.");
-			test.log(LogStatus.INFO, "Total 'Not Completed' Compliances : "+total+" | Total Sum : "+NotCompletedValue);
+			test.log(LogStatus.FAIL, "Total 'Not Completed' Compliances : "+total+" | Total Sum : "+NotCompletedValue);
 		}
 	
 		if(NotCompletedValue > 0)
@@ -586,7 +585,7 @@ public class ApprovalcountStatutory {
 	void ClosedDelayed_PieChart() throws InterruptedException
 	{
 		test = extent.startTest("Pie Chart -Completion Status- 'Closed Delayed' Count Verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		//test.log(LogStatus.INFO, "Test Initiated");
 		Thread.sleep(1000);
 		Actions action = new Actions(driver);
 	//	JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -608,12 +607,12 @@ public class ApprovalcountStatutory {
 		if(ClosedDelayedValue == total)
 		{
 			test.log(LogStatus.PASS, "'Closed Delayed' Compliance Count matches to sum of all risked compliances.");
-			test.log(LogStatus.INFO, "Total 'Closed Delayed' Compliances : "+total);
+			test.log(LogStatus.PASS, "Total 'Closed Delayed' Compliances : "+total);
 		}
 		else
 		{
 			test.log(LogStatus.FAIL, "'Closed Delayed' Compliance Count doesn't matches to sum of all risked compliances.");
-			test.log(LogStatus.INFO, "Total 'Closed Delayed' Compliances : "+total+" | Total Sum : "+ClosedDelayedValue);
+			test.log(LogStatus.FAIL, "Total 'Closed Delayed' Compliances : "+total+" | Total Sum : "+ClosedDelayedValue);
 		}
 		
 		if(ClosedDelayedValue > 0)
@@ -672,7 +671,7 @@ public class ApprovalcountStatutory {
 	void ClosedTimely_PieChart() throws InterruptedException
 	{
 		test = extent.startTest("Pie Chart -Completion Status- 'Closed Timely' Count Verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		//test.log(LogStatus.INFO, "Test Initiated");
 		
 		Actions action = new Actions(driver);
 		//JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -693,12 +692,12 @@ public class ApprovalcountStatutory {
 		if(ClosedTimelyValue == total)
 		{
 			test.log(LogStatus.PASS, "'Closed Timely' Compliance Count matches to sum of all risked compliances.");
-			test.log(LogStatus.INFO, "Total 'Closed Timely' Compliances : "+total);
+			test.log(LogStatus.PASS, "Total 'Closed Timely' Compliances : "+total);
 		}
 		else
 		{
 			test.log(LogStatus.FAIL, "'Closed Timely' Compliance Count doesn't matches to sum of all risked compliances.");
-			test.log(LogStatus.INFO, "Total 'Closed Timely' Compliances : "+total+" | Total Sum : "+ClosedTimelyValue);
+			test.log(LogStatus.FAIL, "Total 'Closed Timely' Compliances : "+total+" | Total Sum : "+ClosedTimelyValue);
 		}
 		
 		if(ClosedTimelyValue > 0)
@@ -760,7 +759,7 @@ public class ApprovalcountStatutory {
 	void Overdue_PieChart() throws InterruptedException
 	{
 		test = extent.startTest("Pie Chart -Not Completed Status- 'Overdue' Count Verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+	//	test.log(LogStatus.INFO, "Test Initiated");
 		
 		Thread.sleep(500);
 		Actions action = new Actions(driver);
@@ -782,12 +781,12 @@ public class ApprovalcountStatutory {
 		if(OverdueValue == total)
 		{
 			test.log(LogStatus.PASS, "' Overdue' Compliance Count matches to sum of all risked compliances.");
-			test.log(LogStatus.INFO, "Total Overdue' Compliances : "+total);
+			test.log(LogStatus.PASS, "Total Overdue' Compliances : "+total);
 		}
 		else
 		{
 			test.log(LogStatus.FAIL, "'Overdue' Compliance Count doesn't matches to sum of all risked compliances.");
-			test.log(LogStatus.INFO, "Total 'Overdue' Compliances : "+total+" | Total Sum : "+OverdueValue);
+			test.log(LogStatus.FAIL, "Total 'Overdue' Compliances : "+total+" | Total Sum : "+OverdueValue);
 		}
 	
 		if(OverdueValue > 0)
@@ -853,7 +852,7 @@ public class ApprovalcountStatutory {
 	void pendingForReview_PieChart() throws InterruptedException
 	{
 		test = extent.startTest("Pie Chart -Not Completed Status- 'Pending For Review' Count Verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		//test.log(LogStatus.INFO, "Test Initiated");
 		Thread.sleep(500);
 		WebDriverWait wait = new WebDriverWait(driver, (40));
 	//	wait.until(ExpectedConditions.visibilityOf(ApprovalcountPOM.clickManagement(driver)));
@@ -880,12 +879,12 @@ public class ApprovalcountStatutory {
 		if(pendingForReviewValue == total)
 		{
 			test.log(LogStatus.PASS, "' Pending For Review' Compliance Count matches to sum of all risked compliances.");
-			test.log(LogStatus.INFO, "Total Overdue' Compliances : "+total);
+			test.log(LogStatus.PASS, "Total Overdue' Compliances : "+total);
 		}
 		else
 		{
 			test.log(LogStatus.FAIL, "'Pending For Review' Compliance Count doesn't matches to sum of all risked compliances.");
-			test.log(LogStatus.INFO, "Total 'Overdue' Compliances : "+total+" | Total Sum : "+pendingForReviewValue);
+			test.log(LogStatus.FAIL, "Total 'Overdue' Compliances : "+total+" | Total Sum : "+pendingForReviewValue);
 		}
 	
 		if(pendingForReviewValue > 0)
@@ -952,8 +951,8 @@ public class ApprovalcountStatutory {
 	void rejected_PieChart() throws InterruptedException
 	{
 		test = extent.startTest("Pie Chart -Not Completed Status- ' Rejected' Count Verification");
-		test.log(LogStatus.INFO, "Test Initiated");
-		driver.navigate().refresh();
+	//	test.log(LogStatus.INFO, "Test Initiated");
+		//driver.navigate().refresh();
 		Thread.sleep(2000);
 		WebDriverWait wait = new WebDriverWait(driver,(40));
 	//	wait.until(ExpectedConditions.visibilityOf(ApprovalcountPOM.clickManagement(driver)));
@@ -979,12 +978,12 @@ public class ApprovalcountStatutory {
 		if(rejectedValue == total)
 		{
 			test.log(LogStatus.PASS, "' Rejected' Compliance Count matches to sum of all risked compliances.");
-			test.log(LogStatus.INFO, "Total Overdue' Compliances : "+total);
+			test.log(LogStatus.PASS, "Total Overdue' Compliances : "+total);
 		}
 		else
 		{
 			test.log(LogStatus.FAIL, "'Rejected' Compliance Count doesn't matches to sum of all risked compliances.");
-			test.log(LogStatus.INFO, "Total 'Overdue' Compliances : "+total+" | Total Sum : "+rejectedValue);
+			test.log(LogStatus.FAIL, "Total 'Overdue' Compliances : "+total+" | Total Sum : "+rejectedValue);
 		}
 	
 		if(rejectedValue > 0)
@@ -1180,7 +1179,7 @@ public class ApprovalcountStatutory {
 		
 		//-----------------------------------------------------
 		
-		try
+	/*	try
 		{
 			Thread.sleep(500);
 			String NotApplicable = CFOcountPOM.clickAccountRejected(driver).getText();	//Reading the Pending For Review value of Human Resource
@@ -1199,7 +1198,7 @@ public class ApprovalcountStatutory {
 		catch(Exception e)
 		{
 			
-		}
+		}*/
 		Thread.sleep(500);
 	//	performer.OverduePOM.clickDashboard(driver).click();			//Clicking on Dashboard
 		
@@ -1211,7 +1210,7 @@ public class ApprovalcountStatutory {
 	void NotCompleted_PieChartPeriod() throws InterruptedException
 	{
 		test = extent.startTest("Period-Pie Chart -Completion Status- 'Not Completed' Count Verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		//test.log(LogStatus.INFO, "Test Initiated");
 		
 		Thread.sleep(3000);
 		Actions action = new Actions(driver);
@@ -1236,12 +1235,12 @@ public class ApprovalcountStatutory {
 		if(NotCompletedValue == total)
 		{
 			test.log(LogStatus.PASS, "Not Completed' Compliance Count matches to sum of all risked compliances.");
-			test.log(LogStatus.INFO, "Total Not Completed' Compliances : "+total);
+			test.log(LogStatus.PASS, "Total Not Completed' Compliances : "+total);
 		}
 		else
 		{
 			test.log(LogStatus.FAIL, "'Not Completed' Compliance Count doesn't matches to sum of all risked compliances.");
-			test.log(LogStatus.INFO, "Total 'Not Completed' Compliances : "+total+" | Total Sum : "+NotCompletedValue);
+			test.log(LogStatus.FAIL, "Total 'Not Completed' Compliances : "+total+" | Total Sum : "+NotCompletedValue);
 		}
 	
 		if(NotCompletedValue > 0)
@@ -1304,7 +1303,7 @@ public class ApprovalcountStatutory {
 	void ClosedTimely_PieChartPeriod() throws InterruptedException
 	{
 		test = extent.startTest("Period-Pie Chart -Completion Status- 'Closed Timely' Count Verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		//test.log(LogStatus.INFO, "Test Initiated");
 		
 		Actions action = new Actions(driver);
 	//	JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -1397,7 +1396,7 @@ public class ApprovalcountStatutory {
 	void Overdue_PieChartPeriod() throws InterruptedException
 	{
 		test = extent.startTest("Period-Pie Chart -Not Completed Status- 'Overdue' Count Verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+	//	test.log(LogStatus.INFO, "Test Initiated");
 		
 		Thread.sleep(1000);
 		Actions action = new Actions(driver);
@@ -1492,7 +1491,7 @@ public class ApprovalcountStatutory {
 	void pendingForReview_PieChartPeriod() throws InterruptedException
 	{
 		test = extent.startTest("Period-Pie Chart -Not Completed Status- 'Pending For Review' Count Verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+	//	test.log(LogStatus.INFO, "Test Initiated");
 		Thread.sleep(500);
 		WebDriverWait wait = new WebDriverWait(driver, (40));
 	/*	wait.until(ExpectedConditions.visibilityOf(ApprovalcountPOM.clickManagement(driver)));
@@ -1592,7 +1591,7 @@ public class ApprovalcountStatutory {
 	{
 		Thread.sleep(500);		
 		test = extent.startTest("'Grading Report'  Export and OverView");
-		test.log(LogStatus.INFO, "Test Initiated");
+	//	test.log(LogStatus.INFO, "Test Initiated");
 		
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		//js.executeScript("window.scrollBy(0,2600)");					//Scrolling down window by 2600 px.
@@ -1621,7 +1620,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[12]/a");
 		Thread.sleep(2000);
 		jse.executeScript("arguments[0].click();", ViewButton);
 			Thread.sleep(4000);
-			test.log(LogStatus.INFO, "overView success");
+			test.log(LogStatus.PASS, "overView successfully");
 			CFOcountPOM.closeDocument1(driver).click();
 			Thread.sleep(1000);
 			driver.switchTo().parentFrame();
@@ -1638,7 +1637,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[12]/a");
 	void complianceCalendar() throws InterruptedException
 	{
 		test = extent.startTest("compliance Calendar Verifications");
-		test.log(LogStatus.INFO, "Test Initiated");
+		//test.log(LogStatus.INFO, "Test Initiated");
 		
 		WebDriverWait wait = new WebDriverWait(driver,(70));
 	
@@ -1668,7 +1667,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 			driver.switchTo().parentFrame();
 			CFOcountPOM.closeView_cal(driver).click();
 
-			test.log(LogStatus.INFO, "overView success");
+			test.log(LogStatus.PASS, "overView successfully");
 			driver.switchTo().parentFrame();
 			js.executeScript("window.scrollBy(0,-50)");
 			CFOcountPOM.clickAll(driver).click();
@@ -1678,9 +1677,10 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='collapsePerformerCalender']/div/div[2]")));
 			Thread.sleep(3000);
 			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("calframe"));	//Wait until frame get visible and switch to it.
-			Thread.sleep(4000);
+			Thread.sleep(5000);
 			 CFOcountPOM.clickExportImage(driver).click();
 			 Thread.sleep(2000);
+			 test.log(LogStatus.PASS, "After Clicking All(Including Checklist)");
 				test.log(LogStatus.PASS, "Excel file Export Successfully");
 				Thread.sleep(3000);
 	By locator1 = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
@@ -1696,7 +1696,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 				Thread.sleep(4000);
 				driver.switchTo().parentFrame();
 				CFOcountPOM.closeView_cal(driver).click();
-				test.log(LogStatus.INFO, "overView success");
+				test.log(LogStatus.INFO, "overView Successfully");
 				driver.switchTo().parentFrame();
 				Thread.sleep(1000);
 			//	performer.OverduePOM.clickDashboard(driver).click();			//Clicking on Dashboard
@@ -1709,9 +1709,9 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 		@Test(priority = 22)
 	void DailyUpdates() throws InterruptedException, IOException
 	{
-		Thread.sleep(500);		
+		Thread.sleep(2000);		
 		test = extent.startTest("'Daily Updates'  OverView");
-		test.log(LogStatus.INFO, "Test Initiated");
+	//	test.log(LogStatus.INFO, "Test Initiated");
 		
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 	//	js.executeScript("window.scrollBy(0,4600)");					//Scrolling down window by 2600 px.
@@ -1747,7 +1747,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 	{
 		Thread.sleep(500);		
 		test = extent.startTest("'News Letters'  OverView");
-		test.log(LogStatus.INFO, "Test Initiated");
+		//test.log(LogStatus.INFO, "Test Initiated");
 		Thread.sleep(500);
 		WebDriverWait wait = new WebDriverWait(driver, (40));
 	//	wait.until(ExpectedConditions.visibilityOf(ApprovalcountPOM.clickManagement(driver)));
@@ -1766,6 +1766,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 		Thread.sleep(4000);	
 		CFOcountPOM.closeNewsLView(driver).click();
 		Thread.sleep(1000);
+		test.log(LogStatus.PASS, "OverView Successfully");
 		performer.OverduePOM.clickDashboard(driver).click();
 		
 		extent.endTest(test);
@@ -1776,7 +1777,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 	void StandardReportOverall() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Standard Report -Overall Verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		//test.log(LogStatus.INFO, "Test Initiated");
 		
 		CFOcountPOM.StandardReportOverall(test, driver, "Approval");
 		
@@ -1788,7 +1789,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 		void StandardReportLocation() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Standard Report -Location Verification");
-			test.log(LogStatus.INFO, "Test Initiated");
+		//	test.log(LogStatus.INFO, "Test Initiated");
 			
 			CFOcountPOM.StandardReportLocation(test, driver, "Approval");
 			
@@ -1800,7 +1801,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 		void StandardReportUser() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Standard Report -User Verification");
-			test.log(LogStatus.INFO, "Test Initiated");
+		//	test.log(LogStatus.INFO, "Test Initiated");
 			
 			CFOcountPOM.StandardReportUser(test, driver, "Approval");
 			
@@ -1812,7 +1813,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 		void StandardReportCategory() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Standard Report -Category  Verification");
-			test.log(LogStatus.INFO, "Test Initiated");
+		//	test.log(LogStatus.INFO, "Test Initiated");
 			
 			CFOcountPOM.StandardReportCategory(test, driver, "Approval");
 			
@@ -1824,7 +1825,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 		void StandardReportRisk() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Standard Report -Risk  Verification");
-			test.log(LogStatus.INFO, "Test Initiated");
+		//	test.log(LogStatus.INFO, "Test Initiated");
 			
 			CFOcountPOM.StandardReportRisk(test, driver, "Approval");
 			
@@ -1836,7 +1837,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 		void StandardReportDetailed() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Standard Report -Detailed  Verification");
-			test.log(LogStatus.INFO, "Test Initiated");
+		//	test.log(LogStatus.INFO, "Test Initiated");
 			
 			CFOcountPOM.StandardReportDetailed(test, driver, "Approval");
 			
@@ -1848,7 +1849,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 		void StandardReportCriticalRisk() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Standard Report -Critical Risk  Verification");
-			test.log(LogStatus.INFO, "Test Initiated");
+		//	test.log(LogStatus.INFO, "Test Initiated");
 			
 			CFOcountPOM.StandardReportCriticalRisk(test, driver, "Approval");
 			
@@ -1860,7 +1861,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 		void StandardReportDepartment () throws InterruptedException, IOException
 		{
 			test = extent.startTest("Standard Report - Department   Verification");
-			test.log(LogStatus.INFO, "Test Initiated");
+			//test.log(LogStatus.INFO, "Test Initiated");
 			
 			CFOcountPOM.StandardReportDepartment(test, driver, "Approval");
 			
@@ -1872,7 +1873,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 		void StandardReportOverallIN() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Standard Report Internal -Overall Verification");
-			test.log(LogStatus.INFO, "Test Initiated");
+		//	test.log(LogStatus.INFO, "Test Initiated");
 			
 			CFOcountPOM.StandardReportOverallIn(test, driver, "Approval");
 			
@@ -1884,7 +1885,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 		void StandardReportLocationIN() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Standard Report Internal -Location Verification");
-			test.log(LogStatus.INFO, "Test Initiated");
+			//test.log(LogStatus.INFO, "Test Initiated");
 			
 			CFOcountPOM.StandardReportLocationIN(test, driver, "Approval");
 			
@@ -1896,7 +1897,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 		void StandardReportUserIn() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Standard Report Internal -User Verification");
-			test.log(LogStatus.INFO, "Test Initiated");
+		//	test.log(LogStatus.INFO, "Test Initiated");
 			
 			CFOcountPOM.StandardReportUserIN(test, driver, "Approval");
 			
@@ -1908,7 +1909,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 		void StandardReportCategoryIn() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Standard Report Internal -Category  Verification");
-			test.log(LogStatus.INFO, "Test Initiated");
+			//test.log(LogStatus.INFO, "Test Initiated");
 			
 			CFOcountPOM.StandardReportCategoryIN(test, driver, "Approval");
 			
@@ -1920,7 +1921,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 		void StandardReportRiskIN() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Standard Report Internal-Risk  Verification");
-			test.log(LogStatus.INFO, "Test Initiated");
+			//test.log(LogStatus.INFO, "Test Initiated");
 			
 			CFOcountPOM.StandardReportRiskIN(test, driver, "Approval");
 			
@@ -1932,7 +1933,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 		void StandardReportDetailedIN() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Standard Report Internal-Detailed  Verification");
-			test.log(LogStatus.INFO, "Test Initiated");
+			//test.log(LogStatus.INFO, "Test Initiated");
 			
 			CFOcountPOM.StandardReportDetailedIN(test, driver, "Approval");
 			
@@ -1944,7 +1945,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 		void StandardReportCriticalRiskIN() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Standard Report Internal -Critical Risk  Verification");
-			test.log(LogStatus.INFO, "Test Initiated");
+		//	test.log(LogStatus.INFO, "Test Initiated");
 			
 			CFOcountPOM.StandardReportCriticalRiskIN(test, driver, "Approval");
 			
@@ -1956,7 +1957,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 		void StandardReportDepartmentIN() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Standard Report Internal -Department  Verification");
-			test.log(LogStatus.INFO, "Test Initiated");
+			//test.log(LogStatus.INFO, "Test Initiated");
 			
 			CFOcountPOM.StandardReportDepartmentIN(test, driver, "Approval");
 			
@@ -1968,7 +1969,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 	void DetailedReport() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Detailed Report Count Verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		//test.log(LogStatus.INFO, "Test Initiated");
 		
 		ApprovalcountPOM.DetailedReport(test, driver, "Approval");
 		
@@ -1980,7 +1981,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 	void DetailedReportIn() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Detailed Report -Internal Count Verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		//test.log(LogStatus.INFO, "Test Initiated");
 		
 		ApprovalcountPOM.DetailedReportIn(test, driver, "cfo");
 		
@@ -1992,7 +1993,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 	void AssignmentReport() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Assignment Report verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		//test.log(LogStatus.INFO, "Test Initiated");
 		
 		CFOcountPOM.AssignmentReport(test, driver);
 		
@@ -2004,7 +2005,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 	void ComplianceRepository() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Compliance  Repository  verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		//test.log(LogStatus.INFO, "Test Initiated");
 		
 		CFOcountPOM.ActRepository(test,driver);
 		
@@ -2016,7 +2017,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 	void ComplianceDocuments() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Compliance Documents  verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+	//	test.log(LogStatus.INFO, "Test Initiated");
 		
 		ApprovalcountPOM.ComplianceDocuments(test,driver);
 		
@@ -2028,7 +2029,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 	void ComplianceDocumentsIN() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Compliance Documents-Internal  verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		//test.log(LogStatus.INFO, "Test Initiated");
 		
 		ApprovalcountPOM.complianceDocumentIn(test,driver);
 		
@@ -2040,7 +2041,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 	void CriticalDocuments() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Critical Document Verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+	//	test.log(LogStatus.INFO, "Test Initiated");
 		
 		OverduePOM.CriticalDocuments(driver, test);
 		
@@ -2052,7 +2053,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 	void ActDocuments() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Act Documents  verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		//test.log(LogStatus.INFO, "Test Initiated");
 		
 WebDriverWait wait = new WebDriverWait(driver,(140));
 	    
@@ -2107,7 +2108,7 @@ WebDriverWait wait = new WebDriverWait(driver,(140));
 		{
 			Thread.sleep(500);		
 			test = extent.startTest("'Internal Msg  '  Verification");
-			test.log(LogStatus.INFO, "Test Initiated");
+			//test.log(LogStatus.INFO, "Test Initiated");
 				Thread.sleep(1000);
 			WebDriverWait wait = new WebDriverWait(driver, 40);
 			Thread.sleep(500);
@@ -2119,7 +2120,7 @@ WebDriverWait wait = new WebDriverWait(driver,(140));
 			Thread.sleep(1000);
 			OverduePOM.TypeMsg(driver).sendKeys("Automation testing");
 			Thread.sleep(1000);
-			OverduePOM.choosefile(driver).sendKeys("C:/Users/sandip/Downloads/InternalReport.xlsx");
+			OverduePOM.choosefile(driver).sendKeys("C:\\Users\\Mayuri Gaikwad\\Downloads/Report .xlsx");
 			Thread.sleep(1000);
 			//OverduePOM.send(driver).click();
 			By locator = By.xpath("//*[@id='btnsendmailNew']");
@@ -2132,7 +2133,7 @@ WebDriverWait wait = new WebDriverWait(driver,(140));
 		JavascriptExecutor jse=(JavascriptExecutor)driver;
 		jse.executeScript("arguments[0].click();", ViewButton);
 			Thread.sleep(5000);
-			test.log(LogStatus.INFO, "Internal Message working Succefully");
+			test.log(LogStatus.PASS, "Internal Message working Succefully");
 			Thread.sleep(1000);
 			extent.endTest(test);
 			extent.flush();
@@ -2143,7 +2144,7 @@ WebDriverWait wait = new WebDriverWait(driver,(140));
 			{
 				Thread.sleep(1000);		
 				test = extent.startTest("'Support Ticket  '  Verification");
-				test.log(LogStatus.INFO, "Test Initiated");
+				//test.log(LogStatus.INFO, "Test Initiated");
 				
 				MethodsPOM.SupportTicket(test,driver);
 				
@@ -2157,7 +2158,7 @@ WebDriverWait wait = new WebDriverWait(driver,(140));
 	void MyNotifications() throws InterruptedException, IOException
 	{
 		test = extent.startTest("My Notifications - Verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+	//	test.log(LogStatus.INFO, "Test Initiated");
 		WebDriverWait wait = new WebDriverWait(driver, (30));
 		Thread.sleep(8000);
 		CFOcountPOM.clickMyNotifications(driver).click();
@@ -2166,7 +2167,7 @@ WebDriverWait wait = new WebDriverWait(driver,(140));
 		Thread.sleep(4000);
 		CFOcountPOM.CloseViewNO(driver).click();
 		Thread.sleep(4000);
-		test.log(LogStatus.INFO, "View Successfully");	
+		test.log(LogStatus.PASS, "View Successfully");	
 		driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_GridNotifications_chkCompliances_0']")).click();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_GridNotifications_chkCompliances_1']")).click();
@@ -2186,7 +2187,7 @@ WebDriverWait wait = new WebDriverWait(driver,(140));
 	void MessageCenter() throws InterruptedException, IOException
 	{
 		test = extent.startTest(" Message Center - Verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		//test.log(LogStatus.INFO, "Test Initiated");
 		WebDriverWait wait = new WebDriverWait(driver, (30));
 		Thread.sleep(8000);
 		CFOcountPOM.clickMessageCenter(driver).click();
