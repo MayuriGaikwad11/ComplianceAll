@@ -2,7 +2,7 @@ package reviewer;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
+
 import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
@@ -44,7 +44,7 @@ public class ReviewerCount
 	
 	public static XSSFSheet ReadExcel() throws IOException
 	{
-		String workingDir = System.getProperty("user.dir");
+		
 		fis = new FileInputStream("C:/March2022/PerformerPom/TestData/ComplianceSheet.xlsx");
 		workbook = new XSSFWorkbook(fis);
 		sheet = workbook.getSheetAt(1);					//Retrieving second sheet of Workbook
@@ -691,7 +691,7 @@ OverduePOM.clickNoMsg(driver).sendKeys(c1.getStringCellValue());	//Writing messa
 	
 js.executeScript("window.scrollBy(0,1000)");	//Scrolling down window by 2000 px.
 Thread.sleep(1500);
-String workingDir = System.getProperty("user.dir");
+
 OverduePOM.SampleFormUpload(driver).sendKeys("C:/March2022/PerformerPom/Reports/PerformerResults.html");
 
 Thread.sleep(1000);
@@ -882,7 +882,7 @@ extent.flush();
 				
 			js.executeScript("window.scrollBy(0,1000)");	//Scrolling down window by 2000 px.
 			Thread.sleep(1500);
-			String workingDir = System.getProperty("user.dir");
+			
 			OverduePOM.SampleFormUpload(driver).sendKeys("C:/March2022/PerformerPom/Reports/PerformerResults.html");
 			
 			Thread.sleep(1000);
@@ -1070,7 +1070,7 @@ extent.flush();
     			
     		js.executeScript("window.scrollBy(0,1000)");	//Scrolling down window by 2000 px.
     		Thread.sleep(1500);
-    		String workingDir = System.getProperty("user.dir");
+    		
     		OverduePOM.SampleFormUpload(driver).sendKeys("C:/March2022/PerformerPom/Reports/PerformerResults.html");
 
     		Thread.sleep(1000);
@@ -1260,7 +1260,7 @@ extent.flush();
     				
     			js.executeScript("window.scrollBy(0,1000)");	//Scrolling down window by 2000 px.
     			Thread.sleep(1500);
-    			String workingDir = System.getProperty("user.dir");
+    			
     			OverduePOM.SampleFormUpload(driver).sendKeys("C:/March2022/PerformerPom/Reports/PerformerResults.html");
     			
     			Thread.sleep(1000);

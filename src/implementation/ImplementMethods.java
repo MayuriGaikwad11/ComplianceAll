@@ -4183,6 +4183,34 @@ String Msg1=ImplementPOM.ReadMsg(driver).getText();
 		test.log(LogStatus.PASS, " Message displayed -:- " + Msg4);
 		Thread.sleep(2000);
 		ImplementPOM.DueDateClose(driver).click();
+		Thread.sleep(3000);
+		//------------Filter -------------------------
+		ImplementPOM.FilterType(driver).sendKeys("Act 19122022 Latest",Keys.ENTER);
+		Thread.sleep(3000);
+		test.log(LogStatus.PASS, "Filter Working Successfully");
+		Thread.sleep(1000);
+		//------------Edit -------------------------
+
+		ImplementPOM.ClientFrequencyEdit(driver).click();
+		Thread.sleep(3000);
+		Thread.sleep(2000);
+		ImplementPOM.ClientFrequency(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.FiveYearly1(driver).click();
+		Thread.sleep(2000);
+		ImplementPOM.DueDateSave(driver).click();
+		Thread.sleep(2000);
+		String Msg = ImplementPOM.DueDateSaveMsg(driver).getText();
+
+		test.log(LogStatus.PASS, " Message displayed -:- " + Msg);
+		Thread.sleep(2000);
+		ImplementPOM.DueDateClose(driver).click();
+		Thread.sleep(3000);
+		ImplementPOM.DisplayScheduleInformation1(driver).click();
+		Thread.sleep(2000);
+		ImplementPOM.DisplayScheduleInformationSave(driver).click();
+		Thread.sleep(2000);
+		test.log(LogStatus.PASS, " Message displayed -:- " + Msg);
 		
 	}
 	

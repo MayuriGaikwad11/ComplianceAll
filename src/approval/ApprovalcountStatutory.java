@@ -1105,7 +1105,7 @@ public class ApprovalcountStatutory {
 	@Test(priority = 15)
 	void DepartmentSummaryAccountStatutory() throws InterruptedException
 	{
-		Thread.sleep(500);		
+		Thread.sleep(2000);		
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 	//	js.executeScript("window.scrollBy(0,1500)");					//Scrolling down window by 1500 px.
 		js.executeScript("window.scrollBy(0,500)");
@@ -1131,7 +1131,7 @@ public class ApprovalcountStatutory {
 		*/
 		//-----------------------------------------------------
 		
-		Thread.sleep(500);
+		Thread.sleep(5000);
 		String ClosedTimely = CFOcountPOM.clickAccountClosedTimely(driver).getText();		//Reading the Closed Timely value of Human Resource
 		ClosedTimely = ClosedTimely.replaceAll(" ","");									//Removing all white spaces from string. 
 		int Closed_Timely = Integer.parseInt(ClosedTimely);						
@@ -1147,7 +1147,7 @@ public class ApprovalcountStatutory {
 		
 		//-----------------------------------------------------
 		
-		Thread.sleep(500);
+		Thread.sleep(1000);
 		String NotCompleted = CFOcountPOM.clickAccountOverdue(driver).getText();			//Reading the Overdue value of Human Resource
 		NotCompleted = NotCompleted.replaceAll(" ","");									//Removing all white spaces from string. 
 		int Overdue = Integer.parseInt(NotCompleted);						
@@ -1163,7 +1163,7 @@ public class ApprovalcountStatutory {
 		
 		//-----------------------------------------------------
 		
-		Thread.sleep(500);
+		Thread.sleep(1000);
 		String PendingReview = CFOcountPOM.clickAccountPendingReview(driver).getText();	//Reading the Pending For Review value of Human Resource
 		PendingReview = PendingReview.replaceAll(" ","");								//Removing all white spaces from string. 
 		int Pending_Review = Integer.parseInt(PendingReview);						

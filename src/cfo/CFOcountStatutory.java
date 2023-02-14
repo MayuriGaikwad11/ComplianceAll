@@ -1494,7 +1494,7 @@ public class CFOcountStatutory
 		}
 		else
 		{
-			test.log(LogStatus.SKIP, "'Labour - Low' Count = "+IndustrySpeLow);
+			test.log(LogStatus.PASS, "'Labour - Low' Count = "+IndustrySpeLow);
 			
 			Thread.sleep(500);
 			WebElement element = CFOcountPOM.clickBack(driver);

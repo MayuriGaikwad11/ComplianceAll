@@ -3,17 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="approval.ApprovalcountStatutory">
+      <class name="cfo.Mgmt">
         <methods>
+          <include name="pendingForReview_PieChartPeriod"/>
+          <include name="dueToday_PieChartPeriod"/>
           <include name="setBrowser"/>
-          <include name="MessageCenter"/>
-          <include name="DetailedReport"/>
-          <include name="DetailedReportIn"/>
-          <include name="SupportTicket"/>
-          <include name="MyNotifications"/>
-          <include name="InternalMsg"/>
         </methods>
-      </class> <!-- approval.ApprovalcountStatutory -->
+      </class> <!-- cfo.Mgmt -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

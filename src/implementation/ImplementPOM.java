@@ -1406,6 +1406,12 @@ public class ImplementPOM {
 		return implement;                                     
 	}
 	
+	public static WebElement FiveYearly1(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.linkText("FiveYearly"));
+		return implement;                                     
+	}
+	
 	public static WebElement PriorityType(WebDriver driver)		//Method for closing Message Popup
 	{
 		implement = driver.findElement(By.xpath("//*[@id='BodyContent_upComplianceDetails']/div[1]/div[13]/span[1]/a/span[1]"));
@@ -2832,7 +2838,7 @@ public class ImplementPOM {
    public static WebElement DueDateSaveMsg(WebDriver driver)		//Method for closing Message Popup
 	{
 		implement = driver.findElement(By.xpath("//*[@id='BodyContent_vsLicenseListPage']/ul/li"));
-		return implement;                         
+		return implement;                       
 	}
    
    public static WebElement DueDateClose(WebDriver driver)		//Method for closing Message Popup
@@ -3045,6 +3051,12 @@ public class ImplementPOM {
  		return implement;                              
  	}
    
+   public static WebElement ClientFrequencyEdit(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.xpath("//*[@id='BodyContent_grdClient_lbtEdit_0']/img"));
+		return implement;                              
+	}
+  
    
      
      
