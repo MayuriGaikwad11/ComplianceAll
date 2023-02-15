@@ -2948,7 +2948,7 @@ public class ImplementPOM {
 		implement = driver.findElement(By.xpath("//*[@id='BodyContent_ctl02']/ul/li"));
 		return implement;                              
 	}
-  
+
    public static WebElement CertificateEdit(WebDriver driver)		//Method for closing Message Popup
   	{
   		implement = driver.findElement(By.xpath("//*[@id='BodyContent_grdCertificateFrequency_lbtEdit_0']/img"));
@@ -3057,6 +3057,24 @@ public class ImplementPOM {
 		return implement;                              
 	}
   
+   public static WebElement ClientFrequencyDelete(WebDriver driver)		//Method for closing Message Popup
+  	{
+  		implement = driver.findElement(By.xpath("//*[@id='BodyContent_grdClient_lbtDelete_0']/img"));
+  		return implement;                              
+  	}
+   
+   public static WebElement SampleFormatCF(WebDriver driver)		//Method for closing Message Popup
+ 	{
+ 		implement = driver.findElement(By.xpath("//*[@id='BodyContent_upComplianceTypeList']/table/tbody/tr[2]/td[4]/u/a"));
+ 		return implement;                              
+ 	}
+   
+   public static WebElement UploadMeg(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.xpath("//*[@id='BodyContent_ctl01']/ul/li"));
+		return implement;                              
+	}
+    
    
      
      

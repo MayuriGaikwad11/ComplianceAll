@@ -1370,13 +1370,13 @@ public class CFOcountPOM
 	
 	public static WebElement clickPenaltyCritical(WebDriver driver)		//Method to search 'High Risk' bar of Penalty Summary.
 	{
-		penlatysummary = driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-undefined highcharts-drilldown-data-label'])[33]"));
+		penlatysummary = driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-undefined highcharts-drilldown-data-label'])[32]"));
 		return penlatysummary;
 	}
 	
 	public static WebElement clickPenaltyHigh(WebDriver driver)		//Method to search 'High Risk' bar of Penalty Summary.
 	{
-		penlatysummary = driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-undefined highcharts-drilldown-data-label'])[35]"));
+		penlatysummary = driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-undefined highcharts-drilldown-data-label'])[36]"));
 		return penlatysummary;
 	}
 	
@@ -1400,7 +1400,7 @@ public class CFOcountPOM
 	
 	public static WebElement clickPenaltyMedium(WebDriver driver)		//Method to search 'Medium Risk' bar of Penalty Summary.
 	{
-		penlatysummary = driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-undefined highcharts-drilldown-data-label'])[37]"));
+		penlatysummary = driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-undefined highcharts-drilldown-data-label'])[40]"));
 		return penlatysummary;
 	}
 	
@@ -1424,7 +1424,7 @@ public class CFOcountPOM
 	
 	public static WebElement clickPenaltyLow(WebDriver driver)			//Method to search 'Low Risk' bar of Penalty Summary.
 	{
-		penlatysummary = driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-undefined highcharts-drilldown-data-label'])[39]"));
+		penlatysummary = driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-undefined highcharts-drilldown-data-label'])[44]"));
 		return penlatysummary;
 	}
 	
@@ -5261,7 +5261,7 @@ try {
 	Thread.sleep(2000);
 	jse1.executeScript("arguments[0].click();", ViewButton1);
 		Thread.sleep(5000);
-		test.log(LogStatus.PASS, "AdvancedSearch - overView success");
+		test.log(LogStatus.PASS, "AdvancedSearch - overView successfully");
 		Thread.sleep(1000);
 		By locator3 = By.xpath("//*[@id='divOverView1']/div/div/div[1]/button");
 		  
@@ -5665,7 +5665,7 @@ WebDriverWait wait = new WebDriverWait(driver,(140));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='k-selectable']")));	//Wait till records table gets visible
 		Thread.sleep(2000);
 		 By locator = By.xpath("//*[@id='grid']/div[4]/table/tbody/tr[1]/td[14]/a");
-
+		
 			wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 			Thread.sleep(4000);
 			List<WebElement> ViewButton = driver.findElements(locator);	
@@ -6104,9 +6104,9 @@ WebDriverWait wait = new WebDriverWait(driver,(140));
 	JavascriptExecutor jse=(JavascriptExecutor)driver;
 	Thread.sleep(2000);
 	jse.executeScript("arguments[0].click();", ViewButton);
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		CFOcountPOM.closeDocument1(driver).click();
-		test.log(LogStatus.PASS, "overView success");
+		test.log(LogStatus.PASS, "overView successfully");
 	
 		Thread.sleep(3000);
 		OverduePOM.clickRiskD(driver).click();

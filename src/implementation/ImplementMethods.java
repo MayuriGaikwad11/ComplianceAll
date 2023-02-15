@@ -1150,7 +1150,7 @@ public class ImplementMethods {
 		if (dirContents.length < allFilesNew.length) {
 			test.log(LogStatus.PASS, report + " :- File downloaded successfully.");
 		} else {
-			test.log(LogStatus.INFO, report + " :- File does not downloaded.");
+			test.log(LogStatus.FAIL, report + " :- File does not downloaded.");
 		}
 
 	}
@@ -4206,11 +4206,53 @@ String Msg1=ImplementPOM.ReadMsg(driver).getText();
 		Thread.sleep(2000);
 		ImplementPOM.DueDateClose(driver).click();
 		Thread.sleep(3000);
+		//------------Display Schedule Information -------------------------
+
 		ImplementPOM.DisplayScheduleInformation1(driver).click();
 		Thread.sleep(2000);
 		ImplementPOM.DisplayScheduleInformationSave(driver).click();
 		Thread.sleep(2000);
-		test.log(LogStatus.PASS, " Message displayed -:- " + Msg);
+		test.log(LogStatus.PASS, "Display Schedule Information view Successfully ");
+		//------------Delete-------------------------
+
+		ImplementPOM.ClientFrequencyDelete(driver).click();
+		Thread.sleep(4000);
+		String Msg6 = driver.switchTo().alert().getText();
+		Thread.sleep(1000);
+		driver.switchTo().alert().accept();
+		test.log(LogStatus.PASS, " Message displayed -:- " + Msg6);
+		Thread.sleep(5000);
+		String Msg8 = ImplementPOM.UploadMeg(driver).getText();
+
+		test.log(LogStatus.PASS, " Message displayed -:- " + Msg8);
+		Thread.sleep(2000);
+		/*//---------------------Export------------------------
+		//	Thread.sleep(3000);
+			File dir = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+			File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
+
+			Thread.sleep(500);
+			ImplementPOM.SampleFormatCF(driver).click(); // Exporting (Downloading) file
+
+			Thread.sleep(3000);
+			File dir1 = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+			File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
+			Thread.sleep(3000);
+			if (dirContents.length < allFilesNew.length) {
+				test.log(LogStatus.PASS,  " :- File downloaded successfully.");
+			} else {
+				test.log(LogStatus.FAIL,  " :- File does not downloaded.");
+			}
+		*/
+		//----------------- File Upload ----------------
+		ImplementPOM.Choose(driver).sendKeys("C:\\Users\\Mayuri Gaikwad\\Downloads\\ClientBasedFrequency_Sample.xlsx");
+		Thread.sleep(2000);
+		ImplementPOM.Upload1(driver).click();
+		Thread.sleep(8000);
+		String Msg7 = ImplementPOM.UploadMeg(driver).getText();
+
+		test.log(LogStatus.PASS, " Message displayed -:- " + Msg7);
+		Thread.sleep(2000);
 		
 	}
 	

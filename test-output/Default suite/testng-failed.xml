@@ -5,8 +5,8 @@
     <classes>
       <class name="cfo.Mgmt">
         <methods>
-          <include name="pendingForReview_PieChartPeriod"/>
-          <include name="dueToday_PieChartPeriod"/>
+          <include name="AssignmentReport"/>
+          <include name="Closing"/>
           <include name="setBrowser"/>
         </methods>
       </class> <!-- cfo.Mgmt -->

@@ -1143,7 +1143,7 @@ public class Mgmt {
 		
 		extent.endTest(test);
 		extent.flush();
-	}*/
+	}
 	
 	@Test(priority = 16)
 	void BargraphIndustrySpeCriticalStatutory() throws InterruptedException
@@ -1748,8 +1748,8 @@ public class Mgmt {
 		extent.endTest(test);
 		extent.flush();
 	}
-	
-	@Test(priority = 24)
+	*/
+//	@Test(priority = 24)
 	void DepartmentSummaryHumanResourceStatutory() throws InterruptedException
 	{
 		Thread.sleep(3000);		
@@ -1861,7 +1861,7 @@ public class Mgmt {
 		extent.flush();
 	}
 	
-	
+	/*
 	@Test(priority = 25)
 	void NotCompleted_PieChartPeriod() throws InterruptedException
 	{
@@ -2259,8 +2259,8 @@ public class Mgmt {
 		}
 		extent.endTest(test);
 		extent.flush();
-	}
-	/*
+	}*/
+	
 	@Test(priority = 29)
 	void Overdue_PieChartPeriod() throws InterruptedException
 	{
@@ -2667,9 +2667,9 @@ public class Mgmt {
 		extent.endTest(test);
 		extent.flush();
 	}
-	*/
 	
-//	@Test(priority = 33)
+	
+	@Test(priority = 33)
 	void PenaltySummaryStatutory() throws InterruptedException
 	{		
 		Thread.sleep(500);		
@@ -2713,14 +2713,14 @@ public class Mgmt {
 			
 			 CFOcountPOM.clickExportImage(driver).click();
 				Thread.sleep(4000);
-				test.log(LogStatus.PASS, "Excel file Export Successfully");
+				test.log(LogStatus.PASS, "Penalty - Excel file Export Successfully");
 				Thread.sleep(3000);
 				CFOcountPOM.clickInterest(driver).click();
 				Thread.sleep(2000);
 				wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("IFGradingGraphDisplay"));
 				 CFOcountPOM.clickExportImage(driver).click();
 					Thread.sleep(4000);
-					test.log(LogStatus.PASS, "Excel file Export Successfully");
+					test.log(LogStatus.PASS, "Interest - Excel file Export Successfully");
 					Thread.sleep(3000);
 				driver.switchTo().parentFrame();								//Switching back to Interest's parent frame.
 				driver.switchTo().parentFrame();	
@@ -2731,7 +2731,7 @@ public class Mgmt {
 		}
 		else
 		{
-			test.log(LogStatus.SKIP, "'Critical Penalty' value is zero.");
+			test.log(LogStatus.PASS, "'Critical Penalty' value is zero.");
 		}
 		
 		//----------------------------------High-------------------------------
@@ -2752,14 +2752,14 @@ public class Mgmt {
 			
 			 CFOcountPOM.clickExportImage(driver).click();
 				Thread.sleep(4000);
-				test.log(LogStatus.PASS, "Excel file Export Successfully");
+				test.log(LogStatus.PASS, "Penalty - Excel file Export Successfully");
 				Thread.sleep(3000);
 				CFOcountPOM.clickInterest(driver).click();
 				Thread.sleep(2000);
 				wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("IFGradingGraphDisplay"));
 				 CFOcountPOM.clickExportImage(driver).click();
 					Thread.sleep(4000);
-					test.log(LogStatus.PASS, "Excel file Export Successfully");
+					test.log(LogStatus.PASS, "Interest - Excel file Export Successfully");
 					Thread.sleep(3000);
 				driver.switchTo().parentFrame();								//Switching back to Interest's parent frame.
 				driver.switchTo().parentFrame();	
@@ -2769,7 +2769,7 @@ public class Mgmt {
 		}
 		else
 		{
-			test.log(LogStatus.SKIP, "'High Penalty' value is zero.");
+			test.log(LogStatus.PASS, "'High Penalty' value is zero.");
 		}
 		
 		//----------------------------------Medium-------------------------------
@@ -2790,14 +2790,14 @@ public class Mgmt {
 			
 			 CFOcountPOM.clickExportImage(driver).click();
 				Thread.sleep(4000);
-				test.log(LogStatus.PASS, "Excel file Export Successfully");
+				test.log(LogStatus.PASS, "Penalty - Excel file Export Successfully");
 				Thread.sleep(3000);
 				CFOcountPOM.clickInterest(driver).click();
 				Thread.sleep(2000);
 				wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("IFGradingGraphDisplay"));
 				 CFOcountPOM.clickExportImage(driver).click();
 					Thread.sleep(4000);
-					test.log(LogStatus.PASS, "Excel file Export Successfully");
+					test.log(LogStatus.PASS, "Interest - Excel file Export Successfully");
 					Thread.sleep(3000);
 				driver.switchTo().parentFrame();								//Switching back to Interest's parent frame.
 				driver.switchTo().parentFrame();	
@@ -2807,7 +2807,7 @@ public class Mgmt {
 		}
 		else
 		{
-			test.log(LogStatus.SKIP, "'Medium Penalty' value is zero.");
+			test.log(LogStatus.PASS, "'Medium Penalty' value is zero.");
 		}
 		
 		//----------------------------------Low-------------------------------
@@ -2828,14 +2828,14 @@ public class Mgmt {
 			
 			 CFOcountPOM.clickExportImage(driver).click();
 				Thread.sleep(4000);
-				test.log(LogStatus.PASS, "Excel file Export Successfully");
+				test.log(LogStatus.PASS, "Penalty - Excel file Export Successfully");
 				Thread.sleep(3000);
 				CFOcountPOM.clickInterest(driver).click();
 				Thread.sleep(2000);
 				wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("IFGradingGraphDisplay"));
 				 CFOcountPOM.clickExportImage(driver).click();
 					Thread.sleep(4000);
-					test.log(LogStatus.PASS, "Excel file Export Successfully");
+					test.log(LogStatus.PASS, "Interest - Excel file Export Successfully");
 					Thread.sleep(3000);
 				driver.switchTo().parentFrame();								//Switching back to Interest's parent frame.
 				driver.switchTo().parentFrame();	
@@ -2845,15 +2845,15 @@ public class Mgmt {
 		}
 		else
 		{
-			test.log(LogStatus.SKIP, "'Low Penalty' value is zero.");
+			test.log(LogStatus.PASS, "'Low Penalty' value is zero.");
 		}
 		Thread.sleep(500);
 		performer.OverduePOM.clickDashboard(driver).click();			//Clicking on Dashboard
-		
+		Thread.sleep(500);
 		extent.endTest(test);
 		extent.flush();
 	}
-/*	
+	
 	@Test(priority = 34)
 	void GradingReportStatutory() throws InterruptedException, IOException
 	{
@@ -2863,7 +2863,7 @@ public class Mgmt {
 		
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,3600)");					//Scrolling down window by 2600 px.
-		Thread.sleep(500);	
+		Thread.sleep(2000);	
 		CFOcountPOM.clickRedGrading(driver).click();
 		Thread.sleep(4000);	
 		WebDriverWait wait = new WebDriverWait(driver, (30));
@@ -3035,7 +3035,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[6]/a");
 		extent.flush();
 	}
 	
-	/*
+	
 	@Test(priority = 38)
 	void StandardReportOverall() throws InterruptedException, IOException
 	{
@@ -3374,7 +3374,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[6]/a");
 	}
 
 	
-	@Test(priority = 63) // pass
+	//@Test(priority = 63) // pass
 	void MyEscalation() throws InterruptedException, IOException
 	{
 		test = extent.startTest("My  Escalation - Verification");
@@ -3387,7 +3387,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[6]/a");
 	CheckBox.get(5).click();
 	Thread.sleep(500);
 	List<WebElement> Actions=	driver.findElements(By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[8]/a"));
-	Actions.get(5).click();
+	Actions.get(5).click();//*[@id="ContentPlaceHolder1_grdReviewerComplianceDocument_btnAdd_0"]
 	Thread.sleep(4000);
 	driver.switchTo().alert().accept();
 	Thread.sleep(2000);
@@ -3484,7 +3484,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[6]/a");
 			{
 				Thread.sleep(1000);		
 				test = extent.startTest("'Support Ticket  '  Verification");
-				test.log(LogStatus.INFO, "Test Initiated");
+			//	test.log(LogStatus.INFO, "Test Initiated");
 				
 				MethodsPOM.SupportTicket(test,driver);
 				
@@ -3500,7 +3500,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[6]/a");
 			}	 
 		
 		 
-		 */
+		 
 		 
 		 
 		 
