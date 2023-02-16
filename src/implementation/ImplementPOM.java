@@ -3074,9 +3074,98 @@ public class ImplementPOM {
 		implement = driver.findElement(By.xpath("//*[@id='BodyContent_ctl01']/ul/li"));
 		return implement;                              
 	}
-    
    
+   public static WebElement TemplateMsg(WebDriver driver)		//Method for closing Message Popup
+  	{
+  		implement = driver.findElement(By.xpath("//*[@id='BodyContent_ctl02']/ul/li"));
+  		return implement;                              
+  	}
+
+   public static WebElement ComplianceCertificate(WebDriver driver)		//Method for closing Message Popup
+ 	{
+ 		implement = driver.findElement(By.xpath("//*[@id='CMPMenuBar:submenu:16']/li[5]/a"));
+ 		return implement;                              
+ 	}
+    
+   public static WebElement CustomerCC(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.xpath("//*[@id='BodyContent_ddlCustomerFilter']"));
+		return implement;                              
+	}
+   
+   public static WebElement BitaConsultingPvtLtd(WebDriver driver)		//Method for closing Message Popup
+ 	{
+ 		implement = driver.findElement(By.xpath("//*[@id='BodyContent_ddlCustomerFilter']/option[2]"));
+ 		return implement;                              
+ 	}
+    
+   public static WebElement CCAddNew(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.xpath("//*[@id='BodyContent_btnAddAct']"));
+		return implement;                              
+	}
+   
+   public static WebElement TemplateField(WebDriver driver)		//Method for closing Message Popup
+  	{
+  		implement = driver.findElement(By.xpath("//*[@id='BodyContent_ddlContractTemplate']"));
+  		return implement;                              
+  	}
+   
+   public static WebElement CompliedStatutoryChecklist(WebDriver driver)		//Method for closing Message Popup
+ 	{
+ 		implement = driver.findElement(By.xpath("//*[@id='BodyContent_ddlContractTemplate']/option[2]"));
+ 		return implement;                              
+ 	}
+   
+   public static WebElement FromDateCC(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.xpath("//*[@id='BodyContent_tbxFromDate']"));
+		return implement;                              
+	}
+    
+   public static WebElement EndDateCC(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.xpath("//*[@id='BodyContent_tbxEndDate']"));
+		return implement;                              
+	}
+   
+   public static WebElement SaveCC(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.xpath("//*[@id='BodyContent_btnSave']"));
+		return implement;                              
+	}
+   
+   public static WebElement DownloadCC(WebDriver driver)		//Method for closing Message Popup
+  	{
+  		implement = driver.findElement(By.xpath("//*[@id='BodyContent_Button1']"));
+  		return implement;                              
+  	}
+   
+   public static WebElement CloseCC(WebDriver driver)		//Method for closing Message Popup
+ 	{
+ 		implement = driver.findElement(By.xpath("//*[@id='form1']/div[5]/div[1]/button/span[1]"));
+ 		return implement;                              
+ 	}
      
+   public static WebElement EditCC(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.xpath("//*[@id='BodyContent_grdTemplate_lbtEdit_0']/img"));
+		return implement;                              
+	}
+   
+   public static WebElement BranchName(WebDriver driver)		//Method for closing Message Popup
+  	{
+  		implement = driver.findElement(By.xpath("//*[@id='BodyContent_ddlContractTemplate']/option[2]"));
+  		return implement;                              
+  	}
+   
+   public static WebElement DeleteCC(WebDriver driver)		//Method for closing Message Popup
+ 	{
+ 		implement = driver.findElement(By.xpath("//*[@id='BodyContent_grdTemplate_lbtDelete_0']/img"));
+ 		return implement;                              
+ 	}
+      
+    
      
    
    

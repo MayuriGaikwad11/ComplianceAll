@@ -31,5 +31,146 @@ private static WebElement owner = null;				//WebElement variable created for 'Ca
 		return owner;
 	}
 	
+	public static WebElement View(WebDriver driver)		//Method for closing Message Popup
+	{
+		owner = driver.findElement(By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[8]/a[1]"));
+		return owner;
+	}
+	
+	
+	public static WebElement CertificateOwnerPage(WebDriver driver)		//Method for closing Message Popup
+	{
+		owner = driver.findElement(By.xpath("//*[@id='pagetype']"));
+		return owner;
+	}
+	
+	public static WebElement PeriodView(WebDriver driver)		//Method for closing Message Popup
+	{
+		owner = driver.findElement(By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[6]/a[1]"));
+		return owner;
+	}
+	
+	public static WebElement CompliancePageView(WebDriver driver)		//Method for closing Message Popup
+	{
+		owner = driver.findElement(By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[6]/a"));
+		return owner;
+	}
+	
+	public static WebElement ReviewerPageView(WebDriver driver)		//Method for closing Message Popup
+	{
+		owner = driver.findElement(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr[1]/td[12]/a"));
+		return owner;
+	}
+	
+	public static WebElement ReviewerPageViewclose(WebDriver driver)		//Method for closing Message Popup
+	{
+		owner = driver.findElement(By.xpath("//*[@id='divOverView1']/div/div/div[1]/button"));
+		return owner;
+	}
+	
+	public static WebElement ReviewerPageExport(WebDriver driver)		//Method for closing Message Popup
+	{
+		owner = driver.findElement(By.xpath("//*[@id='export']"));
+		return owner;
+	}
+	
+	
+	public static WebElement ReviewerPageLoaction(WebDriver driver)		//Method for closing Message Popup
+	{
+		owner = driver.findElement(By.xpath("//*[@id='childrow']/div/div[2]/div[1]/div/span[1]"));
+		return owner;
+	}
+	
+	public static WebElement ReviewerPageClickExpand(WebDriver driver)		//Method for closing Message Popup
+	{
+		owner = driver.findElement(By.xpath("//span[@class='k-icon k-i-expand']"));
+		return owner;
+	}
+	
+	public static WebElement ReviewerPageCT(WebDriver driver)		//Method for closing Message Popup
+	{
+		owner = driver.findElement(By.xpath("(//span[@class='k-checkbox-label checkbox-span'])[10]"));
+		return owner;
+	}
+	
+	public static WebElement ReviewerPageClearfilterMain(WebDriver driver)		//Method for closing Message Popup
+	{
+		owner = driver.findElement(By.xpath("//*[@id='ClearfilterMain']"));
+		return owner;
+	}
+	
+	public static WebElement ClickDownloadAll(WebDriver driver)		//Method for closing Message Popup
+	{
+		owner = driver.findElement(By.xpath("//*[@id='btnDownloadAll']"));
+		return owner;
+	}
+	
+	public static WebElement ExporttoPDFPe(WebDriver driver)		//Method for closing Message Popup
+	{
+		owner = driver.findElement(By.xpath("//*[@id='grid']/div[1]/div/button"));
+		return owner;
+	}
+	
+	public static WebElement ClickPreview(WebDriver driver)		//Method for closing Message Popup
+	{
+		owner = driver.findElement(By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[6]/a[2]"));
+		return owner;
+	}
+	
+	public static WebElement ClosePreview(WebDriver driver)		//Method for closing Message Popup
+	{
+		owner = driver.findElement(By.xpath("/html/body/div[9]/div[1]/div/a"));
+		return owner;
+	}
+	
+	public static WebElement DwonloadDoc(WebDriver driver)		//Method for closing Message Popup
+	{
+		owner = driver.findElement(By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[6]/a[3]"));
+		return owner;
+	}
+	
+	public static WebElement Back(WebDriver driver)		//Method for closing Message Popup
+	{
+		owner = driver.findElement(By.xpath("//*[@id='btnBack']"));
+		return owner;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }

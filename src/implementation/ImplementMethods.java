@@ -4256,7 +4256,105 @@ String Msg1=ImplementPOM.ReadMsg(driver).getText();
 		
 	}
 	
-	
+	public static void ComplianceCertificate(WebDriver driver, ExtentTest test)
+			throws InterruptedException, IOException {
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (80));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[2]/a"))); 
+			//----------------------Add New --------------------------		
+		action.moveToElement(ImplementPOM.ManageCompliances(driver)).click().build().perform();
+		Thread.sleep(1000);
+		ImplementPOM.MastersMC(driver).click();
+		Thread.sleep(3000);
+		ImplementPOM.ComplianceCertificate(driver).click();
+		Thread.sleep(6000);
+		ImplementPOM.CustomerCC(driver).click();
+		Thread.sleep(3000);
+		ImplementPOM.BitaConsultingPvtLtd(driver).click();
+		Thread.sleep(6000);
+		
+		ImplementPOM.CCAddNew(driver).click();
+		Thread.sleep(3000);
+		ImplementPOM.TemplateField(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.CompliedStatutoryChecklist(driver).click();
+		Thread.sleep(2000);
+		ImplementPOM.FromDateCC(driver).clear();
+		Thread.sleep(1000);
+		ImplementPOM.FromDateCC(driver).sendKeys("09-02-2023");
+		Thread.sleep(1000);
+		ImplementPOM.EndDateCC(driver).clear();
+		Thread.sleep(1000);
+		ImplementPOM.EndDateCC(driver).sendKeys("12-02-2023");
+		Thread.sleep(1000);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,500)");	
+		Thread.sleep(4000);
+		ImplementPOM.SaveCC(driver).click();
+		Thread.sleep(3000);
+		js.executeScript("window.scrollBy(500,0)");	
+		Thread.sleep(4000);
+		String Msg7 = ImplementPOM.TemplateMsg(driver).getText();
+
+		test.log(LogStatus.PASS, " Message displayed -:- " + Msg7);
+		Thread.sleep(2000);
+		//---------------------Export------------------------
+					Thread.sleep(3000);
+					File dir = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+					File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
+
+					Thread.sleep(500);
+					ImplementPOM.DownloadCC(driver).click(); // Exporting (Downloading) file
+
+					Thread.sleep(3000);
+					File dir1 = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+					File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
+					Thread.sleep(3000);
+					if (dirContents.length < allFilesNew.length) {
+						test.log(LogStatus.PASS,  " Message displayed  :- File downloaded successfully.");
+					} else {
+						test.log(LogStatus.FAIL,  "Message displayed  :- File does not downloaded.");
+					}
+					Thread.sleep(3000);
+					js.executeScript("window.scrollBy(0,500)");	
+					Thread.sleep(4000);
+					ImplementPOM.CloseCC(driver).click();
+					//------------------ Edit ---------------------
+					ImplementPOM.EditCC(driver).click();
+					Thread.sleep(3000);
+					ImplementPOM.TemplateField(driver).click();
+					Thread.sleep(1000);
+					ImplementPOM.BranchName(driver).click();
+					Thread.sleep(2000);
+					
+					js.executeScript("window.scrollBy(0,500)");	
+					Thread.sleep(4000);
+					ImplementPOM.SaveCC(driver).click();
+					Thread.sleep(3000);
+					js.executeScript("window.scrollBy(500,0)");	
+					Thread.sleep(4000);
+					String Msg8 = ImplementPOM.TemplateMsg(driver).getText();
+
+					test.log(LogStatus.PASS, " Message displayed -:- " + Msg8);
+					Thread.sleep(2000);
+					ImplementPOM.CloseCC(driver).click();
+					//-------------------Delete---------------
+					Thread.sleep(2000);
+					ImplementPOM.DeleteCC(driver).click();
+					Thread.sleep(3000);
+					String msg=driver.switchTo().alert().getText();
+					driver.switchTo().alert().accept();
+					Thread.sleep(2000);
+					test.log(LogStatus.PASS, " Message displayed -:- " + msg);
+					Thread.sleep(2000);
+					driver.navigate().refresh();
+					Thread.sleep(2000);
+					Thread.sleep(2000);
+					ImplementPOM.CloseCC(driver).click();
+					Thread.sleep(2000);
+	}
 	
 	
 	

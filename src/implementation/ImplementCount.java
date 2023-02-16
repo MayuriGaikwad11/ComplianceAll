@@ -804,13 +804,25 @@ public class ImplementCount {
 		extent.flush();
 	}
 	
-	@Test(priority = 61)
+	//@Test(priority = 61)
 	void ClientFrequencyMapping() throws InterruptedException, IOException
 	{
 		test = extent.startTest(" Manage Compliances-Client Specific Configuration -Client Frequency Mapping");
 		
 		
 		ImplementMethods.ClientFrequencyMapping(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 62)
+	void ComplianceCertificate() throws InterruptedException, IOException
+	{
+		test = extent.startTest(" Manage Compliances-Masters -Compliance Certificate");
+		
+		
+		ImplementMethods.ComplianceCertificate(driver,test);
 		
 		extent.endTest(test);
 		extent.flush();

@@ -2941,6 +2941,7 @@ public class CFOcountPOM
 		Thread.sleep(5000);
 		CFOcountPOM.readTotalItemsD(driver).click();					//Clicking on Text of total items just to scroll down.
 		String s = CFOcountPOM.readTotalItemsD(driver).getText();
+		Thread.sleep(1000);
 		if(!s.equalsIgnoreCase("No items to display")) {
 		Thread.sleep(5000);
 		try
@@ -3026,6 +3027,7 @@ public class CFOcountPOM
 			js.executeScript("window.scrollBy(300,0)");	
 			Thread.sleep(1000);
 			driver.switchTo().parentFrame();
+			Thread.sleep(1000);
 			CFOcountPOM.closeCategories(driver).click();
 			Thread.sleep(1000);
 			test.log(LogStatus.PASS, "'"+risk+"' risk compliance count matches to numbers of items from grid.= 0");

@@ -45,8 +45,7 @@ public class CFOcountInternal
 	public int interest = 0;					//Variable created for reading Interest
 	public int penalty = 0;						//Variable created for reading Penalty
 	
-	//Write "CFO-diy" for DIYProduction link.
-	//Write "CFO" for login.avantis
+	
 	public static String link = "CFO";			//Check link in excel sheet first.
 	
 	public static XSSFSheet ReadExcel() throws IOException
@@ -123,7 +122,7 @@ public class CFOcountInternal
 		}
 	}
 	
-//	@Test(priority = 2)
+	@Test(priority = 2)
 	void clickCategoriesInternal() throws InterruptedException
 	{
 		test = extent.startTest(" Count by Clicking on 'Categories'");
@@ -262,7 +261,7 @@ public class CFOcountInternal
 	}
 	
 	
-	//@Test(priority = 3)
+	@Test(priority = 3)
 	void ClickCompliancesInternal() throws InterruptedException
 	{
 		test = extent.startTest("'Complainces' Count by Clicking on 'Compliances'");
@@ -325,7 +324,7 @@ public class CFOcountInternal
 		extent.flush();
 	}
 	
-//	@Test(priority = 4)
+	@Test(priority = 4)
 	void clickUsersInternal() throws InterruptedException
 	{
 		test = extent.startTest("'Users' Count by Clicking on 'Users'");
@@ -385,7 +384,7 @@ public class CFOcountInternal
 		extent.flush();
 	}
 	
-//	@Test(priority = 5)
+	@Test(priority = 5)
 	void SummaryofOverdueCompliances() throws InterruptedException
 	{
 		test = extent.startTest(" Summary of Overdue Compliances Internal");
@@ -432,7 +431,7 @@ public class CFOcountInternal
 		extent.flush();			
 		
 	}
-	/*
+	
 	@Test(priority = 6)
 	void ClosedTimely_PieChart() throws InterruptedException
 	{
@@ -524,7 +523,7 @@ public class CFOcountInternal
 		
 	//	JavascriptExecutor js = (JavascriptExecutor) driver;
 		//js.executeScript("window.scrollBy(0,500)");						//Scrolling down window by 1000 px.
-		
+		Actions action = new Actions(driver);
 		Thread.sleep(1500);
 		int ClosedDelayedValue = Integer.parseInt(CFOcountPOM.clickClosedDelayedInternal(driver).getText());	//Reading value of 'After Due Date'
 		
@@ -589,6 +588,7 @@ public class CFOcountInternal
 			
 			Thread.sleep(500);
 			action.moveToElement(CFOcountPOM.clickBack1(driver)).click().build().perform();	 //Clicking on Back button
+			Thread.sleep(1000);
 		}
 		else
 		{
@@ -596,6 +596,7 @@ public class CFOcountInternal
 			
 			Thread.sleep(500);
 			action.moveToElement(CFOcountPOM.clickBack1(driver)).click().build().perform();	//Clicking on Dashboard
+			Thread.sleep(1000);
 		}
 		extent.endTest(test);
 		extent.flush();
@@ -693,7 +694,7 @@ public class CFOcountInternal
 		Thread.sleep(1500);
 	//	JavascriptExecutor js = (JavascriptExecutor) driver;
 	//	js.executeScript("window.scrollBy(0,500)");						//Scrolling down window by 1000 px.
-		
+		Actions action = new Actions(driver);
 		Thread.sleep(1500);
 		int NotApplicable = Integer.parseInt(CFOcountPOM.clickNotApplicable(driver).getText());	//Reading value of 'After Due Date'
 		
@@ -758,6 +759,7 @@ public class CFOcountInternal
 			
 			Thread.sleep(500);
 			action.moveToElement(CFOcountPOM.clickBack1(driver)).click().build().perform();	 //Clicking on Back button
+			Thread.sleep(1000);
 		}
 		else
 		{
@@ -765,12 +767,11 @@ public class CFOcountInternal
 			
 			Thread.sleep(500);
 			action.moveToElement(CFOcountPOM.clickBack1(driver)).click().build().perform();	//Clicking on Dashboard
+			Thread.sleep(1000);
 		}
 		extent.endTest(test);
 		extent.flush();
 	}
-	
-	
 		
 	@Test(priority = 10)
 	void Overdue_PieChartInternal() throws InterruptedException
@@ -846,7 +847,7 @@ public class CFOcountInternal
 			Thread.sleep(500);
 			//action.moveToElement(CFOcountPOM.clickBack2(driver)).click().build().perform();	 //Clicking on Back button
 			performer.OverduePOM.clickDashboard(driver).click();			//Clicking on Dashboard
-
+			Thread.sleep(1000);
 		}
 		else
 		{
@@ -855,7 +856,7 @@ public class CFOcountInternal
 			Thread.sleep(500);
 			//action.moveToElement(CFOcountPOM.clickBack2(driver)).click().build().perform();	//Clicking on Dashboard
 			performer.OverduePOM.clickDashboard(driver).click();			//Clicking on Dashboard
-
+			Thread.sleep(1000);
 		}
 		extent.endTest(test);
 		extent.flush();
@@ -942,7 +943,7 @@ public class CFOcountInternal
 			Thread.sleep(500);
 			//action.moveToElement(CFOcountPOM.clickBack2(driver)).click().build().perform();	 //Clicking on Back button
 			performer.OverduePOM.clickDashboard(driver).click();			//Clicking on Dashboard
-
+			Thread.sleep(1000);
 		}
 		else
 		{
@@ -951,7 +952,7 @@ public class CFOcountInternal
 			Thread.sleep(500);
 			//action.moveToElement(CFOcountPOM.clickBack2(driver)).click().build().perform();	//Clicking on Dashboard
 			performer.OverduePOM.clickDashboard(driver).click();			//Clicking on Dashboard
-
+			Thread.sleep(1000);
 		}
 		extent.endTest(test);
 		extent.flush();
@@ -1038,7 +1039,7 @@ public class CFOcountInternal
 			Thread.sleep(500);
 		//	action.moveToElement(CFOcountPOM.clickBack2(driver)).click().build().perform();	 //Clicking on Back button
 			performer.OverduePOM.clickDashboard(driver).click();			//Clicking on Dashboard
-
+			Thread.sleep(1000);
 		}
 		else
 		{
@@ -1047,7 +1048,7 @@ public class CFOcountInternal
 			Thread.sleep(500);
 		//	action.moveToElement(CFOcountPOM.clickBack2(driver)).click().build().perform();	//Clicking on Dashboard
 			performer.OverduePOM.clickDashboard(driver).click();			//Clicking on Dashboard
-
+			Thread.sleep(1000);
 		}
 		extent.endTest(test);
 		extent.flush();
@@ -1339,9 +1340,9 @@ public class CFOcountInternal
 		}
 				extent.endTest(test);
 		extent.flush();
-	}*/
+	}
 	
-//	@Test(priority = 16)
+	@Test(priority = 16)
 	void BargraphBSEHighStatutory() throws InterruptedException
 	{
 		test = extent.startTest("Bar Graph - 'BSE' Count Verification with 'High' risk");
@@ -1437,15 +1438,15 @@ public class CFOcountInternal
 		extent.flush();
 	}
 	
-//	@Test(priority = 17)
+	//@Test(priority = 17)
 	void BargraphBSEMediumStatutory() throws InterruptedException
 	{
 		test = extent.startTest("Bar Graph - 'BSE' Count Verification with 'Medium' risk");
 		
 	
 		Thread.sleep(4000);
-		//JavascriptExecutor js = (JavascriptExecutor) driver;
-		//js.executeScript("window.scrollBy(0,925)");						//Scrolling down window by 1000 px.
+	//	JavascriptExecutor js = (JavascriptExecutor) driver;
+	//	js.executeScript("window.scrollBy(0,925)");						//Scrolling down window by 1000 px.
 		
 		
 		Thread.sleep(4000);
@@ -1527,7 +1528,7 @@ public class CFOcountInternal
 		extent.flush();
 	}
 	
-//	@Test(priority = 18)
+	@Test(priority = 18)
 	void BargraphBSELowStatutory() throws InterruptedException
 	{
 		test = extent.startTest("Bar Graph - 'BSE' Count Verification with 'LOW' risk");
@@ -2811,18 +2812,22 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[6]/a");
 	}
 	
  
-	@AfterTest
-	void Closing() throws InterruptedException
-	{
-		//Thread.sleep(2000);
-		//driver.close();
-	}
- 
+	
  
  
  */
  
- 
+
+	 @AfterTest
+		void Closing() throws InterruptedException
+		{
+		 test = extent.startTest("Verify Close Browser");
+			Thread.sleep(1000);
+			test.log(LogStatus.PASS, "Browser Close");
+			driver.close();
+			extent.endTest(test);
+			extent.flush();
+		}	 
  
  
  

@@ -3,13 +3,22 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="cfo.Mgmt">
+      <class name="cfo.CFOcountInternal">
         <methods>
-          <include name="AssignmentReport"/>
+          <include name="dueToday_PieChartInternal"/>
+          <include name="Overdue_PieChartInternal"/>
+          <include name="BargraphBSELowStatutory"/>
+          <include name="NotCompleted_PieChart"/>
           <include name="Closing"/>
+          <include name="BargraphBSEHighStatutory"/>
+          <include name="inProgress_PieChartInternal"/>
+          <include name="BargraphBSECriticalStatutory"/>
+          <include name="Rejected_PieChartInternal"/>
           <include name="setBrowser"/>
+          <include name="NotApplicable_PieChartIN"/>
+          <include name="PFR_PieChartInternal"/>
         </methods>
-      </class> <!-- cfo.Mgmt -->
+      </class> <!-- cfo.CFOcountInternal -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
