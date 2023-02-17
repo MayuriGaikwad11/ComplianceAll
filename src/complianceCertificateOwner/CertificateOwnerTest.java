@@ -111,23 +111,12 @@ public class CertificateOwnerTest {
 		}
 	}
 	
-//	@Test(priority = 2)
+	@Test(priority = 2)
 	void CustomersCreate() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Certificate Owner");
 		
 		CertificateOwnerMethod.CertificateOwner(driver,test);
-		
-		extent.endTest(test);
-		extent.flush();
-	}
-	
-	@Test(priority = 3)
-	void CertificateOwnerReviewer() throws InterruptedException, IOException
-	{
-		test = extent.startTest("Reviewer - Reviewer User -Compliance Tech");
-		
-		CertificateOwnerMethod.CertificateOwnerReviewer(driver,test);
 		
 		extent.endTest(test);
 		extent.flush();
@@ -144,6 +133,29 @@ public class CertificateOwnerTest {
 		extent.flush();
 	}
 	
+	@Test(priority = 4)
+	void CertificateOwnerParticularPeriodCompliance() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Particular Period");
+		
+		CertificateOwnerMethod.CertificateOwnerParticularPeriodCompliance(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 5)
+	void CertificateOwnerReviewer() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Reviewer - Reviewer User -Compliance Tech");
+		
+		CertificateOwnerMethod.CertificateOwnerReviewer(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+
 	
 	
 	

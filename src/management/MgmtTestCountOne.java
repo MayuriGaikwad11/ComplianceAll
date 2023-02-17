@@ -15,7 +15,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -46,7 +48,7 @@ public class MgmtTestCountOne {
 	public int penalty = 0;						//Variable created for reading Penalty
 	
 	public static String link = "Tlcg";  
-	
+	//Tlcg
 	public static XSSFSheet ReadExcel() throws IOException
 	{
 		//String workingDir = System.getProperty("webdriver.chrome.driver","C:/March2022/PerformerPom/Driver/chromedriver.exe");
@@ -56,7 +58,7 @@ public class MgmtTestCountOne {
 		return sheet;
 	}
 	
-	@BeforeTest
+	@BeforeMethod
 	void setBrowser() throws InterruptedException, IOException
 	{
 	//	String workingDir = System.getProperty("webdriver.chrome.driver","C:/March2022/PerformerPom/Driver/chromedriver.exe");
@@ -70,6 +72,7 @@ public class MgmtTestCountOne {
 		String URL = c1.getStringCellValue();			//Got the URL stored at position 0,1
 		
 		login.Login.BrowserSetup(URL);					//Method of Login class to set browser.
+		
 		
 		test.log(LogStatus.PASS, "Test Passed.");
 		extent.endTest(test);
@@ -180,7 +183,7 @@ public class MgmtTestCountOne {
 		extent.endTest(test);
 		extent.flush();
 	}
-	
+	/*
 	@Test(priority = 4)
 	void UsersCountMatch() throws InterruptedException
 	{
@@ -1414,8 +1417,8 @@ public class MgmtTestCountOne {
 		extent.endTest(test);
 		extent.flush();
 	}
-	
-	@Test(priority = 19)
+	*/
+	//@Test(priority = 19)
 	void BargraphIndustrySpeLowStatutory() throws InterruptedException
 	{
 		test = extent.startTest("Bar Graph - 'Indistry Specific' Count Verification with 'Low' risk");

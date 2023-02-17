@@ -5,18 +5,13 @@
     <classes>
       <class name="cfo.CFOcountInternal">
         <methods>
-          <include name="dueToday_PieChartInternal"/>
-          <include name="Overdue_PieChartInternal"/>
-          <include name="BargraphBSELowStatutory"/>
-          <include name="NotCompleted_PieChart"/>
+          <include name="DailyUpdates"/>
+          <include name="NewsLetter"/>
+          <include name="complianceCalendar"/>
           <include name="Closing"/>
-          <include name="BargraphBSEHighStatutory"/>
-          <include name="inProgress_PieChartInternal"/>
-          <include name="BargraphBSECriticalStatutory"/>
-          <include name="Rejected_PieChartInternal"/>
+          <include name="GradingReportInternal"/>
+          <include name="RiskSummaryHighInternal"/>
           <include name="setBrowser"/>
-          <include name="NotApplicable_PieChartIN"/>
-          <include name="PFR_PieChartInternal"/>
         </methods>
       </class> <!-- cfo.CFOcountInternal -->
     </classes>

@@ -56,6 +56,57 @@ public class CertificateOwnerMethod {
 			test.log(LogStatus.FAIL, "  File does not downloaded.");
 		}
 		
+		CertificateOwnerPOM.Preview(driver).click();
+		Thread.sleep(4000);
+		CertificateOwnerPOM.Previewclose(driver).click();
+		Thread.sleep(3000);
+	
+	test.log(LogStatus.PASS,  "Preview successfully. " );
+	
+	File dir2 = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+	File[] dirContents1 = dir2.listFiles(); // Counting number of files in directory before download
+
+	
+	CertificateOwnerPOM.DownloadCertificate(driver).click(); // Exporting (Downloading) file
+
+	
+	File dir3 = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+	File[] allFilesNew1 = dir3.listFiles(); // Counting number of files in directory after download
+	Thread.sleep(3000);
+	if (dirContents1.length < allFilesNew1.length) {
+		test.log(LogStatus.PASS,  "Download Certificate - File downloaded successfully.");
+	} else {
+		test.log(LogStatus.FAIL, "  File does not downloaded.");
+	}
+	
+	
+	File dir5 = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+	File[] dirContents2 = dir5.listFiles(); // Counting number of files in directory before download
+
+	
+	CertificateOwnerPOM.DownloadUploadCertificate(driver).click(); // Exporting (Downloading) file
+
+	
+	File dir6 = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+	File[] allFilesNew2 = dir6.listFiles(); // Counting number of files in directory after download
+	Thread.sleep(3000);
+	if (dirContents2.length < allFilesNew2.length) {
+		test.log(LogStatus.PASS,  "Download Upload Certificate - File downloaded successfully.");
+	} else {
+		test.log(LogStatus.FAIL, "  File does not downloaded.");
+	}
+		
+	CertificateOwnerPOM.EntitySubEntityLocation(driver).click();
+	Thread.sleep(1000);
+	CertificateOwnerPOM.ComplianceTech(driver).click();
+	Thread.sleep(3000);
+	CertificateOwnerPOM.ReviewerPageClearfilterMain(driver).click();
+	Thread.sleep(3000);
+
+test.log(LogStatus.PASS,  " Clear Filter Working successfully." );
+		
+	
+	
 	}
 	
 	public static void CertificateOwnerReviewer(WebDriver driver, ExtentTest test)
@@ -73,7 +124,7 @@ public class CertificateOwnerMethod {
 		CertificateOwnerPOM.View(driver).click();
 		
 		CertificateOwnerPOM.PeriodView(driver).click();
-		
+		Thread.sleep(3000);
 		CertificateOwnerPOM.CompliancePageView(driver).click();
 		
 		CertificateOwnerPOM.ReviewerPageView(driver).click();
@@ -98,11 +149,11 @@ public class CertificateOwnerMethod {
 			}
 		
 			CertificateOwnerPOM.ReviewerPageLoaction(driver).click();
-			
+			Thread.sleep(3000);
 			CertificateOwnerPOM.ReviewerPageClickExpand(driver).click();
-			
+			Thread.sleep(3000);
 			CertificateOwnerPOM.ReviewerPageCT(driver).click();
-			
+			Thread.sleep(3000);
 			if(CertificateOwnerPOM.ReviewerPageClearfilterMain(driver).isEnabled()) {
 				CertificateOwnerPOM.ReviewerPageClearfilterMain(driver).click();
 				test.log(LogStatus.PASS,  "  Clear Filter Working successfully.");
@@ -125,7 +176,7 @@ public class CertificateOwnerMethod {
 		CertificateOwnerPOM.clickMyCertificate(driver).click();
 		
 		CertificateOwnerPOM.CertificateOwner(driver).click();
-		
+		Thread.sleep(3000);
 		CertificateOwnerPOM.View(driver).click();
 		File dir = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
@@ -161,7 +212,7 @@ public class CertificateOwnerMethod {
 		
 		CertificateOwnerPOM.ClickPreview(driver).click(); 
 		Thread.sleep(2000);
-		CertificateOwnerPOM.ClosePreview(driver).click(); 
+		CertificateOwnerPOM.Previewclose(driver).click(); 
 		test.log(LogStatus.PASS,  " Preview successfully.");
 		
 		File dir5 = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
@@ -179,8 +230,56 @@ public class CertificateOwnerMethod {
 		} else {
 			test.log(LogStatus.FAIL, "  File does not downloaded.");
 		}
+		/*Thread.sleep(2000);
+		CertificateOwnerPOM.Submit(driver).click(); 
 		Thread.sleep(2000);
+		
+		String text=	CertificateOwnerPOM.SubmitMsg(driver).getText();
+		test.log(LogStatus.PASS,  "Message Display " +text);
+		Thread.sleep(2000);
+		CertificateOwnerPOM.SubmitYes(driver).click(); 
+		Thread.sleep(2000);
+	String Msg=	driver.switchTo().alert().getText();
+	driver.switchTo().alert().accept();
+	test.log(LogStatus.PASS,  "Message Display " +Msg);
+	Thread.sleep(2000);
+		*/
 		CertificateOwnerPOM.Back(driver).click(); 
+	}
+	
+	public static void CertificateOwnerParticularPeriodCompliance(WebDriver driver, ExtentTest test)
+			throws InterruptedException, IOException {
+	
+		WebDriverWait wait = new WebDriverWait(driver, (40));
+		Thread.sleep(3000);
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='leftworkspacemenuCer']/a"))); 
+		
+		CertificateOwnerPOM.clickMyCertificate(driver).click();
+		
+		CertificateOwnerPOM.CertificateOwner(driver).click();
+		Thread.sleep(3000);
+		CertificateOwnerPOM.View(driver).click();
+		Thread.sleep(2000);
+		CertificateOwnerPOM.PeriodView(driver).click();
+		Thread.sleep(2000);
+		File dir2 = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+		File[] dirContents1 = dir2.listFiles(); // Counting number of files in directory before download
+
+		
+		CertificateOwnerPOM.ExporttoPDFPe(driver).click(); // Exporting (Downloading) file
+		Thread.sleep(2000);
+		
+		File dir3 = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+		File[] allFilesNew1 = dir3.listFiles(); // Counting number of files in directory after download
+		Thread.sleep(3000);
+		if (dirContents1.length < allFilesNew1.length) {
+			test.log(LogStatus.PASS,  "Export to PDF - File downloaded successfully.");
+		} else {
+			test.log(LogStatus.FAIL, "  File does not downloaded.");
+		}
+		
+		
 	}
 	
 }

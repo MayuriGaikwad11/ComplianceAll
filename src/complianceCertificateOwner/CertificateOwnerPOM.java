@@ -122,7 +122,6 @@ private static WebElement owner = null;				//WebElement variable created for 'Ca
 		owner = driver.findElement(By.xpath("/html/body/div[9]/div[1]/div/a"));
 		return owner;
 	}
-	
 	public static WebElement DwonloadDoc(WebDriver driver)		//Method for closing Message Popup
 	{
 		owner = driver.findElement(By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[6]/a[3]"));
@@ -135,6 +134,61 @@ private static WebElement owner = null;				//WebElement variable created for 'Ca
 		return owner;
 	}
 	
+	
+	public static WebElement Preview(WebDriver driver)		//Method for closing Message Popup
+	{
+		owner = driver.findElement(By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[8]/a[2]"));
+		return owner;
+	}
+	
+	public static WebElement Previewclose(WebDriver driver)		//Method for closing Message Popup
+	{
+		owner = driver.findElement(By.xpath("//*[@class='k-button k-bare k-button-icon k-window-action']"));
+		return owner;
+	}
+	
+	public static WebElement Submit(WebDriver driver)		//Method for closing Message Popup
+	{
+		owner = driver.findElement(By.xpath("//*[@id='btnSubmit']"));
+		return owner;
+	}
+	
+	public static WebElement SubmitMsg(WebDriver driver)		//Method for closing Message Popup
+	{
+		owner = driver.findElement(By.xpath("//*[@class='delete-message']"));
+		return owner;
+	}
+	
+	public static WebElement SubmitYes(WebDriver driver)		//Method for closing Message Popup
+	{
+		owner = driver.findElement(By.linkText("Yes"));
+		return owner;
+	}
+	
+	
+	public static WebElement DownloadCertificate(WebDriver driver)		//Method for closing Message Popup
+	{
+		owner = driver.findElement(By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[8]/a[3]"));
+		return owner;
+	}
+	
+	public static WebElement DownloadUploadCertificate(WebDriver driver)		//Method for closing Message Popup
+	{
+		owner = driver.findElement(By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[8]/a[4]"));
+		return owner;
+	}
+	
+	public static WebElement EntitySubEntityLocation(WebDriver driver)		//Method for closing Message Popup
+	{
+		owner = driver.findElement(By.xpath("//*[@id='childrow']/div/div[2]/span[1]/span/span[3]/span"));
+		return owner;
+	}
+	
+	public static WebElement ComplianceTech(WebDriver driver)		//Method for closing Message Popup
+	{
+		owner = driver.findElement(By.xpath("(//span[@class='k-in'])[20]"));
+		return owner;
+	}
 	
 	
 	
