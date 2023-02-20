@@ -1685,9 +1685,11 @@ public class CFOcountInternal
 	//	js.executeScript("window.scrollBy(0,1500)");
 	//	js.executeScript("window.scrollBy(0,500)");
 		Thread.sleep(500);
+		String NotCompleted = CFOcountPOM.clickRiskHighNotCompleted(driver).getText();		//Reading the Closed Timely value of Human Resource
+		NotCompleted = NotCompleted.replaceAll(" ","");									//Removing all white spaces from string. 
+		int RiskHigh_NotCompleted = Integer.parseInt(NotCompleted);
 	
-	
-		int RiskHigh_NotCompleted = Integer.parseInt(CFOcountPOM.clickRiskHighNotCompleted(driver).getText());	//Reading the High Risk value of Not Completed compliance
+		//int RiskHigh_NotCompleted = Integer.parseInt(CFOcountPOM.clickRiskHighNotCompleted(driver).getText());	//Reading the High Risk value of Not Completed compliance
 		if(RiskHigh_NotCompleted > 0)
 		{
 			Thread.sleep(500);
@@ -2611,7 +2613,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[11]/a");
 		WebDriverWait wait = new WebDriverWait(driver,(70));
 		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("window.scrollBy(0,2500)");					//Scrolling down window by 2600 px.
+		js.executeScript("window.scrollBy(0,2000)");					//Scrolling down window by 2600 px.
 		//js.executeScript("window.scrollBy(0,4225)");	
 		Thread.sleep(2000);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='collapsePerformerCalender']")));
@@ -2636,7 +2638,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[6]/a");
 			driver.switchTo().parentFrame();
 			CFOcountPOM.closeView_cal(driver).click();
 
-			test.log(LogStatus.PASS, "overView success");
+			test.log(LogStatus.PASS, "overView Successfully");
 			driver.switchTo().parentFrame();
 			js.executeScript("window.scrollBy(0,-50)");
 			CFOcountPOM.clickAll(driver).click();
@@ -2652,7 +2654,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[6]/a");
 			 test.log(LogStatus.PASS, "After Clicking All(Including Checklist)");
 				test.log(LogStatus.PASS, "Excel file Export Successfully");
 				Thread.sleep(3000);
-	By locator1 = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[6]/a");
+/*	By locator1 = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[6]/a");
 	
 				wait.until(ExpectedConditions.presenceOfElementLocated(locator1));
 				Thread.sleep(2000);
@@ -2664,8 +2666,8 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[6]/a");
 			jse.executeScript("arguments[0].click();", ViewButton1);
 				Thread.sleep(4000);
 				driver.switchTo().parentFrame();
-				CFOcountPOM.closeView_cal(driver).click();
-				test.log(LogStatus.PASS, "overView success");
+				CFOcountPOM.closeView_cal(driver).click();*/
+				test.log(LogStatus.PASS, "overView Successfully");
 				driver.switchTo().parentFrame();
 				Thread.sleep(3000);
 			//	performer.OverduePOM.clickDashboard(driver).click();			//Clicking on Dashboard

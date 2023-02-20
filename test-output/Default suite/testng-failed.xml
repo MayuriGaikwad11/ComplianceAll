@@ -3,17 +3,16 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="cfo.CFOcountInternal">
+      <class name="auditor.AuditorcountStatutory">
         <methods>
-          <include name="DailyUpdates"/>
-          <include name="NewsLetter"/>
-          <include name="complianceCalendar"/>
-          <include name="Closing"/>
-          <include name="GradingReportInternal"/>
-          <include name="RiskSummaryHighInternal"/>
+          <include name="RiskSummaryMediumStatutory"/>
+          <include name="DepartmentSummaryFinanceStatutory"/>
+          <include name="RiskSummaryCriticalStatutory"/>
+          <include name="RiskSummaryLowStatutory"/>
           <include name="setBrowser"/>
+          <include name="RiskSummaryHighStatutory"/>
         </methods>
-      </class> <!-- cfo.CFOcountInternal -->
+      </class> <!-- auditor.AuditorcountStatutory -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

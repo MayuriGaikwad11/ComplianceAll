@@ -3069,6 +3069,7 @@ public class CFOcountPOM
 		Thread.sleep(5000);
 		CFOcountPOM.readTotalItemsD(driver).click();					//Clicking on Text of total items just to scroll down.
 		String s = CFOcountPOM.readTotalItemsD(driver).getText();
+		Thread.sleep(2000);
 		if(!s.equalsIgnoreCase("No items to display")) {
 		Thread.sleep(5000);
 		try
@@ -3150,7 +3151,7 @@ public class CFOcountPOM
 		}
 else {
 			
-			Thread.sleep(1000);
+			Thread.sleep(2000);
 			js.executeScript("window.scrollBy(300,0)");	
 			Thread.sleep(1000);
 			driver.switchTo().parentFrame();

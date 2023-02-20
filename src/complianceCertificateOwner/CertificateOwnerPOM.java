@@ -34,7 +34,7 @@ private static WebElement owner = null;				//WebElement variable created for 'Ca
 	public static WebElement View(WebDriver driver)		//Method for closing Message Popup
 	{
 		owner = driver.findElement(By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[8]/a[1]"));
-		return owner;
+		return owner;                       
 	}
 	
 	

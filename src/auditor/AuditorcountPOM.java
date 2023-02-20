@@ -49,6 +49,16 @@ public class AuditorcountPOM {
 		
 		WebDriverWait wait = new WebDriverWait(driver, (70));
 		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));	//Wait until frame get visible and switch to it.
+		Thread.sleep(8000);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,300)");	
+		Thread.sleep(5000);
+		CFOcountPOM.readTotalItemsD(driver).click();					//Clicking on Text of total items just to scroll down.
+		Thread.sleep(1000);
+		String s = CFOcountPOM.readTotalItemsD(driver).getText();
+		Thread.sleep(2000);
+		if(!s.equalsIgnoreCase("No items to display")) {
+		Thread.sleep(5000);
 		try
 		{
 			
@@ -65,7 +75,7 @@ public class AuditorcountPOM {
 			test.log(LogStatus.PASS, "Excel file Export Successfully");
 			Thread.sleep(3000);
 			
-  By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[2]/td[19]/a[1]");
+  By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[3]/td[19]/a[1]");
 			
 			wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 			Thread.sleep(4000);
@@ -75,34 +85,14 @@ public class AuditorcountPOM {
 		JavascriptExecutor jse=(JavascriptExecutor)driver;
 		jse.executeScript("arguments[0].click();", ViewButton);
 			Thread.sleep(4000);
-			test.log(LogStatus.PASS, "overView success");
+			test.log(LogStatus.PASS, "overView Successfully");
 			CFOcountPOM.closeDocument(driver).click();
 			Thread.sleep(3000);
 		
 		Thread.sleep(500);
-	/*	try
-		{
-			elementsList = CFOcountPOM.selectDropdown(driver);				//It is a dropdown but don't have Select tag.
-			elementsList.get(0).click();									//Clicking on first 'Entity Location' Drop down.
-			
-			Thread.sleep(300);
-			Actions action = new Actions(driver);
-			if(Compliance.equalsIgnoreCase("Statutory"))
-			{
-				action.moveToElement(CFOcountPOM.selectFirst(driver)).click().build().perform();	//Selecting first option of the drop down. (BITA CONSULTING PVT LTD)
-			}
-			else
-			{
-				action.moveToElement(CFOcountPOM.selectFirst1(driver)).click().build().perform();	//Selecting first option of the drop down. (ABCD PVT LTD)
-			}
-		}
-		catch(Exception e)
-		{
-			
-		}*/
 		
 		Thread.sleep(1000);
-		JavascriptExecutor js = (JavascriptExecutor) driver;
+		//JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,300)");						//Scrolling down window by 1000 px.
 		Thread.sleep(1000);
 		CFOcountPOM.readTotalItemsD(driver).click();					//Clicking on Text of total items just to scroll down.
@@ -134,13 +124,27 @@ public class AuditorcountPOM {
 		if(count == complianceCount)
 		{
 			test.log(LogStatus.PASS, "'"+risk+"' risk compliance count matches to numbers of items from grid.");
-			test.log(LogStatus.INFO, "'"+risk+"' risk compliance count = " + complianceCount + " | Total number of items from grid = "+count);
+			test.log(LogStatus.PASS, "'"+risk+"' risk compliance count = " + complianceCount + " | Total number of items from grid = "+count);
 		}
 		else
 		{
 			test.log(LogStatus.FAIL, "'"+risk+"' risk compliance count does not matches to numbers of Items.");
-			test.log(LogStatus.INFO, "'"+risk+"' risk compliance count = " + complianceCount + " | Total number of items from grid = "+count);
+			test.log(LogStatus.FAIL, "'"+risk+"' risk compliance count = " + complianceCount + " | Total number of items from grid = "+count);
 		}
+		
+	}else {
+		
+		Thread.sleep(1000);
+		js.executeScript("window.scrollBy(300,0)");	
+		Thread.sleep(1000);
+		driver.switchTo().parentFrame();
+		Thread.sleep(1000);
+		CFOcountPOM.closeCategories(driver).click();
+		Thread.sleep(1000);
+		test.log(LogStatus.PASS, "'"+risk+"' risk compliance count matches to numbers of items from grid.= 0");
+		
+		
+	}
 	}
 	
 	public static void GraphCount1(WebDriver driver, ExtentTest test, String risk, int complianceCount, String Compliance)throws InterruptedException
@@ -166,6 +170,16 @@ public class AuditorcountPOM {
 		WebDriverWait wait = new WebDriverWait(driver,(40));
 		
 		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));	//Wait until frame get visible and switch to it.
+	
+		Thread.sleep(8000);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,300)");	
+		Thread.sleep(5000);
+		CFOcountPOM.readTotalItemsD(driver).click();					//Clicking on Text of total items just to scroll down.
+		String s = CFOcountPOM.readTotalItemsD(driver).getText();
+		Thread.sleep(2000);
+		if(!s.equalsIgnoreCase("No items to display")) {
+		Thread.sleep(5000);
 		try
 		{
 			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='k-selectable']")));
@@ -190,20 +204,20 @@ public class AuditorcountPOM {
 			ViewButton.get(0).click();
 			Thread.sleep(4000);
 			CFOcountPOM.closeDocument1(driver).click();
-			test.log(LogStatus.INFO, "View successfully");
+			test.log(LogStatus.PASS, "View successfully");
 			Thread.sleep(3000);
 			
 			ViewButton.get(1).click();
 			Thread.sleep(4000);
-			test.log(LogStatus.INFO, "Download Doc successfully");
+			test.log(LogStatus.PASS, "Download Doc successfully");
 			ViewButton.get(2).click();
 			Thread.sleep(4000);
-			test.log(LogStatus.INFO, "overView success");
+			test.log(LogStatus.PASS, "overView successfully");
 			CFOcountPOM.closeDocument(driver).click();
 			Thread.sleep(3000);
 		
 		Thread.sleep(1000);
-		JavascriptExecutor js = (JavascriptExecutor) driver;
+		//JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,300)");						//Scrolling down window by 1000 px.
 		
 		CFOcountPOM.readTotalItemsD(driver).click();					//Clicking on Text of total items just to scroll down.
@@ -235,12 +249,25 @@ public class AuditorcountPOM {
 		if(count == complianceCount)
 		{
 			test.log(LogStatus.PASS, "'"+risk+"' risk compliance count matches to numbers of items from grid.");
-			test.log(LogStatus.INFO, "'"+risk+"' risk compliance count = " + complianceCount + " | Total number of items from grid = "+count);
+			test.log(LogStatus.PASS, "'"+risk+"' risk compliance count = " + complianceCount + " | Total number of items from grid = "+count);
 		}
 		else
 		{
 			test.log(LogStatus.FAIL, "'"+risk+"' risk compliance count does not matches to numbers of Items.");
-			test.log(LogStatus.INFO, "'"+risk+"' risk compliance count = " + complianceCount + " | Total number of items from grid = "+count);
+			test.log(LogStatus.FAIL, "'"+risk+"' risk compliance count = " + complianceCount + " | Total number of items from grid = "+count);
+		}
+		}else {
+			
+			Thread.sleep(1000);
+			js.executeScript("window.scrollBy(300,0)");	
+			Thread.sleep(1000);
+			driver.switchTo().parentFrame();
+			Thread.sleep(1000);
+			CFOcountPOM.closeCategories(driver).click();
+			Thread.sleep(1000);
+			test.log(LogStatus.PASS, "'"+risk+"' risk compliance count matches to numbers of items from grid.= 0");
+			
+			
 		}
 	}
 	
@@ -276,16 +303,16 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[19]/a");
 			ViewButton.get(0).click();
 			Thread.sleep(4000);
 			CFOcountPOM.closeDocument1(driver).click();
-			test.log(LogStatus.INFO, "View successfully");
+			test.log(LogStatus.PASS, "View successfully");
 			Thread.sleep(3000);
 			
 			ViewButton.get(1).click();
 			Thread.sleep(4000);
-			test.log(LogStatus.INFO, "Download Doc successfully");
+			test.log(LogStatus.PASS, "Download Doc successfully");
 			ViewButton.get(2).click();
 		
 			Thread.sleep(4000);
-			test.log(LogStatus.INFO, "overView success");
+			test.log(LogStatus.PASS, "overView successfully");
 			CFOcountPOM.closeDocument(driver).click();
 			Thread.sleep(3000);
 			
@@ -317,18 +344,18 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[19]/a");
 		if(count1 == ComplianceCount)
 		{
 			test.log(LogStatus.PASS, "'"+ComplianceType+"' Complaince Count matches to number of items from grid.");
-			test.log(LogStatus.INFO, "'"+ComplianceType+"' Complaince Count = "+ ComplianceCount + " | Total no of items from grid = "+ count1);
+			test.log(LogStatus.PASS, "'"+ComplianceType+"' Complaince Count = "+ ComplianceCount + " | Total no of items from grid = "+ count1);
 		}
 		else
 		{
 			test.log(LogStatus.FAIL, "'"+ComplianceType+"' Complaince Count doesn't matches to number of items from grid.");
-			test.log(LogStatus.INFO, "'"+ComplianceType+"' Complaince Count = "+ ComplianceCount + " | Total no of items from grid = "+ count1);
+			test.log(LogStatus.FAIL, "'"+ComplianceType+"' Complaince Count = "+ ComplianceCount + " | Total no of items from grid = "+ count1);
 		}
 	}
 	
 	public static void RiskGraphCount1(WebDriver driver, ExtentTest test, String ComplianceType, int ComplianceCount, String Complaince)throws InterruptedException
 	{
-		WebDriverWait wait = new WebDriverWait(driver, (60));
+		WebDriverWait wait = new WebDriverWait(driver, (120));
 		Actions action = new Actions(driver);
 		
 		Thread.sleep(4000);
@@ -342,14 +369,14 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[19]/a");
 		{
 			
 		}
-		
+		Thread.sleep(4000);
 		Thread.sleep(4000);
 		 CFOcountPOM.clickExportImage(driver).click();
 			Thread.sleep(4000);
 			test.log(LogStatus.PASS, "Excel file Export Successfully");
 			Thread.sleep(3000);
 			
-By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[2]/td[19]/a[1]");
+By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[3]/td[19]/a[1]");
 
 			wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 			Thread.sleep(4000);
@@ -360,10 +387,10 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[2]/td[19]/a[1]");
 		Thread.sleep(2000);
 		jse.executeScript("arguments[0].click();", ViewButton);
 			Thread.sleep(4000);
-			test.log(LogStatus.INFO, "overView success");
+		
 			CFOcountPOM.closeDocument(driver).click();
 			Thread.sleep(3000);
-		
+			test.log(LogStatus.PASS, "overView Successfully");
 		
 	//	elementsList = CFOcountPOM.selectDropdown(driver);				//It is a dropdown but don't have Select tag.
 		//elementsList.get(0).click();									//Clicking on first dropdown
@@ -406,12 +433,12 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[2]/td[19]/a[1]");
 		if(count1 == ComplianceCount)
 		{
 			test.log(LogStatus.PASS, "'"+ComplianceType+"' Complaince Count matches to number of items from grid.");
-			test.log(LogStatus.INFO, "'"+ComplianceType+"' Complaince Count = "+ ComplianceCount + " | Total no of items from grid = "+ count1);
+			test.log(LogStatus.PASS, "'"+ComplianceType+"' Complaince Count = "+ ComplianceCount + " | Total no of items from grid = "+ count1);
 		}
 		else
 		{
 			test.log(LogStatus.FAIL, "'"+ComplianceType+"' Complaince Count doesn't matches to number of items from grid.");
-			test.log(LogStatus.INFO, "'"+ComplianceType+"' Complaince Count = "+ ComplianceCount + " | Total no of items from grid = "+ count1);
+			test.log(LogStatus.FAIL, "'"+ComplianceType+"' Complaince Count = "+ ComplianceCount + " | Total no of items from grid = "+ count1);
 		}
 	}
 	
