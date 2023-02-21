@@ -109,7 +109,7 @@ public class ComplianceCertificateMgmtTest {
 		}
 	}
 	
-	@Test(priority = 2)
+	//@Test(priority = 2)
 	void ComplianceCertificate() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Compliance Certificate ");
@@ -120,7 +120,7 @@ public class ComplianceCertificateMgmtTest {
 		extent.flush();
 	}
 	
-	@Test(priority = 3)
+//	@Test(priority = 3)
 	void ComplianceCertificateParticularPeriod() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Compliance Certificate  -Particular Period");
@@ -131,7 +131,7 @@ public class ComplianceCertificateMgmtTest {
 		extent.flush();
 	}
 	
-	@Test(priority = 4)
+	//@Test(priority = 4)
 	void CertificateParticularPeriodCompliance() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Certificate  Particular Period - Compliance");
@@ -142,12 +142,12 @@ public class ComplianceCertificateMgmtTest {
 		extent.flush();
 	}
 	
-//	@Test(priority = 5)
-	void CertificatePerformerUser() throws InterruptedException, IOException
+	@Test(priority = 5)
+	void CertificateUser() throws InterruptedException, IOException
 	{
-		test = extent.startTest("Reviewer - Reviewer User -Compliance Tech");
+		test = extent.startTest("Period - February-23 - Compliance Tech");
 		
-		ComplianceCertificateReviewerMethod.CertificatePerformerUser(driver,test);
+		ComplianceCertificateMgmtMethod.CertificateUser(driver,test);
 		
 		extent.endTest(test);
 		extent.flush();

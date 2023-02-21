@@ -60,6 +60,18 @@ public static WebElement View2(WebDriver driver)		//Method for closing Message P
 	return Mgmt;
 }
 
+public static WebElement EntitySubEntityLocation(WebDriver driver)		//Method for closing Message Popup
+{
+	Mgmt = driver.findElement(By.xpath("//*[@id='form1']/div[3]/span[1]/span/span[1]"));
+	return Mgmt;
+}
+
+public static WebElement EntitySubEntityLocation1(WebDriver driver)		//Method for closing Message Popup
+{
+	Mgmt = driver.findElement(By.xpath("//*[@id='form1']/div[4]/div[1]/div/span[1]"));
+	return Mgmt;
+}
+
 public static void ComplianceCertificate(WebDriver driver, ExtentTest test)
 		throws InterruptedException, IOException {
 
@@ -70,7 +82,7 @@ public static void ComplianceCertificate(WebDriver driver, ExtentTest test)
 	Thread.sleep(1000);
 	ClickShowAll(driver).click();
 	
-	
+	wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
     Thread.sleep(5000);
 	File dir = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
 	File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
@@ -111,7 +123,7 @@ if (dirContents1.length < allFilesNew1.length) {
 	test.log(LogStatus.FAIL, "  File does not downloaded.");
 }
 
-CertificateOwnerPOM.EntitySubEntityLocation(driver).click();
+EntitySubEntityLocation(driver).click();
 Thread.sleep(2000);
 ComplianceTech(driver).click();
 Thread.sleep(3000);
@@ -119,7 +131,9 @@ CertificateOwnerPOM.ReviewerPageClearfilterMain(driver).click();
 Thread.sleep(3000);
 
 test.log(LogStatus.PASS,  " Clear Filter Working successfully." );
+driver.switchTo().parentFrame();
 Thread.sleep(4000);
+
 ClickShowAllClose(driver).click();
 Thread.sleep(4000);
 performer.OverduePOM.clickDashboard(driver).click();
@@ -139,6 +153,8 @@ public static void ComplianceCertificateParticularPeriod(WebDriver driver, Exten
 	Thread.sleep(1000);
 	ClickShowAll(driver).click();
 	Thread.sleep(4000);
+	wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+    Thread.sleep(1000);
 	CertificateOwnerPOM.View(driver).click();
 	
 	File dir = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
@@ -195,7 +211,7 @@ public static void ComplianceCertificateParticularPeriod(WebDriver driver, Exten
 	}
 	
 	CertificateOwnerPOM.Back(driver).click(); 
-	
+	driver.switchTo().parentFrame();
 	Thread.sleep(4000);
 	ClickShowAllClose(driver).click();
 	Thread.sleep(4000);
@@ -214,8 +230,9 @@ public static void CertificateParticularPeriodCompliance(WebDriver driver, Exten
 	js.executeScript("window.scrollBy(0,3600)");					//Scrolling down window by 2600 px.
 	Thread.sleep(1000);
 	ClickShowAll(driver).click();
-	Thread.sleep(4000);
-	
+	Thread.sleep(2000);
+	wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+    Thread.sleep(1000);
 	CertificateOwnerPOM.View(driver).click();
 	Thread.sleep(2000);
 	CertificateOwnerPOM.PeriodView(driver).click();
@@ -235,6 +252,8 @@ public static void CertificateParticularPeriodCompliance(WebDriver driver, Exten
 	} else {
 		test.log(LogStatus.FAIL, "  File does not downloaded.");
 	}
+	driver.switchTo().parentFrame();
+	
 	Thread.sleep(4000);
 	ClickShowAllClose(driver).click();
 	Thread.sleep(4000);
@@ -244,7 +263,7 @@ public static void CertificateParticularPeriodCompliance(WebDriver driver, Exten
 	
 }
 
-public static void CertificateReviewerUser(WebDriver driver, ExtentTest test)
+public static void CertificateUser(WebDriver driver, ExtentTest test)
 		throws InterruptedException, IOException {
 
 	WebDriverWait wait = new WebDriverWait(driver, (40));
@@ -255,7 +274,7 @@ public static void CertificateReviewerUser(WebDriver driver, ExtentTest test)
 	Thread.sleep(1000);
 	ClickShowAll(driver).click();
 	Thread.sleep(4000);
-	
+	wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
 	CertificateOwnerPOM.View(driver).click();
 	Thread.sleep(3000);
 	CertificateOwnerPOM.PeriodView(driver).click();
@@ -282,7 +301,7 @@ jse.executeScript("arguments[0].click();", ViewButton);
 	CertificateOwnerPOM.ReviewerPageView(driver).click();
 	Thread.sleep(3000);
 	CertificateOwnerPOM.ReviewerPageViewclose(driver).click();
-	test.log(LogStatus.PASS,  "Performer  - Performer  User - View Successfully");
+	test.log(LogStatus.PASS,  " - View Successfully");
 	
 		Thread.sleep(3000);
 		ComplianceCertificateReviewerMethod.readCount(driver).click();					//CLicking on Total Pages value to scroll down
@@ -354,7 +373,7 @@ jse.executeScript("arguments[0].click();", ViewButton);
 			}
 		}
 		Thread.sleep(3000);
-		CertificateOwnerPOM.ReviewerPageLoaction(driver).click();
+		EntitySubEntityLocation1(driver).click();
 		Thread.sleep(3000);
 		CertificateOwnerPOM.ReviewerPageClickExpand(driver).click();
 		Thread.sleep(3000);
@@ -366,6 +385,10 @@ jse.executeScript("arguments[0].click();", ViewButton);
 		}else {
 			test.log(LogStatus.FAIL,  "  Clear Filter not Working successfully.");
 		}	
+		driver.switchTo().parentFrame();
+		Thread.sleep(500);
+		ClickShowAllClose(driver).click();
+		Thread.sleep(2000);
 		performer.OverduePOM.clickDashboard(driver).click();			//Clicking on Dashboard
 		Thread.sleep(1000);
 

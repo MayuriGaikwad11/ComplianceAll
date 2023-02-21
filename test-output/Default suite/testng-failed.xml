@@ -5,12 +5,8 @@
     <classes>
       <class name="auditor.AuditorcountStatutory">
         <methods>
-          <include name="RiskSummaryMediumStatutory"/>
-          <include name="DepartmentSummaryFinanceStatutory"/>
-          <include name="RiskSummaryCriticalStatutory"/>
-          <include name="RiskSummaryLowStatutory"/>
+          <include name="DetailedReport"/>
           <include name="setBrowser"/>
-          <include name="RiskSummaryHighStatutory"/>
         </methods>
       </class> <!-- auditor.AuditorcountStatutory -->
     </classes>
