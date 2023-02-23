@@ -245,7 +245,7 @@ public class AuditorcountStatutory {
 		{
 			if(critical >= 0)
 			{
-				AuditorcountPOM.GraphCount1(driver, test, "Critical", critical, "Statutory");
+				AuditorcountPOM.GraphCount2(driver, test, "Critical", critical, "Statutory");
 			}
 			else
 			{
@@ -254,7 +254,7 @@ public class AuditorcountStatutory {
 			
 			if(high >= 0)
 			{
-				AuditorcountPOM.GraphCount1(driver, test, "High", high, "Statutory");
+				AuditorcountPOM.GraphCount2(driver, test, "High", high, "Statutory");
 			}
 			else
 			{
@@ -263,7 +263,7 @@ public class AuditorcountStatutory {
 			
 			if(medium > 0)
 			{
-				AuditorcountPOM.GraphCount1(driver, test, "Medium", medium, "Statutory");
+				AuditorcountPOM.GraphCount2(driver, test, "Medium", medium, "Statutory");
 			}
 			else
 			{
@@ -272,7 +272,7 @@ public class AuditorcountStatutory {
 			
 			if(low >= 0)
 			{
-				AuditorcountPOM.GraphCount1(driver, test, "Low", low, "Statutory");
+				AuditorcountPOM.GraphCount2(driver, test, "Low", low, "Statutory");
 			}
 			else
 			{
@@ -329,7 +329,7 @@ public class AuditorcountStatutory {
 		{
 			if(critical >= 0)
 			{
-				AuditorcountPOM.GraphCount1(driver, test, "Critical", critical, "Statutory");
+				AuditorcountPOM.GraphCount2(driver, test, "Critical", critical, "Statutory");
 			}
 			else
 			{
@@ -338,7 +338,7 @@ public class AuditorcountStatutory {
 			
 			if(high >= 0)
 			{
-				AuditorcountPOM.GraphCount1(driver, test, "High", high, "Statutory");
+				AuditorcountPOM.GraphCount2(driver, test, "High", high, "Statutory");
 			}
 			else
 			{
@@ -347,7 +347,7 @@ public class AuditorcountStatutory {
 			
 			if(medium >= 0)
 			{
-				AuditorcountPOM.GraphCount1(driver, test, "Medium", medium, "Statutory");
+				AuditorcountPOM.GraphCount2(driver, test, "Medium", medium, "Statutory");
 			}
 			else
 			{
@@ -356,7 +356,7 @@ public class AuditorcountStatutory {
 			
 			if(low >= 0)
 			{
-				AuditorcountPOM.GraphCount1(driver, test, "Low", low, "Statutory");
+				AuditorcountPOM.GraphCount2(driver, test, "Low", low, "Statutory");
 			}
 			else
 			{
@@ -417,7 +417,7 @@ public class AuditorcountStatutory {
 		{
 			if(critical >= 0)
 			{
-				AuditorcountPOM.GraphCount1(driver, test, "Critical", critical, "Statutory");
+				AuditorcountPOM.GraphCount2(driver, test, "Critical", critical, "Statutory");
 			}
 			else
 			{
@@ -426,7 +426,7 @@ public class AuditorcountStatutory {
 			
 			if(high >= 0)
 			{
-				AuditorcountPOM.GraphCount1(driver, test, "High", high, "Statutory");
+				AuditorcountPOM.GraphCount2(driver, test, "High", high, "Statutory");
 			}
 			else
 			{
@@ -435,7 +435,7 @@ public class AuditorcountStatutory {
 			
 			if(medium > 0)
 			{
-				AuditorcountPOM.GraphCount1(driver, test, "Medium", medium, "Statutory");
+				AuditorcountPOM.GraphCount2(driver, test, "Medium", medium, "Statutory");
 			}
 			else
 			{
@@ -444,7 +444,7 @@ public class AuditorcountStatutory {
 			
 			if(low > 0)
 			{
-				AuditorcountPOM.GraphCount1(driver, test, "Low", low, "Statutory");
+				AuditorcountPOM.GraphCount2(driver, test, "Low", low, "Statutory");
 			}
 			else
 			{
@@ -968,7 +968,7 @@ public class AuditorcountStatutory {
 		{
 			CFOcountPOM.clickRiskCriticalClosedDelayedA(driver).click();			//Clicking on Not Completed compliances bar of High risk.  
 			
-			AuditorcountPOM.RiskGraphCount(driver, test, "Critical - Closed Delayed", RiskCritical_ClosedDelayed, "Statutory");
+			AuditorcountPOM.RiskGraphCount2(driver, test, "Critical - Closed Delayed", RiskCritical_ClosedDelayed, "Statutory");
 		}
 		else
 		{
@@ -981,7 +981,7 @@ public class AuditorcountStatutory {
 		{
 			CFOcountPOM.clickRiskCriticalClosedTimely(driver).click();			//Clicking on Not Completed compliances bar of High risk.  
 			
-			CFOcountPOM.RiskGraphCount(driver, test, "Critical - Closed Timely", RiskCritical_ClosedTimely, "Statutory");
+			AuditorcountPOM.RiskGraphCount2(driver, test, "Critical - Closed Timely", RiskCritical_ClosedTimely, "Statutory");
 		}
 		else
 		{
@@ -1023,7 +1023,7 @@ public class AuditorcountStatutory {
 			Thread.sleep(500);
 			CFOcountPOM.clickRiskHighClosedDelayed(driver).click();			//Clicking on Not Completed compliances bar of High risk.  
 			
-			CFOcountPOM.RiskGraphCount(driver, test, "High - Closed Delayed", RiskHigh_ClosedDelayed, "Statutory");
+			AuditorcountPOM.RiskGraphCount2(driver, test, "High - Closed Delayed", RiskHigh_ClosedDelayed, "Statutory");
 		}
 		else
 		{
@@ -1037,7 +1037,7 @@ public class AuditorcountStatutory {
 			Thread.sleep(500);
 			CFOcountPOM.clickRiskHighClosedTimelyA(driver).click();			//Clicking on Not Completed compliances bar of High risk.  
 			
-			AuditorcountPOM.RiskGraphCount(driver, test, "High - Closed Timely", RiskHigh_ClosedTimely, "Statutory");
+			AuditorcountPOM.RiskGraphCount2(driver, test, "High - Closed Timely", RiskHigh_ClosedTimely, "Statutory");
 		}
 		else
 		{
@@ -1080,7 +1080,7 @@ public class AuditorcountStatutory {
 			Thread.sleep(500);
 			CFOcountPOM.clickRiskMediumClosedDelayedA(driver).click();			//Clicking on Not Completed compliances bar of High risk.  
 			
-			AuditorcountPOM.RiskGraphCount(driver, test, "Medium - Closed Delayed", RiskMedium_ClosedDelayed, "Statutory");
+			AuditorcountPOM.RiskGraphCount2(driver, test, "Medium - Closed Delayed", RiskMedium_ClosedDelayed, "Statutory");
 		}
 		else
 		{
@@ -1094,7 +1094,7 @@ public class AuditorcountStatutory {
 			Thread.sleep(500);
 			CFOcountPOM.clickRiskMediumClosedTimely(driver).click();			//Clicking on Not Completed compliances bar of High risk.  
 			
-			CFOcountPOM.RiskGraphCount(driver, test, "Medium - Closed Timely", RiskMedium_ClosedTimely, "Statutory");
+			AuditorcountPOM.RiskGraphCount2(driver, test, "Medium - Closed Timely", RiskMedium_ClosedTimely, "Statutory");
 		}
 		else
 		{
@@ -1140,7 +1140,7 @@ public class AuditorcountStatutory {
 			Thread.sleep(500);
 			CFOcountPOM.clickRiskLowClosedDelayedA(driver).click();			//Clicking on Not Completed compliances bar of High risk.  
 			
-			AuditorcountPOM.RiskGraphCount(driver, test, "Low - Closed Delayed", RiskLow_ClosedDelayed, "Statutory");
+			AuditorcountPOM.RiskGraphCount2(driver, test, "Low - Closed Delayed", RiskLow_ClosedDelayed, "Statutory");
 		}
 		else
 		{
@@ -1154,7 +1154,7 @@ public class AuditorcountStatutory {
 			Thread.sleep(500);
 			CFOcountPOM.clickRiskLowClosedTimely(driver).click();			//Clicking on Not Completed compliances bar of High risk.  
 			
-			CFOcountPOM.RiskGraphCount(driver, test, "Low - Closed Timely", RiskLow_ClosedTimely, "Statutory");
+			AuditorcountPOM.RiskGraphCount2(driver, test, "Low - Closed Timely", RiskLow_ClosedTimely, "Statutory");
 		}
 		else
 		{
@@ -1188,7 +1188,7 @@ public class AuditorcountStatutory {
 		{
 			CFOcountPOM.clickFinanceClosedDelayed(driver).click();
 			Thread.sleep(2000);
-			AuditorcountPOM.RiskGraphCount(driver, test, "Closed Delayed", Closed_Delayed, "Statutory");
+			AuditorcountPOM.AuditorcountPOM(driver, test, "Closed Delayed", Closed_Delayed, "Statutory");
 		}
 		else
 		{
@@ -1204,7 +1204,7 @@ public class AuditorcountStatutory {
 		if(Closed_Timely > 0)
 		{
 			CFOcountPOM.clickFinanceClosedTimely(driver).click();
-			AuditorcountPOM.RiskGraphCount(driver, test, "Closed Timely", Closed_Timely, "Statutory");
+			AuditorcountPOM.AuditorcountPOM(driver, test, "Closed Timely", Closed_Timely, "Statutory");
 		}
 		else
 		{
@@ -2310,7 +2310,7 @@ public class AuditorcountStatutory {
 				Thread.sleep(1000);
 				OverduePOM.TypeMsg(driver).sendKeys("Automation testing");
 				Thread.sleep(1000);
-				OverduePOM.choosefile(driver).sendKeys("C:/Users/sandip/Downloads/InternalReport.xlsx");
+				OverduePOM.choosefile(driver).sendKeys("C:\\Users\\Mayuri Gaikwad\\Downloads/Report .xlsx");
 				Thread.sleep(1000);
 				//OverduePOM.send(driver).click();
 				By locator = By.xpath("//*[@id='btnsendmailNew']");
@@ -2342,7 +2342,17 @@ public class AuditorcountStatutory {
 					extent.flush();
 				}
 		 
-			 
+			 @Test(priority = 68)
+				void DetailedReportReOpen() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Detailed Report ReOpen Count Verification");
+					
+					
+					AuditorcountPOM.DetailedReportRE(test, driver, "Auditor");
+					
+					extent.endTest(test);
+					extent.flush();
+				} 
 		
 		
 		

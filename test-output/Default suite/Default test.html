@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>11/1/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>22/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Tue Feb 21 17:17:02 IST 2023</td>
+<td>Started on:</td><td>Thu Feb 23 17:53:37 IST 2023</td>
 </tr>
-<tr><td>Total time:</td><td>1937 seconds (1937991 ms)</td>
+<tr><td>Total time:</td><td>1866 seconds (1866979 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,12 +75,12 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='auditor.AuditorcountStatutory.DetailedReport()'><b>DetailedReport</b><br>Test class: auditor.AuditorcountStatutory</td>
-<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for presence of element located by: By.xpath: //*[@id=&apos;grid1&apos;]/div[3]/table/tbody/tr[1]/td[27]/a[1] (tried for 140 second(s) with 500 milliseconds interval)
+<td title='approval.ApprovalcountStatutory.DetailedReportRe()'><b>DetailedReportRe</b><br>Test class: approval.ApprovalcountStatutory</td>
+<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for presence of element located by: By.xpath: //*[@id=&apos;grid&apos;]/div[2]/table/tbody/tr/td/a[3] (tried for 140 second(s) with 500 milliseconds interval)
 	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
-	at auditor.AuditorcountPOM.DetailedReport(AuditorcountPOM.java:636)
-	at auditor.AuditorcountStatutory.DetailedReport(AuditorcountStatutory.java:2015)
+	at approval.ApprovalcountPOM.DetailedReportRe(ApprovalcountPOM.java:1798)
+	at approval.ApprovalcountStatutory.DetailedReportRe(ApprovalcountStatutory.java:2079)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -109,16 +109,16 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//*[@id=&apos;grid1&apos;]/div[3]/table/tbody/tr[1]/td[27]/a[1]&quot;}
-  (Session info: chrome=110.0.5481.97)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//*[@id=&apos;grid&apos;]/div[2]/table/tbody/tr/td/a[3]&quot;}
+  (Session info: chrome=110.0.5481.104)
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: &apos;3.141.0&apos;, revision: &apos;2ecb7d9a&apos;, time: &apos;2018-10-31T20:09:30&apos;
-System info: host: &apos;DESKTOP-J8VA1KP&apos;, ip: &apos;192.168.1.2&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.5&apos;
+System info: host: &apos;DESKTOP-J8VA1KP&apos;, ip: &apos;192.168.1.3&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.5&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 110.0.5481.97, chrome: {chromedriverVersion: 110.0.5481.77 (65ed616c6e8e..., userDataDir: C:\Users\MAYURI~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:53557}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 21a970f55070824f2515c84275660f00
-*** Element info: {Using=xpath, value=//*[@id=&apos;grid1&apos;]/div[3]/table/tbody/tr[1]/td[27]/a[1]}
-	at jdk.internal.reflect.GeneratedConstructorAccessor29.newInstance(Unknown Source)
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 110.0.5481.104, chrome: {chromedriverVersion: 110.0.5481.77 (65ed616c6e8e..., userDataDir: C:\Users\MAYURI~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:53639}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 9bd9ad85b2336b564f58d02773f421e7
+*** Element info: {Using=xpath, value=//*[@id=&apos;grid&apos;]/div[2]/table/tbody/tr/td/a[3]}
+	at jdk.internal.reflect.GeneratedConstructorAccessor31.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
@@ -136,12 +136,12 @@ Session ID: 21a970f55070824f2515c84275660f00
 	at org.openqa.selenium.support.ui.ExpectedConditions$6.apply(ExpectedConditions.java:179)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
 	... 30 more
-</pre></div><a href='#' onClick='toggleBox("stack-trace1884530788", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1884530788'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for presence of element located by: By.xpath: //*[@id=&apos;grid1&apos;]/div[3]/table/tbody/tr[1]/td[27]/a[1] (tried for 140 second(s) with 500 milliseconds interval)
+</pre></div><a href='#' onClick='toggleBox("stack-trace6634074", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace6634074'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for presence of element located by: By.xpath: //*[@id=&apos;grid&apos;]/div[2]/table/tbody/tr/td/a[3] (tried for 140 second(s) with 500 milliseconds interval)
 	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
-	at auditor.AuditorcountPOM.DetailedReport(AuditorcountPOM.java:636)
-	at auditor.AuditorcountStatutory.DetailedReport(AuditorcountStatutory.java:2015)
+	at approval.ApprovalcountPOM.DetailedReportRe(ApprovalcountPOM.java:1798)
+	at approval.ApprovalcountStatutory.DetailedReportRe(ApprovalcountStatutory.java:2079)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -170,16 +170,16 @@ Session ID: 21a970f55070824f2515c84275660f00
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//*[@id=&apos;grid1&apos;]/div[3]/table/tbody/tr[1]/td[27]/a[1]&quot;}
-  (Session info: chrome=110.0.5481.97)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//*[@id=&apos;grid&apos;]/div[2]/table/tbody/tr/td/a[3]&quot;}
+  (Session info: chrome=110.0.5481.104)
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: &apos;3.141.0&apos;, revision: &apos;2ecb7d9a&apos;, time: &apos;2018-10-31T20:09:30&apos;
-System info: host: &apos;DESKTOP-J8VA1KP&apos;, ip: &apos;192.168.1.2&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.5&apos;
+System info: host: &apos;DESKTOP-J8VA1KP&apos;, ip: &apos;192.168.1.3&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.5&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 110.0.5481.97, chrome: {chromedriverVersion: 110.0.5481.77 (65ed616c6e8e..., userDataDir: C:\Users\MAYURI~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:53557}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 21a970f55070824f2515c84275660f00
-*** Element info: {Using=xpath, value=//*[@id=&apos;grid1&apos;]/div[3]/table/tbody/tr[1]/td[27]/a[1]}
-	at jdk.internal.reflect.GeneratedConstructorAccessor29.newInstance(Unknown Source)
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 110.0.5481.104, chrome: {chromedriverVersion: 110.0.5481.77 (65ed616c6e8e..., userDataDir: C:\Users\MAYURI~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:53639}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 9bd9ad85b2336b564f58d02773f421e7
+*** Element info: {Using=xpath, value=//*[@id=&apos;grid&apos;]/div[2]/table/tbody/tr/td/a[3]}
+	at jdk.internal.reflect.GeneratedConstructorAccessor31.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
@@ -198,8 +198,8 @@ Session ID: 21a970f55070824f2515c84275660f00
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
 	... 30 more
 </pre></div></td>
-<td>207</td>
-<td>auditor.AuditorcountStatutory@611889f4</td></tr>
+<td>155</td>
+<td>approval.ApprovalcountStatutory@48f278eb</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
@@ -209,60 +209,115 @@ Session ID: 21a970f55070824f2515c84275660f00
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='auditor.AuditorcountStatutory.Overdue_PieChartperiod()'><b>Overdue_PieChartperiod</b><br>Test class: auditor.AuditorcountStatutory</td>
+<td title='approval.ApprovalcountStatutory.rejected_PieChart()'><b>rejected_PieChart</b><br>Test class: approval.ApprovalcountStatutory</td>
 <td></td>
-<td>229</td>
-<td>auditor.AuditorcountStatutory@611889f4</td></tr>
+<td>139</td>
+<td>approval.ApprovalcountStatutory@48f278eb</td></tr>
 <tr>
-<td title='auditor.AuditorcountStatutory.Login()'><b>Login</b><br>Test class: auditor.AuditorcountStatutory</td>
+<td title='approval.ApprovalcountStatutory.ClosedDelayed_PieChart()'><b>ClosedDelayed_PieChart</b><br>Test class: approval.ApprovalcountStatutory</td>
 <td></td>
-<td>23</td>
-<td>auditor.AuditorcountStatutory@611889f4</td></tr>
+<td>167</td>
+<td>approval.ApprovalcountStatutory@48f278eb</td></tr>
 <tr>
-<td title='auditor.AuditorcountStatutory.rejected_PieChartPeriod()'><b>rejected_PieChartPeriod</b><br>Test class: auditor.AuditorcountStatutory</td>
+<td title='approval.ApprovalcountStatutory.pendingForReview_PieChart()'><b>pendingForReview_PieChart</b><br>Test class: approval.ApprovalcountStatutory</td>
 <td></td>
-<td>152</td>
-<td>auditor.AuditorcountStatutory@611889f4</td></tr>
+<td>142</td>
+<td>approval.ApprovalcountStatutory@48f278eb</td></tr>
 <tr>
-<td title='auditor.AuditorcountStatutory.pendingForReview_PieChartPeriod()'><b>pendingForReview_PieChartPeriod</b><br>Test class: auditor.AuditorcountStatutory</td>
+<td title='approval.ApprovalcountStatutory.ClosedTimely_PieChartPeriod()'><b>ClosedTimely_PieChartPeriod</b><br>Test class: approval.ApprovalcountStatutory</td>
 <td></td>
-<td>272</td>
-<td>auditor.AuditorcountStatutory@611889f4</td></tr>
+<td>50</td>
+<td>approval.ApprovalcountStatutory@48f278eb</td></tr>
 <tr>
-<td title='auditor.AuditorcountStatutory.DepartmentSummaryFinanceStatutory()'><b>DepartmentSummaryFinanceStatutory</b><br>Test class: auditor.AuditorcountStatutory</td>
+<td title='approval.ApprovalcountStatutory.Overdue_PieChartPeriod()'><b>Overdue_PieChartPeriod</b><br>Test class: approval.ApprovalcountStatutory</td>
 <td></td>
-<td>88</td>
-<td>auditor.AuditorcountStatutory@611889f4</td></tr>
+<td>50</td>
+<td>approval.ApprovalcountStatutory@48f278eb</td></tr>
 <tr>
-<td title='auditor.AuditorcountStatutory.DailyUpdates()'><b>DailyUpdates</b><br>Test class: auditor.AuditorcountStatutory</td>
+<td title='approval.ApprovalcountStatutory.RiskSummaryHighStatutory()'><b>RiskSummaryHighStatutory</b><br>Test class: approval.ApprovalcountStatutory</td>
+<td></td>
+<td>112</td>
+<td>approval.ApprovalcountStatutory@48f278eb</td></tr>
+<tr>
+<td title='approval.ApprovalcountStatutory.DailyUpdates()'><b>DailyUpdates</b><br>Test class: approval.ApprovalcountStatutory</td>
+<td></td>
+<td>39</td>
+<td>approval.ApprovalcountStatutory@48f278eb</td></tr>
+<tr>
+<td title='approval.ApprovalcountStatutory.SummaryofOverdueCompliances()'><b>SummaryofOverdueCompliances</b><br>Test class: approval.ApprovalcountStatutory</td>
 <td></td>
 <td>37</td>
-<td>auditor.AuditorcountStatutory@611889f4</td></tr>
+<td>approval.ApprovalcountStatutory@48f278eb</td></tr>
 <tr>
-<td title='auditor.AuditorcountStatutory.NotCompleted_PieChartPe()'><b>NotCompleted_PieChartPe</b><br>Test class: auditor.AuditorcountStatutory</td>
+<td title='approval.ApprovalcountStatutory.pendingForReview_PieChartPeriod()'><b>pendingForReview_PieChartPeriod</b><br>Test class: approval.ApprovalcountStatutory</td>
 <td></td>
-<td>221</td>
-<td>auditor.AuditorcountStatutory@611889f4</td></tr>
+<td>51</td>
+<td>approval.ApprovalcountStatutory@48f278eb</td></tr>
 <tr>
-<td title='auditor.AuditorcountStatutory.ClosedDelayed_PieChartPe()'><b>ClosedDelayed_PieChartPe</b><br>Test class: auditor.AuditorcountStatutory</td>
+<td title='approval.ApprovalcountStatutory.NotCompleted_PieChart()'><b>NotCompleted_PieChart</b><br>Test class: approval.ApprovalcountStatutory</td>
 <td></td>
-<td>180</td>
-<td>auditor.AuditorcountStatutory@611889f4</td></tr>
+<td>129</td>
+<td>approval.ApprovalcountStatutory@48f278eb</td></tr>
 <tr>
-<td title='auditor.AuditorcountStatutory.ClosedTimely_PieChartPe()'><b>ClosedTimely_PieChartPe</b><br>Test class: auditor.AuditorcountStatutory</td>
+<td title='approval.ApprovalcountStatutory.ClosedTimely_PieChart()'><b>ClosedTimely_PieChart</b><br>Test class: approval.ApprovalcountStatutory</td>
 <td></td>
-<td>224</td>
-<td>auditor.AuditorcountStatutory@611889f4</td></tr>
+<td>163</td>
+<td>approval.ApprovalcountStatutory@48f278eb</td></tr>
 <tr>
-<td title='auditor.AuditorcountStatutory.RiskSummaryLowStatutory()'><b>RiskSummaryLowStatutory</b><br>Test class: auditor.AuditorcountStatutory</td>
+<td title='approval.ApprovalcountStatutory.Overdue_PieChart()'><b>Overdue_PieChart</b><br>Test class: approval.ApprovalcountStatutory</td>
 <td></td>
-<td>101</td>
-<td>auditor.AuditorcountStatutory@611889f4</td></tr>
+<td>134</td>
+<td>approval.ApprovalcountStatutory@48f278eb</td></tr>
 <tr>
-<td title='auditor.AuditorcountStatutory.inProgress_PieChartPeriod()'><b>inProgress_PieChartPeriod</b><br>Test class: auditor.AuditorcountStatutory</td>
+<td title='approval.ApprovalcountStatutory.CategoriesCountMatch()'><b>CategoriesCountMatch</b><br>Test class: approval.ApprovalcountStatutory</td>
 <td></td>
-<td>189</td>
-<td>auditor.AuditorcountStatutory@611889f4</td></tr>
+<td>84</td>
+<td>approval.ApprovalcountStatutory@48f278eb</td></tr>
+<tr>
+<td title='approval.ApprovalcountStatutory.UsersCountMatch()'><b>UsersCountMatch</b><br>Test class: approval.ApprovalcountStatutory</td>
+<td></td>
+<td>27</td>
+<td>approval.ApprovalcountStatutory@48f278eb</td></tr>
+<tr>
+<td title='approval.ApprovalcountStatutory.Login()'><b>Login</b><br>Test class: approval.ApprovalcountStatutory</td>
+<td></td>
+<td>24</td>
+<td>approval.ApprovalcountStatutory@48f278eb</td></tr>
+<tr>
+<td title='approval.ApprovalcountStatutory.DepartmentSummaryAccountStatutory()'><b>DepartmentSummaryAccountStatutory</b><br>Test class: approval.ApprovalcountStatutory</td>
+<td></td>
+<td>159</td>
+<td>approval.ApprovalcountStatutory@48f278eb</td></tr>
+<tr>
+<td title='approval.ApprovalcountStatutory.GradingReportStatutory()'><b>GradingReportStatutory</b><br>Test class: approval.ApprovalcountStatutory</td>
+<td></td>
+<td>29</td>
+<td>approval.ApprovalcountStatutory@48f278eb</td></tr>
+<tr>
+<td title='approval.ApprovalcountStatutory.UniqueCompliancesCountMatch()'><b>UniqueCompliancesCountMatch</b><br>Test class: approval.ApprovalcountStatutory</td>
+<td></td>
+<td>19</td>
+<td>approval.ApprovalcountStatutory@48f278eb</td></tr>
+<tr>
+<td title='approval.ApprovalcountStatutory.NewsLetter()'><b>NewsLetter</b><br>Test class: approval.ApprovalcountStatutory</td>
+<td></td>
+<td>16</td>
+<td>approval.ApprovalcountStatutory@48f278eb</td></tr>
+<tr>
+<td title='approval.ApprovalcountStatutory.TotalCompliancesCountMatch()'><b>TotalCompliancesCountMatch</b><br>Test class: approval.ApprovalcountStatutory</td>
+<td></td>
+<td>19</td>
+<td>approval.ApprovalcountStatutory@48f278eb</td></tr>
+<tr>
+<td title='approval.ApprovalcountStatutory.NotCompleted_PieChartPeriod()'><b>NotCompleted_PieChartPeriod</b><br>Test class: approval.ApprovalcountStatutory</td>
+<td></td>
+<td>44</td>
+<td>approval.ApprovalcountStatutory@48f278eb</td></tr>
+<tr>
+<td title='approval.ApprovalcountStatutory.complianceCalendar()'><b>complianceCalendar</b><br>Test class: approval.ApprovalcountStatutory</td>
+<td></td>
+<td>61</td>
+<td>approval.ApprovalcountStatutory@48f278eb</td></tr>
 </table><p>
 </body>
 </html>

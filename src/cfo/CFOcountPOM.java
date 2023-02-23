@@ -140,6 +140,18 @@ public class CFOcountPOM
 		return compliances;
 	} 
 	
+	public static WebElement EnterRemark(WebDriver driver)		//Method for reading Compliances value on Dashboard
+	{
+		compliances = driver.findElement(By.xpath("//*[@id='txt_Remark']"));
+		return compliances;
+	} 
+	
+	public static WebElement ReOpen(WebDriver driver)		//Method for reading Compliances value on Dashboard
+	{
+		compliances = driver.findElement(By.xpath("//*[@id='btn_Remark']"));
+		return compliances;
+	} 
+	
 
 	
 	public static WebElement clickAVIPL(WebDriver driver)		//Method for reading Compliances value on Dashboard
@@ -475,9 +487,9 @@ public class CFOcountPOM
 	
 	
 	public static WebElement clickpendingForReviewIN(WebDriver driver)					//Method to search In Time count to click on from Pie Chart.
-	{
+	{                       
 		piechart = driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-2 highcharts-drilldown-data-label'])[2]"));
-		return piechart;
+		return piechart;                         
 	}
 	
 	public static WebElement clickpendingForReviewIND(WebDriver driver)					//Method to search In Time count to click on from Pie Chart.
@@ -897,6 +909,12 @@ public class CFOcountPOM
 		return risksummary;
 	}
 	
+	public static WebElement clickRiskHighNotCompletedDIn(WebDriver driver)	//Method to search 'High Risk - Not Completed' compliance of Risk Summary.
+	{
+		risksummary = driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-undefined '])[65]"));
+		return risksummary;
+	}
+	
 	public static WebElement clickRiskHighAfterDueDate(WebDriver driver)	//Method to search 'High Risk - After Due Date' compliance of Risk Summary.
 	{
 		risksummary = driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-undefined '])[4]"));
@@ -926,6 +944,13 @@ public class CFOcountPOM
 		risksummary = driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-undefined '])[10]"));
 		return risksummary;
 	}
+	
+	public static WebElement clickRiskHighClosedTimelyIN(WebDriver driver)			//Method to search 'High Risk - In Time' compliance of Risk Summary.
+	{
+		risksummary = driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-undefined '])[77]"));
+		return risksummary;
+	}
+	
 	
 	public static WebElement clickRiskHighClosedTimelyA(WebDriver driver)			//Method to search 'High Risk - In Time' compliance of Risk Summary.
 	{
@@ -1842,6 +1867,56 @@ public class CFOcountPOM
 	public static WebElement selectType2(WebDriver driver)
 	{
 		reports = driver.findElement(By.xpath("(//*[@id='example']/div[1]/div/div)[1]"));
+		return reports;
+	}
+	
+	public static WebElement Status(WebDriver driver)
+	{
+		reports = driver.findElement(By.xpath("(//span[@class='k-icon k-i-more-vertical'])[6]"));
+		return reports;
+	}
+	
+	public static WebElement Filter(WebDriver driver)
+	{
+		reports = driver.findElement(By.xpath("//li[@class='k-item k-filter-item k-state-default k-last']"));
+		return reports;
+	}
+	
+	public static WebElement NotApplicable(WebDriver driver)
+	{
+		reports = driver.findElement(By.xpath("(//*[@class='k-label']/input)[3]"));
+		return reports;
+	}
+	
+	
+	public static WebElement ClosedDelayed(WebDriver driver)
+	{
+		reports = driver.findElement(By.xpath("(//*[@class='k-label']/input)[4]"));
+		return reports;
+	}
+	
+	public static WebElement ClosedTimely(WebDriver driver)
+	{
+		reports = driver.findElement(By.xpath("(//*[@class='k-label']/input)[4]"));
+		return reports;
+	}
+	
+	public static WebElement ClosedDelayedA(WebDriver driver)
+	{
+		reports = driver.findElement(By.xpath("(//*[@class='k-label']/input)[6]"));
+		return reports;
+	}
+	
+	public static WebElement NotApplicableA(WebDriver driver)
+	{
+		reports = driver.findElement(By.xpath("(//*[@class='k-label']/input)[7]"));
+		return reports;
+	}
+	
+	
+	public static WebElement ClickFilter(WebDriver driver)
+	{
+		reports = driver.findElement(By.xpath("//button[@class='k-button k-primary']"));
 		return reports;
 	}
 	
@@ -3578,12 +3653,24 @@ else {
 			//JavascriptExecutor jse=(JavascriptExecutor)driver;
 			//jse.executeScript("arguments[0].click();", ViewButton);
 				Thread.sleep(4000);
-				test.log(LogStatus.PASS, "overView success");
+				test.log(LogStatus.PASS, "overView successfully");
 				CFOcountPOM.closeDocument(driver).click();
 				Thread.sleep(3000);
-		Thread.sleep(500);
-	
+				ViewButton.get(3).click();
+					Thread.sleep(1000);
+					wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("OverViews4"));	//Wait until frame get visible and switch to it.
+					Thread.sleep(500);
+					CFOcountPOM.EnterRemark(driver).sendKeys("remark");
+					Thread.sleep(1000);
+					CFOcountPOM.ReOpen(driver).click();
+					Thread.sleep(8000);
+					String msg =driver.switchTo().alert().getText();
+					Thread.sleep(1000);
+					driver.switchTo().alert().accept();
+					test.log(LogStatus.PASS, "Message Display " +msg);
 		Thread.sleep(1000);
+		driver.switchTo().parentFrame();
+		Thread.sleep(5000);
 		 CFOcountPOM.clickExportImage(driver).click();
 			Thread.sleep(4000);
 			test.log(LogStatus.PASS, "Excel file Export Successfully");
@@ -3639,6 +3726,129 @@ else {
 		}
 	}
 	
+ 	
+ 	public static void GraphCount2(WebDriver driver, ExtentTest test, String risk, int complianceCount, String Compliance)throws InterruptedException
+	{
+		Thread.sleep(1000);
+		if(risk.equalsIgnoreCase("Critical"))
+		{
+			CFOcountPOM.readCritical(driver).click();					//Clicking on Critical value of Pie Chart of 'Not Completed'.
+		}
+		else if(risk.equalsIgnoreCase("High"))
+		{
+			CFOcountPOM.readHigh(driver).click();						//Clicking on High value of Pie Chart of 'Not Completed'.
+		}
+		else if(risk.equalsIgnoreCase("Medium"))
+		{
+			CFOcountPOM.readMedium(driver).click();						//Clicking on Medium value of Pie Chart of 'Not Completed'.
+		}
+		else if(risk.equalsIgnoreCase("Low"))
+		{
+			CFOcountPOM.readLow(driver).click();						//Clicking on Low value of Pie Chart of 'Not Completed'.
+		}
+		
+		WebDriverWait wait = new WebDriverWait(driver,(160));
+		
+		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));	//Wait until frame get visible and switch to it.
+		Thread.sleep(8000);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,300)");	
+		Thread.sleep(5000);
+		CFOcountPOM.readTotalItemsD(driver).click();					//Clicking on Text of total items just to scroll down.
+		String s = CFOcountPOM.readTotalItemsD(driver).getText();
+		if(!s.equalsIgnoreCase("No items to display")) {
+		Thread.sleep(5000);
+		try
+		{
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='k-selectable']")));
+			Thread.sleep(5000);
+		}
+		catch(Exception e)
+		{
+			
+		}
+		
+		
+			 By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[17]/a");
+			
+				wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+				Thread.sleep(4000);
+				
+				List<WebElement> ViewButton = driver.findElements(locator);	
+				Thread.sleep(3000);
+				ViewButton.get(0).click();
+				Thread.sleep(4000);
+				CFOcountPOM.closeDocument1(driver).click();
+				test.log(LogStatus.PASS, "View successfully");
+				Thread.sleep(3000);
+				
+				ViewButton.get(1).click();
+				Thread.sleep(4000);
+				test.log(LogStatus.PASS, "Download Doc successfully");
+				ViewButton.get(2).click();
+			//JavascriptExecutor jse=(JavascriptExecutor)driver;
+			//jse.executeScript("arguments[0].click();", ViewButton);
+				Thread.sleep(4000);
+				test.log(LogStatus.PASS, "overView successfully");
+				CFOcountPOM.closeDocument(driver).click();
+				Thread.sleep(3000);
+		
+		 CFOcountPOM.clickExportImage(driver).click();
+			Thread.sleep(4000);
+			test.log(LogStatus.PASS, "Excel file Export Successfully");
+			
+	//	JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,300)");						//Scrolling down window by 1000 px.
+		
+		CFOcountPOM.readTotalItemsD(driver).click();					//Clicking on Text of total items just to scroll down.
+		String s1 = CFOcountPOM.readTotalItemsD(driver).getText();		//Reading total number of items.
+		String[] bits = s1.split(" ");									//Splitting the String
+		String itomsCount = bits[bits.length - 2];						//Getting the second last word (total number of items)
+		
+		int count = 0;
+		if(itomsCount.equalsIgnoreCase("to"))							//If not items found
+		{
+			Thread.sleep(2500);
+			s1 = CFOcountPOM.readTotalItems(driver).getText();
+			bits = s1.split(" ");										//Splitting the String
+			itomsCount = bits[bits.length - 2];
+		}
+		if(itomsCount.equalsIgnoreCase("to"))							//If not items found
+		{
+			count = 0;
+		}
+		else
+		{
+			count = Integer.parseInt(itomsCount);
+		}
+		
+		Thread.sleep(500);
+		driver.switchTo().parentFrame();
+		CFOcountPOM.closeCategories(driver).click();					//Closing the High Risk Window.
+		
+		if(count == complianceCount)
+		{
+			test.log(LogStatus.PASS, "'"+risk+"' risk compliance count matches to numbers of items from grid.");
+			test.log(LogStatus.PASS, "'"+risk+"' risk compliance count = " + complianceCount + " | Total number of items from grid = "+count);
+		}
+		else
+		{
+			test.log(LogStatus.FAIL, "'"+risk+"' risk compliance count does not matches to numbers of Items.");
+			test.log(LogStatus.FAIL, "'"+risk+"' risk compliance count = " + complianceCount + " | Total number of items from grid = "+count);
+		}
+		}else {
+			Thread.sleep(1000);
+			js.executeScript("window.scrollBy(300,0)");	
+			Thread.sleep(1000);
+			driver.switchTo().parentFrame();
+			CFOcountPOM.closeCategories(driver).click();
+			
+			test.log(LogStatus.PASS, "'"+risk+"' risk compliance count matches to numbers of items from grid.= 0");
+			
+		}
+	}
+	
+ 	
  	
 	public static void BarGraphCount(WebDriver driver, ExtentTest test, String ComplianceType, int ComplianceCount)throws InterruptedException
 	{
@@ -3846,8 +4056,6 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[3]/td[17]/a");
 			Thread.sleep(1000);
 			test.log(LogStatus.PASS, "'"+ComplianceType+"'  compliance count matches to numbers of items from grid.= 0");
 			
-			
-			
 		}
 	}
 	
@@ -3908,7 +4116,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[17]/a");
 			test.log(LogStatus.PASS, "Download Doc successfully");
 			ViewButton.get(2).click();
 		Thread.sleep(4000);
-			test.log(LogStatus.PASS, "overView success");
+			test.log(LogStatus.PASS, "overView successfully");
 			CFOcountPOM.closeDocument(driver).click();
 			Thread.sleep(3000);
 
@@ -4102,13 +4310,29 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[17]/a");
 				ViewButton.get(2).click();
 			
 				Thread.sleep(4000);
-				test.log(LogStatus.PASS, "overView success");
+				test.log(LogStatus.PASS, "overView successfully");
 				CFOcountPOM.closeDocument(driver).click();
 				Thread.sleep(3000);
+				
+				ViewButton.get(3).click();
+					Thread.sleep(1000);
+					wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("OverViews4"));	//Wait until frame get visible and switch to it.
+					Thread.sleep(500);
+					CFOcountPOM.EnterRemark(driver).sendKeys("remark");
+					Thread.sleep(1000);
+					CFOcountPOM.ReOpen(driver).click();
+					Thread.sleep(8000);
+					String msg =driver.switchTo().alert().getText();
+					Thread.sleep(1000);
+					driver.switchTo().alert().accept();
+					test.log(LogStatus.PASS, "Message Display " +msg);
+		Thread.sleep(1000);
+		driver.switchTo().parentFrame();
+		Thread.sleep(5000);
 		
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,300)");						//Scrolling down window by 1000 px.
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		CFOcountPOM.readTotalItemsD(driver).click();					//Clicking on Text of total items just to scroll down.
 		String s1 = CFOcountPOM.readTotalItemsD(driver).getText();		//Reading total number of items.
 		String[] bits = s1.split(" ");									//Splitting the String
@@ -5317,6 +5541,58 @@ try {
 			closeDocumentAS(driver).click();
 			Thread.sleep(2000);
 			performer.OverduePOM.clickDashboard(driver).click();
+	}
+	
+	public static void DetailedReportReOpen(ExtentTest test, WebDriver driver) throws InterruptedException, IOException
+	{		
+		WebDriverWait wait = new WebDriverWait(driver,(120));
+	    
+		Thread.sleep(500);
+		clickReports(driver).click();					//Clicking on 'My Reports'
+		Thread.sleep(3000);
+		clickDetailedReport(driver).click();			//Clicking on 'Detailed Reports' 
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='k-selectable']")));	//Wait till records table gets visible
+		Thread.sleep(2000);
+		Status(driver).click();			//Clicking on 'Detailed Reports' 
+		Thread.sleep(2000);
+		Filter(driver).click();			//Clicking on 'Detailed Reports' 
+		Thread.sleep(2000);
+		NotApplicable(driver).click();			//Clicking on 'Detailed Reports' 
+		Thread.sleep(2000);
+		ClosedDelayed(driver).click();			//Clicking on 'Detailed Reports' 
+		Thread.sleep(1000);
+		ClickFilter(driver).click();			//Clicking on 'Detailed Reports' 
+		Thread.sleep(1000);
+		
+		By locator = By.xpath("//*[@id='grid']/div[2]/table/tbody/tr[1]/td/a[2]");
+		wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+		Thread.sleep(4000);
+		
+		WebElement ViewButton = driver.findElement(locator);	
+		Thread.sleep(4000);
+	JavascriptExecutor jse=(JavascriptExecutor)driver;
+	Thread.sleep(2000);
+	jse.executeScript("arguments[0].click();", ViewButton);
+		Thread.sleep(4000);
+		//Thread.sleep(1000);
+		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("OverViews5"));	//Wait until frame get visible and switch to it.
+		Thread.sleep(500);
+		CFOcountPOM.EnterRemark(driver).sendKeys("remark");
+		Thread.sleep(1000);
+		CFOcountPOM.ReOpen(driver).click();
+		Thread.sleep(8000);
+		String msg =driver.switchTo().alert().getText();
+		Thread.sleep(1000);
+		driver.switchTo().alert().accept();
+		test.log(LogStatus.PASS, "Message Display " +msg);
+Thread.sleep(1000);
+driver.switchTo().parentFrame();
+
+
+Thread.sleep(2000);
+performer.OverduePOM.clickDashboard(driver).click();
+Thread.sleep(2000);
 	}
 	
 	

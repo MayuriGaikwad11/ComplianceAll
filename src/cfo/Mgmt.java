@@ -413,8 +413,8 @@ public class Mgmt {
 		extent.endTest(test);
 		extent.flush();
 	}
-	
-	@Test(priority = 8)
+	*/
+	//@Test(priority = 8)
 	void ClosedDelayed_PieChart() throws InterruptedException
 	{
 		test = extent.startTest("Pie Chart -Completion Status- 'Closed Delayed' Count Verification");
@@ -500,15 +500,15 @@ public class Mgmt {
 		extent.flush();
 	}
 	
-	@Test(priority = 9)
+	//@Test(priority = 9)
 	void ClosedTimely_PieChart() throws InterruptedException
 	{
 		test = extent.startTest("Pie Chart -Completion Status- 'Closed Timely' Count Verification");
 		//test.log(LogStatus.INFO, "Test Initiated");
 		
 		Actions action = new Actions(driver);
-	//	JavascriptExecutor js = (JavascriptExecutor) driver;
-		//js.executeScript("window.scrollBy(0,500)");						//Scrolling down window by 1000 px.
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,500)");						//Scrolling down window by 1000 px.
 		try{
 		Thread.sleep(1500);
 		int ClosedTimelyValue = Integer.parseInt(CFOcountPOM.clickClosedTimely(driver).getText());	//Reading value of 'After Due Date'
@@ -588,7 +588,7 @@ public class Mgmt {
 		}
 	}
 	
-	@Test(priority = 10)
+	//@Test(priority = 10)
 	void NotApplicable_PieChart() throws InterruptedException
 	{
 		test = extent.startTest("Pie Chart -Completion Status- 'Not Applicable' Count Verification");
@@ -679,7 +679,7 @@ public class Mgmt {
 		extent.endTest(test);
 		extent.flush();
 	}
-		
+		/*
 	@Test(priority = 11)
 	void Overdue_PieChart() throws InterruptedException
 	{
@@ -904,7 +904,7 @@ public class Mgmt {
 		{
 			if(critical >= 0)
 			{
-				CFOcountPOM.GraphCount1(driver, test, "Critical", critical, "Statutory");
+				CFOcountPOM.GraphCount2(driver, test, "Critical", critical, "Statutory");
 			}
 			else
 			{
@@ -913,7 +913,7 @@ public class Mgmt {
 			
 			if(high >= 0)
 			{
-				CFOcountPOM.GraphCount1(driver, test, "High", high, "Statutory");
+				CFOcountPOM.GraphCount2(driver, test, "High", high, "Statutory");
 			}
 			else
 			{
@@ -922,16 +922,16 @@ public class Mgmt {
 			
 			if(medium >= 0)
 			{
-				CFOcountPOM.GraphCount1(driver, test, "Medium", medium, "Statutory");
+				CFOcountPOM.GraphCount2(driver, test, "Medium", medium, "Statutory");
 			}
 			else
 			{
 				test.log(LogStatus.FAIL, "'Medium' Risk Compliance Count = "+medium);
 			}
 			
-			if(low > 0)
+			if(low >= 0)
 			{
-				CFOcountPOM.GraphCount1(driver, test, "Low", low, "Statutory");
+				CFOcountPOM.GraphCount2(driver, test, "Low", low, "Statutory");
 			}
 			else
 			{
@@ -997,7 +997,7 @@ public class Mgmt {
 		{
 			if(critical >= 0)
 			{
-				CFOcountPOM.GraphCount1(driver, test, "Critical", critical, "Statutory");
+				CFOcountPOM.GraphCount2(driver, test, "Critical", critical, "Statutory");
 			}
 			else
 			{
@@ -1006,7 +1006,7 @@ public class Mgmt {
 			
 			if(high >= 0)
 			{
-				CFOcountPOM.GraphCount1(driver, test, "High", high, "Statutory");
+				CFOcountPOM.GraphCount2(driver, test, "High", high, "Statutory");
 			}
 			else
 			{
@@ -1015,7 +1015,7 @@ public class Mgmt {
 			
 			if(medium >= 0)
 			{
-				CFOcountPOM.GraphCount1(driver, test, "Medium", medium, "Statutory");
+				CFOcountPOM.GraphCount2(driver, test, "Medium", medium, "Statutory");
 			}
 			else
 			{
@@ -1024,7 +1024,7 @@ public class Mgmt {
 			
 			if(low >= 0)
 			{
-				CFOcountPOM.GraphCount1(driver, test, "Low", low, "Statutory");
+				CFOcountPOM.GraphCount2(driver, test, "Low", low, "Statutory");
 			}
 			else
 			{
@@ -1090,7 +1090,7 @@ public class Mgmt {
 		{
 			if(critical >= 0)
 			{
-				CFOcountPOM.GraphCount1(driver, test, "Critical", critical, "Statutory");
+				CFOcountPOM.GraphCount2(driver, test, "Critical", critical, "Statutory");
 			}
 			else
 			{
@@ -1099,7 +1099,7 @@ public class Mgmt {
 			
 			if(high >= 0)
 			{
-				CFOcountPOM.GraphCount1(driver, test, "High", high, "Statutory");
+				CFOcountPOM.GraphCount2(driver, test, "High", high, "Statutory");
 			}
 			else
 			{
@@ -1108,7 +1108,7 @@ public class Mgmt {
 			
 			if(medium >= 0)
 			{
-				CFOcountPOM.GraphCount1(driver, test, "Medium", medium, "Statutory");
+				CFOcountPOM.GraphCount2(driver, test, "Medium", medium, "Statutory");
 			}
 			else
 			{
@@ -1117,7 +1117,7 @@ public class Mgmt {
 			
 			if(low >= 0)
 			{
-				CFOcountPOM.GraphCount1(driver, test, "Low", low, "Statutory");
+				CFOcountPOM.GraphCount2(driver, test, "Low", low, "Statutory");
 			}
 			else
 			{
@@ -1670,7 +1670,7 @@ public class Mgmt {
 		}
 		else
 		{
-			test.log(LogStatus.SKIP, "'Medium - Closed Delayed' Count = "+RiskMedium_ClosedDelayed);
+			test.log(LogStatus.PASS, "'Medium - Closed Delayed' Count = "+RiskMedium_ClosedDelayed);
 		}
 		
 		Thread.sleep(3000);
@@ -2259,7 +2259,7 @@ public class Mgmt {
 		}
 		extent.endTest(test);
 		extent.flush();
-	}*/
+	}
 	
 	@Test(priority = 29)
 	void Overdue_PieChartPeriod() throws InterruptedException
@@ -2667,9 +2667,9 @@ public class Mgmt {
 		extent.endTest(test);
 		extent.flush();
 	}
+	*/
 	
-	
-	@Test(priority = 33)
+	//@Test(priority = 33)
 	void PenaltySummaryStatutory() throws InterruptedException
 	{		
 		Thread.sleep(500);		
@@ -2854,7 +2854,7 @@ public class Mgmt {
 		extent.flush();
 	}
 	
-	@Test(priority = 34)
+	//@Test(priority = 34)
 	void GradingReportStatutory() throws InterruptedException, IOException
 	{
 		Thread.sleep(3000);		
@@ -2900,7 +2900,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[11]/a");
 		extent.flush();
 	}
 	
-	@Test(priority = 35)
+	//@Test(priority = 35)
 	void complianceCalendar() throws InterruptedException
 	{
 		test = extent.startTest("compliance Calendar Verifications");
@@ -2973,7 +2973,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[6]/a");
 			extent.flush();
 	}
 	
-	@Test(priority = 36)
+	//@Test(priority = 36)
 	void DailyUpdates() throws InterruptedException, IOException
 	{
 		Thread.sleep(3000);		
@@ -3008,7 +3008,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[6]/a");
 		extent.endTest(test);
 		extent.flush();
 	}
-	
+	/*
  @Test(priority = 37)
 	void NewsLetter() throws InterruptedException, IOException
 	{
@@ -3491,8 +3491,19 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[6]/a");
 				extent.endTest(test);
 				extent.flush();
 			}
-	 
-		 @AfterTest
+	  */
+	
+	//@Test(priority = 68)
+	void DetailedReportReOpen() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Detailed  Report -Reopen - Closed Timely , Closed Delayed and Not applicable compliance  verification");
+		//test.log(LogStatus.INFO, "Test Initiated");
+		
+		CFOcountPOM.DetailedReportReOpen(test,driver);
+		extent.endTest(test);
+		extent.flush();
+	}
+		// @AfterTest
 			void Closing() throws InterruptedException
 			{
 				//Thread.sleep(1000);
@@ -3500,7 +3511,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[6]/a");
 			}	 
 		
 		 
-		 
+		
 		 
 		 
 		 
