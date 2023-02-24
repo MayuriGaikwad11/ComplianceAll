@@ -3356,6 +3356,98 @@ if(action.equalsIgnoreCase("submit")){
 	
 	}
 	
+	public static void DetailedReportCD(ExtentTest test, WebDriver driver, String user) throws InterruptedException, IOException
+	{		
+		WebDriverWait wait = new WebDriverWait(driver, (120));
+	    
+		Thread.sleep(500);
+		CFOcountPOM.clickReports(driver).click();					//Clicking on 'My Reports'
+		Thread.sleep(3000);
+		CFOcountPOM.clickDetailedReport(driver).click();			//Clicking on 'Detailed Reports' 
+		Thread.sleep(7000);
+		OverduePOM.ClickDropD(driver).click();
+		Thread.sleep(500);
+		OverduePOM.SelectPerformer(driver).click();
+		Thread.sleep(500);
+		OverduePOM.clickApply(driver).click();
+		Thread.sleep(500);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='k-selectable']")));	//Wait till records table gets visible
+		Thread.sleep(4000);
+		OverduePOM.ComplianceType(driver).click();
+		Thread.sleep(500);
+		OverduePOM.Statutory(driver).click();
+		Thread.sleep(1000);
+		Thread.sleep(500);
+		OverduePOM.StatutoryCheckList(driver).click();
+		Thread.sleep(1000);
+		OverduePOM.Status(driver).click();
+		Thread.sleep(500);
+		OverduePOM.ClosedTimely(driver).click();
+		Thread.sleep(1000);
+		OverduePOM.clickApply(driver).click();
+		Thread.sleep(8000);	
+	
+	 List<WebElement> Risks=driver.findElements(By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[6]"));
+	 int columns_count = Risks.size();
+	
+	 for (int column = 0; column < columns_count; column++) {
+		 
+		 String celtext = Risks.get(column).getText();
+		 
+		 if(celtext.equalsIgnoreCase("Closed Timely")) 
+		 {
+				test.log(LogStatus.PASS, "while click on Apply Button complaince should be display as closed Timely status.");
+			}
+			else
+			{
+				test.log(LogStatus.FAIL, "while click on Apply Button complaince should not display closed Timely status.");
+				
+				break;
+			} 
+		
+	 }
+	 Thread.sleep(3000);
+	 /*
+	 Thread.sleep(1000);
+		OverduePOM.Status(driver).click();
+		Thread.sleep(500);
+		OverduePOM.ClosedTimely(driver).click();
+		Thread.sleep(1000);
+		OverduePOM.ClosedDelayed(driver).click();
+		Thread.sleep(1000);
+		
+		OverduePOM.clickApply(driver).click();
+		Thread.sleep(8000);	
+	
+	 List<WebElement> CD=driver.findElements(By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[6]"));
+	 int columns_count1 = CD.size();
+	
+	 for (int column = 0; column < columns_count1; column++) {
+		 
+		 String celtext = Risks.get(column).getText();
+		 
+		 if(celtext.equalsIgnoreCase("Closed Delayed")) 
+		 {
+				test.log(LogStatus.PASS, "while click on Apply Button complaince should be display as closed delayed status.");
+			}
+			else
+			{
+				test.log(LogStatus.FAIL, "while click on Apply Button complaince should be display as closed delayed status.");
+				
+				break;
+			} 
+		
+	 }
+	 Thread.sleep(2000);
+	 */
+	 
+	 OverduePOM.clickDashboard(driver).click();
+	
+	 Thread.sleep(3000);
+	
+	
+	}
+	
 	public static void DetailedReport1(ExtentTest test, WebDriver driver, String user) throws InterruptedException, IOException
 	{		
 		WebDriverWait wait = new WebDriverWait(driver, (120));

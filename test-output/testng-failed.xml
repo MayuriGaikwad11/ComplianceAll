@@ -3,12 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="approval.ApprovalcountStatutory">
+      <class name="arsProduct.ArsTestCase">
         <methods>
-          <include name="DetailedReportRe"/>
+          <include name="AuditHeadEdit"/>
           <include name="setBrowser"/>
         </methods>
-      </class> <!-- approval.ApprovalcountStatutory -->
+      </class> <!-- arsProduct.ArsTestCase -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

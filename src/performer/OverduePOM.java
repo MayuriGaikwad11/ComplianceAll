@@ -68,6 +68,42 @@ public class OverduePOM
 		return overdue;
 	}
 	
+	public static WebElement ComplianceType(WebDriver driver)		//Method for clicking on Statutory Overdue value
+	{
+		overdue = driver.findElement(By.xpath("//*[@id='example']/div/div[1]/div[3]/div/div/span[1]"));
+		return overdue;
+	}
+	
+	public static WebElement StatutoryCheckList(WebDriver driver)		//Method for clicking on Statutory Overdue value
+	{
+		overdue = driver.findElement(By.xpath("(//span[@class='k-checkbox-label checkbox-span'])[4]"));
+		return overdue;
+	}
+	
+	public static WebElement Statutory(WebDriver driver)		//Method for clicking on Statutory Overdue value
+	{
+		overdue = driver.findElement(By.xpath("(//span[@class='k-checkbox-label checkbox-span'])[1]"));
+		return overdue;
+	}
+	
+	public static WebElement Status(WebDriver driver)		//Method for clicking on Statutory Overdue value
+	{
+		overdue = driver.findElement(By.xpath("//*[@id='example']/div/div[1]/div[4]/div/div/span[1]"));
+		return overdue;
+	}
+	
+	public static WebElement ClosedDelayed(WebDriver driver)		//Method for clicking on Statutory Overdue value
+	{
+		overdue = driver.findElement(By.xpath("(//span[@class='k-checkbox-label checkbox-span'])[17]"));
+		return overdue;
+	}
+	
+	public static WebElement ClosedTimely(WebDriver driver)		//Method for clicking on Statutory Overdue value
+	{
+		overdue = driver.findElement(By.xpath("(//span[@class='k-checkbox-label checkbox-span'])[18]"));
+		return overdue;
+	}
+	
 	public static WebElement readPendingReviewStatutory(WebDriver driver)	//Method to read Statutory Pending Review
 	{
 		review = driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_divPerformerPendingforReviewPREOcount']"));

@@ -325,7 +325,7 @@ public class OverdueCount
 		extent.flush();
 	}
 	
-	@Test(priority = 6) //pass
+	//@Test(priority = 6) //pass
 	void StatutoryChecklistAction() throws InterruptedException
 	{
 		test = extent.startTest("Statutory Checklist Count Through Action");
@@ -337,7 +337,7 @@ public class OverdueCount
 		extent.flush();
 	}
 	
-	@Test(priority = 7) //pass
+	//@Test(priority = 7) //pass
 	void StatutoryChecklistBox() throws InterruptedException
 	{
 		test = extent.startTest("Statutory Checklist CheckBoxes check ");
@@ -349,7 +349,7 @@ public class OverdueCount
 		extent.flush();
 	}
 	
-	@Test(priority = 8)  //pass
+	//@Test(priority = 8)  //pass
 	void InternalCheckListAction() throws InterruptedException
 	{
 		test = extent.startTest("Internal Checklist Count Through Action");
@@ -361,7 +361,7 @@ public class OverdueCount
 		extent.flush();
 	}
 	
-	@Test(priority = 9)  //pass
+	//@Test(priority = 9)  //pass
 	void InternalCheckListCheckBox() throws InterruptedException
 	{
 		test = extent.startTest("Internal Checklist CheckBoxes check");
@@ -600,6 +600,18 @@ public class OverdueCount
 		
 	//	MethodsPOM.DetailedReport1(test, driver, "performer");
 		MethodsPOM.DetailedReportRisk(test,driver,"performer");
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	//@Test(priority = 12) 
+	void DetailedReportStautau() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Detailed Report -Statutory Count Verification");
+		
+		
+	
+		MethodsPOM.DetailedReportCD(test,driver,"performer");
 		extent.endTest(test);
 		extent.flush();
 	}
@@ -2025,7 +2037,7 @@ public class OverdueCount
 			
 			 }
 						
-	//	@Test(priority = 32) //pass fri
+		@Test(priority = 32) //pass fri
 	       void ComplianceSatCalender() throws InterruptedException
 				{
 					test = extent.startTest("My Compliance Calender Statutory perform Verification");

@@ -14,6 +14,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import arsProduct.ArsLocators;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import performer.OverduePOM;
 
@@ -157,6 +158,10 @@ public class Login
 			{
 				ans1 = getAnswerDept(que1);						//Storing the answer in ans variable.
 			}
+			else if(method.equalsIgnoreCase("richa") )
+			{
+				ans1 = getAnswerARS(que1);						//Storing the answer in ans variable.
+			}
 			else if(method.equalsIgnoreCase("cfo-diy"))
 			{
 				ans1 = "123";						//Storing the answer in ans variable.
@@ -223,6 +228,10 @@ public class Login
 			{
 				ans2 = getAnswerDept(que2);						//Storing the answer in ans variable.
 			}
+			else if(method.equalsIgnoreCase("richa") )
+			{
+				ans2 = getAnswerARS(que2);						//Storing the answer in ans variable.
+			}
 			
 			else if(method.equalsIgnoreCase("cfo-diy") )
 			{
@@ -256,7 +265,7 @@ public class Login
 		
 			if(!method.equalsIgnoreCase("Implementation"))
 		{
-			wait1.until(ExpectedConditions.elementToBeClickable(LoginPOM.clickComplicane(driver)));
+		//	wait1.until(ExpectedConditions.elementToBeClickable(LoginPOM.clickComplicane(driver)));
 		if(method.equalsIgnoreCase("License"))
 			{
 				LoginPOM.clickLicense(driver).click();				//Clicking on Litigation Image.
@@ -268,6 +277,10 @@ public class Login
 			else if(method.equalsIgnoreCase("Contract"))
 			{
 				LoginPOM.ClickContract(driver).click();			//Clicking on Litigation Image.
+			}
+			else if(method.equalsIgnoreCase("richa"))
+			{
+				ArsLocators.clickARS(driver).click();			//Clicking on Litigation Image.
 			}
 			else
 			{
@@ -348,6 +361,20 @@ public class Login
 			ans = "red";
 		if(ans.equalsIgnoreCase("name"))
 			ans = "name";
+		return ans.toLowerCase();							//Returning answer and converting to LowerCase too.  
+	}
+	
+	public static String getAnswerARS(String que)			//Method created to extract last word from question
+	{														//as it is the answer of the question.
+		String last = que.substring(que.lastIndexOf(" "));	//We are selecting word after last " ".
+		int len = last.length();							
+		String ans = last.substring(1, len-1);				//We are neglecting letters from string of position first " " and last "?"
+		if(ans.equalsIgnoreCase("own"))
+			ans = "own";
+		if(ans.equalsIgnoreCase("car"))
+			ans = "car";
+		if(ans.equalsIgnoreCase("pet"))
+			ans = "pet";
 		return ans.toLowerCase();							//Returning answer and converting to LowerCase too.  
 	}
 	
