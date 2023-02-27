@@ -1552,7 +1552,7 @@ WebDriverWait wait = new WebDriverWait(driver, 140);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='k-selectable']")));	//Wait till records table gets visible
 		Thread.sleep(2000);
 		 By locator = By.xpath("//*[@id='grid']/div[4]/table/tbody/tr[1]/td[15]/a");
-
+		
 			wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 			Thread.sleep(4000);
 			List<WebElement> ViewButton = driver.findElements(locator);	
@@ -1605,7 +1605,7 @@ WebDriverWait wait = new WebDriverWait(driver, 140);
 					CFOcountPOM.clickClear(driver).click();
 					Thread.sleep(1000);
 					test.log(LogStatus.PASS, "Clear Button Working");
-			/*	CFOcountPOM.clickAdvancedSearch(driver).click();
+				CFOcountPOM.clickAdvancedSearch(driver).click();
 				Thread.sleep(3000);
 			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//*[@class='k-selectable'])[2]")));	//Wait till records table gets visible
 			Thread.sleep(3000);
@@ -1619,6 +1619,7 @@ WebDriverWait wait = new WebDriverWait(driver, 140);
 			Thread.sleep(5000);
 			CFOcountPOM.closeDocument1(driver).click();
 			Thread.sleep(3000);
+			test.log(LogStatus.PASS, "Advanced Search :- View successfully.");
 			ViewButton1.get(1).click();
 			Thread.sleep(4000);
 			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("DownloadViews1"));
@@ -1627,10 +1628,12 @@ WebDriverWait wait = new WebDriverWait(driver, 140);
 			driver.switchTo().defaultContent();
 			CFOcountPOM.closeDownloadTab1(driver).click();
 			Thread.sleep(3000);
+			test.log(LogStatus.PASS, "Advanced Search :-  File downloaded successfully.");
 			ViewButton1.get(2).click();
 			Thread.sleep(5000);
 			CFOcountPOM.closeDocument2(driver).click();
 			Thread.sleep(5000);
+			test.log(LogStatus.PASS, "Advanced Search :-  OverView successfully.");
 			 By locator3 = By.xpath("//*[@id='sel_chkbx']");
 
 				wait.until(ExpectedConditions.presenceOfElementLocated(locator3));
@@ -1646,8 +1649,10 @@ WebDriverWait wait = new WebDriverWait(driver, 140);
 				Thread.sleep(3000);
 				driver.findElement(By.xpath("//*[@id='dvbtndownloadDocument']")).click();
 				Thread.sleep(4000);
-				CFOcountPOM.closeDocumentAS(driver).click();*/
+				CFOcountPOM.closeDocumentAS(driver).click();
 				Thread.sleep(3000);
+				test.log(LogStatus.PASS, "Advanced Search : - After Checking Multiple checkbox  File downloaded successfully.");
+
 				OverduePOM.clickDashboard(driver).click();
 		
 	}

@@ -23,6 +23,7 @@ import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import cfo.CFOcountPOM;
+import performer.MethodsPOM;
 import performer.OverduePOM;
 
 public class ApprovalcountStatutory {
@@ -190,7 +191,7 @@ public class ApprovalcountStatutory {
 		extent.flush();
 	}
 	
-
+/*
 	
 	@Test(priority = 3)
 	void CategoriesCountMatch() throws InterruptedException
@@ -757,8 +758,8 @@ public class ApprovalcountStatutory {
 		extent.endTest(test);
 		extent.flush();
 	}
-		
-	@Test(priority = 12)
+		*/
+	//@Test(priority = 12)
 	void pendingForReview_PieChart() throws InterruptedException
 	{
 		test = extent.startTest("Pie Chart -Not Completed Status- 'Pending For Review' Count Verification");
@@ -837,7 +838,7 @@ public class ApprovalcountStatutory {
 	}
 	
 	
-	@Test(priority = 13)
+	//@Test(priority = 13)
 	void rejected_PieChart() throws InterruptedException
 	{
 		test = extent.startTest("Pie Chart -Not Completed Status- ' Rejected' Count Verification");
@@ -914,7 +915,7 @@ public class ApprovalcountStatutory {
 		extent.flush();
 	}
 	
-	@Test(priority = 14)
+//	@Test(priority = 14)
 	void RiskSummaryHighStatutory() throws InterruptedException
 	{		
 		test = extent.startTest("Risk Summary - 'High' Count Verification");
@@ -971,7 +972,7 @@ public class ApprovalcountStatutory {
 		extent.flush();
 	}
 	
-	@Test(priority = 15)
+//	@Test(priority = 15)
 	void DepartmentSummaryAccountStatutory() throws InterruptedException
 	{
 		Thread.sleep(2000);		
@@ -1074,7 +1075,7 @@ public class ApprovalcountStatutory {
 		extent.endTest(test);
 		extent.flush();
 	}
-	
+	/*
 	@Test(priority = 16)
 	void NotCompleted_PieChartPeriod() throws InterruptedException
 	{
@@ -1354,8 +1355,8 @@ public class ApprovalcountStatutory {
 		extent.endTest(test);
 		extent.flush();
 	}
-		
-	@Test(priority = 19)
+		*/
+//	@Test(priority = 19)
 	void pendingForReview_PieChartPeriod() throws InterruptedException
 	{
 		test = extent.startTest("Period-Pie Chart -Not Completed Status- 'Pending For Review' Count Verification");
@@ -1454,7 +1455,7 @@ public class ApprovalcountStatutory {
 		extent.flush();
 	}
 	
-	@Test(priority = 20)
+	//@Test(priority = 20)
 	void GradingReportStatutory() throws InterruptedException, IOException
 	{
 		Thread.sleep(500);		
@@ -1501,7 +1502,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[12]/a");
 		extent.flush();
 	}
 	
-	@Test(priority = 21)
+	//@Test(priority = 21)
 	void complianceCalendar() throws InterruptedException
 	{
 		test = extent.startTest("compliance Calendar Verifications");
@@ -1574,7 +1575,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 			extent.flush();
 	}
 	
-		@Test(priority = 22)
+	//	@Test(priority = 22)
 	void DailyUpdates() throws InterruptedException, IOException
 	{
 		Thread.sleep(2000);		
@@ -1610,7 +1611,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 		extent.flush();
 	}
 	
-	@Test(priority = 23)
+	//@Test(priority = 23)
 	void NewsLetter() throws InterruptedException, IOException
 	{
 		Thread.sleep(500);		
@@ -1640,7 +1641,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 		extent.endTest(test);
 		extent.flush();
 	}
-	/*
+	
 	@Test(priority = 24)
 	void StandardReportOverall() throws InterruptedException, IOException
 	{
@@ -1943,6 +1944,7 @@ WebDriverWait wait = new WebDriverWait(driver,(140));
 			Thread.sleep(4000);
 			CFOcountPOM.closeDocument1(driver).click();
 			Thread.sleep(3000);
+			test.log(LogStatus.PASS, "View successfully.");
 			ViewButton.get(1).click();
 			Thread.sleep(4000);
 			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("DownloadViews"));
@@ -1951,7 +1953,7 @@ WebDriverWait wait = new WebDriverWait(driver,(140));
 			driver.switchTo().defaultContent();
 			CFOcountPOM.closeDownloadTab(driver).click();
 			Thread.sleep(3000);
-		
+			test.log(LogStatus.PASS, "File Download successfully.");
 			performer.OverduePOM.clickDashboard(driver).click();
 		extent.endTest(test);
 		extent.flush();
@@ -2022,7 +2024,7 @@ WebDriverWait wait = new WebDriverWait(driver,(140));
 	 
 	
 	
-	@Test(priority = 51) // pass
+//	@Test(priority = 51) // pass
 	void MyNotifications() throws InterruptedException, IOException
 	{
 		test = extent.startTest("My Notifications - Verification");
@@ -2051,7 +2053,7 @@ WebDriverWait wait = new WebDriverWait(driver,(140));
 		extent.flush();
 	}
 	
-	@Test(priority = 52) // pass
+//	@Test(priority = 52) // pass
 	void MessageCenter() throws InterruptedException, IOException
 	{
 		test = extent.startTest(" Message Center - Verification");
@@ -2068,9 +2070,9 @@ WebDriverWait wait = new WebDriverWait(driver,(140));
 		extent.endTest(test);
 		extent.flush();
 	}
-	*/
 	
-	@Test(priority = 53) 
+	
+	//@Test(priority = 53) 
 	void DetailedReportRe() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Detailed Report -Reopen Verification");

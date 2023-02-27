@@ -1,29 +1,125 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+<testng-results ignored="0" total="27" passed="27" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-02-24T18:23:37 IST" name="Default suite" finished-at="2023-02-24T18:24:32 IST" duration-ms="54552">
+  <suite started-at="2023-02-27T18:00:49 IST" name="Default suite" finished-at="2023-02-27T18:29:05 IST" duration-ms="1696087">
     <groups>
     </groups>
-    <test started-at="2023-02-24T18:23:37 IST" name="Default test" finished-at="2023-02-24T18:24:32 IST" duration-ms="54552">
-      <class name="arsProduct.ArsTestCase">
-        <test-method is-config="true" signature="setBrowser()[pri:0, instance:arsProduct.ArsTestCase@3b6ddd1d]" started-at="2023-02-24T18:23:37 IST" name="setBrowser" finished-at="2023-02-24T18:23:43 IST" duration-ms="6023" status="PASS">
+    <test started-at="2023-02-27T18:00:49 IST" name="Default test" finished-at="2023-02-27T18:29:05 IST" duration-ms="1696087">
+      <class name="approval.ApprovalcountStatutory">
+        <test-method is-config="true" signature="setBrowser()[pri:0, instance:approval.ApprovalcountStatutory@48f278eb]" started-at="2023-02-27T18:00:49 IST" name="setBrowser" finished-at="2023-02-27T18:00:56 IST" duration-ms="6575" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setBrowser -->
-        <test-method signature="Login()[pri:1, instance:arsProduct.ArsTestCase@3b6ddd1d]" started-at="2023-02-24T18:23:43 IST" name="Login" finished-at="2023-02-24T18:24:02 IST" duration-ms="19189" status="PASS">
+        <test-method signature="Login()[pri:1, instance:approval.ApprovalcountStatutory@48f278eb]" started-at="2023-02-27T18:00:56 IST" name="Login" finished-at="2023-02-27T18:01:23 IST" duration-ms="27809" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method signature="ReAssign()[pri:8, instance:arsProduct.ArsTestCase@3b6ddd1d]" started-at="2023-02-24T18:24:02 IST" name="ReAssign" finished-at="2023-02-24T18:24:21 IST" duration-ms="18895" status="PASS">
+        <test-method signature="StandardReportOverall()[pri:24, instance:approval.ApprovalcountStatutory@48f278eb]" started-at="2023-02-27T18:01:23 IST" name="StandardReportOverall" finished-at="2023-02-27T18:02:17 IST" duration-ms="53410" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- ReAssign -->
-        <test-method signature="DeleteProcess()[pri:9, instance:arsProduct.ArsTestCase@3b6ddd1d]" started-at="2023-02-24T18:24:21 IST" name="DeleteProcess" finished-at="2023-02-24T18:24:32 IST" duration-ms="10362" status="PASS">
+        </test-method> <!-- StandardReportOverall -->
+        <test-method signature="StandardReportLocation()[pri:25, instance:approval.ApprovalcountStatutory@48f278eb]" started-at="2023-02-27T18:02:17 IST" name="StandardReportLocation" finished-at="2023-02-27T18:03:11 IST" duration-ms="54418" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- DeleteProcess -->
-      </class> <!-- arsProduct.ArsTestCase -->
+        </test-method> <!-- StandardReportLocation -->
+        <test-method signature="StandardReportUser()[pri:26, instance:approval.ApprovalcountStatutory@48f278eb]" started-at="2023-02-27T18:03:11 IST" name="StandardReportUser" finished-at="2023-02-27T18:04:05 IST" duration-ms="53368" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- StandardReportUser -->
+        <test-method signature="StandardReportCategory()[pri:27, instance:approval.ApprovalcountStatutory@48f278eb]" started-at="2023-02-27T18:04:05 IST" name="StandardReportCategory" finished-at="2023-02-27T18:04:58 IST" duration-ms="53885" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- StandardReportCategory -->
+        <test-method signature="StandardReportRisk()[pri:28, instance:approval.ApprovalcountStatutory@48f278eb]" started-at="2023-02-27T18:04:58 IST" name="StandardReportRisk" finished-at="2023-02-27T18:05:54 IST" duration-ms="55177" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- StandardReportRisk -->
+        <test-method signature="StandardReportDetailed()[pri:29, instance:approval.ApprovalcountStatutory@48f278eb]" started-at="2023-02-27T18:05:54 IST" name="StandardReportDetailed" finished-at="2023-02-27T18:06:35 IST" duration-ms="40951" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- StandardReportDetailed -->
+        <test-method signature="StandardReportCriticalRisk()[pri:30, instance:approval.ApprovalcountStatutory@48f278eb]" started-at="2023-02-27T18:06:35 IST" name="StandardReportCriticalRisk" finished-at="2023-02-27T18:07:28 IST" duration-ms="53325" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- StandardReportCriticalRisk -->
+        <test-method signature="StandardReportDepartment()[pri:31, instance:approval.ApprovalcountStatutory@48f278eb]" started-at="2023-02-27T18:07:28 IST" name="StandardReportDepartment" finished-at="2023-02-27T18:08:11 IST" duration-ms="42630" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- StandardReportDepartment -->
+        <test-method signature="StandardReportOverallIN()[pri:32, instance:approval.ApprovalcountStatutory@48f278eb]" started-at="2023-02-27T18:08:11 IST" name="StandardReportOverallIN" finished-at="2023-02-27T18:09:07 IST" duration-ms="56072" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- StandardReportOverallIN -->
+        <test-method signature="StandardReportLocationIN()[pri:33, instance:approval.ApprovalcountStatutory@48f278eb]" started-at="2023-02-27T18:09:07 IST" name="StandardReportLocationIN" finished-at="2023-02-27T18:10:04 IST" duration-ms="56855" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- StandardReportLocationIN -->
+        <test-method signature="StandardReportUserIn()[pri:34, instance:approval.ApprovalcountStatutory@48f278eb]" started-at="2023-02-27T18:10:04 IST" name="StandardReportUserIn" finished-at="2023-02-27T18:11:01 IST" duration-ms="57147" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- StandardReportUserIn -->
+        <test-method signature="StandardReportCategoryIn()[pri:35, instance:approval.ApprovalcountStatutory@48f278eb]" started-at="2023-02-27T18:11:01 IST" name="StandardReportCategoryIn" finished-at="2023-02-27T18:12:03 IST" duration-ms="62750" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- StandardReportCategoryIn -->
+        <test-method signature="StandardReportRiskIN()[pri:36, instance:approval.ApprovalcountStatutory@48f278eb]" started-at="2023-02-27T18:12:03 IST" name="StandardReportRiskIN" finished-at="2023-02-27T18:13:00 IST" duration-ms="56771" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- StandardReportRiskIN -->
+        <test-method signature="StandardReportDetailedIN()[pri:37, instance:approval.ApprovalcountStatutory@48f278eb]" started-at="2023-02-27T18:13:00 IST" name="StandardReportDetailedIN" finished-at="2023-02-27T18:13:49 IST" duration-ms="48417" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- StandardReportDetailedIN -->
+        <test-method signature="StandardReportCriticalRiskIN()[pri:38, instance:approval.ApprovalcountStatutory@48f278eb]" started-at="2023-02-27T18:13:49 IST" name="StandardReportCriticalRiskIN" finished-at="2023-02-27T18:14:46 IST" duration-ms="57007" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- StandardReportCriticalRiskIN -->
+        <test-method signature="StandardReportDepartmentIN()[pri:39, instance:approval.ApprovalcountStatutory@48f278eb]" started-at="2023-02-27T18:14:46 IST" name="StandardReportDepartmentIN" finished-at="2023-02-27T18:15:30 IST" duration-ms="44249" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- StandardReportDepartmentIN -->
+        <test-method signature="DetailedReport()[pri:40, instance:approval.ApprovalcountStatutory@48f278eb]" started-at="2023-02-27T18:15:30 IST" name="DetailedReport" finished-at="2023-02-27T18:17:50 IST" duration-ms="139648" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- DetailedReport -->
+        <test-method signature="DetailedReportIn()[pri:41, instance:approval.ApprovalcountStatutory@48f278eb]" started-at="2023-02-27T18:17:50 IST" name="DetailedReportIn" finished-at="2023-02-27T18:20:58 IST" duration-ms="188893" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- DetailedReportIn -->
+        <test-method signature="AssignmentReport()[pri:42, instance:approval.ApprovalcountStatutory@48f278eb]" started-at="2023-02-27T18:20:58 IST" name="AssignmentReport" finished-at="2023-02-27T18:21:38 IST" duration-ms="40002" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AssignmentReport -->
+        <test-method signature="ComplianceRepository()[pri:43, instance:approval.ApprovalcountStatutory@48f278eb]" started-at="2023-02-27T18:21:38 IST" name="ComplianceRepository" finished-at="2023-02-27T18:22:12 IST" duration-ms="33869" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ComplianceRepository -->
+        <test-method signature="ComplianceDocuments()[pri:44, instance:approval.ApprovalcountStatutory@48f278eb]" started-at="2023-02-27T18:22:12 IST" name="ComplianceDocuments" finished-at="2023-02-27T18:24:27 IST" duration-ms="134561" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ComplianceDocuments -->
+        <test-method signature="ComplianceDocumentsIN()[pri:45, instance:approval.ApprovalcountStatutory@48f278eb]" started-at="2023-02-27T18:24:27 IST" name="ComplianceDocumentsIN" finished-at="2023-02-27T18:26:45 IST" duration-ms="138147" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ComplianceDocumentsIN -->
+        <test-method signature="CriticalDocuments()[pri:46, instance:approval.ApprovalcountStatutory@48f278eb]" started-at="2023-02-27T18:26:45 IST" name="CriticalDocuments" finished-at="2023-02-27T18:27:44 IST" duration-ms="58509" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CriticalDocuments -->
+        <test-method signature="ActDocuments()[pri:47, instance:approval.ApprovalcountStatutory@48f278eb]" started-at="2023-02-27T18:27:44 IST" name="ActDocuments" finished-at="2023-02-27T18:28:26 IST" duration-ms="42773" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ActDocuments -->
+        <test-method signature="InternalMsg()[pri:49, instance:approval.ApprovalcountStatutory@48f278eb]" started-at="2023-02-27T18:28:26 IST" name="InternalMsg" finished-at="2023-02-27T18:28:49 IST" duration-ms="23191" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- InternalMsg -->
+        <test-method signature="SupportTicket()[pri:50, instance:approval.ApprovalcountStatutory@48f278eb]" started-at="2023-02-27T18:28:49 IST" name="SupportTicket" finished-at="2023-02-27T18:29:05 IST" duration-ms="15548" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SupportTicket -->
+      </class> <!-- approval.ApprovalcountStatutory -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
