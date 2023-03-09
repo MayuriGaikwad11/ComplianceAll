@@ -1,5 +1,6 @@
 package reviewer;
 
+import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
@@ -517,10 +518,32 @@ public class ReMethodsPOM
 		Thread.sleep(500);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@role='grid'][@class='k-selectable']")));
 		Thread.sleep(500);
+		
+		File dir = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+		File[] dirContents = dir.listFiles();						//Counting number of files in directory before download
+		
+		Thread.sleep(500);
+		OverduePOM.Exportbtn(driver).click();				//Exporting (Downloading) file
+		
+		Thread.sleep(3000);
+		File dir1 = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+		File[] allFilesNew = dir1.listFiles();						//Counting number of files in directory after download
+		
+		Thread.sleep(500);
+		
+		if(dirContents.length < allFilesNew.length)
+		{
+			test.log(LogStatus.PASS, " :- File downloaded successfully.");	
+		}	else
+		{
+			test.log(LogStatus.FAIL, " :- File does not downloaded.");
+		}
+		
+		
 	//	elementsList = ReviewerPOM.clickActions(driver);
 	//		elementsList.get(0).click();
 			
-		elementsList = ReviewerPOM.clickStatus(driver);			//CLicking on Status to sort it in ascending order
+	/*	elementsList = ReviewerPOM.clickStatus(driver);			//CLicking on Status to sort it in ascending order
 		elementsList.get(0).click();
 		Thread.sleep(500);
 		int flag = 0;
@@ -702,7 +725,9 @@ public class ReMethodsPOM
 		else
 		{
 			test.log(LogStatus.INFO, "Internal Compliance (Pending for Review) doesn't performed as the Compliance Document didn't found.");
-		}
+		}*/
+		
+		performer.OverduePOM.clickDashboard(driver).click();
 	}
 	
 	public static void CompletedStatutory(WebDriver driver, ExtentTest test)throws InterruptedException
@@ -717,7 +742,28 @@ public class ReMethodsPOM
 		ReviewerPOM.ClickCompletedSta(driver).click();		//Clicking on Statutory Review value.
 		Thread.sleep(1000);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='grid']/div[4]/table")));
-		elementsList = ReviewerPOM.clickOverView(driver);
+		
+		File dir = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+		File[] dirContents = dir.listFiles();						//Counting number of files in directory before download
+		
+		Thread.sleep(500);
+		OverduePOM.Exportbtn(driver).click();				//Exporting (Downloading) file
+		
+		Thread.sleep(3000);
+		File dir1 = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+		File[] allFilesNew = dir1.listFiles();						//Counting number of files in directory after download
+		
+		Thread.sleep(500);
+		
+		if(dirContents.length < allFilesNew.length)
+		{
+			test.log(LogStatus.PASS, " :- File downloaded successfully.");	
+		}	else
+		{
+			test.log(LogStatus.FAIL, " :- File does not downloaded.");
+		}
+		
+	/*	elementsList = ReviewerPOM.clickOverView(driver);
 		elementsList.get(1).click();
 		Thread.sleep(2000);
 		ReviewerPOM.CloseOverview(driver).click();
@@ -759,7 +805,7 @@ public class ReMethodsPOM
 		{
 			test.log(LogStatus.FAIL, "Number of Completed does not matches to Dashboard Completed  Count.");
 			test.log(LogStatus.INFO, "No of Completed in the grid = "+count+" | Dashboard Completed  Count = "+DasCountCompletedSta);
-		}
+		}*/
 		Thread.sleep(2000);
 		OverduePOM.clickDashboard(driver).click();
 		
@@ -779,7 +825,28 @@ public class ReMethodsPOM
 		ReviewerPOM.ClickCompletedIn(driver).click();		//Clicking on Statutory Review value.
 		Thread.sleep(1000);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='grid']/div[4]/table")));
-		elementsList = ReviewerPOM.clickOverView(driver);
+		
+		File dir = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+		File[] dirContents = dir.listFiles();						//Counting number of files in directory before download
+		
+		Thread.sleep(500);
+		OverduePOM.Exportbtn(driver).click();				//Exporting (Downloading) file
+		
+		Thread.sleep(3000);
+		File dir1 = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+		File[] allFilesNew = dir1.listFiles();						//Counting number of files in directory after download
+		
+		Thread.sleep(500);
+		
+		if(dirContents.length < allFilesNew.length)
+		{
+			test.log(LogStatus.PASS, " :- File downloaded successfully.");	
+		}	else
+		{
+			test.log(LogStatus.FAIL, " :- File does not downloaded.");
+		}
+		
+		/*elementsList = ReviewerPOM.clickOverView(driver);
 		elementsList.get(1).click();
 		Thread.sleep(2000);
 		ReviewerPOM.CloseOverview(driver).click();
@@ -821,7 +888,7 @@ public class ReMethodsPOM
 		{
 			test.log(LogStatus.FAIL, "Number of Completed Internal does not matches to Dashboard Completed Internal Count.");
 			test.log(LogStatus.INFO, "No of Completed Internal in the grid = "+count+" | Dashboard Completed Internal Count = "+DasCountCompletedSta);
-		}
+		}*/
 		Thread.sleep(2000);
 		OverduePOM.clickDashboard(driver).click();
 		
@@ -840,7 +907,28 @@ public class ReMethodsPOM
 		ReviewerPOM.ClickOverdueSta(driver).click();		//Clicking on Statutory Review value.
 		Thread.sleep(1000);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='grid']/div[4]/table")));
-		elementsList = ReviewerPOM.clickOverView(driver);
+		
+		File dir = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+		File[] dirContents = dir.listFiles();						//Counting number of files in directory before download
+		
+		Thread.sleep(500);
+		OverduePOM.Exportbtn(driver).click();				//Exporting (Downloading) file
+		
+		Thread.sleep(3000);
+		File dir1 = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+		File[] allFilesNew = dir1.listFiles();						//Counting number of files in directory after download
+		
+		Thread.sleep(500);
+		
+		if(dirContents.length < allFilesNew.length)
+		{
+			test.log(LogStatus.PASS, " :- File downloaded successfully.");	
+		}	else
+		{
+			test.log(LogStatus.FAIL, " :- File does not downloaded.");
+		}
+		
+	/*	elementsList = ReviewerPOM.clickOverView(driver);
 		elementsList.get(1).click();
 		Thread.sleep(2000);
 		ReviewerPOM.CloseOverview(driver).click();
@@ -882,7 +970,7 @@ public class ReMethodsPOM
 		{
 			test.log(LogStatus.FAIL, "Number of Overdue does not matches to Dashboard Overdue  Count.");
 			test.log(LogStatus.INFO, "No of Overdue in the grid = "+count+" | Dashboard Overdue  Count = "+DasCountCompletedSta);
-		}
+		}*/
 		Thread.sleep(2000);
 		OverduePOM.clickDashboard(driver).click();
 		
@@ -902,7 +990,28 @@ public class ReMethodsPOM
 		ReviewerPOM.ClickOverdueIn(driver).click();		//Clicking on Statutory Review value.
 		Thread.sleep(1000);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='grid']/div[4]/table")));
-		elementsList = ReviewerPOM.clickOverView(driver);
+		
+		File dir = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+		File[] dirContents = dir.listFiles();						//Counting number of files in directory before download
+		
+		Thread.sleep(500);
+		OverduePOM.Exportbtn(driver).click();				//Exporting (Downloading) file
+		
+		Thread.sleep(3000);
+		File dir1 = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+		File[] allFilesNew = dir1.listFiles();						//Counting number of files in directory after download
+		
+		Thread.sleep(500);
+		
+		if(dirContents.length < allFilesNew.length)
+		{
+			test.log(LogStatus.PASS, " :- File downloaded successfully.");	
+		}	else
+		{
+			test.log(LogStatus.FAIL, " :- File does not downloaded.");
+		}
+		
+	/*	elementsList = ReviewerPOM.clickOverView(driver);
 		elementsList.get(1).click();
 		Thread.sleep(2000);
 		ReviewerPOM.CloseOverview(driver).click();
@@ -944,11 +1053,92 @@ public class ReMethodsPOM
 		{
 			test.log(LogStatus.FAIL, "Number of Overdue Internal does not matches to Dashboard Overdue Internal Count.");
 			test.log(LogStatus.INFO, "No of Overdue Internal in the grid = "+count+" | Dashboard Overdue Internal Count = "+DasCountCompletedSta);
-		}
+		}*/
 		Thread.sleep(2000);
 		OverduePOM.clickDashboard(driver).click();
 		
 	}
+	
+	public static void  RejectedStatutory(WebDriver driver, ExtentTest test)throws InterruptedException
+	{
+		WebDriverWait wait = new WebDriverWait(driver,  (35));
+		
+		Thread.sleep(1000);
+		wait.until(ExpectedConditions.visibilityOf(ReviewerPOM.ClickRejectedSta(driver)));	//Wait until Internal Pending For Review count gets visible.
+		
+		
+		ReviewerPOM.ClickRejectedSta(driver).click();		//Clicking on Statutory Review value.
+		Thread.sleep(1000);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='grid']/div[4]/table")));
+		
+		File dir = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+		File[] dirContents = dir.listFiles();						//Counting number of files in directory before download
+		
+		Thread.sleep(500);
+		OverduePOM.Exportbtn(driver).click();				//Exporting (Downloading) file
+		
+		Thread.sleep(3000);
+		File dir1 = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+		File[] allFilesNew = dir1.listFiles();						//Counting number of files in directory after download
+		
+		Thread.sleep(500);
+		
+		if(dirContents.length < allFilesNew.length)
+		{
+			test.log(LogStatus.PASS, " :- File downloaded successfully.");	
+		}	else
+		{
+			test.log(LogStatus.FAIL, " :- File does not downloaded.");
+		}
+		
+	
+		Thread.sleep(2000);
+		OverduePOM.clickDashboard(driver).click();
+		
+		
+		
+	}
+	
+	public static void  RejectedInternal(WebDriver driver, ExtentTest test)throws InterruptedException
+	{
+		WebDriverWait wait = new WebDriverWait(driver,  (35));
+		
+		Thread.sleep(1000);
+		wait.until(ExpectedConditions.visibilityOf(ReviewerPOM.ClickRejectedSta(driver)));	//Wait until Internal Pending For Review count gets visible.
+		
+		
+		ReviewerPOM.ClickRejectedIn(driver).click();		//Clicking on Statutory Review value.
+		Thread.sleep(1000);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='grid']/div[4]/table")));
+		
+		File dir = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+		File[] dirContents = dir.listFiles();						//Counting number of files in directory before download
+		
+		Thread.sleep(500);
+		OverduePOM.Exportbtn(driver).click();				//Exporting (Downloading) file
+		
+		Thread.sleep(3000);
+		File dir1 = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+		File[] allFilesNew = dir1.listFiles();						//Counting number of files in directory after download
+		
+		Thread.sleep(500);
+		
+		if(dirContents.length < allFilesNew.length)
+		{
+			test.log(LogStatus.PASS, " :- File downloaded successfully.");	
+		}	else
+		{
+			test.log(LogStatus.FAIL, " :- File does not downloaded.");
+		}
+		
+	
+		Thread.sleep(2000);
+		OverduePOM.clickDashboard(driver).click();
+		
+		
+		
+	}
+	
 	
 	public static void Events(WebDriver driver, ExtentTest test)throws InterruptedException
 	{

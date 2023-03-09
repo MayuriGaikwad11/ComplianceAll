@@ -496,6 +496,18 @@ public class ReviewerPOM
 		return statutoryAction;
 	}
 	
+	public static WebElement ClickRejectedSta(WebDriver driver)		//Searching first checkbox
+	{
+		statutoryAction = driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_divReviewerRejectedPREOcount']"));
+		return statutoryAction;
+	}
+	
+	public static WebElement ClickRejectedIn(WebDriver driver)		//Searching first checkbox
+	{
+		statutoryAction = driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_divReviewerRejectedInternalPREOcount']"));
+		return statutoryAction;
+	}
+	
 	public static WebElement ClickEvents(WebDriver driver)		//Searching first checkbox
 	{
 		statutoryAction = driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_divOverdueEventReviewer']"));

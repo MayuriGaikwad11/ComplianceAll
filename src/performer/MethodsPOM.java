@@ -1,5 +1,9 @@
 package performer;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
@@ -25,6 +29,8 @@ import cfo.CFOcountPOM;
 
 public class MethodsPOM 
 {
+	public static FileInputStream fis = null;
+	public static XSSFWorkbook workbook = null;
 	public static XSSFSheet sheet = null;
 	private static List<WebElement> checkboxesList = null;				//WebElement list created for selecting action button from multiple action buttons
 	private static List<WebElement> elementsList = null;
@@ -178,6 +184,178 @@ public class MethodsPOM
 		Thread.sleep(3000);
 		driver.findElement(By.xpath("//*[@class='k-button k-bare k-button-icon k-window-action']")).click();
 		Thread.sleep(1000);
+	}
+	
+	public static void StatutoryOverdueExport(WebDriver driver,ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
+	{
+			
+		Thread.sleep(3000);
+		File dir = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+		File[] dirContents = dir.listFiles();						//Counting number of files in directory before download
+		
+		Thread.sleep(500);
+		OverduePOM.Exportbtn(driver).click();				//Exporting (Downloading) file
+		
+		Thread.sleep(3000);
+		File dir1 = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+		File[] allFilesNew = dir1.listFiles();						//Counting number of files in directory after download
+		
+		Thread.sleep(5000);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,2000)");						//Scrolling down window by 2600 px.
+				
+		Thread.sleep(2000);
+		CFOcountPOM.readTotalItems1(driver).click();
+		String item1 = CFOcountPOM.readTotalItems1(driver).getText();
+		String[] bits1 = item1.split(" ");								//Splitting the String
+		
+		if(bits1.length > 2)
+		{
+			Thread.sleep(2000);
+			CFOcountPOM.readTotalItems1(driver).click();
+			item1 = CFOcountPOM.readTotalItems1(driver).getText();
+			bits1 = item1.split(" ");								//Splitting the String
+		}
+		String compliancesCount1 = bits1[bits1.length - 2];				//Getting the second last word (total number of users)
+		
+		if(compliancesCount1.equalsIgnoreCase("to"))
+		{
+			Thread.sleep(2000);
+			item1 = CFOcountPOM.readTotalItems1(driver).getText();
+			bits1 = item1.split(" ");									//Splitting the String
+			compliancesCount1 = bits1[bits1.length - 2];
+		}
+		int count = Integer.parseInt(compliancesCount1);
+		
+		if(dirContents.length < allFilesNew.length)
+		{
+			test.log(LogStatus.PASS, " :- File downloaded successfully.");	
+			
+			File lastModifiedFile = allFilesNew[0];			//Storing any 0th index file in 'lastModifiedFile' file name.
+		    for (int i = 1; i < allFilesNew.length; i++) 	//For loop till the number of files in directory.
+		    {
+		       if (lastModifiedFile.lastModified() < allFilesNew[i].lastModified()) 	//If allFilesNew[i] file is having large/latest time time of update then latest modified file be allFilesNew[i] file.
+		       {
+		           lastModifiedFile = allFilesNew[i];
+		       }
+		    }
+			
+			Thread.sleep(500);
+			fis = new FileInputStream(lastModifiedFile);	//Provided last modified / latest downloaded file.
+			workbook = new XSSFWorkbook(fis);
+			sheet = workbook.getSheetAt(0);					//Retrieving first sheet of Workbook
+			Row row4 = sheet.getRow(3);						//Selected 3rd index row (Fourth row)
+			Cell c1 = row4.createCell(0);					//Selected cell (4th row, 1st column)
+			c1.setCellValue("Test");						//Entered temp data at empty row, so that it could make easy to get Last Row Number
+			FileOutputStream fos = new FileOutputStream(lastModifiedFile);
+			workbook.write(fos);
+			fos.close();
+			
+			int no = sheet.getLastRowNum();
+			int SheetRecords = no - 4;						//Sheet have extra 5 lines of information at top (But row count started from 0, so -4)
+			
+			if(SheetRecords == count)
+			{
+				test.log(LogStatus.PASS, " :- No of records displayed = " + count + " matches to No of records in excel sheet = "+SheetRecords);
+			}
+			else
+			{
+				test.log(LogStatus.FAIL, " :- No of records displayed = " + count + " doesn't matches to No of records in excel sheet = "+SheetRecords);
+			}
+		}
+		else
+		{
+			test.log(LogStatus.FAIL, " :- File does not downloaded.");
+		}
+		
+		
+	
+	}
+	
+	public static void StatutoryCheckListExport(WebDriver driver,ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
+	{
+			
+		Thread.sleep(3000);
+		File dir = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+		File[] dirContents = dir.listFiles();						//Counting number of files in directory before download
+		
+		Thread.sleep(500);
+		OverduePOM.Exportbtn1(driver).click();				//Exporting (Downloading) file
+		
+		Thread.sleep(3000);
+		File dir1 = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+		File[] allFilesNew = dir1.listFiles();						//Counting number of files in directory after download
+		
+		Thread.sleep(5000);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,2000)");						//Scrolling down window by 2600 px.
+				
+		Thread.sleep(2000);
+		CFOcountPOM.readTotalItems1(driver).click();
+		String item1 = CFOcountPOM.readTotalItems1(driver).getText();
+		String[] bits1 = item1.split(" ");								//Splitting the String
+		
+		if(bits1.length > 2)
+		{
+			Thread.sleep(2000);
+			CFOcountPOM.readTotalItems1(driver).click();
+			item1 = CFOcountPOM.readTotalItems1(driver).getText();
+			bits1 = item1.split(" ");								//Splitting the String
+		}
+		String compliancesCount1 = bits1[bits1.length - 2];				//Getting the second last word (total number of users)
+		
+		if(compliancesCount1.equalsIgnoreCase("to"))
+		{
+			Thread.sleep(2000);
+			item1 = CFOcountPOM.readTotalItems1(driver).getText();
+			bits1 = item1.split(" ");									//Splitting the String
+			compliancesCount1 = bits1[bits1.length - 2];
+		}
+		int count = Integer.parseInt(compliancesCount1);
+		
+		if(dirContents.length < allFilesNew.length)
+		{
+			test.log(LogStatus.PASS, " :- File downloaded successfully.");	
+			
+			File lastModifiedFile = allFilesNew[0];			//Storing any 0th index file in 'lastModifiedFile' file name.
+		    for (int i = 1; i < allFilesNew.length; i++) 	//For loop till the number of files in directory.
+		    {
+		       if (lastModifiedFile.lastModified() < allFilesNew[i].lastModified()) 	//If allFilesNew[i] file is having large/latest time time of update then latest modified file be allFilesNew[i] file.
+		       {
+		           lastModifiedFile = allFilesNew[i];
+		       }
+		    }
+			
+			Thread.sleep(500);
+			fis = new FileInputStream(lastModifiedFile);	//Provided last modified / latest downloaded file.
+			workbook = new XSSFWorkbook(fis);
+			sheet = workbook.getSheetAt(0);					//Retrieving first sheet of Workbook
+			Row row4 = sheet.getRow(3);						//Selected 3rd index row (Fourth row)
+			Cell c1 = row4.createCell(0);					//Selected cell (4th row, 1st column)
+			c1.setCellValue("Test");						//Entered temp data at empty row, so that it could make easy to get Last Row Number
+			FileOutputStream fos = new FileOutputStream(lastModifiedFile);
+			workbook.write(fos);
+			fos.close();
+			
+			int no = sheet.getLastRowNum();
+			int SheetRecords = no - 4;						//Sheet have extra 5 lines of information at top (But row count started from 0, so -4)
+			
+			if(SheetRecords == count)
+			{
+				test.log(LogStatus.PASS, " :- No of records displayed = " + count + " matches to No of records in excel sheet = "+SheetRecords);
+			}
+			else
+			{
+				test.log(LogStatus.FAIL, " :- No of records displayed = " + count + " doesn't matches to No of records in excel sheet = "+SheetRecords);
+			}
+		}
+		else
+		{
+			test.log(LogStatus.FAIL, " :- File does not downloaded.");
+		}
+		
+		
+	
 	}
 	
 	public static void InternalOverdue(WebDriver driver) throws InterruptedException
@@ -482,10 +660,10 @@ if(action.equalsIgnoreCase("submit")){
 		Thread.sleep(4000);
 		driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_lbtnExportExcel']")).click();
 		Thread.sleep(4000);*/
-		OverduePOM.clickDashboard(driver).click();						//Clicking on Dashboard.
+	//	OverduePOM.clickDashboard(driver).click();						//Clicking on Dashboard.
 	}
 
-	public static void StatutoryCheckListCheckbox(WebDriver driver, ExtentTest test) throws InterruptedException
+	public static void StatutoryCheckListCheckbox(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
 	{
 		//-----------------------------Closed Timely after multiple checkbox click--------------------
 		
@@ -497,6 +675,8 @@ if(action.equalsIgnoreCase("submit")){
 		Thread.sleep(500);
 		
 		CheckList(driver, "Submit");									//Will click on 'Submit' button
+		
+		
 		
 		Thread.sleep(1000);
 		int newStatutoryChecklistValue = Integer.parseInt(OverduePOM.clickStatutoryChecklist(driver).getText());	//Storing new value of Statutory Checkilist.
@@ -533,7 +713,7 @@ if(action.equalsIgnoreCase("submit")){
 			test.log(LogStatus.FAIL, "Test Failed.");
 		}
 		
-	/*	//--------------------------------Not Applicable after multiple checkbox click--------------------
+	/*	//--------------------------------Not Applicable after multiple checkbox click--------------------not count in mannual
 		
 		Thread.sleep(1000);
 		oldStatutoryChecklistValue = Integer.parseInt(OverduePOM.clickStatutoryChecklist(driver).getText());	//Storing old value of Statutory Checkilist.
@@ -555,7 +735,7 @@ if(action.equalsIgnoreCase("submit")){
 		}*/
 	}
 	
-	public static void StatutoryCheckListAction(WebDriver driver, ExtentTest test) throws InterruptedException
+	public static void StatutoryCheckListAction(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
 	{
 		
 		//---------------------------Submit after Action button click--------------------------
@@ -565,9 +745,13 @@ if(action.equalsIgnoreCase("submit")){
 		
 		OverduePOM.clickStatutoryChecklist(driver).click();				//Clicking on Statutory Checklist value
 		
-		Action(driver, "Submit", "iPerformerFrame");					//Will click on 'Action' button
-		
+	//	Action(driver, "Submit", "iPerformerFrame");					//Will click on 'Action' button
+		Thread.sleep(2000);
+		MethodsPOM.StatutoryCheckListExport(driver,test,workbook);	
+		Thread.sleep(500);
+		OverduePOM.clickDashboard(driver).click();						//Click on Dashboard
 		Thread.sleep(1000);
+	/*	Thread.sleep(1000);
 		int newStatutoryChecklistValue = Integer.parseInt(OverduePOM.clickStatutoryChecklist(driver).getText());	//Storing new value of Statutory Checkilist.
 		
 		if(newStatutoryChecklistValue < oldStatutoryChecklistValue)
@@ -600,7 +784,7 @@ if(action.equalsIgnoreCase("submit")){
 					test.log(LogStatus.FAIL, "Test Failed.");
 				}
 		
-		
+		*/
 		
 		//--------------------------------Not Applicable after Action button click--------------------------
 		/*
@@ -689,7 +873,7 @@ if(action.equalsIgnoreCase("submit")){
 		*/
 	}
 	
-	public static void InternalCheckListAction(WebDriver driver, ExtentTest test) throws InterruptedException
+	public static void InternalCheckListAction(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
 	{
 		//--------------------------------Submit after Action button click------------------------------
 		
@@ -705,7 +889,7 @@ if(action.equalsIgnoreCase("submit")){
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='grid']/div[4]"))); //Waiting until grid/kendo gets visible.
 		
 		Thread.sleep(3000);
-		js.executeScript("window.scrollBy(0,2000)");
+		/*
 		Thread.sleep(3000);
 		wait.until(ExpectedConditions.visibilityOfAllElements(OverduePOM.clickStatutoryChecklistAction(driver).get(0)));	//Waiting until all Action buttons get visible.
 		OverduePOM.clickStatutoryChecklistAction(driver).get(0).click();	//Clicking on first Action button inside Internal Checklist click (Using Statutory xpath)
@@ -757,7 +941,7 @@ if(action.equalsIgnoreCase("submit")){
 		driver.switchTo().parentFrame();								//Switching back to parent frame.
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//*[@class='k-button k-bare k-button-icon k-window-action']")).click();
-		Thread.sleep(4000);
+		Thread.sleep(4000);*/
 	/*	By locator = By.xpath("//*[@id='sel_chkbx']");
 		
 		wait.until(ExpectedConditions.presenceOfElementLocated(locator));
@@ -782,9 +966,12 @@ if(action.equalsIgnoreCase("submit")){
 		Thread.sleep(4000);
 		*/
 		Thread.sleep(2000);
+		MethodsPOM.StatutoryCheckListExport(driver,test,workbook);	
+		Thread.sleep(500);
+		Thread.sleep(2000);
 		OverduePOM.clickDashboard(driver).click();						//Click on Dashboard
 		Thread.sleep(1000);
-		int newInternalChecklistValue = Integer.parseInt(OverduePOM.clickInternalChecklist(driver).getText());	//Storing old value of Statutory Checkilist.
+	/*	int newInternalChecklistValue = Integer.parseInt(OverduePOM.clickInternalChecklist(driver).getText());	//Storing old value of Statutory Checkilist.
 		
 		if(newInternalChecklistValue < oldInternalChecklistValue)
 		{
@@ -877,7 +1064,7 @@ if(action.equalsIgnoreCase("submit")){
 					test.log(LogStatus.FAIL, "Test Failed.");
 				}
 				
-		
+		*/
 		//--------------------------------Not Applicable after Action button click--------------------------
 	/*	
 		Thread.sleep(1000);
@@ -1149,7 +1336,7 @@ if(action.equalsIgnoreCase("submit")){
 		
 	}
 	
-	public static void DashboardRejected(WebDriver driver, ExtentTest test, String Compliance) throws InterruptedException
+	public static void DashboardRejected(WebDriver driver, ExtentTest test, String Compliance) throws InterruptedException, IOException
 	{
 		WebDriverWait wait = new WebDriverWait(driver, (30));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='ContentPlaceHolder1_divPerformerRejectedPREOcount']")));	//Waiting for 'Statutory Reject' value to get visible on Dashboard
@@ -1175,6 +1362,7 @@ if(action.equalsIgnoreCase("submit")){
 					break;
 				Thread.sleep(500);
 				OverduePOM.clickInternalRejected(driver).click();			//Clicking on Statutory overdue.
+				Thread.sleep(3000);
 			}
 		}
 		
@@ -1208,9 +1396,13 @@ if(action.equalsIgnoreCase("submit")){
 				test.log(LogStatus.FAIL, "Before Perform ("+ Compliance +"):- Compliances count doesn't matches to Dashboard count. Total Compliances count in the grid = " + count + " | Total Compliances count on Dashboard = " + rejected);
 			}
 			
-			RejectAction(driver, Compliance,test);								//Calling method of Action Button click
+		//	RejectAction(driver, Compliance,test);								//Calling method of Action Button click
 			
-			Thread.sleep(1000);
+			Thread.sleep(2000);
+			MethodsPOM.StatutoryOverdueExport(driver,test,workbook);	
+			Thread.sleep(500);
+			
+		/*	Thread.sleep(1000);
 			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//*[@role='grid'][@data-role='selectable'])[1]")));	//Waiting for records table to get visible.
 			
 			js.executeScript("window.scrollBy(0,1000)");
@@ -1256,12 +1448,15 @@ if(action.equalsIgnoreCase("submit")){
 			else
 			{
 				test.log(LogStatus.FAIL, "After Perform ("+ Compliance +"):- Compliances count doesn't matches to Dashboard count. Total Compliances count in the grid = " + count1 + " | Total Compliances count on Dashboard = " + rejectedNew);
-			}
+			}*/
 		}
 		else
 		{
 			test.log(LogStatus.SKIP, Compliance +" Rejected count = "+rejected);
 		}
+		Thread.sleep(500);
+		OverduePOM.clickDashboard(driver).click();						//Clicking on Dashboard link. 
+		
 	}
 	
 	static void AssignTask(WebDriver driver, String task) throws InterruptedException
@@ -2109,7 +2304,59 @@ if(action.equalsIgnoreCase("submit")){
 		
 	}
 	
-	public static void UpcomingCompliance(WebDriver driver, ExtentTest test, String Compliance) throws InterruptedException
+	public static void PFR(WebDriver driver, ExtentTest test, String Compliance) throws InterruptedException, IOException
+	{
+		WebDriverWait wait = new WebDriverWait(driver, (40));
+		Thread.sleep(500);
+		wait.until(ExpectedConditions.elementToBeClickable(OverduePOM.clickPFRStatutory(driver)));	//Waiting for 'Upcoming Statutory' count to be clickable.
+		
+		int pendingCount = 0;
+		int upcomingStatutory = 0;
+		int pendingCountInternal = 0;
+		int upcomingInternal = 0;
+		
+		if(Compliance.equalsIgnoreCase("Statutory"))
+		{
+		
+			OverduePOM.clickPFRStatutory(driver).click();					//Clicking on Upcoming Statutory count.
+		}
+		else
+		{
+			
+			OverduePOM.clickPFRInternal(driver).click();					//Clicking on Upcoming Statutory count.
+		}
+		
+		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(OverduePOM.checkTable(driver)));	//Waiting for records table to get displayed.
+		
+		File dir = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+		File[] dirContents = dir.listFiles();						//Counting number of files in directory before download
+		
+		Thread.sleep(500);
+		OverduePOM.Exportbtn(driver).click();				//Exporting (Downloading) file
+		
+		Thread.sleep(3000);
+		File dir1 = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+		File[] allFilesNew = dir1.listFiles();						//Counting number of files in directory after download
+		
+		Thread.sleep(500);
+		
+		if(dirContents.length < allFilesNew.length)
+		{
+			test.log(LogStatus.PASS, " :- File downloaded successfully.");	
+		}	else
+		{
+			test.log(LogStatus.FAIL, " :- File does not downloaded.");
+		}
+		
+		Thread.sleep(500);
+		OverduePOM.clickDashboard(driver).click();	
+		Thread.sleep(500);
+		
+	
+	}
+	
+	public static void UpcomingCompliance(WebDriver driver, ExtentTest test, String Compliance, XSSFWorkbook workbook) throws InterruptedException, IOException
 	{
 		WebDriverWait wait = new WebDriverWait(driver, (40));
 		Thread.sleep(500);
@@ -2142,6 +2389,47 @@ if(action.equalsIgnoreCase("submit")){
 		Thread.sleep(500);
 	driver.findElement(By.xpath("//div[@class = 'k-multiselect-wrap k-floatwrap']")).click();
 		
+	/*	Thread.sleep(500);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,2000)");						//Scrolling down window by 2600 px.
+		
+		OverduePOM.clickAdvancedSearch(driver);//.sendKeys(Keys.PAGE_UP);
+		//OverduePOM.clickAdvancedSearch(driver).sendKeys(Keys.PAGE_DOWN);
+	//	OverduePOM.clickAdvancedSearch(driver).sendKeys(Keys.PAGE_DOWN);
+		
+		Thread.sleep(2000);
+		CFOcountPOM.readTotalItems1(driver).click();
+		String item1 = CFOcountPOM.readTotalItems1(driver).getText();
+		String[] bits1 = item1.split(" ");								//Splitting the String
+		
+		if(bits1.length > 2)
+		{
+			Thread.sleep(2000);
+			CFOcountPOM.readTotalItems1(driver).click();
+			item1 = CFOcountPOM.readTotalItems1(driver).getText();
+			bits1 = item1.split(" ");								//Splitting the String
+		}
+		String compliancesCount1 = bits1[bits1.length - 2];				//Getting the second last word (total number of users)
+		
+		if(compliancesCount1.equalsIgnoreCase("to"))
+		{
+			Thread.sleep(2000);
+			item1 = CFOcountPOM.readTotalItems1(driver).getText();
+			bits1 = item1.split(" ");									//Splitting the String
+			compliancesCount1 = bits1[bits1.length - 2];
+		}
+		int count = Integer.parseInt(compliancesCount1);
+		*/
+		File dir = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+		File[] dirContents = dir.listFiles();						//Counting number of files in directory before download
+		
+		Thread.sleep(500);
+		OverduePOM.Exportbtn(driver).click();				//Exporting (Downloading) file
+		
+		Thread.sleep(3000);//C://Users//jiya//Downloads//
+		File dir1 = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+		File[] allFilesNew = dir1.listFiles();						//Counting number of files in directory after download
+		
 		Thread.sleep(500);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,2000)");						//Scrolling down window by 2600 px.
@@ -2172,6 +2460,49 @@ if(action.equalsIgnoreCase("submit")){
 			compliancesCount1 = bits1[bits1.length - 2];
 		}
 		int count = Integer.parseInt(compliancesCount1);
+		
+		if(dirContents.length < allFilesNew.length)
+		{
+			test.log(LogStatus.PASS, " :- File downloaded successfully.");	
+			
+			File lastModifiedFile = allFilesNew[0];			//Storing any 0th index file in 'lastModifiedFile' file name.
+		    for (int i = 1; i < allFilesNew.length; i++) 	//For loop till the number of files in directory.
+		    {
+		       if (lastModifiedFile.lastModified() < allFilesNew[i].lastModified()) 	//If allFilesNew[i] file is having large/latest time time of update then latest modified file be allFilesNew[i] file.
+		       {
+		           lastModifiedFile = allFilesNew[i];
+		       }
+		    }
+			
+			Thread.sleep(500);
+			fis = new FileInputStream(lastModifiedFile);	//Provided last modified / latest downloaded file.
+			workbook = new XSSFWorkbook(fis);
+			sheet = workbook.getSheetAt(0);					//Retrieving first sheet of Workbook
+			Row row4 = sheet.getRow(3);						//Selected 3rd index row (Fourth row)
+			Cell c1 = row4.createCell(0);					//Selected cell (4th row, 1st column)
+			c1.setCellValue("Test");						//Entered temp data at empty row, so that it could make easy to get Last Row Number
+			FileOutputStream fos = new FileOutputStream(lastModifiedFile);
+			workbook.write(fos);
+			fos.close();
+			
+			int no = sheet.getLastRowNum();
+			int SheetRecords = no - 4;						//Sheet have extra 5 lines of information at top (But row count started from 0, so -4)
+			
+			if(SheetRecords == count)
+			{
+				test.log(LogStatus.PASS, " :- No of records displayed = " + count + " matches to No of records in excel sheet = "+SheetRecords);
+			}
+			else
+			{
+				test.log(LogStatus.FAIL, " :- No of records displayed = " + count + " doesn't matches to No of records in excel sheet = "+SheetRecords);
+			}
+		}
+		else
+		{
+			test.log(LogStatus.FAIL, " :- File does not downloaded.");
+		}
+		
+	/*	
 		if(Compliance.equalsIgnoreCase("Statutory"))
 		{
 			if(upcomingStatutory == count)
@@ -2537,8 +2868,54 @@ if(action.equalsIgnoreCase("submit")){
 				test.log(LogStatus.FAIL, "After Perform :- 'Pending for Review' Internal count doesn't increased.");
 				test.log(LogStatus.INFO, "Old Compliance Count = "+pendingCountInternal+" | New Compliance Count = "+pendingcount1);
 			}
-		}
+		}*/
+		OverduePOM.clickDashboard(driver).click();	
 	}
+	public static void WorkspaceADExportStatutory(WebDriver driver, ExtentTest test)throws InterruptedException
+	{
+		WebDriverWait wait = new WebDriverWait(driver, (30));
+		Thread.sleep(500);
+		OverduePOM.clickMyWorkspace(driver).click();		//Clicking on 'My Workspace'
+		
+		Thread.sleep(500);
+		OverduePOM.clickCompliance(driver).click();			//Clicking on 'Compliance' under My Workspace
+		
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//*[@role='grid'][@data-role='selectable'])[1]")));	//Waiting for records table to get visible.
+
+		Thread.sleep(500);
+		OverduePOM.clickAdvancedSearch(driver).click();			//Clicking on 'Compliance' under My Workspace
+		Thread.sleep(2000);
+		File dir = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+		File[] dirContents = dir.listFiles();						//Counting number of files in directory before download
+		
+		Thread.sleep(500);
+		OverduePOM.ASExportbtn(driver).click();				//Exporting (Downloading) file
+		
+		Thread.sleep(3000);
+		File dir1 = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+		File[] allFilesNew = dir1.listFiles();						//Counting number of files in directory after download
+		
+		Thread.sleep(500);
+		
+		if(dirContents.length < allFilesNew.length)
+		{
+			test.log(LogStatus.PASS, " :- File downloaded successfully.");	
+		}	else
+		{
+			test.log(LogStatus.FAIL, " :- File does not downloaded.");
+		}
+		
+		Thread.sleep(500);
+		OverduePOM.clickClose1(driver).click();	
+		Thread.sleep(500);
+		
+		Thread.sleep(500);
+		OverduePOM.clickDashboard(driver).click();	
+		Thread.sleep(500);
+		
+		
+	}
+	
 
 	public static void WorkspaceOverdueStatutory(WebDriver driver, ExtentTest test)throws InterruptedException
 	{
@@ -2603,6 +2980,63 @@ if(action.equalsIgnoreCase("submit")){
 			test.log(LogStatus.FAIL, "My Workspace - Statutory Overdue count doen not matches to Dashboard Statutory Overdue count.");
 			test.log(LogStatus.INFO, "My Workspace - Statutory Overdue count = " + count + " | Dashboard Statutory Overdue count = "+overdueStatutory);
 		}
+	}
+	
+	public static void WorkspaceADExportInternal(WebDriver driver, ExtentTest test)throws InterruptedException
+	{
+		WebDriverWait wait = new WebDriverWait(driver, (30));
+		Thread.sleep(500);
+		OverduePOM.clickMyWorkspace(driver).click();		//Clicking on 'My Workspace'
+		
+		Thread.sleep(500);
+		OverduePOM.clickCompliance(driver).click();			//Clicking on 'Compliance' under My Workspace
+		
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//*[@role='grid'][@data-role='selectable'])[1]")));	//Waiting for records table to get visible.
+
+		Thread.sleep(500);
+		OverduePOM.clickAdvancedSearch(driver).click();			//Clicking on 'Compliance' under My Workspace
+		Thread.sleep(2000);
+		
+		OverduePOM.ComplianceType1(driver).click();			//Clicking on 'Compliance' under My Workspace
+		
+		Thread.sleep(500);
+		OverduePOM.SelectAll(driver).click();			//Clicking on 'Compliance' under My Workspace
+		Thread.sleep(2000);
+		OverduePOM.SelectAll(driver).click();			//Clicking on 'Compliance' under My Workspace
+		Thread.sleep(2000);
+		
+		OverduePOM.SelectInternal1(driver).click();			//Clicking on 'Compliance' under My Workspace
+		Thread.sleep(2000);
+		
+		File dir = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+		File[] dirContents = dir.listFiles();						//Counting number of files in directory before download
+		
+		Thread.sleep(500);
+		OverduePOM.ASExportbtn(driver).click();				//Exporting (Downloading) file
+		
+		Thread.sleep(3000);
+		File dir1 = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+		File[] allFilesNew = dir1.listFiles();						//Counting number of files in directory after download
+		
+		Thread.sleep(500);
+		
+		if(dirContents.length < allFilesNew.length)
+		{
+			test.log(LogStatus.PASS, " :- File downloaded successfully.");	
+		}	else
+		{
+			test.log(LogStatus.FAIL, " :- File does not downloaded.");
+		}
+		
+		Thread.sleep(2000);
+		OverduePOM.clickClose1(driver).click();	
+		Thread.sleep(500);
+		
+		Thread.sleep(500);
+		OverduePOM.clickDashboard(driver).click();	
+		Thread.sleep(500);
+		
+		
 	}
 	
 	public static void WorkspaceOverdueInternal(WebDriver driver, ExtentTest test)throws InterruptedException

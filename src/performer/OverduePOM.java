@@ -1,7 +1,5 @@
 package performer;
 
-import java.io.IOException;
-import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -71,6 +69,24 @@ public class OverduePOM
 	public static WebElement ComplianceType(WebDriver driver)		//Method for clicking on Statutory Overdue value
 	{
 		overdue = driver.findElement(By.xpath("//*[@id='example']/div/div[1]/div[3]/div/div/span[1]"));
+		return overdue;
+	}
+	
+	public static WebElement ComplianceType1(WebDriver driver)		//Method for clicking on Statutory Overdue value
+	{
+		overdue = driver.findElement(By.xpath("//*[@id='dvdropdownlistComplianceType1']/div/div/span[1]"));
+		return overdue;
+	}
+	
+	public static WebElement SelectAll(WebDriver driver)		//Method for clicking on Statutory Overdue value
+	{
+		overdue = driver.findElement(By.xpath("/html/body/div[22]/div/div[1]/span"));
+		return overdue;
+	}
+	
+	public static WebElement SelectInternal1(WebDriver driver)		//Method for clicking on Statutory Overdue value
+	{
+		overdue = driver.findElement(By.xpath("(//*[@class='k-checkbox-label checkbox-span'])[33]"));
 		return overdue;
 	}
 	
@@ -274,6 +290,13 @@ public class OverduePOM
 	{
 	
 		dashboard = driver.findElement(By.xpath("//*[@id='btnCancel']"));
+		return dashboard;
+	}
+	
+	public static WebElement clickClose1(WebDriver driver)
+	{
+	
+		dashboard = driver.findElement(By.xpath("/html/body/div[38]/div[1]/div/a"));
 		return dashboard;
 	}
 	
@@ -1456,6 +1479,8 @@ public class OverduePOM
 		return performer;
 	}
 	
+	
+	
 	public static WebElement clickNoMsg(WebDriver driver)				//Searching No Message box
 	{
 		performer = driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_txtNoMessage']"));
@@ -1715,6 +1740,18 @@ public class OverduePOM
 	public static WebElement clickUpcomingStatutory(WebDriver driver)	//
 	{
 		performer = driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_divupcomingPREOcount']"));
+		return performer;
+	}
+	
+	public static WebElement clickPFRStatutory(WebDriver driver)	//
+	{
+		performer = driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_divPerformerPendingforReviewPREOcount']"));
+		return performer;
+	}
+	
+	public static WebElement clickPFRInternal(WebDriver driver)	//
+	{
+		performer = driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_divPerformerPendingforRevieweInternalPREOcount']"));
 		return performer;
 	}
 	
@@ -2095,6 +2132,25 @@ public class OverduePOM
 		performer = driver.findElement(By.xpath("//*[@id='collapsePerformerCalender']/div/div[1]/div[1]/div/div[3]/div[16]/a"));
 		return performer;
 	}
+	
+	public static WebElement Exportbtn(WebDriver driver)	//
+	{
+		performer = driver.findElement(By.xpath("//*[@id='Exportbtn']"));
+		return performer;
+	}
+	
+	public static WebElement ASExportbtn(WebDriver driver)	//
+	{
+		performer = driver.findElement(By.xpath("//*[@id='Exportbtn1']"));
+		return performer;
+	}
+	
+	public static WebElement Exportbtn1(WebDriver driver)	//
+	{
+		performer = driver.findElement(By.xpath("//*[@id='exportAdvanced']"));
+		return performer;
+	}
+	
 	
 	public static WebElement clickInterBtnCale(WebDriver driver)	//
 	{

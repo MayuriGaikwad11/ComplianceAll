@@ -370,8 +370,7 @@ public class ImplementMethods {
 		Thread.sleep(500);
 		ImplementPOM.ClickUsers(driver).click();
 		Thread.sleep(500);
-		ImplementPOM.UploadFile(driver)
-				.sendKeys("C:\\Users\\Mayuri Gaikwad\\Downloads\\SampleUserBranchUploadFormat (1)A.xlsx");
+		ImplementPOM.UploadFile(driver).sendKeys("C:\\Users\\Mayuri Gaikwad\\Downloads\\SampleUserBranchUploadFormat (1)A.xlsx");
 		Thread.sleep(1000);
 
 		ImplementPOM.clickUpload(driver).click();
@@ -385,8 +384,7 @@ public class ImplementMethods {
 		Thread.sleep(500);
 		ImplementPOM.ClickBranches(driver).click();
 		Thread.sleep(500);
-		ImplementPOM.UploadFile(driver)
-				.sendKeys("C:\\Users\\Mayuri Gaikwad\\Downloads\\SampleUserBranchUploadFormat (1)A.xlsx");
+		ImplementPOM.UploadFile(driver).sendKeys("C:\\Users\\Mayuri Gaikwad\\Downloads\\SampleUserBranchUploadFormat (1)A.xlsx");
 		Thread.sleep(1000);
 		ImplementPOM.clickUpload(driver).click();
 		Thread.sleep(4000);

@@ -429,6 +429,14 @@ public class ApprovalcountPOM {
 		
 		Thread.sleep(4000);
 		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));	//Switching to iFrame.
+		Thread.sleep(8000);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,300)");	
+		Thread.sleep(5000);
+		CFOcountPOM.readTotalItemsD(driver).click();					//Clicking on Text of total items just to scroll down.
+		String s = CFOcountPOM.readTotalItemsD(driver).getText();
+		if(!s.equalsIgnoreCase("No items to display")) {
+		Thread.sleep(5000);
 		try
 		{
 			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//table[@class='k-selectable']")));	//Wait until records table get visible.
@@ -468,7 +476,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[19]/a");
 			Thread.sleep(3000);	
 	
 		Thread.sleep(1000);
-		JavascriptExecutor js = (JavascriptExecutor) driver;
+	//	JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,300)");						//Scrolling down window by 1000 px.
 		Thread.sleep(1000);
 		CFOcountPOM.readTotalItemsD(driver).click();					//Clicking on Text of total items just to scroll down.
@@ -502,6 +510,18 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[19]/a");
 		{
 			test.log(LogStatus.FAIL, "'"+ComplianceType+"' Complaince Count doesn't matches to number of items from grid.");
 			test.log(LogStatus.FAIL, "'"+ComplianceType+"' Complaince Count = "+ ComplianceCount + " | Total no of items from grid = "+ count1);
+		}
+		}else {
+			
+			Thread.sleep(1000);
+			js.executeScript("window.scrollBy(300,0)");	
+			Thread.sleep(1000);
+			driver.switchTo().parentFrame();
+			CFOcountPOM.closeCategories(driver).click();
+			Thread.sleep(1000);
+			test.log(LogStatus.PASS, "'"+ComplianceType+"'  compliance count matches to numbers of items from grid.= 0");
+			
+			
 		}
 	}
 	
@@ -611,6 +631,14 @@ Thread.sleep(5000);
 		
 		Thread.sleep(4000);
 		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));	//Switching to iFrame.
+		Thread.sleep(8000);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,300)");	
+		Thread.sleep(5000);
+		CFOcountPOM.readTotalItemsD(driver).click();					//Clicking on Text of total items just to scroll down.
+		String s = CFOcountPOM.readTotalItemsD(driver).getText();
+		if(!s.equalsIgnoreCase("No items to display")) {
+		Thread.sleep(5000);
 		try
 		{
 			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//table[@class='k-selectable']")));	//Wait until records table get visible.
@@ -638,25 +666,14 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[2]/td[19]/a[1]");
 		Thread.sleep(2000);
 		jse.executeScript("arguments[0].click();", ViewButton);
 			Thread.sleep(4000);
-			test.log(LogStatus.PASS, "overView success");
+			test.log(LogStatus.PASS, "overView Successfully");
 			CFOcountPOM.closeDocument(driver).click();
 			Thread.sleep(3000);
 		
 		
-	//	elementsList = CFOcountPOM.selectDropdown(driver);				//It is a dropdown but don't have Select tag.
-		//elementsList.get(0).click();									//Clicking on first dropdown
-		Thread.sleep(500);
-	/*	if(Complaince.equalsIgnoreCase("Internal"))
-		{
-			action.moveToElement(CFOcountPOM.selectFirst1(driver)).click().build().perform();	//Selecting first option of the drop down. (ABCD PVT LTD)
-		}
-		else
-		{
-			action.moveToElement(CFOcountPOM.selectFirst(driver)).click().build().perform();	//Selecting first option of the drop down. (BITA CONSULTING)
-		}*/
-		
+	
 		Thread.sleep(1000);
-		JavascriptExecutor js = (JavascriptExecutor) driver;
+	//	JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,300)");						//Scrolling down window by 1000 px.
 		
 		CFOcountPOM.readTotalItemsD(driver).click();					//Clicking on Text of total items just to scroll down.
@@ -690,6 +707,19 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[2]/td[19]/a[1]");
 		{
 			test.log(LogStatus.FAIL, "'"+ComplianceType+"' Complaince Count doesn't matches to number of items from grid.");
 			test.log(LogStatus.FAIL, "'"+ComplianceType+"' Complaince Count = "+ ComplianceCount + " | Total no of items from grid = "+ count1);
+		}
+		}else {
+			
+			Thread.sleep(1000);
+			js.executeScript("window.scrollBy(300,0)");	
+			Thread.sleep(1000);
+			driver.switchTo().parentFrame();
+			CFOcountPOM.closeCategories(driver).click();
+			Thread.sleep(1000);
+			test.log(LogStatus.PASS, "'"+ComplianceType+"'  compliance count matches to numbers of items from grid.= 0");
+			
+			
+			
 		}
 	}
 	
@@ -1034,15 +1064,17 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[2]/td[19]/a[1]");
 			Thread.sleep(3000);
 			ViewButton.get(0).click();
 			Thread.sleep(4000);
+			test.log(LogStatus.PASS, "View successfully");
 			CFOcountPOM.closeDocument1(driver).click();
 			Thread.sleep(3000);
 			ViewButton.get(1).click();
+			test.log(LogStatus.PASS, "Download Doc successfully");
 			Thread.sleep(4000);
 			ViewButton.get(2).click();
 		//JavascriptExecutor jse=(JavascriptExecutor)driver;
 		//jse.executeScript("arguments[0].click();", ViewButton);
 			Thread.sleep(4000);
-			test.log(LogStatus.PASS, "overView success");
+			test.log(LogStatus.PASS, "overView Successfully");
 			CFOcountPOM.closeDocument(driver).click();
 			Thread.sleep(3000);
 			
@@ -1136,7 +1168,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[2]/td[19]/a[1]");
 		JavascriptExecutor jse=(JavascriptExecutor)driver;
 		jse.executeScript("arguments[0].click();", ViewButton);
 			Thread.sleep(4000);
-			test.log(LogStatus.PASS, "overView success");
+			test.log(LogStatus.PASS, "overView Successfully");
 			CFOcountPOM.closeDocument(driver).click();
 			Thread.sleep(3000);
 			
@@ -1233,10 +1265,12 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[2]/td[19]/a[1]");
 			Thread.sleep(3000);
 			ViewButton.get(0).click();
 			Thread.sleep(4000);
+			test.log(LogStatus.PASS, "View successfully");
 			CFOcountPOM.closeDocument1(driver).click();
 			Thread.sleep(3000);
 			ViewButton.get(1).click();
 			Thread.sleep(4000);
+			test.log(LogStatus.PASS, "Download Doc successfully");
 			ViewButton.get(2).click();
 		//JavascriptExecutor jse=(JavascriptExecutor)driver;
 		//jse.executeScript("arguments[0].click();", ViewButton);

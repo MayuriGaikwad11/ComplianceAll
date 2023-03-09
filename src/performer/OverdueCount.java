@@ -63,7 +63,7 @@ public class OverdueCount
 		//String workingDir = System.getProperty("user.dir");
 		extent = new com.relevantcodes.extentreports.ExtentReports("C:\\Users\\Mayuri Gaikwad\\Desktop\\PerformerPom\\Reports\\PerformerResults.html",true);
 		test = extent.startTest("Verify Browser Opening");
-		test.log(LogStatus.INFO, "Browser test is initiated");
+		test.log(LogStatus.PASS, "Browser test is initiated");
 		
 		XSSFSheet sheet = ReadExcel();
 		Row row0 = sheet.getRow(0);						//Selected 0th index row (First row)
@@ -81,7 +81,7 @@ public class OverdueCount
 	void Login() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Loging In - Performer");
-		test.log(LogStatus.INFO, "Logging into system");
+		test.log(LogStatus.PASS, "Logging into system");
 		
 		XSSFSheet sheet = ReadExcel();
 		Row row1 = sheet.getRow(1);						//Selected 1st index row (Second row)
@@ -117,22 +117,22 @@ public class OverdueCount
 	}
 	
 //	@Test(priority = 2)//pass
-	void Upcoming_ComplianceStatutory() throws InterruptedException
+	void Upcoming_ComplianceStatutory() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Statutory Upcoming Compliance Verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		
 		Thread.sleep(3000);
 		
-		MethodsPOM.UpcomingCompliance(driver, test, "Statutory");
+		MethodsPOM.UpcomingCompliance(driver, test, "Statutory",workbook);
 		extent.endTest(test);
 		extent.flush();
 	}
 	
-	//@Test(priority = 2)//pass
+	//@Test(priority = 3)//pass
 	void Upcoming_ComplianceStatutoryCkeckView() throws InterruptedException
 	{
 		test = extent.startTest("Statutory Upcoming Compliance Check View Button Verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		
 		Thread.sleep(3000);
 		MethodsPOM.UpcomingComplianceADView(driver, test);
 		
@@ -140,28 +140,28 @@ public class OverdueCount
 		extent.flush();
 	}
 	
-//	 @Test(priority = 3) //pass
-	void Upcoming_ComplianceInternal() throws InterruptedException
+//	 @Test(priority = 4) //pass
+	void Upcoming_ComplianceInternal() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Internal Upcoming Compliance Verification");
-		test.log(LogStatus.INFO, "Test Initiated");
 		
-		MethodsPOM.UpcomingCompliance(driver, test, "Internal");
+		
+		MethodsPOM.UpcomingCompliance(driver, test, "Internal",workbook);
 		
 		extent.endTest(test);
 		extent.flush();
 	}
 	 
-//	@Test(priority = 4)
-	void DashboardStatutoryOverdue() throws InterruptedException
+//	@Test(priority = 5)
+	void DashboardStatutoryOverdue() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Dashboard Statutory Overdue Value Verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		
 		
 		WebDriverWait wait = new WebDriverWait(driver,(30));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		
-		test.log(LogStatus.INFO, "***********Statutory Overdue************ ");
+		test.log(LogStatus.PASS, "***********Statutory Overdue************ ");
 		wait.until(ExpectedConditions.visibilityOf(OverduePOM.clickStatutoryOverdue(driver)));
 		
 		String string_overdueStatutory = OverduePOM.clickStatutoryOverdue(driver).getText();		//Storing old value of Statutory overdue.
@@ -173,8 +173,10 @@ public class OverdueCount
 		
 		Thread.sleep(500);
 		litigationPerformer.MethodsPOM.progress(driver);
-		
-		MethodsPOM.StatutoryOverdue(driver);							//Calling method of Statutory Overdue
+		Thread.sleep(2000);
+		MethodsPOM.StatutoryOverdueExport(driver,test,workbook);	
+		Thread.sleep(500);
+	/*	MethodsPOM.StatutoryOverdue(driver);							//Calling method of Statutory Overdue
 		
 		Thread.sleep(3000);		
 		js.executeScript("window.scrollBy(0,2000)");
@@ -233,18 +235,20 @@ public class OverdueCount
 		{
 			test.log(LogStatus.FAIL, "Number of compliances does not matches to Dashboard Statutory Overdue Count.");
 			test.log(LogStatus.INFO, "No of Compliances in the grid = "+count+" | Dashboard Statutory Overdue Count = "+newOverdueStatutory);
-		}
+		}*/
+		OverduePOM.clickDashboard(driver).click();	
+		Thread.sleep(1000);
 		extent.endTest(test);
 		extent.flush();
 	}
 	
-	//@Test(priority = 5)  //pass
-	void DashboardInternalOverdue() throws InterruptedException
+	//@Test(priority = 6)  //pass
+	void DashboardInternalOverdue() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Dashboard Internal Overdue Value Verification");
-		test.log(LogStatus.INFO, "Test Initiated");
 		
-		test.log(LogStatus.INFO, "***********Internal Overdue************ ");
+		
+		test.log(LogStatus.PASS, "***********Internal Overdue************ ");
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		Thread.sleep(1000);
 		String string_internalOverdue = OverduePOM.clickInternalOverdue(driver).getText();		//Storing old value of Statutory overdue.
@@ -257,15 +261,16 @@ public class OverdueCount
 		Thread.sleep(500);
 		litigationPerformer.MethodsPOM.progress(driver);
 		
-		Thread.sleep(1000);		
-		js.executeScript("window.scrollBy(0,1000)");
+		
 		
 		driver.findElement(By.xpath("//*[@id='grid']"));		//Searching grid/kendo.
 		
 		Thread.sleep(2000);
-		MethodsPOM.InternalOverdue(driver);							//Calling InternalOverdue() method.
-		
-		Thread.sleep(3000);		
+	//	MethodsPOM.InternalOverdue(driver);							//Calling InternalOverdue() method.
+		Thread.sleep(2000);
+		MethodsPOM.StatutoryOverdueExport(driver,test,workbook);	
+		Thread.sleep(500);
+	/*	Thread.sleep(3000);		
 		js.executeScript("window.scrollBy(0,3000)");
 		
 		CFOcountPOM.readTotalItems1(driver).click();
@@ -320,16 +325,19 @@ public class OverdueCount
 		{
 			test.log(LogStatus.FAIL, "Number of compliances does not matches to Internal Overdue Count.");
 			test.log(LogStatus.INFO, "No of Compliances in the grid = "+count1+" | Dashboard Internal Overdue Count = "+newOverdueInternal);
-		}
+		}*/
+		Thread.sleep(3000);
+		OverduePOM.clickDashboard(driver).click();						//Clicking on Dashboard link. 
+		
 		extent.endTest(test);
 		extent.flush();
 	}
 	
-	//@Test(priority = 6) //pass
-	void StatutoryChecklistAction() throws InterruptedException
+//	@Test(priority = 7) //pass
+	void StatutoryChecklistAction() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Statutory Checklist Count Through Action");
-		test.log(LogStatus.INFO, "Test Initiated");
+		
 		
 		MethodsPOM.StatutoryCheckListAction(driver, test);
 		
@@ -337,8 +345,8 @@ public class OverdueCount
 		extent.flush();
 	}
 	
-	//@Test(priority = 7) //pass
-	void StatutoryChecklistBox() throws InterruptedException
+	//@Test(priority = 8) //pass
+	void StatutoryChecklistBox() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Statutory Checklist CheckBoxes check ");
 		test.log(LogStatus.INFO, "Test Initiated");
@@ -349,11 +357,11 @@ public class OverdueCount
 		extent.flush();
 	}
 	
-	//@Test(priority = 8)  //pass
-	void InternalCheckListAction() throws InterruptedException
+	//@Test(priority = 9)  //pass
+	void InternalCheckListAction() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Internal Checklist Count Through Action");
-		test.log(LogStatus.INFO, "Test Initiated");
+		
 		
 		MethodsPOM.InternalCheckListAction(driver, test);
 		
@@ -361,7 +369,7 @@ public class OverdueCount
 		extent.flush();
 	}
 	
-	//@Test(priority = 9)  //pass
+	//@Test(priority = 10)  //pass
 	void InternalCheckListCheckBox() throws InterruptedException
 	{
 		test = extent.startTest("Internal Checklist CheckBoxes check");
@@ -373,11 +381,11 @@ public class OverdueCount
 		extent.flush();
 	}
 	
-	//@Test(priority = 8) // pass
-	void DashboardRejectStatutory() throws InterruptedException
+//	@Test(priority =11) // pass
+	void DashboardRejectStatutory() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Statutory Rejected Compliance Count - Dashboard");
-		test.log(LogStatus.INFO, "Test Initiated");
+		
 		
 		MethodsPOM.DashboardRejected(driver, test, "Statutory");
 		
@@ -385,17 +393,66 @@ public class OverdueCount
 		extent.flush();
 	}
 	
-//	@Test(priority = 9)  // pass
-	void DashboardRejectInternal() throws InterruptedException
+//	@Test(priority = 12)  // pass
+	void DashboardRejectInternal() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Internal Rejected Compliance Count - Dashboard");
-		test.log(LogStatus.INFO, "Test Initiated");
+		
 				
 		MethodsPOM.DashboardRejected(driver, test, "Internal");
 		
 		extent.endTest(test);
 		extent.flush();
 	}
+	
+	@Test(priority =13) // pass
+	void DashboardPFRStatutory() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Statutory Pending For Review - Export");
+		
+		
+		MethodsPOM.PFR(driver, test, "Statutory");
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 14)  // pass
+	void DashboardPFRInternal() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Internal Pending For Review - Export");
+		
+				
+		MethodsPOM.PFR(driver, test, "Internal");
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority =15) // pass
+	void WorkspaceADExportStatutory() throws InterruptedException, IOException
+	{
+		test = extent.startTest(" My Workspace - Advanced Search -Statutory -Export");
+		
+		
+		MethodsPOM.WorkspaceADExportStatutory(driver, test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority =16) // pass
+	void WorkspaceADExportInternal() throws InterruptedException, IOException
+	{
+		test = extent.startTest(" My Workspace - Advanced Search -Internal -Export");
+		
+		
+		MethodsPOM.WorkspaceADExportInternal(driver, test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
 	
 	//@Test(priority = 10)  //pass
 	void AssignedEventsSingle() throws InterruptedException
@@ -2037,7 +2094,7 @@ public class OverdueCount
 			
 			 }
 						
-		@Test(priority = 32) //pass fri
+	//	@Test(priority = 32) //pass fri
 	       void ComplianceSatCalender() throws InterruptedException
 				{
 					test = extent.startTest("My Compliance Calender Statutory perform Verification");
