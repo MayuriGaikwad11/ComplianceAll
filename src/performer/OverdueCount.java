@@ -381,7 +381,7 @@ public class OverdueCount
 		extent.flush();
 	}
 	
-//	@Test(priority =11) // pass
+	@Test(priority =11) // pass
 	void DashboardRejectStatutory() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Statutory Rejected Compliance Count - Dashboard");
@@ -393,7 +393,7 @@ public class OverdueCount
 		extent.flush();
 	}
 	
-//	@Test(priority = 12)  // pass
+	@Test(priority = 12)  // pass
 	void DashboardRejectInternal() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Internal Rejected Compliance Count - Dashboard");
@@ -405,7 +405,7 @@ public class OverdueCount
 		extent.flush();
 	}
 	
-	@Test(priority =13) // pass
+	//@Test(priority =13) // pass
 	void DashboardPFRStatutory() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Statutory Pending For Review - Export");
@@ -417,7 +417,7 @@ public class OverdueCount
 		extent.flush();
 	}
 	
-	@Test(priority = 14)  // pass
+//	@Test(priority = 14)  // pass
 	void DashboardPFRInternal() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Internal Pending For Review - Export");
@@ -429,7 +429,7 @@ public class OverdueCount
 		extent.flush();
 	}
 	
-	@Test(priority =15) // pass
+//	@Test(priority =15) // pass
 	void WorkspaceADExportStatutory() throws InterruptedException, IOException
 	{
 		test = extent.startTest(" My Workspace - Advanced Search -Statutory -Export");
@@ -441,7 +441,7 @@ public class OverdueCount
 		extent.flush();
 	}
 	
-	@Test(priority =16) // pass
+//	@Test(priority =16) // pass
 	void WorkspaceADExportInternal() throws InterruptedException, IOException
 	{
 		test = extent.startTest(" My Workspace - Advanced Search -Internal -Export");

@@ -5,12 +5,7 @@
     <classes>
       <class name="cfo.Mgmt">
         <methods>
-          <include name="RiskSummaryHighStatutory"/>
-          <include name="RiskSummaryMediumStatutory"/>
-          <include name="BargraphIndustrySpeMediumStatutory"/>
-          <include name="RiskSummaryCriticalStatutory"/>
-          <include name="BargraphIndustrySpeLowStatutory"/>
-          <include name="RiskSummaryLowStatutory"/>
+          <include name="DepartmentSummaryHumanResourceStatutory"/>
           <include name="setBrowser"/>
         </methods>
       </class> <!-- cfo.Mgmt -->

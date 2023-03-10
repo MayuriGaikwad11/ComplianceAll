@@ -1,5 +1,6 @@
 package cfo;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.Duration;
@@ -22,6 +23,8 @@ import org.testng.annotations.Test;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
+
+import implementation.ImplementPOM;
 
 public class MgmtBita {
 
@@ -107,7 +110,83 @@ public class MgmtBita {
 			
 		}
 	}
+	
+	@Test(priority = 5)
+	void clickPenaltyStatutory() throws InterruptedException
+	{
+		test = extent.startTest("'Penalty' ");
+		//test.log(LogStatus.INFO, "Test Initiated");
+		
+		Thread.sleep(1500);
+	//	String oldStr = CFOcountPOM.readPenaltyCount(driver).getText();
+	//	String newStr = oldStr.replaceAll(",","");		//Removing comma (,) from the read input.
+	//	int valuePenalty = Integer.parseInt(newStr);	//Storing old value of 'Compliances'.
+		
+		CFOcountPOM.readPenaltyCount(driver).click();					//Clicking on 'Penalty'.
+		Thread.sleep(3000);
+		WebDriverWait wait = new WebDriverWait(driver,(30));
+		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));	//Wait until frame get visible and switch to it.
+		Thread.sleep(1000);
+		CFOcountPOM.clickExportImage(driver).click();
+		Thread.sleep(5000);
+		test.log(LogStatus.PASS, "Penalty - Excel file Export Successfully");
+		CFOcountPOM.clickLocationPe(driver).click();
+		Thread.sleep(1000);
+		CFOcountPOM.clickExpand1(driver).click();
+		Thread.sleep(1000);
+		CFOcountPOM.clickABita(driver).click();
+		Thread.sleep(500);
+		CFOcountPOM.clickClear(driver).click();
+		test.log(LogStatus.PASS, " Penalty - Clear Button Working  Successfully");
+		Thread.sleep(1000);
+		CFOcountPOM.clickInterest(driver).click();
+		Thread.sleep(4000);
+		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("IFGradingGraphDisplay"));	//Wait until frame get visible and switch to it.
 
+		File dir = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
+
+		Thread.sleep(1000);
+		CFOcountPOM.clickExportImage(driver).click();
+
+		Thread.sleep(3000);
+		File dir1 = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
+		Thread.sleep(3000);
+		if (dirContents.length < allFilesNew.length) {
+			test.log(LogStatus.PASS, "Interest - Excel File downloaded successfully.");
+		} else {
+			test.log(LogStatus.FAIL,  "  File does not downloaded.");
+		}
+		Thread.sleep(500);
+		Thread.sleep(1000);
+		CFOcountPOM.clickLocationInterest(driver).click();
+		Thread.sleep(2000);
+	//	CFOcountPOM.clickExpand2(driver).click();
+	//	Thread.sleep(1000);
+	//	CFOcountPOM.clickBita(driver).click();
+		//Thread.sleep(2000);
+		if(CFOcountPOM.clickClear(driver).isEnabled()) {
+		CFOcountPOM.clickClear(driver).click();
+		test.log(LogStatus.PASS, " Interest - Clear Button Working  Successfully");
+		Thread.sleep(1000);
+		}
+		driver.switchTo().defaultContent();
+		Thread.sleep(3000);
+		driver.switchTo().defaultContent();
+		Thread.sleep(3000);
+		CFOcountPOM.closeCategories(driver).click();
+		
+		Thread.sleep(3000);
+		
+		//CFOcountPOM.CountPenalty(driver, test, valuePenalty);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	
+/*
 	@Test(priority = 2)
 	void CompliancesCountMatch() throws InterruptedException, IOException
 	{
@@ -474,6 +553,6 @@ public class MgmtBita {
 		extent.endTest(test);
 		extent.flush();
 	}
-		
+		*/
 	
 }

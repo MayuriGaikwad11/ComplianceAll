@@ -964,6 +964,42 @@ public class OverduePOM
 		return performer;
 	}
 	
+	public static WebElement rejectStauDelete(WebDriver driver)	//Searching 'Compliance Type' drop down
+	{
+		performer = driver.findElement(By.xpath("//*[@id='grdDocument_lnkDeleteDocument_0']/img"));
+		return performer;
+	}
+	
+	public static WebElement rejectInDelete(WebDriver driver)	//Searching 'Compliance Type' drop down
+	{
+		performer = driver.findElement(By.xpath("//*[@id='grdInternalDocument_lnkDeleteInternalDocument_0']/img"));
+		return performer;
+	}
+	
+	public static WebElement CloseRS(WebDriver driver)	//Searching 'Compliance Type' drop down
+	{
+		performer = driver.findElement(By.xpath("//*[@id='ComplaincePerformer']/div/div/div[1]/button"));
+		return performer;//*[@id="ComplaincePerformer1"]/div/div/div[1]/button
+	}
+	
+	public static WebElement CloseRADS(WebDriver driver)	//Searching 'Compliance Type' drop down
+	{
+		performer = driver.findElement(By.xpath("//*[@id='ComplaincePerformer1']/div/div/div[1]/button"));
+		return performer;
+	}
+	
+	public static WebElement CloseRIn(WebDriver driver)	//Searching 'Compliance Type' drop down
+	{
+		performer = driver.findElement(By.xpath("//*[@id='ComplainceInternalPerformaer']/div/div/div[1]/button"));
+		return performer;
+	}
+	
+	public static WebElement CloseRADIn(WebDriver driver)	//Searching 'Compliance Type' drop down
+	{
+		performer = driver.findElement(By.xpath("//*[@id='ComplainceInternalPerformaer1']/div/div/div[1]/button"));
+		return performer;
+	}
+	
 	public static WebElement selectInternalType(WebDriver driver)		//Searching 'Compliance Type' drop down
 	{
 		performer = driver.findElement(By.xpath("//*[@id='ddlComType_chosen']/div/ul/li[2]"));

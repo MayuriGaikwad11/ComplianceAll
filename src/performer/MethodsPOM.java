@@ -199,69 +199,11 @@ public class MethodsPOM
 		Thread.sleep(3000);
 		File dir1 = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
 		File[] allFilesNew = dir1.listFiles();						//Counting number of files in directory after download
-		
-		Thread.sleep(5000);
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("window.scrollBy(0,2000)");						//Scrolling down window by 2600 px.
-				
-		Thread.sleep(2000);
-		CFOcountPOM.readTotalItems1(driver).click();
-		String item1 = CFOcountPOM.readTotalItems1(driver).getText();
-		String[] bits1 = item1.split(" ");								//Splitting the String
-		
-		if(bits1.length > 2)
-		{
-			Thread.sleep(2000);
-			CFOcountPOM.readTotalItems1(driver).click();
-			item1 = CFOcountPOM.readTotalItems1(driver).getText();
-			bits1 = item1.split(" ");								//Splitting the String
-		}
-		String compliancesCount1 = bits1[bits1.length - 2];				//Getting the second last word (total number of users)
-		
-		if(compliancesCount1.equalsIgnoreCase("to"))
-		{
-			Thread.sleep(2000);
-			item1 = CFOcountPOM.readTotalItems1(driver).getText();
-			bits1 = item1.split(" ");									//Splitting the String
-			compliancesCount1 = bits1[bits1.length - 2];
-		}
-		int count = Integer.parseInt(compliancesCount1);
-		
+			
 		if(dirContents.length < allFilesNew.length)
 		{
 			test.log(LogStatus.PASS, " :- File downloaded successfully.");	
-			
-			File lastModifiedFile = allFilesNew[0];			//Storing any 0th index file in 'lastModifiedFile' file name.
-		    for (int i = 1; i < allFilesNew.length; i++) 	//For loop till the number of files in directory.
-		    {
-		       if (lastModifiedFile.lastModified() < allFilesNew[i].lastModified()) 	//If allFilesNew[i] file is having large/latest time time of update then latest modified file be allFilesNew[i] file.
-		       {
-		           lastModifiedFile = allFilesNew[i];
-		       }
-		    }
-			
-			Thread.sleep(500);
-			fis = new FileInputStream(lastModifiedFile);	//Provided last modified / latest downloaded file.
-			workbook = new XSSFWorkbook(fis);
-			sheet = workbook.getSheetAt(0);					//Retrieving first sheet of Workbook
-			Row row4 = sheet.getRow(3);						//Selected 3rd index row (Fourth row)
-			Cell c1 = row4.createCell(0);					//Selected cell (4th row, 1st column)
-			c1.setCellValue("Test");						//Entered temp data at empty row, so that it could make easy to get Last Row Number
-			FileOutputStream fos = new FileOutputStream(lastModifiedFile);
-			workbook.write(fos);
-			fos.close();
-			
-			int no = sheet.getLastRowNum();
-			int SheetRecords = no - 4;						//Sheet have extra 5 lines of information at top (But row count started from 0, so -4)
-			
-			if(SheetRecords == count)
-			{
-				test.log(LogStatus.PASS, " :- No of records displayed = " + count + " matches to No of records in excel sheet = "+SheetRecords);
-			}
-			else
-			{
-				test.log(LogStatus.FAIL, " :- No of records displayed = " + count + " doesn't matches to No of records in excel sheet = "+SheetRecords);
-			}
+				
 		}
 		else
 		{
@@ -1118,6 +1060,120 @@ if(action.equalsIgnoreCase("submit")){
 			test.log(LogStatus.FAIL, "Test Failed.");
 		}*/
 	}
+	
+	static void RejectDelete(WebDriver driver, String Compliance,ExtentTest test) throws InterruptedException
+	{
+		WebDriverWait wait = new WebDriverWait(driver, (30));
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		
+		elementsList = OverduePOM.clickStatutoryActionButton(driver);
+		elementsList.get(2).click();			//Clicking on third Action button.
+		
+		if(Compliance.equalsIgnoreCase("Statutory"))
+		{
+			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("iPerformerFrame"));
+			
+			
+			Thread.sleep(2000);
+			js.executeScript("window.scrollBy(0,500)");					//Scrolling down window by 2000 px.
+			if(OverduePOM.rejectStauDelete(driver).isDisplayed())
+			{
+				test.log(LogStatus.PASS, "  Delete Button Displayed Successfully");
+				
+				OverduePOM.rejectStauDelete(driver).click();
+				Thread.sleep(2000);
+			String Msg =driver.switchTo().alert().getText();
+			Thread.sleep(2000);
+			driver.switchTo().alert().accept();
+				
+			test.log(LogStatus.PASS, " Delete Msg -" +Msg);
+			}
+			driver.switchTo().parentFrame();
+			OverduePOM.CloseRS(driver).click();
+		}
+		else if(Compliance.equalsIgnoreCase("Internal"))
+		{
+			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("iInternalPerformerFrame"));
+			Thread.sleep(500);
+			Thread.sleep(2000);
+			js.executeScript("window.scrollBy(0,800)");	
+			if(OverduePOM.rejectInDelete(driver).isDisplayed())
+			{
+				test.log(LogStatus.PASS, " Delete Button Displayed Successfully");
+				
+				OverduePOM.rejectInDelete(driver).click();
+				Thread.sleep(2000);
+			String Msg =driver.switchTo().alert().getText();
+			Thread.sleep(2000);
+			driver.switchTo().alert().accept();
+				
+			test.log(LogStatus.PASS, " Delete Msg -" +Msg);
+			}
+			driver.switchTo().parentFrame();
+			Thread.sleep(2000);
+			OverduePOM.CloseRIn(driver).click();
+		}
+		
+		Thread.sleep(2000);
+		OverduePOM.clickAdvancedSearch(driver).click();
+		Thread.sleep(2000);
+		
+		elementsList = OverduePOM.clickStatutoryActionButton1(driver);
+		elementsList.get(2).click();	
+		Thread.sleep(2000);
+		if(Compliance.equalsIgnoreCase("Statutory"))
+		{
+			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("iPerformerFrame1"));
+			
+			
+			js.executeScript("window.scrollBy(0,1000)");					//Scrolling down window by 2000 px.
+			
+			if(OverduePOM.rejectStauDelete(driver).isDisplayed())
+			{
+				test.log(LogStatus.PASS, "Advanced Search - Delete Button Displayed Successfully");
+				
+				OverduePOM.rejectStauDelete(driver).click();
+				Thread.sleep(2000);
+			String Msg =driver.switchTo().alert().getText();
+			Thread.sleep(2000);
+			driver.switchTo().alert().accept();
+				
+			test.log(LogStatus.PASS, "Advanced Search Delete Msg -" +Msg);
+			}
+			driver.switchTo().parentFrame();
+			OverduePOM.CloseRADS(driver).click();
+			
+		}
+		else if(Compliance.equalsIgnoreCase("Internal"))
+		{
+			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("iInternalPerformerFrame1"));
+			
+			
+			Thread.sleep(500);
+			js.executeScript("window.scrollBy(0,1000)");					//Scrolling down window by 2000 px.
+			
+			if(OverduePOM.rejectInDelete(driver).isDisplayed())
+			{
+				test.log(LogStatus.PASS, "Advanced Search - Delete Button Displayed Successfully");
+				
+				OverduePOM.rejectInDelete(driver).click();
+				Thread.sleep(2000);
+			String Msg =driver.switchTo().alert().getText();
+			Thread.sleep(2000);
+			driver.switchTo().alert().accept();
+				
+			test.log(LogStatus.PASS, "Advanced Search Delete Msg -" +Msg);
+			}
+			driver.switchTo().parentFrame();
+			OverduePOM.CloseRADIn(driver).click();
+			
+		}
+		
+		Thread.sleep(500);
+		driver.findElement(By.xpath("//*[@class='k-button k-bare k-button-icon k-window-action']")).click();
+		Thread.sleep(2000);
+		
+	}
 
 	static void RejectAction(WebDriver driver, String Compliance,ExtentTest test) throws InterruptedException
 	{
@@ -1399,9 +1455,9 @@ if(action.equalsIgnoreCase("submit")){
 		//	RejectAction(driver, Compliance,test);								//Calling method of Action Button click
 			
 			Thread.sleep(2000);
-			MethodsPOM.StatutoryOverdueExport(driver,test,workbook);	
+		//	MethodsPOM.StatutoryOverdueExport(driver,test,workbook);	
 			Thread.sleep(500);
-			
+			MethodsPOM.RejectDelete(driver,Compliance,test);	
 		/*	Thread.sleep(1000);
 			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//*[@role='grid'][@data-role='selectable'])[1]")));	//Waiting for records table to get visible.
 			

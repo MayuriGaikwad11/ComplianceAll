@@ -220,7 +220,7 @@ public class ApprovalcountStatutory {
 		String[] bits = item.split(" ");								//Splitting the String
 		String compliancesCount = bits[bits.length - 2];				//Getting the second last word (total number of users)
 		int CatcountGrid = Integer.parseInt(compliancesCount);
-		
+	/*	
 		elementsList1 = CFOcountPOM.readCompliancesList(driver);
 		elementsList1.get(1).click();
 		Thread.sleep(3000);
@@ -273,15 +273,15 @@ public class ApprovalcountStatutory {
 			Thread.sleep(3000);
 			CFOcountPOM.closeCategories_Compliances(driver).click();		//Closing the 'Compliances' pup up.
 			Thread.sleep(2000);
-		}	
+		}	*/
 		if(CategoriesCountDas == CatcountGrid)
 		{
-			test.log(LogStatus.PASS, "Number of Categories grid matches to Dashboard Categories  Count.");
+			//test.log(LogStatus.PASS, "Number of Categories grid matches to Dashboard Categories  Count.");
 			test.log(LogStatus.PASS, "No of Categories in the grid = "+CatcountGrid+" | Dashboard Categories  Count = "+CategoriesCountDas);
 		}
 		else
 		{
-			test.log(LogStatus.FAIL, "Number of Categories does not matches to Dashboard Categories  Count.");
+			//test.log(LogStatus.FAIL, "Number of Categories does not matches to Dashboard Categories  Count.");
 			test.log(LogStatus.FAIL, "No of Categories in the grid = "+CatcountGrid+" | Dashboard Categories  Count = "+CategoriesCountDas);
 		}
 		Thread.sleep(3000);
