@@ -532,7 +532,7 @@ public class CFOcountPOM
 	{
 		piechart = driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-4 highcharts-drilldown-data-label'])[2]"));
 		return piechart;
-	}
+	}                                           
 	
 	public static WebElement clickRejectedIn(WebDriver driver)					//Method to search In Time count to click on from Pie Chart.
 	{
@@ -540,7 +540,11 @@ public class CFOcountPOM
 		return piechart;
 	}
 	
-	
+	public static WebElement clickRejectedDept(WebDriver driver)					//Method to search In Time count to click on from Pie Chart.
+	{
+		piechart = driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-3 highcharts-drilldown-data-label'])[2]"));
+		return piechart;
+	}
 	
 	public static WebElement clickRejectedPe(WebDriver driver)					//Method to search In Time count to click on from Pie Chart.
 	{

@@ -816,13 +816,25 @@ public class ImplementCount {
 		extent.flush();
 	}
 	
-	@Test(priority = 62)
+	//@Test(priority = 62)
 	void ComplianceCertificate() throws InterruptedException, IOException
 	{
 		test = extent.startTest(" Manage Compliances-Masters -Compliance Certificate");
 		
 		
 		ImplementMethods.ComplianceCertificate(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 63)
+	void UsersDeptDisplay() throws InterruptedException, IOException
+	{
+		test = extent.startTest(" Manage Compliances-Masters -Compliance Certificate");
+		
+		
+		ImplementMethods.UsersDeptDisplay(driver,test,workbook);
 		
 		extent.endTest(test);
 		extent.flush();

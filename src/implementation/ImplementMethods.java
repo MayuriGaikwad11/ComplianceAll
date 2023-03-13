@@ -4354,6 +4354,45 @@ String Msg1=ImplementPOM.ReadMsg(driver).getText();
 					Thread.sleep(2000);
 	}
 	
+	public static void UsersDeptDisplay(WebDriver driver, ExtentTest test, XSSFWorkbook workbook)
+			throws InterruptedException, IOException {
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (40));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[1]"))); 
+
+		action.moveToElement(ImplementPOM.clickManageUser(driver)).click().build().perform();
+
+		Thread.sleep(6000);
+		ImplementPOM.clickUsers(driver).click();
+		Thread.sleep(5000);
+
+		ImplementPOM.SelectCustomerUser(driver).clear();
+		Thread.sleep(2000);
+		ImplementPOM.SelectCustomerUser(driver).sendKeys("ABCD Pvt Ltd");
+		ImplementPOM.customer123Users(driver).click();
+		Thread.sleep(4000);
+		
+		ImplementPOM.ClickModifyAssignments(driver).click();
+		Thread.sleep(4000);
+		
+		if(ImplementPOM.DepartmentDropdown(driver).isDisplayed()) {
+			
+			test.log(LogStatus.PASS, " Department Dropdown is Displayed  ");
+			
+		}else {
+			test.log(LogStatus.FAIL, " Department Dropdown is not Displayed  ");
+		}
+		
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,500)");	
+		Thread.sleep(4000);
+		
+		ImplementPOM.ModifyAssignmentsClose(driver).click();
+		Thread.sleep(4000);
+	}
+	
 	
 	
 	

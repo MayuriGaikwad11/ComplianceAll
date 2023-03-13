@@ -2080,7 +2080,9 @@ public class Mgmt {
 			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("IFNewPeriodGraphCompliance"));                                                            	
 			Thread.sleep(500);
 			action.moveToElement(CFOcountPOM.clickBack1(driver)).click().build().perform();	 //Clicking on Back button
+			Thread.sleep(500);
 			driver.switchTo().parentFrame();
+			Thread.sleep(500);
 		}
 		else
 		{
@@ -2281,6 +2283,7 @@ public class Mgmt {
 			driver.switchTo().parentFrame();
 			Thread.sleep(500);
 			performer.OverduePOM.clickDashboard(driver).click();			//Clicking on Dashboard
+			Thread.sleep(2000);
 		}
 		else
 		{
@@ -2291,6 +2294,7 @@ public class Mgmt {
 			
 			Thread.sleep(500);
 			performer.OverduePOM.clickDashboard(driver).click();			//Clicking on Dashboard
+			Thread.sleep(2000);
 		}
 		extent.endTest(test);
 		extent.flush();

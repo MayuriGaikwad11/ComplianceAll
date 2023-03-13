@@ -403,6 +403,25 @@ public class ImplementPOM {
 		return implement;                        
 	}
 	
+	public static WebElement ClickModifyAssignments(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.xpath("//*[@id='BodyContent_grdUser_lbtnModifyAssignment_0']"));
+		return implement;                        
+	}
+	
+	public static WebElement ModifyAssignmentsClose(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.xpath("//*[@id='BodyContent_Button2']"));
+		return implement;                        
+	}
+	
+	
+	public static WebElement DepartmentDropdown(WebDriver driver)		//Method for closing Message Popup
+	{
+		implement = driver.findElement(By.xpath("//*[@id='BodyContent_upModifyAssignment']/div[1]/table/tbody/tr[8]/td[4]/span/input"));
+		return implement;                        
+	}
+	
 	public static WebElement ClickBranches(WebDriver driver)		//Method for closing Message Popup
 	{
 		implement = driver.findElement(By.xpath("//*[@id='BodyContent_rdoBtn_Branch']"));

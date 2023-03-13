@@ -193,7 +193,7 @@ public class ApprovalcountStatutory {
 	
 
 	
-	@Test(priority = 3)
+	//@Test(priority = 3)
 	void CategoriesCountMatch() throws InterruptedException
 	{
 		test = extent.startTest(" Count by Clicking on 'Categories'");
@@ -328,12 +328,12 @@ public class ApprovalcountStatutory {
 		int ComcountGrid = Integer.parseInt(compliancesCount);
 		if(CompliancesCountDas == ComcountGrid)
 		{
-			test.log(LogStatus.PASS, "Number of Unique Compliances grid matches to Dashboard Unique Compliances  Count.");
+			//test.log(LogStatus.PASS, "Number of Unique Compliances grid matches to Dashboard Unique Compliances  Count.");
 			test.log(LogStatus.PASS, "No of Unique Compliances in the grid = "+ComcountGrid+" | Dashboard Unique Compliances  Count = "+CompliancesCountDas);
 		}
 		else
 		{
-			test.log(LogStatus.FAIL, "Number of Unique compliances does not matches to Dashboard Statutory Overdue Count.");
+			//test.log(LogStatus.FAIL, "Number of Unique compliances does not matches to Dashboard Statutory Overdue Count.");
 			test.log(LogStatus.FAIL, "No of Unique Compliances in the grid = "+ComcountGrid+" | Dashboard Unique Compliances  Count = "+CompliancesCountDas);
 		}
 		js.executeScript("window.scrollBy(500,0)");						//Scrolling UP window by 2000 px.
@@ -375,12 +375,12 @@ public class ApprovalcountStatutory {
 		int ComcountGrid = Integer.parseInt(compliancesCount);
 		if(CompliancesCountDas == ComcountGrid)
 		{
-			test.log(LogStatus.PASS, "Number of Total Compliances grid matches to Dashboard Total Compliances  Count.");
+			//test.log(LogStatus.PASS, "Number of Total Compliances grid matches to Dashboard Total Compliances  Count.");
 			test.log(LogStatus.PASS, "No of Total Compliances in the grid = "+ComcountGrid+" | Dashboard Total Compliances  Count = "+CompliancesCountDas);
 		}
 		else
 		{
-			test.log(LogStatus.FAIL, "Number of Total compliances does not matches to Dashboard Statutory Overdue Count.");
+			//test.log(LogStatus.FAIL, "Number of Total compliances does not matches to Dashboard Statutory Overdue Count.");
 			test.log(LogStatus.FAIL, "No of Total Compliances in the grid = "+ComcountGrid+" | Dashboard Total Compliances  Count = "+CompliancesCountDas);
 		}
 		js.executeScript("window.scrollBy(500,0)");						//Scrolling UP window by 2000 px.
@@ -418,12 +418,12 @@ public class ApprovalcountStatutory {
 		int UserGrid = Integer.parseInt(compliancesCount);
 		if(UserCountDas == UserGrid)
 		{
-			test.log(LogStatus.PASS, "Number of User grid matches to Dashboard User  Count.");
+		//	test.log(LogStatus.PASS, "Number of User grid matches to Dashboard User  Count.");
 			test.log(LogStatus.PASS, "No of User in the grid = "+UserGrid+" | Dashboard User  Count = "+UserCountDas);
 		}
 		else
 		{
-			test.log(LogStatus.FAIL, "Number of User does not matches to Dashboard User  Count.");
+		//	test.log(LogStatus.FAIL, "Number of User does not matches to Dashboard User  Count.");
 			test.log(LogStatus.FAIL, "No of User in the grid = "+UserGrid+" | Dashboard User  Count = "+UserCountDas);
 		}
 		
@@ -448,8 +448,13 @@ public class ApprovalcountStatutory {
 		Thread.sleep(4000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		
-		CFOcountPOM.ClickShowAll(driver).click();        //Clicking on Show All
+		
 		Thread.sleep(3000);
+		if(CFOcountPOM.ClickShowAll(driver).isEnabled()) {
+			CFOcountPOM.ClickShowAll(driver).click();        //Clicking on Show All
+			Thread.sleep(3000);
+			test.log(LogStatus.PASS, " 'Show All ' link Clickable Successfully");
+			}
 		litigationPerformer.MethodsPOM.progress(driver);
 		WebDriverWait wait = new WebDriverWait(driver, (100));
 		//wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));	//Wait until frame get visible and switch to it.

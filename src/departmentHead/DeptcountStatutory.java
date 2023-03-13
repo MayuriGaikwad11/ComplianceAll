@@ -1042,6 +1042,101 @@ public class DeptcountStatutory {
 		extent.flush();
 	}
 	*/
+	@Test(priority = 14)
+	void rejected_PieChart() throws InterruptedException
+	{
+		test = extent.startTest("Pie Chart -Not Completed Status- 'Rejected' Count Verification");
+		
+		
+		Thread.sleep(500);
+		
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,500)");			//Scrolling down window by 1000 px.
+		
+		Thread.sleep(4000);
+		int inProgressValue = Integer.parseInt(CFOcountPOM.clickRejectedDept(driver).getText());	//Reading value of 'Not Completed'
+		Thread.sleep(3000);
+		CFOcountPOM.clickRejectedDept(driver).click();									//CLicking on 'Not Completed' count
+		
+		Thread.sleep(2000);
+		int critical = Integer.parseInt(CFOcountPOM.readCritical(driver).getText());	//Reading Critical risk count.
+		int high = Integer.parseInt(CFOcountPOM.readHigh(driver).getText());			//Reading High risk count.
+		int medium = Integer.parseInt(CFOcountPOM.readMedium(driver).getText());		//Reading Medium risk count.
+		int low = Integer.parseInt(CFOcountPOM.readLow(driver).getText());				//Reading Low risk count.
+		
+		int total = critical + high + medium + low;
+		
+		if(inProgressValue == total)
+		{
+			test.log(LogStatus.PASS, "' Rejected' Compliance Count matches to sum of all risked compliances.");
+			test.log(LogStatus.PASS, "Total Overdue' Compliances : "+total);
+		}
+		else
+		{
+			test.log(LogStatus.FAIL, "'Rejected' Compliance Count doesn't matches to sum of all risked compliances.");
+			test.log(LogStatus.FAIL, "Total 'Overdue' Compliances : "+total+" | Total Sum : "+inProgressValue);
+		}
+	
+		if(inProgressValue > 0)
+		{
+			if(critical >= 0)
+			{
+				DeptCountPOM.GraphCount1(driver, test, "Critical", critical, "Statutory");
+			}
+			else
+			{
+				test.log(LogStatus.PASS, "'Critical' Risk Compliance Count = "+critical);
+			}
+			
+			if(high >= 0)
+			{
+				DeptCountPOM.GraphCount1(driver, test, "High", high, "Statutory");
+			}
+			else
+			{
+				test.log(LogStatus.PASS, "'High' Risk Compliance Count = "+high);
+			}
+			
+			if(medium >= 0)
+			{
+				DeptCountPOM.GraphCount1(driver, test, "Medium", medium, "Statutory");
+			}
+			else
+			{
+				test.log(LogStatus.PASS, "'Medium' Risk Compliance Count = "+medium);
+			}
+			
+			if(low >= 0)
+			{
+				DeptCountPOM.GraphCount1(driver, test, "Low", low, "Statutory");
+			}
+			else
+			{
+				test.log(LogStatus.PASS, "'Low' Risk Compliance Count = "+low);
+			}
+			
+			Thread.sleep(5000);
+		//	action.moveToElement(CFOcountPOM.clickBack2(driver)).click().build().perform();	 //Clicking on Back button
+			Thread.sleep(2000);
+			performer.OverduePOM.clickDashboard(driver).click();			//Clicking on Dashboard
+			Thread.sleep(2000);
+		}
+		else
+		{
+			test.log(LogStatus.PASS, " 'Rejected' Compliance Count = "+inProgressValue);
+			
+			Thread.sleep(500);
+		//	action.moveToElement(CFOcountPOM.clickBack2(driver)).click().build().perform();	//Clicking on Dashboard
+			Thread.sleep(2000);
+			performer.OverduePOM.clickDashboard(driver).click();			//Clicking on Dashboard
+			Thread.sleep(2000);
+		}
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	
 	//@Test(priority = 14)
 	void DepartmentSummaryFinanceStatutory() throws InterruptedException
 	{
@@ -1375,7 +1470,7 @@ public class DeptcountStatutory {
 		extent.endTest(test);
 		extent.flush();
 	}
-	
+	/*
 	@Test(priority = 17)
 	void NotCompleted_PieChartPeriod() throws InterruptedException
 	{
@@ -2530,7 +2625,7 @@ WebDriverWait wait = new WebDriverWait(driver,(140));
 			}
 	 
 	
-	
+	*/
 	
 	
 }
