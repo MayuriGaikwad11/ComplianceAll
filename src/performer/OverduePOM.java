@@ -132,6 +132,18 @@ public class OverduePOM
 		return statutoryAction;
 	}
 	
+	public static WebElement NotComplied(WebDriver driver)			//Method to click on Third row action button
+	{
+		statutoryAction = driver.findElement(By.xpath("//*[@id='dvbtnNotCompliedSubmit']"));
+		return statutoryAction;
+	}
+	
+	public static WebElement ReadCount(WebDriver driver)			//Method to click on Third row action button
+	{
+		statutoryAction = driver.findElement(By.xpath("//*[@id='dvbtnNotCompliedSubmit']"));
+		return statutoryAction;
+	}
+	
 	public static List<WebElement> clickStatutoryActionButton(WebDriver driver)
 	{
 		elementsList = driver.findElements(By.xpath("//*[@class='k-button k-button-icontext ob-overview k-grid-edit2']"));
@@ -743,7 +755,7 @@ public class OverduePOM
 	
 	public static WebElement clickcomplianceStaASM(WebDriver driver)			//Searching 'My Workspace' element.
 	{
-		performer = driver.findElement(By.xpath("(//span[@class='k-checkbox-wrapper'])[85]"));	//*[@onclick='CheckProduct();']
+		performer = driver.findElement(By.xpath("(//span[@class='k-checkbox-wrapper'])[70]"));	//*[@onclick='CheckProduct();']
 		return performer;
 	}
 	
@@ -792,7 +804,7 @@ public class OverduePOM
 	
 	public static WebElement clickcomplianceINASM(WebDriver driver)			//Searching 'My Workspace' element.
 	{
-		performer = driver.findElement(By.xpath("(//span[@class='k-checkbox-wrapper'])[86]"));	//*[@onclick='CheckProduct();']
+		performer = driver.findElement(By.xpath("(//span[@class='k-checkbox-wrapper'])[71]"));	//*[@onclick='CheckProduct();']
 		return performer;
 	}
 	
@@ -883,9 +895,9 @@ public class OverduePOM
 		return performer;
 	}
 	
-	public static WebElement ReadCount(WebDriver driver)				//Searching Status dropdown
+	public static WebElement ReadCountNC(WebDriver driver)				//Searching Status dropdown
 	{
-		performer = driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_lblTotalRecord']"));
+		performer = driver.findElement(By.xpath("//*[@id='grid']/div[5]/span[2]"));
 		return performer;
 	}
 	
@@ -2760,7 +2772,7 @@ public class OverduePOM
 		clickSearchPeople(driver).click();					//Clicking on Search People drop down.
 		
 		Thread.sleep(500);
-	//	clickSearchPeople(driver).sendKeys("amol");			//Writing user name to search for  CFO
+		clickSearchPeople(driver).sendKeys("aayush tripathi");			//Writing user name to search for  CFO
 	//	clickSearchPeople(driver).sendKeys("Company");	        // Auditor
 		Thread.sleep(500);
 		clickPeopleCheckBox1(driver).click();				//Clicking on label to get out from people search box
@@ -2792,8 +2804,11 @@ public class OverduePOM
 		readFolderName(driver).click();	
 		driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_upPromotorList']/div/div/section/div[3]/div/div[2]/img[5]")).click();
 		Thread.sleep(3000);
+	String Msg=	driver.switchTo().alert().getText();
+	test.log(LogStatus.PASS, Msg);
 		driver.switchTo().alert().accept();
 		Thread.sleep(3000);
+		
 		driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_lnkMyDrive']")).click();
 		Thread.sleep(3000);
 		//driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_tbxFilter']")).sendKeys(folder,Keys.ENTER);   //search folder
@@ -2808,6 +2823,7 @@ public class OverduePOM
 		
 		driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_btnCreateFolder1']")).click();
 	*/	Thread.sleep(3000);
+	test.log(LogStatus.PASS, "Rename Successfully");
 		driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_tbxFilter']")).sendKeys(folder,Keys.ENTER);   //search folder
 		test.log(LogStatus.PASS, "Filter Working Successfully");
 		Thread.sleep(1000);

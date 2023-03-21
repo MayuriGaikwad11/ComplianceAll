@@ -4393,22 +4393,398 @@ String Msg1=ImplementPOM.ReadMsg(driver).getText();
 		Thread.sleep(4000);
 	}
 	
+	public static void Uploadeventassignment(WebDriver driver, ExtentTest test, XSSFWorkbook workbook)
+			throws InterruptedException, IOException {
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (40));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[5]"))); 
+
+		action.moveToElement(ImplementPOM.ManageEvents(driver)).click().build().perform();
+
+		Thread.sleep(1000);
+		ImplementPOM.Uploadeventassignment(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.SelectCustomerEvent(driver).click();
+		Thread.sleep(2000);
+		
+		ImplementPOM.EventABCDPvtLtd(driver).click();
+		Thread.sleep(2000);
+		ImplementPOM.SelectCustomerEvent(driver).click();
+		Thread.sleep(2000);
+		
+		ImplementPOM.UploadFileEvent(driver).sendKeys("C:\\Users\\Mayuri Gaikwad\\Downloads\\Upload Event Assignment (5).xlsx");
+		Thread.sleep(2000);
+		ImplementPOM.UploadEvent(driver).click();
+		Thread.sleep(2000);
+		String Msg = ImplementPOM.UploadEventMsg(driver).getText();
+
+		test.log(LogStatus.PASS, " Message displayed -:- " + Msg);
+		Thread.sleep(2000);
+	}
 	
+	public static void Event(WebDriver driver, ExtentTest test, XSSFWorkbook workbook)
+			throws InterruptedException, IOException {
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (40));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[5]"))); 
+
+		action.moveToElement(ImplementPOM.ManageEvents(driver)).click().build().perform();
+
+		Thread.sleep(1000);
+		ImplementPOM.Event(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.FilterCA(driver).sendKeys("2368",Keys.ENTER);
+		Thread.sleep(3000);
+		test.log(LogStatus.PASS, "Filter Working Successfully");
+		
+		Thread.sleep(1000);
+		ImplementPOM.EditEvent(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.DescriptionEvent(driver).clear();
+		Thread.sleep(1000);
+		ImplementPOM.DescriptionEvent(driver).sendKeys("ABCD");
+		Thread.sleep(1000);
+		ImplementPOM.EventSave(driver).click();
+		Thread.sleep(1000);
+		test.log(LogStatus.PASS, "Event Update Successfully");
+		Thread.sleep(2000);
+		ImplementPOM.DeleteEvent(driver).click();
+		Thread.sleep(1000);
+		driver.switchTo().alert().accept();
+		Thread.sleep(1000);
+	String Msg=	ImplementPOM.DeleteEventMsg(driver).getText();
+	Thread.sleep(2000);
+	test.log(LogStatus.PASS, " Message displayed -:- "+Msg);
+	ImplementPOM.DeleteEventClose(driver).click();
+	Thread.sleep(1000);
 	
+	}
 	
+	public static void Compliance(WebDriver driver, ExtentTest test, XSSFWorkbook workbook)
+			throws InterruptedException, IOException {
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (40));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[5]"))); 
+
+		action.moveToElement(ImplementPOM.ManageEvents(driver)).click().build().perform();
+
+		Thread.sleep(1000);
+		ImplementPOM.ComplianceEvent(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.ComplianceCategoryEvent(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.CommercialEvent(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.FilterCA(driver).sendKeys("13869",Keys.ENTER);
+		Thread.sleep(3000);
+		test.log(LogStatus.PASS, "Filter Working Successfully");
+		
+		Thread.sleep(1000);
+		ImplementPOM.EditCompliance1(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.StartDate(driver).clear();
+		Thread.sleep(1000);
+		ImplementPOM.StartDate(driver).sendKeys("01-03-2023");
+		Thread.sleep(2000);
+		ImplementPOM.CloseCompliance1(driver).click();
+		Thread.sleep(1000);
+		test.log(LogStatus.PASS, "Update Successfully");
+	}
 	
+	public static void Eventdeactivation(WebDriver driver, ExtentTest test, XSSFWorkbook workbook)
+			throws InterruptedException, IOException {
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (40));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[5]"))); 
+
+		action.moveToElement(ImplementPOM.ManageEvents(driver)).click().build().perform();
+
+		Thread.sleep(1000);
+		ImplementPOM.Eventdeactivation(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.Customerdeactivation(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.customer123Users(driver).click();
+		Thread.sleep(1000);
+		
+		ImplementPOM.SelectLocationdea(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.ExpandABCDPvtLtd1(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.ABCDAurangabadPvt(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.EventName(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.Amendmentfactorylicense(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.EventNature(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.Licenseeventtest(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.keep1(driver).click();
+		Thread.sleep(1000);
+		
+	String Msg=	driver.switchTo().alert().getText();
+	driver.switchTo().alert().accept();
+	Thread.sleep(1000);
+	test.log(LogStatus.PASS, Msg);
 	
+	ImplementPOM.Customerdeactivation(driver).click();
+	Thread.sleep(1000);
+	ImplementPOM.customer123Users(driver).click();
+	Thread.sleep(1000);
 	
+	ImplementPOM.SelectLocationdea(driver).click();
+	Thread.sleep(1000);
+	ImplementPOM.ExpandABCDPvtLtd1(driver).click();
+	Thread.sleep(1000);
+	ImplementPOM.ABCDAurangabadPvt(driver).click();
+	Thread.sleep(1000);
+	ImplementPOM.EventName(driver).click();
+	Thread.sleep(1000);
+	ImplementPOM.Amendmentfactorylicense(driver).click();
+	Thread.sleep(1000);
+	ImplementPOM.EventNature(driver).click();
+	Thread.sleep(1000);
+	ImplementPOM.Licenseeventtest(driver).click();
+	Thread.sleep(1000);
+	ImplementPOM.Delete1(driver).click();
+	Thread.sleep(1000);
 	
+String Msg1=	driver.switchTo().alert().getText();
+driver.switchTo().alert().accept();
+Thread.sleep(1000);
+test.log(LogStatus.PASS, Msg1);
+	}
 	
+	public static void Eventassignments(WebDriver driver, ExtentTest test, XSSFWorkbook workbook)
+			throws InterruptedException, IOException {
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (40));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[5]"))); 
+
+		action.moveToElement(ImplementPOM.ManageEvents(driver)).click().build().perform();
+
+		Thread.sleep(1000);
+		ImplementPOM.Eventassignments(driver).click();
+		Thread.sleep(4000);
+		
+		ImplementPOM.AddNewEvent(driver).click();
+		Thread.sleep(3000);
+		ImplementPOM.EventClassification(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.Secretarial(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.CustomerAssignE(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.CustomerABCD(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.LocationAssignE(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.ExpandABCDPvtLtdAE(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.APvtltd(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.SelectEventPerformer(driver).clear();
+		Thread.sleep(1000);
+		ImplementPOM.SelectEventPerformer(driver).sendKeys("Perfom User");
+		Thread.sleep(1000);
+		ImplementPOM.PerfomUser(driver).click();
+		Thread.sleep(4000);
+		
+		ImplementPOM.SelectEventReviewer(driver).clear();
+		Thread.sleep(1000);
+		ImplementPOM.SelectEventReviewer(driver).sendKeys("Reviewer User");
+		Thread.sleep(1000);
+		ImplementPOM.ReviewerUser(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.eventcheckbox(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.SaveEvent(driver).click();
+		Thread.sleep(6000);
+		ImplementPOM.AssignCompliance1(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.AssignComplianceReviewer(driver).clear();
+		Thread.sleep(1000);
+		ImplementPOM.AssignComplianceReviewer(driver).sendKeys("Reviewer User");
+		Thread.sleep(1000);
+		ImplementPOM.ReviewerUser(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.AssignCompliancePerformer(driver).clear();
+		Thread.sleep(1000);
+		ImplementPOM.AssignCompliancePerformer(driver).sendKeys("Perfom User");
+		Thread.sleep(1000);
+		ImplementPOM.PerfomUser(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.StartDate(driver).sendKeys("01-03-2023");
+		Thread.sleep(4000);
+		ImplementPOM.AssignComplianceCheckBox(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.AssignComplianceSave(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.SaveEvent(driver).click();
+		Thread.sleep(4000);
+		test.log(LogStatus.PASS, "Event Assign Successfully");
+	}
 	
+	public static void Complianceassignments(WebDriver driver, ExtentTest test, XSSFWorkbook workbook)
+			throws InterruptedException, IOException {
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (40));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[5]"))); 
+
+		action.moveToElement(ImplementPOM.ManageEvents(driver)).click().build().perform();
+
+		Thread.sleep(1000);
+		ImplementPOM.Complianceassignments(driver).click();
+		Thread.sleep(4000);
+		
+		ImplementPOM.CustomerAE(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.ABCDPvtLtdEA(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.SelectLocationdea(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.SelectLocationdea(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.SelectLocationdea(driver).click();
+		Thread.sleep(4000);
+	}
 	
-	
-	
-	
-	
-	
-	
+	public static void Eventfrequencymapping(WebDriver driver, ExtentTest test, XSSFWorkbook workbook)
+			throws InterruptedException, IOException {
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (40));
+		Thread.sleep(3000);
+//------------------------- Add New-------------------------------
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[5]"))); 
+
+		action.moveToElement(ImplementPOM.ManageEvents(driver)).click().build().perform();
+
+		Thread.sleep(1000);
+		ImplementPOM.Eventfrequencymapping(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.AddNewEFM(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.CustomerEFM(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.customer123Users(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.EventClassification1(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.Secretarial1(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.EventNameEFM(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.AlterationinArticle(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.FrequencyEFM(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.QuarterlyEFM(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.selectDate(driver).sendKeys("09-03-2023");
+		Thread.sleep(4000);
+		ImplementPOM.Save(driver).click();
+		Thread.sleep(4000);
+		String Msg=	ImplementPOM.SaveMsg(driver).getText();
+		Thread.sleep(2000);
+		test.log(LogStatus.PASS, " Message displayed -:- "+Msg);
+		ImplementPOM.CloseCA(driver).click();
+		Thread.sleep(1000);
+		//-----------------Filter----------------------
+		ImplementPOM.Filter(driver).sendKeys("Alteration in Articles (Public Company)",Keys.ENTER);
+		Thread.sleep(3000);
+		test.log(LogStatus.PASS, "Filter Working Successfully");
+		//------------------------Edit-------------
+		ImplementPOM.EditConfiguration(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.FrequencyEFM(driver).click();
+		Thread.sleep(500);
+		ImplementPOM.MonthlyEFm(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.Save(driver).click();
+		Thread.sleep(4000);
+		String Msg1=	ImplementPOM.SaveMsg(driver).getText();
+		Thread.sleep(2000);
+		test.log(LogStatus.PASS, " Message displayed -:- "+Msg1);
+		ImplementPOM.CloseCA(driver).click();
+		Thread.sleep(1000);
+	//	test.log(LogStatus.PASS, "Edit Configuration View Successfully");
+		//--------------------Display Schedule Information -Update Configuration and Cancel Configuration
+		
+				ImplementPOM.DisplayScheduleInformationEFM(driver).click();
+				Thread.sleep(1000);
+				ImplementPOM.DSIEditConfiguration(driver).click();
+				Thread.sleep(2000);
+				ImplementPOM.ScheduleDate(driver).clear();
+				Thread.sleep(2000);
+				ImplementPOM.ScheduleDate(driver).sendKeys("03-03-2023");
+				Thread.sleep(2000);
+				ImplementPOM.UpdateConfiguration(driver).click();
+				Thread.sleep(2000);
+				test.log(LogStatus.PASS, "Display Schedule Information -Update Configuration Successfully");
+				ImplementPOM.DSIEditConfiguration(driver).click();
+				Thread.sleep(2000);
+				ImplementPOM.CancelConfiguration(driver).click();
+				Thread.sleep(2000);
+				test.log(LogStatus.PASS, "Display Schedule Information -Cancel Configuration is Clickable");
+				ImplementPOM.DisplayScheduleInformationEFMClopse(driver).click();
+				Thread.sleep(2000);
+		//------------------------Delete Configuration-------------
+		ImplementPOM.DeleteConfiguration(driver).click();
+		Thread.sleep(1000);
+		driver.switchTo().alert().accept();
+		Thread.sleep(2000);
+		String Msg2=driver.switchTo().alert().getText();
+		driver.switchTo().alert().accept();
+		Thread.sleep(1000);
+		test.log(LogStatus.PASS, Msg2);
+		
+		//----------------- File Upload ----------------
+		
+		ImplementPOM.selectCustomer(driver).click();
+		Thread.sleep(1000);
+		ImplementPOM.ABCDPvtLtdEFM(driver).click();
+		Thread.sleep(2000);
+		ImplementPOM.ChooseFile(driver).sendKeys("C:\\Users\\Mayuri Gaikwad\\Downloads\\EventFrequencyMapping_Sample.xlsx");
+		Thread.sleep(2000);
+		ImplementPOM.UploadEFM(driver).click();
+		String Msg7 = ImplementPOM.UploadMsgEFM(driver).getText();
+
+		test.log(LogStatus.PASS, " Message displayed -:- " + Msg7);
+		Thread.sleep(2000);
+		//---------------------Sample Format------------------------
+		//	Thread.sleep(3000);
+			File dir = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+			File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
+
+			Thread.sleep(500);
+			ImplementPOM.SampleFormat(driver).click(); // Exporting (Downloading) file
+
+			Thread.sleep(3000);
+			File dir1 = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+			File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
+			Thread.sleep(3000);
+			if (dirContents.length < allFilesNew.length) {
+				test.log(LogStatus.PASS,  " :- File downloaded successfully.");
+			} else {
+				test.log(LogStatus.INFO,  " :- File does not downloaded.");
+			}
+			
+		
+	}
 	
 	
 	

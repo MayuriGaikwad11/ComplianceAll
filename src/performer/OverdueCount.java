@@ -349,13 +349,26 @@ public class OverdueCount
 	void StatutoryChecklistBox() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Statutory Checklist CheckBoxes check ");
-		test.log(LogStatus.INFO, "Test Initiated");
+		
 		
 		MethodsPOM.StatutoryCheckListCheckbox(driver, test);
 		
 		extent.endTest(test);
 		extent.flush();
 	}
+	
+	@Test(priority = 9) //pass
+	void StatutoryCheckListCBNotComplied() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Statutory Checklist CheckBoxes check  -Not Complied");
+		
+		
+		MethodsPOM.StatutoryCheckListCBNotComplied(driver, test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
 	
 	//@Test(priority = 9)  //pass
 	void InternalCheckListAction() throws InterruptedException, IOException

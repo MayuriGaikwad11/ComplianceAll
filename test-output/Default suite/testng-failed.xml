@@ -3,13 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="companyAdminDiy.CompanyAdminDiyTest">
+      <class name="departmentHead.DeptcountInternal">
         <methods>
+          <include name="NotApplicable_PieChartPeriod"/>
           <include name="setBrowser"/>
-          <include name="Closing"/>
-          <include name="UserDepartmentdis"/>
         </methods>
-      </class> <!-- companyAdminDiy.CompanyAdminDiyTest -->
+      </class> <!-- departmentHead.DeptcountInternal -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

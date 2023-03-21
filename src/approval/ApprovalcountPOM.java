@@ -129,12 +129,12 @@ public class ApprovalcountPOM {
 		
 		if(count == complianceCount)
 		{
-			test.log(LogStatus.PASS, "'"+risk+"' risk compliance count matches to numbers of items from grid.");
+			//test.log(LogStatus.PASS, "'"+risk+"' risk compliance count matches to numbers of items from grid.");
 			test.log(LogStatus.PASS, "'"+risk+"' risk compliance count = " + complianceCount + " | Total number of items from grid = "+count);
 		}
 		else
 		{
-			test.log(LogStatus.FAIL, "'"+risk+"' risk compliance count does not matches to numbers of Items.");
+			//test.log(LogStatus.FAIL, "'"+risk+"' risk compliance count does not matches to numbers of Items.");
 			test.log(LogStatus.FAIL, "'"+risk+"' risk compliance count = " + complianceCount + " | Total number of items from grid = "+count);
 		}
 		
@@ -220,7 +220,7 @@ public class ApprovalcountPOM {
 			//JavascriptExecutor jse=(JavascriptExecutor)driver;
 			//jse.executeScript("arguments[0].click();", ViewButton);
 				Thread.sleep(4000);
-				test.log(LogStatus.PASS, "overView success");
+				test.log(LogStatus.PASS, "overView successfully");
 				CFOcountPOM.closeDocument(driver).click();
 				Thread.sleep(3000);
 		
@@ -256,12 +256,12 @@ public class ApprovalcountPOM {
 		
 		if(count == complianceCount)
 		{
-			test.log(LogStatus.PASS, "'"+risk+"' risk compliance count matches to numbers of items from grid.");
+			//test.log(LogStatus.PASS, "'"+risk+"' risk compliance count matches to numbers of items from grid.");
 			test.log(LogStatus.PASS, "'"+risk+"' risk compliance count = " + complianceCount + " | Total number of items from grid = "+count);
 		}
 		else
 		{
-			test.log(LogStatus.FAIL, "'"+risk+"' risk compliance count does not matches to numbers of Items.");
+			//test.log(LogStatus.FAIL, "'"+risk+"' risk compliance count does not matches to numbers of Items.");
 			test.log(LogStatus.FAIL, "'"+risk+"' risk compliance count = " + complianceCount + " | Total number of items from grid = "+count);
 		}
 }else {
@@ -503,12 +503,12 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[19]/a");
 		
 		if(count1 == ComplianceCount)
 		{
-			test.log(LogStatus.PASS, "'"+ComplianceType+"' Complaince Count matches to number of items from grid.");
+			//test.log(LogStatus.PASS, "'"+ComplianceType+"' Complaince Count matches to number of items from grid.");
 			test.log(LogStatus.PASS, "'"+ComplianceType+"' Complaince Count = "+ ComplianceCount + " | Total no of items from grid = "+ count1);
 		}
 		else
 		{
-			test.log(LogStatus.FAIL, "'"+ComplianceType+"' Complaince Count doesn't matches to number of items from grid.");
+			//test.log(LogStatus.FAIL, "'"+ComplianceType+"' Complaince Count doesn't matches to number of items from grid.");
 			test.log(LogStatus.FAIL, "'"+ComplianceType+"' Complaince Count = "+ ComplianceCount + " | Total no of items from grid = "+ count1);
 		}
 		}else {
@@ -700,12 +700,12 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[2]/td[19]/a[1]");
 		
 		if(count1 == ComplianceCount)
 		{
-			test.log(LogStatus.PASS, "'"+ComplianceType+"' Complaince Count matches to number of items from grid.");
+			//test.log(LogStatus.PASS, "'"+ComplianceType+"' Complaince Count matches to number of items from grid.");
 			test.log(LogStatus.PASS, "'"+ComplianceType+"' Complaince Count = "+ ComplianceCount + " | Total no of items from grid = "+ count1);
 		}
 		else
 		{
-			test.log(LogStatus.FAIL, "'"+ComplianceType+"' Complaince Count doesn't matches to number of items from grid.");
+			//test.log(LogStatus.FAIL, "'"+ComplianceType+"' Complaince Count doesn't matches to number of items from grid.");
 			test.log(LogStatus.FAIL, "'"+ComplianceType+"' Complaince Count = "+ ComplianceCount + " | Total no of items from grid = "+ count1);
 		}
 		}else {
@@ -809,12 +809,12 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[2]/td[19]/a[1]");
 		
 		if(count == complianceCount)
 		{
-			test.log(LogStatus.PASS, "'"+risk+"' risk compliance count matches to numbers of items from grid.");
+		//	test.log(LogStatus.PASS, "'"+risk+"' risk compliance count matches to numbers of items from grid.");
 			test.log(LogStatus.PASS, "'"+risk+"' risk compliance count = " + complianceCount + " | Total number of items from grid = "+count);
 		}
 		else
 		{
-			test.log(LogStatus.FAIL, "'"+risk+"' risk compliance count does not matches to numbers of Items.");
+			//test.log(LogStatus.FAIL, "'"+risk+"' risk compliance count does not matches to numbers of Items.");
 			test.log(LogStatus.FAIL, "'"+risk+"' risk compliance count = " + complianceCount + " | Total number of items from grid = "+count);
 		}
 	}
@@ -914,12 +914,12 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[2]/td[19]/a[1]");
 		
 		if(count == complianceCount)
 		{
-			test.log(LogStatus.PASS, "'"+risk+"' risk compliance count matches to numbers of items from grid.");
+			//test.log(LogStatus.PASS, "'"+risk+"' risk compliance count matches to numbers of items from grid.");
 			test.log(LogStatus.PASS, "'"+risk+"' risk compliance count = " + complianceCount + " | Total number of items from grid = "+count);
 		}
 		else
 		{
-			test.log(LogStatus.FAIL, "'"+risk+"' risk compliance count does not matches to numbers of Items.");
+		//	test.log(LogStatus.FAIL, "'"+risk+"' risk compliance count does not matches to numbers of Items.");
 			test.log(LogStatus.FAIL, "'"+risk+"' risk compliance count = " + complianceCount + " | Total number of items from grid = "+count);
 		}
 	}

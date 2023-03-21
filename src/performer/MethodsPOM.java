@@ -604,6 +604,68 @@ if(action.equalsIgnoreCase("submit")){
 		Thread.sleep(4000);*/
 	//	OverduePOM.clickDashboard(driver).click();						//Clicking on Dashboard.
 	}
+	
+	public static void StatutoryCheckListCBNotComplied(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+	{
+		//-----------------------------Closed Timely after multiple checkbox click--------------------
+		
+		Thread.sleep(3000);
+		WebDriverWait wait = new WebDriverWait(driver, (140));
+		OverduePOM.clickStatutoryChecklist(driver).click();	
+		Thread.sleep(6000);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='grid']/div[4]"))); //Waiting until grid/kendo gets visible.
+		Thread.sleep(3000);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		//Thread.sleep(5000);
+		js.executeScript("window.scrollBy(0,4000)");
+		CFOcountPOM.readTotalItemsD(driver).click();					//Clicking on Text of total items just to scroll down.
+		String s1 = CFOcountPOM.readTotalItemsD(driver).getText();		//Reading total number of items.
+		String[] bits = s1.split(" ");									//Splitting the String
+		String itomsCount = bits[bits.length - 2];	
+		//int	count = Integer.parseInt(itomsCount);
+		Thread.sleep(2000);
+		int count = 0;
+		if(itomsCount.equalsIgnoreCase("to"))							//If not items found
+		{
+			Thread.sleep(2500);
+			s1 = CFOcountPOM.readTotalItemsD(driver).getText();
+			bits = s1.split(" ");										//Splitting the String
+			itomsCount = bits[bits.length - 2];
+		}
+		if(itomsCount.equalsIgnoreCase("to"))							//If not items found
+		{
+			count = 0;
+		}
+		else
+		{
+			count = Integer.parseInt(itomsCount);
+		}
+		
+		js.executeScript("window.scrollBy(0,-4000)");
+		
+		OverduePOM.clickCheckboxesList(driver).get(1).click();
+		Thread.sleep(2000);
+		OverduePOM.NotComplied(driver).click();
+		Thread.sleep(8000);
+		
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='grid']/div[4]"))); //Waiting until grid/kendo gets visible.
+		Thread.sleep(3000);
+		js.executeScript("window.scrollBy(0,4000)");
+		CFOcountPOM.readTotalItemsD(driver).click();					//Clicking on Text of total items just to scroll down.
+		String s2 = CFOcountPOM.readTotalItemsD(driver).getText();		//Reading total number of items.
+		String[] bits1 = s2.split(" ");									//Splitting the String
+		String itomsCount1 = bits1[bits1.length - 2];	
+		int	count1 = Integer.parseInt(itomsCount1);
+		
+		if(count>count1) {
+			test.log(LogStatus.PASS, "Checkbox 'Not Complied' - Statutory 'Checklist' value decremented. Old value = " +count +" | New Value = "+ count1);	
+		}else {
+			
+			test.log(LogStatus.FAIL, "Test Failed.");
+		}
+		OverduePOM.clickDashboard(driver).click();						//Click on Dashboard
+		Thread.sleep(2000);
+	}
 
 	public static void StatutoryCheckListCheckbox(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
 	{

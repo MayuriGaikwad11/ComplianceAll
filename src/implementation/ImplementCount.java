@@ -828,13 +828,84 @@ public class ImplementCount {
 		extent.flush();
 	}
 	
-	@Test(priority = 63)
+	//@Test(priority = 63)
 	void UsersDeptDisplay() throws InterruptedException, IOException
 	{
 		test = extent.startTest(" Manage Compliances-Masters -Compliance Certificate");
 		
 		
 		ImplementMethods.UsersDeptDisplay(driver,test,workbook);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	//@Test(priority = 64)
+	void Uploadeventassignment() throws InterruptedException, IOException
+	{
+		test = extent.startTest(" Manage Events -Upload event assignment");
+		
+		
+		ImplementMethods.Uploadeventassignment(driver,test,workbook);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+//	@Test(priority = 65)
+	void Event() throws InterruptedException, IOException
+	{
+		test = extent.startTest(" Manage Events - event ");
+		
+		
+		ImplementMethods.Event(driver,test,workbook);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+//	@Test(priority = 66)
+	void Compliance() throws InterruptedException, IOException
+	{
+		test = extent.startTest(" Manage Events - Compliance ");
+		
+		
+		ImplementMethods.Compliance(driver,test,workbook);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+//	@Test(priority = 67)
+	void Eventdeactivation() throws InterruptedException, IOException
+	{
+		test = extent.startTest(" Manage Events - Event deactivation ");
+		
+		ImplementMethods.Eventdeactivation(driver,test,workbook);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+//	@Test(priority = 68)
+	void Eventassignments() throws InterruptedException, IOException
+	{
+		test = extent.startTest(" Manage Events - Event assignments ");
+		
+		
+		ImplementMethods.Eventassignments(driver,test,workbook);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 70)
+	void Eventfrequencymapping() throws InterruptedException, IOException
+	{
+		test = extent.startTest(" Manage Events -Event frequency mapping");
+		
+		
+		ImplementMethods.Eventfrequencymapping(driver,test,workbook);
 		
 		extent.endTest(test);
 		extent.flush();

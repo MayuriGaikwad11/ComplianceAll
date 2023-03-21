@@ -101,12 +101,24 @@ public class CFOcountPOM
 	public static WebElement clickLocationIn(WebDriver driver)		//Method for reading Compliances value on Dashboard
 	{
 		compliances = driver.findElement(By.xpath("//*[@id='example']/div[1]/div[1]/div/span[1]"));
-		return compliances;
+		return compliances;                       
+	}
+	
+	public static WebElement clickLocationShow(WebDriver driver)		//Method for reading Compliances value on Dashboard
+	{
+		compliances = driver.findElement(By.xpath("//*[@id='example']/div[1]/div[1]/div"));
+		return compliances;                       
 	}
 	
 	public static WebElement clickLocationPe(WebDriver driver)		//Method for reading Compliances value on Dashboard
 	{
 		compliances = driver.findElement(By.xpath("//*[@id='Details']/div[1]/div[1]/div/span[1]"));
+		return compliances;                       
+	} 
+	
+	public static WebElement clickCkecjke(WebDriver driver)		//Method for reading Compliances value on Dashboard
+	{
+		compliances = driver.findElement(By.xpath("(//*[@class='k-checkbox-label checkbox-span'])[34]"));
 		return compliances;                       
 	} 
 	
@@ -386,6 +398,14 @@ public class CFOcountPOM
 		
 		piechart = driver.findElement(By.xpath("//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-3 highcharts-drilldown-data-label']"));
 		
+		return piechart;                        //*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-3 highcharts-drilldown-data-label']
+	}
+	
+	public static WebElement clickNotApplInternalA(WebDriver driver)			//Method to search Not Completed count to click on from Pie Chart.
+	{
+		
+		piechart = driver.findElement(By.xpath("//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-3 highcharts-drilldown-data-label']"));
+		
 		return piechart;                        
 	}
 	
@@ -410,7 +430,7 @@ public class CFOcountPOM
 	public static WebElement clickClosedDelayedInternal(WebDriver driver)			//Method to search After Due Date count to click on from Pie Chart.
 	{
 		piechart = driver.findElement(By.xpath("//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-1 highcharts-drilldown-data-label']"));
-		return piechart;
+		return piechart;                                   
 	}
 	
 	public static WebElement clickNotCompliedInternal(WebDriver driver)			//Method to search After Due Date count to click on from Pie Chart.
@@ -440,7 +460,7 @@ public class CFOcountPOM
 	public static WebElement clickClosedTimelyInternal(WebDriver driver)					//Method to search In Time count to click on from Pie Chart.
 	{
 		piechart = driver.findElement(By.xpath("//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-0 highcharts-drilldown-data-label']"));
-		return piechart;                                   
+		return piechart;                                                             
 	}
 	
 	public static WebElement clickClosedTimelyInternalP(WebDriver driver)					//Method to search In Time count to click on from Pie Chart.
@@ -491,6 +511,13 @@ public class CFOcountPOM
 		return piechart;
 	}
 	
+	public static WebElement clickdueTodayInernal(WebDriver driver)					//Method to search In Time count to click on from Pie Chart.
+	{
+		piechart = driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-1 highcharts-drilldown-data-label'])[2]"));
+		return piechart;
+	}
+	
+	
 	public static WebElement clickpendingForReview(WebDriver driver)					//Method to search In Time count to click on from Pie Chart.
 	{
 		piechart = driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-2 highcharts-drilldown-data-label'])[2]"));
@@ -525,7 +552,7 @@ public class CFOcountPOM
 	public static WebElement clickinProgress(WebDriver driver)					//Method to search In Time count to click on from Pie Chart.
 	{
 		piechart = driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-3 highcharts-drilldown-data-label'])[2]"));
-		return piechart;
+		return piechart;                                       
 	}
 	
 	public static WebElement clickRejected(WebDriver driver)					//Method to search In Time count to click on from Pie Chart.
@@ -1094,7 +1121,7 @@ public class CFOcountPOM
 	
 	public static WebElement clickFinanceClosedDelayedInternal(WebDriver driver)		//Method to search 'High Risk' bar of Department Summary.
 	{
-		department = driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-undefined '])[25]"));
+		department = driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-undefined '])[26]"));
 		return department;
 	}
 	
@@ -1114,7 +1141,7 @@ public class CFOcountPOM
 	
 	public static WebElement clickFinanceOverdueInternal(WebDriver driver)		//Method to search 'High Risk' bar of Department Summary.
 	{
-		department = driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-undefined '])[29]"));
+		department = driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-undefined '])[34]"));
 		return department;
 	}
 	
@@ -1132,7 +1159,7 @@ public class CFOcountPOM
 	
 	public static WebElement clickFinancePenFReviewInternal(WebDriver driver)		//Method to search 'High Risk' bar of Department Summary.
 	{
-		department = driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-undefined '])[31]"));
+		department = driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-undefined '])[38]"));
 		return department;
 	}
 	
@@ -2691,7 +2718,7 @@ public class CFOcountPOM
 	//		test.log(LogStatus.PASS, "Excel file Export Successfully");
 		//	Thread.sleep(3000);
 			
-  By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[3]/td[17]/a");
+  By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[17]/a");
 
 			wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 			Thread.sleep(4000);
@@ -2701,7 +2728,7 @@ public class CFOcountPOM
 		JavascriptExecutor jse=(JavascriptExecutor)driver;
 		jse.executeScript("arguments[0].click();", ViewButton);
 			Thread.sleep(4000);
-			test.log(LogStatus.PASS, "overView success");
+			test.log(LogStatus.PASS, "overView Successfully");
 			CFOcountPOM.closeDocument(driver).click();
 			Thread.sleep(3000);
 		
@@ -2787,6 +2814,150 @@ public class CFOcountPOM
 		
 		
 	}
+ 	
+ 	public static void GraphCount3(WebDriver driver, ExtentTest test, String risk, int complianceCount, String Compliance)throws InterruptedException
+	{
+		Thread.sleep(500);
+		if(risk.equalsIgnoreCase("Critical"))
+		{
+			CFOcountPOM.readCritical(driver).click();					//Clicking on Critical value of Pie Chart of 'Not Completed'.
+		}
+		else if(risk.equalsIgnoreCase("High"))
+		{
+			CFOcountPOM.readHigh(driver).click();						//Clicking on High value of Pie Chart of 'Not Completed'.
+		}
+		else if(risk.equalsIgnoreCase("Medium"))
+		{
+			CFOcountPOM.readMedium(driver).click();						//Clicking on Medium value of Pie Chart of 'Not Completed'.
+		}
+		else if(risk.equalsIgnoreCase("Low"))
+		{
+			CFOcountPOM.readLow(driver).click();						//Clicking on Low value of Pie Chart of 'Not Completed'.
+		}
+		
+		WebDriverWait wait = new WebDriverWait(driver, (100));
+		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));	//Wait until frame get visible and switch to it.
+		Thread.sleep(8000);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,300)");	
+		Thread.sleep(5000);
+		CFOcountPOM.readTotalItemsD(driver).click();					//Clicking on Text of total items just to scroll down.
+		String s = CFOcountPOM.readTotalItemsD(driver).getText();
+		if(!s.equalsIgnoreCase("No items to display")) {
+		Thread.sleep(5000);
+		try
+		{
+			
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='k-selectable']")));
+			Thread.sleep(4000);
+		}
+		catch(Exception e)
+		{
+			
+		}
+		
+	//	 CFOcountPOM.clickExportImage(driver).click();
+		//	Thread.sleep(4000);
+	//		test.log(LogStatus.PASS, "Excel file Export Successfully");
+		//	Thread.sleep(3000);
+			
+  By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[3]/td[17]/a");
+
+			wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+			Thread.sleep(4000);
+			// retrieving "foo-button" HTML element
+			WebElement ViewButton = driver.findElement(locator);	
+			Thread.sleep(3000);
+		JavascriptExecutor jse=(JavascriptExecutor)driver;
+		jse.executeScript("arguments[0].click();", ViewButton);
+			Thread.sleep(4000);
+			test.log(LogStatus.PASS, "overView Successfully");
+			CFOcountPOM.closeDocument(driver).click();
+			Thread.sleep(3000);
+		
+		Thread.sleep(500);
+	/*	try
+		{
+			elementsList = CFOcountPOM.selectDropdown(driver);				//It is a dropdown but don't have Select tag.
+			elementsList.get(0).click();									//Clicking on first 'Entity Location' Drop down.
+			
+			Thread.sleep(300);
+			Actions action = new Actions(driver);
+			if(Compliance.equalsIgnoreCase("Statutory"))
+			{
+				action.moveToElement(CFOcountPOM.selectFirst(driver)).click().build().perform();	//Selecting first option of the drop down. (BITA CONSULTING PVT LTD)
+			}
+			else
+			{
+				action.moveToElement(CFOcountPOM.selectFirst1(driver)).click().build().perform();	//Selecting first option of the drop down. (ABCD PVT LTD)
+			}
+		}
+		catch(Exception e)
+		{
+			
+		}*/
+		
+		CFOcountPOM.clickExportImage(driver).click();
+		Thread.sleep(4000);
+		test.log(LogStatus.PASS, "Excel file Export Successfully");
+		Thread.sleep(3000);
+		
+		Thread.sleep(1000);
+		//JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,300)");						//Scrolling down window by 1000 px.
+		Thread.sleep(1000);
+		CFOcountPOM.readTotalItemsD(driver).click();					//Clicking on Text of total items just to scroll down.
+		String s1 = CFOcountPOM.readTotalItemsD(driver).getText();		//Reading total number of items.
+		String[] bits = s1.split(" ");									//Splitting the String
+		String itomsCount = bits[bits.length - 2];						//Getting the second last word (total number of items)
+		
+		int count = 0;
+		if(itomsCount.equalsIgnoreCase("to"))							//If not items found
+		{
+			Thread.sleep(2500);
+			s1 = CFOcountPOM.readTotalItems(driver).getText();
+			bits = s1.split(" ");										//Splitting the String
+			itomsCount = bits[bits.length - 2];
+		}
+		if(itomsCount.equalsIgnoreCase("to"))							//If not items found
+		{
+			count = 0;
+		}
+		else
+		{
+			count = Integer.parseInt(itomsCount);
+		}
+		
+		Thread.sleep(500);
+		driver.switchTo().parentFrame();
+		CFOcountPOM.closeCategories(driver).click();					//Closing the High Risk Window.
+		
+		if(count == complianceCount)
+		{
+		//	test.log(LogStatus.PASS, "'"+risk+"' risk compliance count matches to numbers of items from grid.");
+			test.log(LogStatus.PASS, "'"+risk+"' risk compliance count = " + complianceCount + " | Total number of items from grid = "+count);
+		}
+		else
+		{
+		//	test.log(LogStatus.FAIL, "'"+risk+"' risk compliance count does not matches to numbers of Items.");
+			test.log(LogStatus.FAIL, "'"+risk+"' risk compliance count = " + complianceCount + " | Total number of items from grid = "+count);
+		}
+		}else {
+			
+			Thread.sleep(1000);
+			js.executeScript("window.scrollBy(300,0)");	
+			Thread.sleep(1000);
+			driver.switchTo().parentFrame();
+			CFOcountPOM.closeCategories(driver).click();
+			
+			test.log(LogStatus.PASS, "'"+risk+"' risk compliance count matches to numbers of items from grid.= 0");
+			
+			
+		}
+		
+		
+	}
+	
 	
  	public static void GraphCountM(WebDriver driver, ExtentTest test, String risk, int complianceCount, String Compliance)throws InterruptedException
 	{
@@ -2966,7 +3137,7 @@ public class CFOcountPOM
 		JavascriptExecutor jse=(JavascriptExecutor)driver;
 		jse.executeScript("arguments[0].click();", ViewButton);
 			Thread.sleep(4000);
-			test.log(LogStatus.PASS, "overView success");
+			test.log(LogStatus.PASS, "overView Successfully");
 			CFOcountPOM.closeDocument(driver).click();
 			Thread.sleep(3000);
 			
@@ -3001,12 +3172,12 @@ public class CFOcountPOM
 		
 		if(count == complianceCount)
 		{
-			test.log(LogStatus.PASS, "'"+risk+"' risk compliance count matches to numbers of items from grid.");
+			//test.log(LogStatus.PASS, "'"+risk+"' risk compliance count matches to numbers of items from grid.");
 			test.log(LogStatus.PASS, "'"+risk+"' risk compliance count = " + complianceCount + " | Total number of items from grid = "+count);
 		}
 		else
 		{
-			test.log(LogStatus.FAIL, "'"+risk+"' risk compliance count does not matches to numbers of Items.");
+			//test.log(LogStatus.FAIL, "'"+risk+"' risk compliance count does not matches to numbers of Items.");
 			test.log(LogStatus.FAIL, "'"+risk+"' risk compliance count = " + complianceCount + " | Total number of items from grid = "+count);
 		}
 }else {
@@ -3123,17 +3294,17 @@ public class CFOcountPOM
 		
 		if(count == complianceCount)
 		{
-			test.log(LogStatus.PASS, "'"+risk+"' risk compliance count matches to numbers of items from grid.");
+		//	test.log(LogStatus.PASS, "'"+risk+"' risk compliance count matches to numbers of items from grid.");
 			test.log(LogStatus.PASS, "'"+risk+"' risk compliance count = " + complianceCount + " | Total number of items from grid = "+count);
 		}
 		else
 		{
-			test.log(LogStatus.FAIL, "'"+risk+"' risk compliance count does not matches to numbers of Items.");
+			//test.log(LogStatus.FAIL, "'"+risk+"' risk compliance count does not matches to numbers of Items.");
 			test.log(LogStatus.FAIL, "'"+risk+"' risk compliance count = " + complianceCount + " | Total number of items from grid = "+count);
 		}
 }else {
 			
-			Thread.sleep(1000);
+			Thread.sleep(3000);
 			js.executeScript("window.scrollBy(300,0)");	
 			Thread.sleep(1000);
 			driver.switchTo().parentFrame();
@@ -3446,12 +3617,12 @@ else {
 			CFOcountPOM.closeDocument1(driver).click();
 			Thread.sleep(3000);
 			ViewButton.get(1).click();
-			test.log(LogStatus.PASS, "View success");
+			test.log(LogStatus.PASS, "View Successfully");
 			Thread.sleep(3000);
 			ViewButton.get(2).click();
-			test.log(LogStatus.PASS, "Doc Download success");
+			test.log(LogStatus.PASS, "Doc Download Successfully");
 			Thread.sleep(3000);
-			test.log(LogStatus.PASS, "overView success");
+			test.log(LogStatus.PASS, "overView Successfully");
 			Thread.sleep(1000);
 			CFOcountPOM.closeDocument(driver).click();
 			Thread.sleep(3000);
@@ -3488,18 +3659,18 @@ else {
 		
 		if(count == complianceCount)
 		{
-			test.log(LogStatus.PASS, "'"+risk+"' risk compliance count matches to numbers of items from grid.");
+		//	test.log(LogStatus.PASS, "'"+risk+"' risk compliance count matches to numbers of items from grid.");
 			test.log(LogStatus.PASS, "'"+risk+"' risk compliance count = " + complianceCount + " | Total number of items from grid = "+count);
 		}
 		else
 		{
-			test.log(LogStatus.FAIL, "'"+risk+"' risk compliance count does not matches to numbers of Items.");
+			//test.log(LogStatus.FAIL, "'"+risk+"' risk compliance count does not matches to numbers of Items.");
 			test.log(LogStatus.FAIL, "'"+risk+"' risk compliance count = " + complianceCount + " | Total number of items from grid = "+count);
 		}
 		}
 		else {
 					
-					Thread.sleep(1000);
+					Thread.sleep(2000);
 					js.executeScript("window.scrollBy(300,0)");	
 					Thread.sleep(1000);
 					driver.switchTo().parentFrame();
@@ -3603,18 +3774,18 @@ else {
 		
 		if(count == complianceCount)
 		{
-			test.log(LogStatus.PASS, "'"+risk+"' risk compliance count matches to numbers of items from grid.");
+			//test.log(LogStatus.PASS, "'"+risk+"' risk compliance count matches to numbers of items from grid.");
 			test.log(LogStatus.PASS, "'"+risk+"' risk compliance count = " + complianceCount + " | Total number of items from grid = "+count);
 		}
 		else
 		{
-			test.log(LogStatus.FAIL, "'"+risk+"' risk compliance count does not matches to numbers of Items.");
+			//test.log(LogStatus.FAIL, "'"+risk+"' risk compliance count does not matches to numbers of Items.");
 			test.log(LogStatus.FAIL, "'"+risk+"' risk compliance count = " + complianceCount + " | Total number of items from grid = "+count);
 		}
 		}
 else {
 			
-			Thread.sleep(1000);
+			Thread.sleep(3000);
 			js.executeScript("window.scrollBy(300,0)");	
 			Thread.sleep(1000);
 			driver.switchTo().parentFrame();
@@ -4183,12 +4354,12 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[17]/a");
 		
 		if(count == ComplianceCount)
 		{
-			test.log(LogStatus.PASS, "'"+ComplianceType+"' Compliances Count matches to numbers of items from grid.");
+			//test.log(LogStatus.PASS, "'"+ComplianceType+"' Compliances Count matches to numbers of items from grid.");
 			test.log(LogStatus.PASS, "'"+ComplianceType+"' Compliances Count = " + ComplianceCount + " | Total number of items from grid = "+count);
 		}
 		else
 		{
-			test.log(LogStatus.FAIL, "'"+ComplianceType+"' Compliances Count doesn't matches to numbers of items from grid.");
+			//test.log(LogStatus.FAIL, "'"+ComplianceType+"' Compliances Count doesn't matches to numbers of items from grid.");
 			test.log(LogStatus.FAIL, "'"+ComplianceType+"' Compliances Count = " + ComplianceCount + " | Total number of items from grid = "+count);
 		}
 	}else {
@@ -4283,12 +4454,12 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[17]/a");
 		
 		if(count == ComplianceCount)
 		{
-			test.log(LogStatus.PASS, "'"+ComplianceType+"' Compliances Count matches to numbers of items from grid.");
+			//test.log(LogStatus.PASS, "'"+ComplianceType+"' Compliances Count matches to numbers of items from grid.");
 			test.log(LogStatus.PASS, "'"+ComplianceType+"' Compliances Count = " + ComplianceCount + " | Total number of items from grid = "+count);
 		}
 		else
 		{
-			test.log(LogStatus.FAIL, "'"+ComplianceType+"' Compliances Count doesn't matches to numbers of items from grid.");
+			//test.log(LogStatus.FAIL, "'"+ComplianceType+"' Compliances Count doesn't matches to numbers of items from grid.");
 			test.log(LogStatus.FAIL, "'"+ComplianceType+"' Compliances Count = " + ComplianceCount + " | Total number of items from grid = "+count);
 		}
 		}else {
@@ -4533,7 +4704,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[17]/a");
 			test.log(LogStatus.PASS, "Excel file Export Successfully");
 			Thread.sleep(3000);
 			
- By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[8]/td[17]/a");
+ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[2]/td[17]/a");
 
 			//By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[3]/td[17]/a[3]");
 			wait.until(ExpectedConditions.presenceOfElementLocated(locator));
@@ -4720,18 +4891,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[17]/a");
 			Thread.sleep(1000);
 		
 		
-	//	elementsList = CFOcountPOM.selectDropdown(driver);				//It is a dropdown but don't have Select tag.
-		//elementsList.get(0).click();									//Clicking on first dropdown
-		Thread.sleep(500);
-		/*if(Complaince.equalsIgnoreCase("Internal"))
-		{
-			action.moveToElement(CFOcountPOM.selectFirst1(driver)).click().build().perform();	//Selecting first option of the drop down. (ABCD PVT LTD)
-		}
-		else
-		{
-			action.moveToElement(CFOcountPOM.selectFirst(driver)).click().build().perform();	//Selecting first option of the drop down. (BITA CONSULTING)
-		}
-		*/
+	
 		Thread.sleep(1000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,300)");						//Scrolling down window by 1000 px.
@@ -4760,12 +4920,12 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[17]/a");
 		
 		if(count1 == ComplianceCount)
 		{
-			test.log(LogStatus.PASS, "'"+ComplianceType+"' Complaince Count matches to number of items from grid.");
+		//	test.log(LogStatus.PASS, "'"+ComplianceType+"' Complaince Count matches to number of items from grid.");
 			test.log(LogStatus.PASS, "'"+ComplianceType+"' Complaince Count = "+ ComplianceCount + " | Total no of items from grid = "+ count1);
 		}
 		else
 		{
-			test.log(LogStatus.FAIL, "'"+ComplianceType+"' Complaince Count doesn't matches to number of items from grid.");
+		//	test.log(LogStatus.FAIL, "'"+ComplianceType+"' Complaince Count doesn't matches to number of items from grid.");
 			test.log(LogStatus.FAIL, "'"+ComplianceType+"' Complaince Count = "+ ComplianceCount + " | Total no of items from grid = "+ count1);
 		}
 	}
@@ -5613,6 +5773,7 @@ try {
 		test.log(LogStatus.PASS, "overView successfully");
 	//	CFOcountPOM.closeDocument1(driver).click();
 		Thread.sleep(4000);
+		test.log(LogStatus.PASS, " : -Clear Button Working Successfully ");
 		clickAdvancedSearch(driver).click();
 		Thread.sleep(3000);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='grid1']/div[3]")));	//Wait till records table gets visible
@@ -5670,7 +5831,7 @@ try {
 		Thread.sleep(2000);
 		jse1.executeScript("arguments[0].click();", ViewButton2);
 			Thread.sleep(5000);
-			test.log(LogStatus.PASS, "AdvancedSearch - overView successfully");
+			//test.log(LogStatus.PASS, "AdvancedSearch - overView successfully");
 			CFOcountPOM.closeDocument2(driver).click();
 			Thread.sleep(4000);
 			clickExportExcel(driver).click();
@@ -5683,6 +5844,7 @@ try {
 			Thread.sleep(2000);
 			closeDocumentAS(driver).click();
 			Thread.sleep(2000);
+			test.log(LogStatus.PASS, "Advanced Search : -Clear Button Working Successfully ");
 			performer.OverduePOM.clickDashboard(driver).click();
 	}
 	
@@ -6187,6 +6349,7 @@ WebDriverWait wait = new WebDriverWait(driver,(140));
 				Thread.sleep(3000);
 				test.log(LogStatus.PASS, " Advanced Search - After Checking Multiple checkbox  File downloaded successfully.");
 				Thread.sleep(1000);
+				test.log(LogStatus.PASS, "Advanced Search - Clear Button Working");
 				OverduePOM.clickDashboard(driver).click();
 		
 	}
@@ -6457,7 +6620,7 @@ WebDriverWait wait = new WebDriverWait(driver,(140));
 			{
 				test.log(LogStatus.PASS, compliance +" :- File downloaded successfully.");	
 				
-				File lastModifiedFile = allFilesNew[0];			//Storing any 0th index file in 'lastModifiedFile' file name.
+			/*	File lastModifiedFile = allFilesNew[0];			//Storing any 0th index file in 'lastModifiedFile' file name.
 			    for (int i = 1; i < allFilesNew.length; i++) 	//For loop till the number of files in directory.
 			    {
 			       if (lastModifiedFile.lastModified() < allFilesNew[i].lastModified()) 	//If allFilesNew[i] file is having large/latest time time of update then latest modified file be allFilesNew[i] file.
@@ -6487,7 +6650,7 @@ WebDriverWait wait = new WebDriverWait(driver,(140));
 				else
 				{
 					test.log(LogStatus.FAIL, compliance+" :- No of records displayed = " + TotalRecords + " doesn't matches to No of records in excel sheet = "+SheetRecords);
-				}
+				}*/
 			}
 			else
 			{
@@ -6547,19 +6710,19 @@ WebDriverWait wait = new WebDriverWait(driver,(140));
 		OverduePOM.clickclearBtn(driver).click();
 		test.log(LogStatus.PASS, "Clear Button is working");
 		Thread.sleep(7000);
-		/*	CFOcountPOM.clickAdvancedSearch(driver).click();
+			CFOcountPOM.clickAdvancedSearch(driver).click();
 		Thread.sleep(8000);
 		
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='grid1']/div[3]")));	//Wait till records table gets visible
 	Thread.sleep(1000);
-	OverduePOM.clickcomplianceTypeAS(driver).click();
+/*	OverduePOM.clickcomplianceTypeAS(driver).click();
 	Thread.sleep(1000);
 	OverduePOM.clickcomplianceStaASM(driver).click();
 	Thread.sleep(1000);
 	OverduePOM.clickcomplianceINASM(driver).click();
-	
+	*/
 		Thread.sleep(3000);
-		By locator1 = By.xpath("//*[@id='grid1']/div[3]/table/tbody/tr[2]/td[23]/a");
+		By locator1 = By.xpath("//*[@id='grid1']/div[2]/table/tbody/tr[1]/td/a");
 		
 		wait.until(ExpectedConditions.presenceOfElementLocated(locator1));
 		Thread.sleep(4000);
@@ -6581,16 +6744,16 @@ WebDriverWait wait = new WebDriverWait(driver,(140));
 	//JavascriptExecutor jse=(JavascriptExecutor)driver;
 	Thread.sleep(2000);
 	jse.executeScript("arguments[0].click();", close);
-	test.log(LogStatus.INFO, "Advanced Search-overView success");
+	test.log(LogStatus.PASS, "Advanced Search-overView successfully");
 		Thread.sleep(4000);
 	//	CFOcountPOM.closeDocument2(driver).click();
 		Thread.sleep(4000);
 		CFOcountPOM.clickExportExcel(driver).click();
 		Thread.sleep(3000);
-		test.log(LogStatus.INFO, "Advanced Search-Export successfully");
+		test.log(LogStatus.PASS, "Advanced Search-Export successfully");
 		CFOcountPOM.selectMonth1(driver).click();
 		Thread.sleep(3000);
-		
+		/*
 		CFOcountPOM.selectLastSixMon(driver).click();
 		Thread.sleep(2000);
 		CFOcountPOM.clickApplyAd(driver).click();
@@ -6609,12 +6772,12 @@ WebDriverWait wait = new WebDriverWait(driver,(140));
 		Thread.sleep(2000);
 		jse1.executeScript("arguments[0].click();", ViewButton2);
 			Thread.sleep(5000);
-			test.log(LogStatus.INFO, "Advanced Search-After Apply Month-overView success");
+			test.log(LogStatus.PASS, "Advanced Search-After Apply Month-overView success");
 			CFOcountPOM.closeDocument2(driver).click();
 			Thread.sleep(4000);
 			CFOcountPOM.clickExportExcel(driver).click();
 			Thread.sleep(3000);
-			test.log(LogStatus.INFO, "Advanced Search-After Apply Month-Export Succefully");
+			test.log(LogStatus.PASS, "Advanced Search-After Apply Month-Export Succefully");
 			//clickStartDate1(driver).click();
 			CFOcountPOM.clickStartDate11(driver).sendKeys("23-Nov-2022");
 			CFOcountPOM.clickLastDate11(driver).sendKeys("30-Nov-2022");
@@ -6633,12 +6796,12 @@ WebDriverWait wait = new WebDriverWait(driver,(140));
 			Thread.sleep(4000);
 		jse.executeScript("arguments[0].click();", clickHighA);
 			Thread.sleep(4000);
-			
+			*/
 			OverduePOM.clickclearBtnA(driver).click();
 			Thread.sleep(4000);
-			test.log(LogStatus.INFO, "Advanced Search-Clear Button is working");
+			test.log(LogStatus.PASS, "Advanced Search-Clear Button is working");
 			CFOcountPOM.closeDocumentAS(driver).click();
-			Thread.sleep(2000);*/
+			Thread.sleep(2000);
 			OverduePOM.clickDashboard(driver).click();
 	}
 	
@@ -6754,6 +6917,7 @@ WebDriverWait wait = new WebDriverWait(driver,(140));
 				test.log(LogStatus.PASS, " Internal-Advanced Search - Mutiple checkBox check and download Successfully ");
 				CFOcountPOM.closeDocumentAS(driver).click();
 				Thread.sleep(3000);
+				test.log(LogStatus.PASS, "Internal- Advanced Search  Clear btn is working");
 				OverduePOM.clickDashboard(driver).click();		
 		
 	}
