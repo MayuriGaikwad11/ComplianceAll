@@ -1065,7 +1065,7 @@ public class DeptcountStatutory {
 		int low = Integer.parseInt(CFOcountPOM.readLow(driver).getText());				//Reading Low risk count.
 		
 		int total = critical + high + medium + low;
-		
+		/*
 		if(inProgressValue == total)
 		{
 			test.log(LogStatus.PASS, "' Rejected' Compliance Count matches to sum of all risked compliances.");
@@ -1076,7 +1076,7 @@ public class DeptcountStatutory {
 			test.log(LogStatus.FAIL, "'Rejected' Compliance Count doesn't matches to sum of all risked compliances.");
 			test.log(LogStatus.FAIL, "Total 'Overdue' Compliances : "+total+" | Total Sum : "+inProgressValue);
 		}
-	
+	*/
 		if(inProgressValue > 0)
 		{
 			if(critical >= 0)

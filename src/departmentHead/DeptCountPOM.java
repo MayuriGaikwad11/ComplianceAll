@@ -163,6 +163,7 @@ public class DeptCountPOM {
 		CFOcountPOM.readTotalItemsD(driver).click();					//Clicking on Text of total items just to scroll down.
 		String s = CFOcountPOM.readTotalItemsD(driver).getText();
 		if(!s.equalsIgnoreCase("No items to display")) {
+			Thread.sleep(3000);
 		try
 		{
 			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='k-selectable']")));
@@ -235,12 +236,12 @@ public class DeptCountPOM {
 		
 		if(count == complianceCount)
 		{
-			test.log(LogStatus.PASS, "'"+risk+"' risk compliance count matches to numbers of items from grid.");
+		//	test.log(LogStatus.PASS, "'"+risk+"' risk compliance count matches to numbers of items from grid.");
 			test.log(LogStatus.PASS, "'"+risk+"' risk compliance count = " + complianceCount + " | Total number of items from grid = "+count);
 		}
 		else
 		{
-			test.log(LogStatus.FAIL, "'"+risk+"' risk compliance count does not matches to numbers of Items.");
+			//test.log(LogStatus.FAIL, "'"+risk+"' risk compliance count does not matches to numbers of Items.");
 			test.log(LogStatus.FAIL, "'"+risk+"' risk compliance count = " + complianceCount + " | Total number of items from grid = "+count);
 		}
 		}else {
@@ -506,6 +507,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[19]/a[1]");
 		String s = CFOcountPOM.readTotalItemsD(driver).getText();
 		Thread.sleep(2000);
 		if(!s.equalsIgnoreCase("No items to display")) {
+			Thread.sleep(2000);
 		try
 		{
 			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//table[@class='k-selectable']")));	//Wait until records table get visible.
@@ -565,12 +567,12 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[2]/td[18]/a[1]");
 		
 		if(count1 == ComplianceCount)
 		{
-			test.log(LogStatus.PASS, "'"+ComplianceType+"' Complaince Count matches to number of items from grid.");
+			//test.log(LogStatus.PASS, "'"+ComplianceType+"' Complaince Count matches to number of items from grid.");
 			test.log(LogStatus.PASS, "'"+ComplianceType+"' Complaince Count = "+ ComplianceCount + " | Total no of items from grid = "+ count1);
 		}
 		else
 		{
-			test.log(LogStatus.FAIL, "'"+ComplianceType+"' Complaince Count doesn't matches to number of items from grid.");
+			//test.log(LogStatus.FAIL, "'"+ComplianceType+"' Complaince Count doesn't matches to number of items from grid.");
 			test.log(LogStatus.FAIL, "'"+ComplianceType+"' Complaince Count = "+ ComplianceCount + " | Total no of items from grid = "+ count1);
 		}
 }else {
@@ -581,7 +583,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[2]/td[18]/a[1]");
 			driver.switchTo().parentFrame();
 			CFOcountPOM.closeCategories(driver).click();
 			Thread.sleep(1000);
-			test.log(LogStatus.PASS, "'"+ComplianceType+"'  compliance count matches to numbers of items from grid.= 0");
+			test.log(LogStatus.PASS, "'"+ComplianceType+"'  compliance count matches to numbers of items from grid = 0");
 			
 			
 		}

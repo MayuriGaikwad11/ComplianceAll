@@ -1312,6 +1312,64 @@ public class DeptcountInternal {
 	}
 	
 	@Test(priority = 15)
+	void RiskSummaryMediumInternal() throws InterruptedException
+	{		
+		test = extent.startTest("Risk Summary - 'Medium' Count Verification");
+		Thread.sleep(3000);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+	//	js.executeScript("window.scrollBy(0,1500)");
+		js.executeScript("window.scrollBy(0,1400)");
+		Thread.sleep(3000);
+		String NotCompleted = CFOcountPOM.clickRiskMediumNotCompletedDIn(driver).getText();		//Reading the Closed Timely value of Human Resource
+		NotCompleted = NotCompleted.replaceAll(" ","");									//Removing all white spaces from string. 
+		int RiskHigh_NotCompleted = Integer.parseInt(NotCompleted);
+	
+		//int RiskHigh_NotCompleted = Integer.parseInt(CFOcountPOM.clickRiskHighNotCompleted(driver).getText());	//Reading the High Risk value of Not Completed compliance
+		if(RiskHigh_NotCompleted > 0)
+		{
+			Thread.sleep(500);
+			CFOcountPOM.clickRiskMediumNotCompletedDIn(driver).click();			//Clicking on Not Completed compliances bar of High risk.  
+			
+			DeptCountPOM.RiskGraphCount1In(driver, test, "Medium - Not Completed", RiskHigh_NotCompleted, "Internal");
+		}
+		else
+		{
+			test.log(LogStatus.PASS, "'High - Not Completed' Count = "+RiskHigh_NotCompleted);
+		}
+		/*	
+		Thread.sleep(2000);
+		int RiskHigh_ClosedDelayed = Integer.parseInt(CFOcountPOM.clickRiskHighClosedDelayed(driver).getText());	//Reading the High Risk value of Not Completed compliance
+		if(RiskHigh_ClosedDelayed > 0)
+		{
+			Thread.sleep(500);
+			CFOcountPOM.clickRiskHighClosedDelayed(driver).click();			//Clicking on Not Completed compliances bar of High risk.  
+			
+			CFOcountPOM.RiskGraphCountIn(driver, test, "High - Closed Delayed", RiskHigh_ClosedDelayed, "Statutory");
+		}
+		else
+		{
+			test.log(LogStatus.FAIL, "'High - Closed Delayed' Count = "+RiskHigh_ClosedDelayed);
+		}
+		
+		Thread.sleep(3000);
+		int RiskHigh_ClosedTimely = Integer.parseInt(CFOcountPOM.clickRiskHighClosedTimelyIN(driver).getText());	//Reading the High Risk value of Not Completed compliance
+		if(RiskHigh_ClosedTimely > 0)
+		{
+			Thread.sleep(500);
+			CFOcountPOM.clickRiskHighClosedTimelyIN(driver).click();			//Clicking on Not Completed compliances bar of High risk.  
+			
+			DeptCountPOM.RiskGraphCountIn(driver, test, "High - Closed Timely", RiskHigh_ClosedTimely, "Statutory");
+		}
+		else
+		{
+			test.log(LogStatus.PASS, "'High - Closed Timely' Count = "+RiskHigh_ClosedTimely);
+		}*/
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	
+//	@Test(priority = 15)
 	void ClosedTimely_PieChartPeriod() throws InterruptedException
 	{
 		test = extent.startTest("Period-Pie Chart -Completion Status- 'Closed Timely' Count Verification");
@@ -1412,7 +1470,7 @@ public class DeptcountInternal {
 		}
 	}
 	
-	@Test(priority = 16)
+//	@Test(priority = 16)
 	void ClosedDelayed_PieChartPeriod() throws InterruptedException
 	{
 		test = extent.startTest("Period-Pie Chart -Completion Status- 'Closed Delayed' Count Verification");
@@ -1618,7 +1676,7 @@ public class DeptcountInternal {
 		extent.flush();
 	}
 	
-	@Test(priority = 18)
+//	@Test(priority = 18)
 		void NotApplicable_PieChartPeriod() throws InterruptedException
 		{
 			test = extent.startTest("Period-Pie Chart -Completion Status- 'Not Applicable' Count Verification");

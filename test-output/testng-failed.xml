@@ -5,8 +5,8 @@
     <classes>
       <class name="departmentHead.DeptcountInternal">
         <methods>
-          <include name="NotApplicable_PieChartPeriod"/>
           <include name="setBrowser"/>
+          <include name="RiskSummaryMediumInternal"/>
         </methods>
       </class> <!-- departmentHead.DeptcountInternal -->
     </classes>

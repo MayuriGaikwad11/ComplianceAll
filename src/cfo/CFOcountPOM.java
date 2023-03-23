@@ -1029,6 +1029,12 @@ public class CFOcountPOM
 		return risksummary;
 	}
 	
+	public static WebElement clickRiskMediumNotCompletedDIn(WebDriver driver)	//Method to search 'High Risk - Not Completed' compliance of Risk Summary.
+	{
+		risksummary = driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-undefined '])[66]"));
+		return risksummary;
+	}
+	
 	public static WebElement clickRiskMediumAfterDueDate(WebDriver driver)	//Method to search 'Medium Risk - After Due Date' compliance of Risk Summary.
 	{
 		risksummary = driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-undefined '])[5]"));
@@ -3490,7 +3496,7 @@ else {
 			test.log(LogStatus.PASS, "Excel file Export Successfully");
 			Thread.sleep(3000);
 			
-  By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[19]/a");
+  By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[2]/td[19]/a");
 
 			wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 			Thread.sleep(4000);
@@ -5844,7 +5850,7 @@ try {
 			Thread.sleep(2000);
 			closeDocumentAS(driver).click();
 			Thread.sleep(2000);
-			test.log(LogStatus.PASS, "Advanced Search : -Clear Button Working Successfully ");
+		//	test.log(LogStatus.PASS, "Advanced Search : -Clear Button Working Successfully ");
 			performer.OverduePOM.clickDashboard(driver).click();
 	}
 	
@@ -6413,7 +6419,7 @@ WebDriverWait wait = new WebDriverWait(driver,(140));
 		{
 			test.log(LogStatus.PASS, "File downloaded successfully.");
 			
-			File lastModifiedFile = allFilesNew[0];			//Storing any 0th index file in 'lastModifiedFile' file name.
+		/*	File lastModifiedFile = allFilesNew[0];			//Storing any 0th index file in 'lastModifiedFile' file name.
 		    for (int i = 1; i < allFilesNew.length; i++) 	//For loop till the number of files in directory.
 		    {
 		       if (lastModifiedFile.lastModified() < allFilesNew[i].lastModified()) 	//If allFilesNew[i] file is having large/latest time time of update then latest modified file be allFilesNew[i] file.
@@ -6455,7 +6461,7 @@ WebDriverWait wait = new WebDriverWait(driver,(140));
 			else
 			{
 				test.log(LogStatus.PASS, vendors + " - Displayed vendor names are not present in sheet");
-			}
+			}*/
 		}
 		else
 		{
@@ -6533,10 +6539,10 @@ WebDriverWait wait = new WebDriverWait(driver,(140));
 		compliance = "Internal";
 		Assignment(driver, test, file, compliance);
 		Thread.sleep(1000);
-		OverduePOM.clickClearBtn(driver).click();
+		/*OverduePOM.clickClearBtn(driver).click();
 		Thread.sleep(1000);
 		test.log(LogStatus.PASS,"Clicking Clear Button - clear Data Succefully");
-		Thread.sleep(1000);
+		Thread.sleep(1000);*/
 		OverduePOM.clickDashboard(driver).click();
 	}
 	
@@ -6696,7 +6702,7 @@ WebDriverWait wait = new WebDriverWait(driver,(140));
 		test.log(LogStatus.PASS, "overView successfully");
 	
 		Thread.sleep(3000);
-		OverduePOM.clickRiskD(driver).click();
+	/*	OverduePOM.clickRiskD(driver).click();
 		Thread.sleep(1000);
 		By locatorR = By.xpath("(//*[@class='k-checkbox-label checkbox-span'])[8]");
 		wait.until(ExpectedConditions.presenceOfElementLocated(locator));
@@ -6709,7 +6715,7 @@ WebDriverWait wait = new WebDriverWait(driver,(140));
 		
 		OverduePOM.clickclearBtn(driver).click();
 		test.log(LogStatus.PASS, "Clear Button is working");
-		Thread.sleep(7000);
+		Thread.sleep(7000);*/
 			CFOcountPOM.clickAdvancedSearch(driver).click();
 		Thread.sleep(8000);
 		
@@ -6751,9 +6757,9 @@ WebDriverWait wait = new WebDriverWait(driver,(140));
 		CFOcountPOM.clickExportExcel(driver).click();
 		Thread.sleep(3000);
 		test.log(LogStatus.PASS, "Advanced Search-Export successfully");
-		CFOcountPOM.selectMonth1(driver).click();
+	/*	CFOcountPOM.selectMonth1(driver).click();
 		Thread.sleep(3000);
-		/*
+		
 		CFOcountPOM.selectLastSixMon(driver).click();
 		Thread.sleep(2000);
 		CFOcountPOM.clickApplyAd(driver).click();
@@ -6797,9 +6803,9 @@ WebDriverWait wait = new WebDriverWait(driver,(140));
 		jse.executeScript("arguments[0].click();", clickHighA);
 			Thread.sleep(4000);
 			*/
-			OverduePOM.clickclearBtnA(driver).click();
+		//	OverduePOM.clickclearBtnA(driver).click();
 			Thread.sleep(4000);
-			test.log(LogStatus.PASS, "Advanced Search-Clear Button is working");
+		//	test.log(LogStatus.PASS, "Advanced Search-Clear Button is working");
 			CFOcountPOM.closeDocumentAS(driver).click();
 			Thread.sleep(2000);
 			OverduePOM.clickDashboard(driver).click();

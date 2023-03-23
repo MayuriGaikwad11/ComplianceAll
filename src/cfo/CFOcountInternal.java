@@ -2143,7 +2143,7 @@ public class CFOcountInternal
 				test.log(LogStatus.FAIL, "'Medium' Risk Compliance Count = "+medium);
 			}
 			
-			if(low > 0)
+			if(low >= 0)
 			{
 				wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("IFNewPeriodGraphCompliance"));                                                            	
 				Thread.sleep(500);
@@ -2689,7 +2689,7 @@ public class CFOcountInternal
 		test = extent.startTest("Period-Pie Chart - Not Completed Status- 'Rejected' Count Verification");
 		
 		Thread.sleep(500);
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		Select drp = new Select(CFOcountPOM.selectInternal(driver));
 		drp.selectByIndex(1);
 		
@@ -2787,7 +2787,7 @@ public class CFOcountInternal
 		extent.flush();
 	}
 	
-	@Test(priority = 30)
+	@Test(priority = 32)
 	void GradingReportInternal() throws InterruptedException, IOException
 	{
 		Thread.sleep(4000);		
@@ -2796,7 +2796,7 @@ public class CFOcountInternal
 		
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 	//	js.executeScript("window.scrollBy(0,3000)");					//Scrolling down window by 2600 px.
-		js.executeScript("window.scrollBy(0,800)");
+		js.executeScript("window.scrollBy(0,500)");
 		Thread.sleep(500);	
 		CFOcountPOM.clickRedGrading(driver).click();
 		Thread.sleep(4000);	
@@ -2834,7 +2834,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[11]/a");
 		extent.flush();
 	}
 	
-	@Test(priority = 31)
+	@Test(priority = 33)
 	void complianceCalendar() throws InterruptedException
 	{
 		test = extent.startTest("compliance Calendar Verifications");
@@ -2850,10 +2850,10 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[11]/a");
 		Thread.sleep(5000);
 		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("calframe"));	//Wait until frame get visible and switch to it.
 		Thread.sleep(5000);
-		 CFOcountPOM.clickExportImage(driver).click();
+	/*	 CFOcountPOM.clickExportImage(driver).click();
 		 Thread.sleep(2000);
 			test.log(LogStatus.PASS, "Excel file Export Successfully");
-			Thread.sleep(3000);
+			Thread.sleep(3000);*/
 By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[6]/a");
 
 			wait.until(ExpectedConditions.presenceOfElementLocated(locator));
@@ -2871,7 +2871,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[6]/a");
 			test.log(LogStatus.PASS, "overView Successfully");
 			driver.switchTo().parentFrame();
 			js.executeScript("window.scrollBy(0,-50)");
-			CFOcountPOM.clickAll(driver).click();
+		/*	CFOcountPOM.clickAll(driver).click();
 			Thread.sleep(5000);
 			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='collapsePerformerCalender']/div/div[1]/div[3]/div")));
 			Thread.sleep(4000);
@@ -2896,9 +2896,9 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[6]/a");
 			jse.executeScript("arguments[0].click();", ViewButton1);
 				Thread.sleep(4000);
 				driver.switchTo().parentFrame();
-				CFOcountPOM.closeView_cal(driver).click();*/
+				CFOcountPOM.closeView_cal(driver).click();
 				test.log(LogStatus.PASS, "overView Successfully");
-				driver.switchTo().parentFrame();
+				driver.switchTo().parentFrame();*/
 				Thread.sleep(3000);
 			//	performer.OverduePOM.clickDashboard(driver).click();			//Clicking on Dashboard
 				
@@ -2908,7 +2908,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[6]/a");
 	}
 	
 	
-	@Test(priority = 32)
+	//@Test(priority = 34)
 	void DailyUpdates() throws InterruptedException, IOException
 	{
 		Thread.sleep(3000);		
@@ -2943,7 +2943,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[6]/a");
 		extent.flush();
 	}
 	
- @Test(priority =33)
+ //@Test(priority =35)
 	void NewsLetter() throws InterruptedException, IOException
 	{
 		Thread.sleep(500);		

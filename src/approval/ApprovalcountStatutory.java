@@ -1090,8 +1090,8 @@ public class ApprovalcountStatutory {
 		Thread.sleep(3000);
 		Actions action = new Actions(driver);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("window.scrollBy(0,500)");			//Scrolling down window by 1000 px.cfo
-	//	js.executeScript("window.scrollBy(0,2000)");
+		//js.executeScript("window.scrollBy(0,500)");			//Scrolling down window by 1000 px.cfo
+		js.executeScript("window.scrollBy(0,2000)");
 		Thread.sleep(800);
 		WebDriverWait wait = new WebDriverWait(driver, (30));
 		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("IFNewPeriodGraphCompliance"));                                                            	

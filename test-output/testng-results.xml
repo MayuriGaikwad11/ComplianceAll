@@ -1,73 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="14" passed="14" failed="0" skipped="0">
+<testng-results ignored="0" total="11" passed="11" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-03-21T16:55:57 IST" name="Default suite" finished-at="2023-03-21T17:16:19 IST" duration-ms="1222332">
+  <suite started-at="2023-03-23T18:39:57 IST" name="Default suite" finished-at="2023-03-23T19:08:53 IST" duration-ms="1736137">
     <groups>
     </groups>
-    <test started-at="2023-03-21T16:55:57 IST" name="Default test" finished-at="2023-03-21T17:16:19 IST" duration-ms="1222332">
-      <class name="approval.ApprovalcountStatutory">
-        <test-method is-config="true" signature="setBrowser()[pri:0, instance:approval.ApprovalcountStatutory@611889f4]" started-at="2023-03-21T16:55:57 IST" name="setBrowser" finished-at="2023-03-21T16:56:04 IST" duration-ms="6736" status="PASS">
+    <test started-at="2023-03-23T18:39:57 IST" name="Default test" finished-at="2023-03-23T19:08:53 IST" duration-ms="1736137">
+      <class name="cfo.CFOcountInternal">
+        <test-method is-config="true" signature="setBrowser()[pri:0, instance:cfo.CFOcountInternal@611889f4]" started-at="2023-03-23T18:39:57 IST" name="setBrowser" finished-at="2023-03-23T18:40:13 IST" duration-ms="16255" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setBrowser -->
-        <test-method signature="Login()[pri:1, instance:approval.ApprovalcountStatutory@611889f4]" started-at="2023-03-21T16:56:04 IST" name="Login" finished-at="2023-03-21T16:56:29 IST" duration-ms="25215" status="PASS">
+        <test-method signature="Login()[pri:1, instance:cfo.CFOcountInternal@611889f4]" started-at="2023-03-23T18:40:13 IST" name="Login" finished-at="2023-03-23T18:40:47 IST" duration-ms="33638" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method signature="CategoriesCountMatch()[pri:3, instance:approval.ApprovalcountStatutory@611889f4]" started-at="2023-03-21T16:56:29 IST" name="CategoriesCountMatch" finished-at="2023-03-21T16:56:55 IST" duration-ms="26152" status="PASS">
+        <test-method signature="DepartmentSummaryInternal()[pri:23, instance:cfo.CFOcountInternal@611889f4]" started-at="2023-03-23T18:40:47 IST" name="DepartmentSummaryInternal" finished-at="2023-03-23T18:43:18 IST" duration-ms="150929" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- CategoriesCountMatch -->
-        <test-method signature="UniqueCompliancesCountMatch()[pri:4, instance:approval.ApprovalcountStatutory@611889f4]" started-at="2023-03-21T16:56:55 IST" name="UniqueCompliancesCountMatch" finished-at="2023-03-21T16:57:15 IST" duration-ms="19553" status="PASS">
+        </test-method> <!-- DepartmentSummaryInternal -->
+        <test-method signature="ClosedTimely_PieChartPeriod()[pri:24, instance:cfo.CFOcountInternal@611889f4]" started-at="2023-03-23T18:43:18 IST" name="ClosedTimely_PieChartPeriod" finished-at="2023-03-23T18:47:35 IST" duration-ms="256854" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- UniqueCompliancesCountMatch -->
-        <test-method signature="TotalCompliancesCountMatch()[pri:5, instance:approval.ApprovalcountStatutory@611889f4]" started-at="2023-03-21T16:57:15 IST" name="TotalCompliancesCountMatch" finished-at="2023-03-21T16:57:34 IST" duration-ms="19218" status="PASS">
+        </test-method> <!-- ClosedTimely_PieChartPeriod -->
+        <test-method signature="ClosedDelayed_PieChartPeriod()[pri:25, instance:cfo.CFOcountInternal@611889f4]" started-at="2023-03-23T18:47:35 IST" name="ClosedDelayed_PieChartPeriod" finished-at="2023-03-23T18:51:56 IST" duration-ms="261644" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- TotalCompliancesCountMatch -->
-        <test-method signature="UsersCountMatch()[pri:6, instance:approval.ApprovalcountStatutory@611889f4]" started-at="2023-03-21T16:57:34 IST" name="UsersCountMatch" finished-at="2023-03-21T16:58:01 IST" duration-ms="26611" status="PASS">
+        </test-method> <!-- ClosedDelayed_PieChartPeriod -->
+        <test-method signature="NotCompleted_PieChartPeriod()[pri:26, instance:cfo.CFOcountInternal@611889f4]" started-at="2023-03-23T18:51:56 IST" name="NotCompleted_PieChartPeriod" finished-at="2023-03-23T18:55:19 IST" duration-ms="202354" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- UsersCountMatch -->
-        <test-method signature="SummaryofOverdueCompliances()[pri:7, instance:approval.ApprovalcountStatutory@611889f4]" started-at="2023-03-21T16:58:01 IST" name="SummaryofOverdueCompliances" finished-at="2023-03-21T16:58:40 IST" duration-ms="39152" status="PASS">
+        </test-method> <!-- NotCompleted_PieChartPeriod -->
+        <test-method signature="NotApplicable_PieChartPeriod()[pri:27, instance:cfo.CFOcountInternal@611889f4]" started-at="2023-03-23T18:55:19 IST" name="NotApplicable_PieChartPeriod" finished-at="2023-03-23T18:56:29 IST" duration-ms="70723" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- SummaryofOverdueCompliances -->
-        <test-method signature="NotCompleted_PieChart()[pri:8, instance:approval.ApprovalcountStatutory@611889f4]" started-at="2023-03-21T16:58:40 IST" name="NotCompleted_PieChart" finished-at="2023-03-21T17:00:48 IST" duration-ms="128377" status="PASS">
+        </test-method> <!-- NotApplicable_PieChartPeriod -->
+        <test-method signature="Overdue_PieChartInternalPeriod()[pri:28, instance:cfo.CFOcountInternal@611889f4]" started-at="2023-03-23T18:56:29 IST" name="Overdue_PieChartInternalPeriod" finished-at="2023-03-23T19:00:00 IST" duration-ms="211021" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- NotCompleted_PieChart -->
-        <test-method signature="ClosedDelayed_PieChart()[pri:9, instance:approval.ApprovalcountStatutory@611889f4]" started-at="2023-03-21T17:00:48 IST" name="ClosedDelayed_PieChart" finished-at="2023-03-21T17:03:05 IST" duration-ms="137371" status="PASS">
+        </test-method> <!-- Overdue_PieChartInternalPeriod -->
+        <test-method signature="PFR_PieChartInternalPeriod()[pri:30, instance:cfo.CFOcountInternal@611889f4]" started-at="2023-03-23T19:00:00 IST" name="PFR_PieChartInternalPeriod" finished-at="2023-03-23T19:03:58 IST" duration-ms="237245" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- ClosedDelayed_PieChart -->
-        <test-method signature="ClosedTimely_PieChart()[pri:10, instance:approval.ApprovalcountStatutory@611889f4]" started-at="2023-03-21T17:03:05 IST" name="ClosedTimely_PieChart" finished-at="2023-03-21T17:05:20 IST" duration-ms="134701" status="PASS">
+        </test-method> <!-- PFR_PieChartInternalPeriod -->
+        <test-method signature="Rejected_PieChartInternalPeriod()[pri:31, instance:cfo.CFOcountInternal@611889f4]" started-at="2023-03-23T19:03:58 IST" name="Rejected_PieChartInternalPeriod" finished-at="2023-03-23T19:07:49 IST" duration-ms="231283" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- ClosedTimely_PieChart -->
-        <test-method signature="Overdue_PieChart()[pri:11, instance:approval.ApprovalcountStatutory@611889f4]" started-at="2023-03-21T17:05:20 IST" name="Overdue_PieChart" finished-at="2023-03-21T17:07:33 IST" duration-ms="132870" status="PASS">
+        </test-method> <!-- Rejected_PieChartInternalPeriod -->
+        <test-method signature="GradingReportInternal()[pri:32, instance:cfo.CFOcountInternal@611889f4]" started-at="2023-03-23T19:07:49 IST" name="GradingReportInternal" finished-at="2023-03-23T19:08:23 IST" duration-ms="34520" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Overdue_PieChart -->
-        <test-method signature="pendingForReview_PieChart()[pri:12, instance:approval.ApprovalcountStatutory@611889f4]" started-at="2023-03-21T17:07:33 IST" name="pendingForReview_PieChart" finished-at="2023-03-21T17:09:56 IST" duration-ms="143391" status="PASS">
+        </test-method> <!-- GradingReportInternal -->
+        <test-method signature="complianceCalendar()[pri:33, instance:cfo.CFOcountInternal@611889f4]" started-at="2023-03-23T19:08:23 IST" name="complianceCalendar" finished-at="2023-03-23T19:08:53 IST" duration-ms="29523" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- pendingForReview_PieChart -->
-        <test-method signature="rejected_PieChart()[pri:13, instance:approval.ApprovalcountStatutory@611889f4]" started-at="2023-03-21T17:09:56 IST" name="rejected_PieChart" finished-at="2023-03-21T17:12:16 IST" duration-ms="139891" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- rejected_PieChart -->
-        <test-method signature="RiskSummaryHighStatutory()[pri:14, instance:approval.ApprovalcountStatutory@611889f4]" started-at="2023-03-21T17:12:16 IST" name="RiskSummaryHighStatutory" finished-at="2023-03-21T17:14:19 IST" duration-ms="122179" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- RiskSummaryHighStatutory -->
-        <test-method signature="DepartmentSummaryAccountStatutory()[pri:15, instance:approval.ApprovalcountStatutory@611889f4]" started-at="2023-03-21T17:14:19 IST" name="DepartmentSummaryAccountStatutory" finished-at="2023-03-21T17:16:19 IST" duration-ms="120829" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- DepartmentSummaryAccountStatutory -->
-      </class> <!-- approval.ApprovalcountStatutory -->
+        </test-method> <!-- complianceCalendar -->
+      </class> <!-- cfo.CFOcountInternal -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
