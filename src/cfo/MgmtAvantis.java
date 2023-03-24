@@ -21,6 +21,7 @@ import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import implementation.ImplementMethods;
+import performer.MethodsPOM;
 
 public class MgmtAvantis {
 
@@ -41,11 +42,11 @@ public class MgmtAvantis {
 	public int interest = 0;					//Variable created for reading Interest
 	public int penalty = 0;						//Variable created for reading Penalty
 	
-	public static String link = "GMTA";  
+	public static String link = "amruta";  
 	
 	public static XSSFSheet ReadExcel() throws IOException
 	{
-		fis = new FileInputStream("C:/Users/Mayuri Gaikwad/Desktop/PerformerPom/TestData/ComplianceSheet.xlsx");
+		fis = new FileInputStream("C:\\Users\\Mayuri Gaikwad\\Desktop\\PerformerPom\\TestData\\ComplianceSheet.xlsx");
 		workbook = new XSSFWorkbook(fis);
 		sheet = workbook.getSheetAt(14);					//Retrieving third sheet of Workbook
 		return sheet;
@@ -54,9 +55,9 @@ public class MgmtAvantis {
 	@BeforeTest
 	void setBrowser() throws Exception
 	{
-		extent = new com.relevantcodes.extentreports.ExtentReports("C:/Users/Mayuri Gaikwad/Desktop/PerformerPom/Reports/CFOResultsStatotory.html",true);
+		extent = new com.relevantcodes.extentreports.ExtentReports("C:\\Users\\Mayuri Gaikwad\\Desktop\\PerformerPom\\Reports\\CFOResultsStatotory.html",true);
 		test = extent.startTest("Verify OpenBrowser");
-		test.log(LogStatus.INFO, "Browser test is initiated");
+		test.log(LogStatus.PASS, "Browser test is initiated");
 		
 		XSSFSheet sheet = ReadExcel();
 		Row row0 = sheet.getRow(0);						//Selected 0th index row (First row)
@@ -65,7 +66,7 @@ public class MgmtAvantis {
 		
 		login.Login.BrowserSetup(URL);					//Method of Login class to set browser.
 		
-		test.log(LogStatus.PASS, "Test Passed.");
+		
 		extent.endTest(test);
 		extent.flush();
 	}
@@ -74,7 +75,7 @@ public class MgmtAvantis {
 	void Login() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Loging In - MGMT (Statutory)");
-		test.log(LogStatus.INFO, "Logging into system");
+		test.log(LogStatus.PASS, "Logging into system");
 		
 		XSSFSheet sheet = ReadExcel();
 		Row row1 = sheet.getRow(1);						//Selected 1st index row (Second row)
@@ -88,7 +89,7 @@ public class MgmtAvantis {
 		driver = login.Login.UserLogin(uname,password,link);		//Method of Login class to login user.
 		
 			
-		test.log(LogStatus.PASS, "Test Passed.");
+	
 		extent.endTest(test);
 		extent.flush();
 	}
@@ -106,12 +107,12 @@ public class MgmtAvantis {
 			
 		}
 	}
-	
+	/*
 	@Test(priority = 2)
 	void MyTaskStatutory() throws InterruptedException, IOException
 	{
 		test = extent.startTest("My Task - Statutory");
-		test.log(LogStatus.INFO, "Test Initiated");
+		
 		
 		MgmtAMethod.myTask(driver,test,workbook);
 		
@@ -123,7 +124,7 @@ public class MgmtAvantis {
 	void myTaskSubTaskSta() throws InterruptedException, IOException
 	{
 		test = extent.startTest("My Task - Statutory :- Sub Task");
-		test.log(LogStatus.INFO, "Test Initiated");
+		
 		
 		MgmtAMethod.myTaskSubTask(driver,test,workbook);
 		
@@ -135,7 +136,7 @@ public class MgmtAvantis {
 	void MyTaskInternal() throws InterruptedException, IOException
 	{
 		test = extent.startTest("My Task - Internal");
-		test.log(LogStatus.INFO, "Test Initiated");
+		
 		
 		MgmtAMethod.myTaskInternal(driver,test,workbook);
 		
@@ -147,7 +148,7 @@ public class MgmtAvantis {
 	void MyTaskSTInternal() throws InterruptedException, IOException
 	{
 		test = extent.startTest("My Task :- Internal :- Sub Task ");
-		test.log(LogStatus.INFO, "Test Initiated");
+		
 		
 		MgmtAMethod.myTaskSubTaskIn(driver,test,workbook);
 		
@@ -155,6 +156,18 @@ public class MgmtAvantis {
 		extent.flush();
 	}
 	
-
+*/
+	
+	 @Test(priority = 6) //pass 
+       void EventReport() throws InterruptedException
+			{
+				test = extent.startTest("Event Report Verification");
+				
+				
+				MethodsPOM.EventReport(driver,test);
+				
+				extent.endTest(test);
+				extent.flush();
+			}
 	
 }

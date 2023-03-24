@@ -135,6 +135,36 @@ public class CompanyAdminDiyMethod {
 	      			
 	      			SwitchtoParent(driver,test);
 	}
+	
+	public static void ReopeningofCompliance( WebDriver driver,ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
+	{		
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (40));
+		Thread.sleep(3000);
+		
+		SwitchtoChild(driver,test,workbook);
+	      
+	  	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[3]/a")));	//Wait until records table get visible.
+
+	      action.moveToElement(CompanyAdminDiyLocator.ManageCompliances(driver)).click().build().perform();
+	      Thread.sleep(1000);
+	      CompanyAdminDiyLocator.ReopeningofCompliance(driver).click();
+	      		  	 Thread.sleep(2000);
+	      		  	CompanyAdminDiyLocator.ReopeninCheckBox(driver).click();
+	      		  	 Thread.sleep(2000);
+	      			CompanyAdminDiyLocator.ReopeninSave(driver).click();
+	      		  	 Thread.sleep(2000);  
+	      		  	 
+	      		  	 driver.switchTo().alert().accept();
+	      		   Thread.sleep(1000);  
+	      	String Msg=	 driver.switchTo().alert().getText();
+	      	 driver.switchTo().alert().accept();
+	      	test.log(LogStatus.PASS, Msg);
+	      	Thread.sleep(4000);
+  			
+  			
+  			SwitchtoParent(driver,test);
+	}
 
 	
 }

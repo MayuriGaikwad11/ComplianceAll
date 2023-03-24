@@ -55,4 +55,49 @@ public class CompanyAdminDiyLocator {
 		return admin;
 	}
 	
+	public static WebElement ManageCompliances(WebDriver driver)		//Method for closing Message Popup
+	{
+		admin = driver.findElement(By.xpath("//*[@id='CMPMenuBar']/ul/li[4]"));
+		return admin;
+	}
+	
+	public static WebElement ReopeningofCompliance(WebDriver driver)		//Method for closing Message Popup
+	{
+		admin = driver.findElement(By.xpath("//*[@id='CMPMenuBar:submenu:26']/li[12]/a"));
+		return admin;
+	}
+	
+	public static WebElement ReopeninCheckBox(WebDriver driver)		//Method for closing Message Popup
+	{
+		admin = driver.findElement(By.xpath("//*[@id='chkApprover']"));
+		return admin;
+	}
+	
+	public static WebElement ReopeninSave(WebDriver driver)		//Method for closing Message Popup
+	{
+		admin = driver.findElement(By.xpath("//*[@id='btnSave']"));
+		return admin;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

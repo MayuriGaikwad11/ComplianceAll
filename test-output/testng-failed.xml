@@ -3,12 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="departmentHead.DeptcountInternal">
+      <class name="reviewer.ReviewerCount">
         <methods>
           <include name="setBrowser"/>
-          <include name="RiskSummaryMediumInternal"/>
+          <include name="CompletedCountStatutory"/>
         </methods>
-      </class> <!-- departmentHead.DeptcountInternal -->
+      </class> <!-- reviewer.ReviewerCount -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

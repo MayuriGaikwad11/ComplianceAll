@@ -763,8 +763,8 @@ public class ReMethodsPOM
 			test.log(LogStatus.FAIL, " :- File does not downloaded.");
 		}
 		
-	/*	elementsList = ReviewerPOM.clickOverView(driver);
-		elementsList.get(1).click();
+		elementsList = ReviewerPOM.clickOverView(driver);
+		elementsList.get(4).click();
 		Thread.sleep(2000);
 		ReviewerPOM.CloseOverview(driver).click();
 		Thread.sleep(2000);
@@ -798,15 +798,33 @@ public class ReMethodsPOM
 		
 		if(count == DasCountCompletedSta)
 		{
-			test.log(LogStatus.PASS, "Number of Completed grid matches to Dashboard Completed  Count.");
-			test.log(LogStatus.INFO, "No of Completed in the grid = "+count+" | Dashboard Completed  Count = "+DasCountCompletedSta);
+			//test.log(LogStatus.PASS, "Number of Completed grid matches to Dashboard Completed  Count.");
+			test.log(LogStatus.PASS, "No of Completed in the grid = "+count+" | Dashboard Completed  Count = "+DasCountCompletedSta);
 		}
 		else
 		{
-			test.log(LogStatus.FAIL, "Number of Completed does not matches to Dashboard Completed  Count.");
-			test.log(LogStatus.INFO, "No of Completed in the grid = "+count+" | Dashboard Completed  Count = "+DasCountCompletedSta);
-		}*/
+			//test.log(LogStatus.FAIL, "Number of Completed does not matches to Dashboard Completed  Count.");
+			test.log(LogStatus.FAIL, "No of Completed in the grid = "+count+" | Dashboard Completed  Count = "+DasCountCompletedSta);
+		}
 		Thread.sleep(2000);
+		js.executeScript("window.scrollBy(500,0)");						//Scrolling down window by 1000 px.
+		Thread.sleep(2000);
+		elementsList.get(5).click();
+		
+		Thread.sleep(1000);
+		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("OverViews4"));	//Wait until frame get visible and switch to it.
+		Thread.sleep(500);
+		CFOcountPOM.EnterRemark(driver).sendKeys("remark");
+		Thread.sleep(1000);
+		CFOcountPOM.ReOpen(driver).click();
+		Thread.sleep(8000);
+		String msg =driver.switchTo().alert().getText();
+		Thread.sleep(1000);
+		driver.switchTo().alert().accept();
+		test.log(LogStatus.PASS, "Message Display " +msg);
+Thread.sleep(1000);
+driver.switchTo().parentFrame();
+   Thread.sleep(5000);
 		OverduePOM.clickDashboard(driver).click();
 		
 		

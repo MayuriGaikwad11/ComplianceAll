@@ -300,7 +300,7 @@ public class ReviewerPOM
 	
 	public static List<WebElement> clickOverView(WebDriver driver)	//Searching all 'Work File Timeline' text boxes
 	{
-		elementsList = driver.findElements(By.xpath("//*[@id='grid']/div[4]/table/tbody/tr/td[23]/a[5]"));
+		elementsList = driver.findElements(By.xpath("//*[@id='grid']/div[4]/table/tbody/tr[1]/td[25]/a"));
 		return elementsList;
 	}
 	

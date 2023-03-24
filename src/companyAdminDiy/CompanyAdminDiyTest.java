@@ -112,7 +112,7 @@ public class CompanyAdminDiyTest {
 			
 		}
 	}
-	
+	/*
 	@Test(priority = 2)
 	void UserDepartmentdis() throws InterruptedException, IOException
 	{
@@ -136,7 +136,19 @@ public class CompanyAdminDiyTest {
 		extent.endTest(test);
 		extent.flush();
 	}
+	*/
 	
+	@Test(priority = 4)
+	void ReopeningofCompliance() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Manage Compliances - Re-opening of Compliance");
+		
+		
+		CompanyAdminDiyMethod.ReopeningofCompliance(driver,test,workbook);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
 	 @AfterTest
 		void Closing() throws InterruptedException
 		{

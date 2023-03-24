@@ -26,6 +26,7 @@ import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import cfo.CFOcountPOM;
+import implementation.ImplementPOM;
 
 public class MethodsPOM 
 {
@@ -3817,11 +3818,25 @@ if(action.equalsIgnoreCase("submit")){
 		Thread.sleep(3000);
 		OverduePOM.ClickEventReport(driver).click();
 		Thread.sleep(1000);
+		File dir = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
+
+		Thread.sleep(500);
+		CFOcountPOM.clickExportExcel(driver).click(); // Exporting (Downloading) file
+
+		Thread.sleep(3000);
+		File dir1 = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
+		Thread.sleep(3000);
+		if (dirContents.length < allFilesNew.length) {
+			test.log(LogStatus.PASS, "  File downloaded successfully.");
+		} else {
+			test.log(LogStatus.FAIL, "  File does not downloaded.");
+		}
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='grid']")));	//Wait till records table gets visible
 		Thread.sleep(500);
-		CFOcountPOM.clickExportExcel(driver).click();
-		Thread.sleep(1000);
-		test.log(LogStatus.PASS, "Export Succefully");
+		
+		
 		driver.findElement(By.xpath("//*[@id='example']/div[2]/span[1]/span/span")).click();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//a[@class='k-link'])[37]")).click();
