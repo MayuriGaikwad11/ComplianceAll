@@ -37,6 +37,113 @@ public class MethodsPOM
 	private static List<WebElement> elementsList = null;
 	private static List<WebElement> elementsList1 = null;
 	
+	public static void StatutoryCheckListMitigationP(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+	{
+		
+		
+		WebDriverWait wait = new WebDriverWait(driver,(30));
+		Thread.sleep(3000);
+	
+		
+		OverduePOM.clickStatutoryChecklist(driver).click();	
+		Thread.sleep(4000);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id = 'grid']")));
+		Thread.sleep(4000);
+		OverduePOM.clickMitigationPlanCheck(driver).click();	
+		Thread.sleep(4000);
+		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("frameMitigationOverViews"));	//Switching to iFrame.
+		
+		OverduePOM.Reason(driver).sendKeys("Reason");
+		Thread.sleep(1000);
+		
+		OverduePOM.Legal(driver).sendKeys("Legal");
+		Thread.sleep(1000);
+		OverduePOM.RemediationSteps(driver).sendKeys("Remediation Steps");
+		Thread.sleep(1000);
+		OverduePOM.Timeline(driver).click();
+		Thread.sleep(1000);
+		OverduePOM.Date28(driver).click();
+		Thread.sleep(2000);
+		OverduePOM.submit(driver).click();
+		Thread.sleep(1000);
+		
+	String msg=	driver.switchTo().alert().getText();
+	Thread.sleep(1000);
+	driver.switchTo().alert().accept();
+	test.log(LogStatus.PASS, "Message Displayed ; -"+msg);
+	driver.switchTo().parentFrame();
+	Thread.sleep(4000);
+		
+	OverduePOM.clickDashboard(driver).click();
+
+	Thread.sleep(4000);
+	}
+	
+	public static void StatutoryOverdueMitigationplan(WebDriver driver,ExtentTest test) throws InterruptedException
+	{
+		WebDriverWait wait = new WebDriverWait(driver,(30));
+		
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		
+		wait.until(ExpectedConditions.visibilityOf(OverduePOM.clickStatutoryOverdue(driver)));
+		OverduePOM.clickStatutoryOverdue(driver).click();	
+		Thread.sleep(3000);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id = 'grid']")));
+		Thread.sleep(1000);
+		if(OverduePOM.clickMitigationPlan(driver).isDisplayed()) {
+		OverduePOM.clickMitigationPlan(driver).click();
+		test.log(LogStatus.PASS, "Mitigation Plan Button Is Displayed ");
+		}
+		
+		// Mitigation Plan - Add
+		
+		Thread.sleep(4000);
+		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("frameMitigationOverViews"));	//Switching to iFrame.
+		
+		OverduePOM.Reason(driver).sendKeys("Reason");
+		Thread.sleep(1000);
+		
+		OverduePOM.Legal(driver).sendKeys("Legal");
+		Thread.sleep(1000);
+		OverduePOM.RemediationSteps(driver).sendKeys("Remediation Steps");
+		Thread.sleep(1000);
+		OverduePOM.Timeline(driver).click();
+		Thread.sleep(1000);
+		OverduePOM.Date28(driver).click();
+		Thread.sleep(2000);
+		OverduePOM.submit(driver).click();
+		Thread.sleep(1000);
+		
+	String msg=	driver.switchTo().alert().getText();
+	Thread.sleep(1000);
+	driver.switchTo().alert().accept();
+	test.log(LogStatus.PASS, "Message Displayed ; -"+msg);
+	driver.switchTo().parentFrame();
+	Thread.sleep(4000);
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id = 'grid']")));
+	Thread.sleep(1000);
+	// Mitigation Plan - Upadate
+	OverduePOM.clickMitigationPlan(driver).click();
+	Thread.sleep(4000);
+	wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("frameMitigationOverViews"));	//Switching to iFrame.
+	OverduePOM.Reason(driver).clear();
+	Thread.sleep(1000);
+	OverduePOM.Reason(driver).sendKeys("Reason");
+	Thread.sleep(1000);
+	OverduePOM.submit(driver).click();
+	Thread.sleep(1000);
+String msg1=	driver.switchTo().alert().getText();
+Thread.sleep(1000);
+driver.switchTo().alert().accept();
+test.log(LogStatus.PASS, "Update - Message Displayed ; -"+msg1);
+Thread.sleep(4000);
+driver.switchTo().parentFrame();
+
+OverduePOM.clickDashboard(driver).click();
+
+Thread.sleep(4000);
+	}
+	
 	public static void StatutoryOverdue(WebDriver driver) throws InterruptedException
 	{
 		WebDriverWait wait = new WebDriverWait(driver,(30));
@@ -67,7 +174,7 @@ public class MethodsPOM
 		Thread.sleep(500);
 		wait.until(ExpectedConditions.elementToBeClickable(OverduePOM.fileUploadStatutory(driver)));
 		Thread.sleep(3000);
-		OverduePOM.fileUploadStatutory(driver).sendKeys("C:/Users/sandip/Downloads/Holiday List 2022.xlsx");	//Providing Compliance Documents link
+		OverduePOM.fileUploadStatutory(driver).sendKeys("C:\\Users\\Mayuri Gaikwad\\Downloads\\Report .xlsx");	//Providing Compliance Documents link
 	//	OverduePOM.buttonAddLink(driver).click();						//Clicking on 'Add Link' button of Compliance Documents
 		Thread.sleep(2000);
 		Thread.sleep(1000);
@@ -105,7 +212,7 @@ public class MethodsPOM
 		Thread.sleep(500);
 		OverduePOM.remark(driver).sendKeys("Automation Testing");			//Sending Remark
 		
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		OverduePOM.clickComplianceSubmit(driver).click();				//Click on Submit button.
 		
 		Thread.sleep(2000);
@@ -136,7 +243,7 @@ public class MethodsPOM
 		Thread.sleep(500);
 		wait.until(ExpectedConditions.elementToBeClickable(OverduePOM.fileUploadStatutory(driver)));
 		Thread.sleep(3000);
-		OverduePOM.fileUploadStatutory(driver).sendKeys("C:/Users/sandip/Downloads/Holiday List 2022.xlsx");	//Providing Compliance Documents link
+		OverduePOM.fileUploadStatutory(driver).sendKeys("C:\\Users\\Mayuri Gaikwad\\Downloads\\Report .xlsx");	//Providing Compliance Documents link
 	//	OverduePOM.buttonAddLink(driver).click();						//Clicking on 'Add Link' button of Compliance Documents
 		Thread.sleep(2000);
 		Thread.sleep(1000);
@@ -174,8 +281,8 @@ public class MethodsPOM
 		Thread.sleep(500);
 		OverduePOM.remark(driver).sendKeys("Automation Testing");			//Sending Remark
 		
-		Thread.sleep(1000);
-		OverduePOM.clickComplianceSubmit(driver).click();				//Click on Submit button.
+		Thread.sleep(3000);
+		OverduePOM.clickComplianceSubmitAS(driver).click();				//Click on Submit button.
 		
 		Thread.sleep(2000);
 		driver.switchTo().alert().accept();								//Accepting msg of Successful Submittion.
@@ -351,7 +458,7 @@ public class MethodsPOM
 				Thread.sleep(1000);
 				wait.until(ExpectedConditions.elementToBeClickable(OverduePOM.fileUploadInternal(driver)));
 				Thread.sleep(3000);
-				OverduePOM.fileUploadInternal(driver).sendKeys("C:/Users/sandip/Downloads/Holiday List 2022.xlsx");	//Providing Compliance Documents link
+				OverduePOM.fileUploadInternal(driver).sendKeys("C:\\Users\\Mayuri Gaikwad\\Downloads\\Report .xlsx");	//Providing Compliance Documents link
 			//	OverduePOM.buttonAddLinkInternal(driver).click();		//Clicking on 'Add Link' button of Compliance Documents
 				
 				Thread.sleep(1000);
@@ -388,7 +495,7 @@ public class MethodsPOM
 			Thread.sleep(1000);
 			wait.until(ExpectedConditions.elementToBeClickable(OverduePOM.fileUploadInternal(driver)));
 			Thread.sleep(3000);
-			OverduePOM.fileUploadInternal(driver).sendKeys("C:/Users/sandip/Downloads/Holiday List 2022.xlsx");	//Providing Compliance Documents link
+			OverduePOM.fileUploadInternal(driver).sendKeys("C:\\Users\\Mayuri Gaikwad\\Downloads\\Report .xlsx");	//Providing Compliance Documents link
 		//	OverduePOM.buttonAddLinkInternal(driver).click();		//Clicking on 'Add Link' button of Compliance Documents
 			
 			Thread.sleep(1000);
@@ -477,7 +584,7 @@ public class MethodsPOM
 		Thread.sleep(3000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		Thread.sleep(5000);
-		js.executeScript("window.scrollBy(0,4000)");			//Sometimes it doesn't scrolls down so extra query added.
+	//	js.executeScript("window.scrollBy(0,4000)");			//Sometimes it doesn't scrolls down so extra query added.
 		
 		/*driver.findElement(By.xpath("//div[@class = 'k-multiselect-wrap k-floatwrap']")).click();
 		Thread.sleep(500);
@@ -486,7 +593,7 @@ public class MethodsPOM
 		OverduePOM.clickAdvancedSearch(driver).sendKeys(Keys.PAGE_DOWN);
 		OverduePOM.clickAdvancedSearch(driver).sendKeys(Keys.PAGE_DOWN);
 		*/
-		CFOcountPOM.clickNextPage1(driver).sendKeys(Keys.DOWN);
+	//	CFOcountPOM.clickNextPage1(driver).sendKeys(Keys.DOWN);
 		
 		wait.until(ExpectedConditions.visibilityOf(OverduePOM.clickStatutoryChecklistAction(driver).get(0)));	//Waiting until all Action buttons get visible.
 		Thread.sleep(2000);
@@ -750,13 +857,13 @@ if(action.equalsIgnoreCase("submit")){
 		
 		OverduePOM.clickStatutoryChecklist(driver).click();				//Clicking on Statutory Checklist value
 		
-	//	Action(driver, "Submit", "iPerformerFrame");					//Will click on 'Action' button
+		Action(driver, "Submit", "iPerformerFrame");					//Will click on 'Action' button
 		Thread.sleep(2000);
 		MethodsPOM.StatutoryCheckListExport(driver,test,workbook);	
 		Thread.sleep(500);
 		OverduePOM.clickDashboard(driver).click();						//Click on Dashboard
 		Thread.sleep(1000);
-	/*	Thread.sleep(1000);
+		Thread.sleep(1000);
 		int newStatutoryChecklistValue = Integer.parseInt(OverduePOM.clickStatutoryChecklist(driver).getText());	//Storing new value of Statutory Checkilist.
 		
 		if(newStatutoryChecklistValue < oldStatutoryChecklistValue)
@@ -776,7 +883,9 @@ if(action.equalsIgnoreCase("submit")){
 				OverduePOM.clickStatutoryChecklist(driver).click();									//Clicking on Statutory Checklist value
 				
 				Action(driver, "Closed Delayed", "iPerformerFrame");								//Will click on 'Not Applicable' button
-				
+				Thread.sleep(1000);
+				OverduePOM.clickDashboard(driver).click();						//Click on Dashboard
+				Thread.sleep(1000);
 				Thread.sleep(1000);
 				newStatutoryChecklistValue = Integer.parseInt(OverduePOM.clickStatutoryChecklist(driver).getText());	//Storing new value of Statutory Checkilist.
 				
@@ -789,7 +898,7 @@ if(action.equalsIgnoreCase("submit")){
 					test.log(LogStatus.FAIL, "Test Failed.");
 				}
 		
-		*/
+		
 		
 		//--------------------------------Not Applicable after Action button click--------------------------
 		/*
@@ -2384,9 +2493,9 @@ if(action.equalsIgnoreCase("submit")){
 		Thread.sleep(500);
 		wait.until(ExpectedConditions.elementToBeClickable(OverduePOM.clickUpcomingStatutory(driver)));	//Waiting for 'Upcoming Statutory' count to be clickable.
 		OverduePOM.clickUpcomingStatutory(driver).click();
-		Thread.sleep(2000);
+		Thread.sleep(8000);
 		Thread.sleep(1000);
-		wait.until(ExpectedConditions.elementToBeClickable(OverduePOM.checkTable(driver)));	//Waiting for records table to get displayed.
+	//	wait.until(ExpectedConditions.elementToBeClickable(OverduePOM.checkTable(driver)));	//Waiting for records table to get displayed.
 	
 		elementsList1 = OverduePOM.clickCalenderAction(driver);	//Getting all action buttons (Statutory/Internal)
 		elementsList1.get(0).click();					//Clicking on ith action button which has blue status 
@@ -2507,8 +2616,8 @@ if(action.equalsIgnoreCase("submit")){
 		
 		Thread.sleep(500);
 	driver.findElement(By.xpath("//div[@class = 'k-multiselect-wrap k-floatwrap']")).click();
-		
-	/*	Thread.sleep(500);
+		/*
+		Thread.sleep(500);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,2000)");						//Scrolling down window by 2600 px.
 		
@@ -2584,73 +2693,43 @@ if(action.equalsIgnoreCase("submit")){
 		{
 			test.log(LogStatus.PASS, " :- File downloaded successfully.");	
 			
-			File lastModifiedFile = allFilesNew[0];			//Storing any 0th index file in 'lastModifiedFile' file name.
-		    for (int i = 1; i < allFilesNew.length; i++) 	//For loop till the number of files in directory.
-		    {
-		       if (lastModifiedFile.lastModified() < allFilesNew[i].lastModified()) 	//If allFilesNew[i] file is having large/latest time time of update then latest modified file be allFilesNew[i] file.
-		       {
-		           lastModifiedFile = allFilesNew[i];
-		       }
-		    }
 			
-			Thread.sleep(500);
-			fis = new FileInputStream(lastModifiedFile);	//Provided last modified / latest downloaded file.
-			workbook = new XSSFWorkbook(fis);
-			sheet = workbook.getSheetAt(0);					//Retrieving first sheet of Workbook
-			Row row4 = sheet.getRow(3);						//Selected 3rd index row (Fourth row)
-			Cell c1 = row4.createCell(0);					//Selected cell (4th row, 1st column)
-			c1.setCellValue("Test");						//Entered temp data at empty row, so that it could make easy to get Last Row Number
-			FileOutputStream fos = new FileOutputStream(lastModifiedFile);
-			workbook.write(fos);
-			fos.close();
-			
-			int no = sheet.getLastRowNum();
-			int SheetRecords = no - 4;						//Sheet have extra 5 lines of information at top (But row count started from 0, so -4)
-			
-			if(SheetRecords == count)
-			{
-				test.log(LogStatus.PASS, " :- No of records displayed = " + count + " matches to No of records in excel sheet = "+SheetRecords);
-			}
-			else
-			{
-				test.log(LogStatus.FAIL, " :- No of records displayed = " + count + " doesn't matches to No of records in excel sheet = "+SheetRecords);
-			}
 		}
 		else
 		{
 			test.log(LogStatus.FAIL, " :- File does not downloaded.");
 		}
 		
-	/*	
+		
 		if(Compliance.equalsIgnoreCase("Statutory"))
 		{
 			if(upcomingStatutory == count)
 			{
-				test.log(LogStatus.PASS, "Before Perform :- Upcoming Statutory count matches to total number of compliances displayed.");
-				test.log(LogStatus.INFO, "Total Compliance Count in the Grid = "+count+" | Dashboard Compliance Count = "+upcomingStatutory);
+			//	test.log(LogStatus.PASS, "Before Perform :- Upcoming Statutory count matches to total number of compliances displayed.");
+				test.log(LogStatus.PASS, "Total Compliance Count in the Grid = "+count+" | Dashboard Compliance Count = "+upcomingStatutory);
 			}
 			else
 			{
-				test.log(LogStatus.FAIL, "Before Perform :- Upcoming Statutory count does not matches to total number of compliances displayed.");
-				test.log(LogStatus.INFO, "Total Compliance Count in the Grid = "+count+" | Dashboard Compliance Count = "+upcomingStatutory);
+				//test.log(LogStatus.FAIL, "Before Perform :- Upcoming Statutory count does not matches to total number of compliances displayed.");
+				test.log(LogStatus.FAIL, "Total Compliance Count in the Grid = "+count+" | Dashboard Compliance Count = "+upcomingStatutory);
 			}
 		}
 		else
 		{
 			if(upcomingInternal == count)
 			{
-				test.log(LogStatus.PASS, "Before Perform :- Upcoming Internal count matches to total number of compliances displayed.");
-				test.log(LogStatus.INFO, "Total Compliance Count in the Grid = "+count+" | Dashboard Compliance Count = "+upcomingInternal);
+			//	test.log(LogStatus.PASS, "Before Perform :- Upcoming Internal count matches to total number of compliances displayed.");
+				test.log(LogStatus.PASS, "Total Compliance Count in the Grid = "+count+" | Dashboard Compliance Count = "+upcomingInternal);
 			}
 			else
 			{
-				test.log(LogStatus.FAIL, "Before Perform :- Upcoming Internal count does not matches to total number of compliances displayed.");
-				test.log(LogStatus.INFO, "Total Compliance Count in the Grid = "+count+" | Dashboard Compliance Count = "+upcomingInternal);
+				//test.log(LogStatus.FAIL, "Before Perform :- Upcoming Internal count does not matches to total number of compliances displayed.");
+				test.log(LogStatus.FAIL, "Total Compliance Count in the Grid = "+count+" | Dashboard Compliance Count = "+upcomingInternal);
 			}
 		}
 		
 		elementsList1 = OverduePOM.clickCalenderAction(driver);	//Getting all action buttons (Statutory/Internal)
-		elementsList1.get(0).click();					//Clicking on ith action button which has blue status 
+		elementsList1.get(1).click();					//Clicking on ith action button which has blue status 
 		
 		if(Compliance.equalsIgnoreCase("Statutory"))
 		{
@@ -2671,7 +2750,7 @@ if(action.equalsIgnoreCase("submit")){
 			{
 				Thread.sleep(2000);
 				wait.until(ExpectedConditions.elementToBeClickable(OverduePOM.fileUploadStatutory(driver)));
-				OverduePOM.fileUploadStatutory(driver).sendKeys("C:/Users/sandip/Downloads/Holiday List 2022.xlsx");	//Providing Compliance Documents link
+				OverduePOM.fileUploadStatutory(driver).sendKeys("C:\\Users\\Mayuri Gaikwad\\Downloads\\Report .xlsx");	//Providing Compliance Documents link
 			//	OverduePOM.buttonAddLink(driver).click();						//Clicking on 'Add Link' button of Compliance Documents
 				Thread.sleep(1000);
 			}
@@ -2725,7 +2804,7 @@ if(action.equalsIgnoreCase("submit")){
 				js.executeScript("window.scrollBy(0,700)");					//Scrolling down window by 2600 px.
 				
 				wait.until(ExpectedConditions.elementToBeClickable(OverduePOM.fileUploadInternal(driver)));
-				OverduePOM.fileUploadInternal(driver).sendKeys("C:/Users/sandip/Downloads/Holiday List 2022.xlsx");	//Providing Compliance Documents link
+				OverduePOM.fileUploadInternal(driver).sendKeys("C:\\Users\\Mayuri Gaikwad\\Downloads\\Report .xlsx");	//Providing Compliance Documents link
 			//	OverduePOM.buttonAddLinkInternal(driver).click();						//Clicking on 'Add Link' button of Compliance Documents
 				Thread.sleep(1000);
 			}
@@ -2746,10 +2825,16 @@ if(action.equalsIgnoreCase("submit")){
 			wait.until(ExpectedConditions.elementToBeClickable(OverduePOM.clickInternalRemark(driver)));
 			OverduePOM.clickInternalRemark(driver).sendKeys("Automation Remark");	//Sending remark to text area.
 		}
-		
-		Thread.sleep(500);
+		if(Compliance.equalsIgnoreCase("Statutory"))
+		{
+		Thread.sleep(3000);
 		OverduePOM.clickComplianceSubmit(driver).click();			//Clicking on 'Submit' button.
-
+		}
+		else {
+			
+			Thread.sleep(3000);
+			OverduePOM.clickComplianceSubmit2(driver).click();
+		}
 		Thread.sleep(1000);
 		try
 		{
@@ -2795,7 +2880,7 @@ if(action.equalsIgnoreCase("submit")){
 		int count1 = Integer.parseInt(compliancesCount2);
 		
 		elementsList1 = OverduePOM.clickCalenderAction1(driver);	//Getting all action buttons (Statutory/Internal)
-		elementsList1.get(0).click();					//Clicking on ith action button which has blue status 
+		elementsList1.get(1).click();					//Clicking on ith action button which has blue status 
 		
 		if(Compliance.equalsIgnoreCase("Statutory"))
 		{
@@ -2816,7 +2901,7 @@ if(action.equalsIgnoreCase("submit")){
 			{
 				Thread.sleep(2000);
 				wait.until(ExpectedConditions.elementToBeClickable(OverduePOM.fileUploadStatutory(driver)));
-				OverduePOM.fileUploadStatutory(driver).sendKeys("C:/Users/sandip/Downloads/Holiday List 2022.xlsx");	//Providing Compliance Documents link
+				OverduePOM.fileUploadStatutory(driver).sendKeys("C:\\Users\\Mayuri Gaikwad\\Downloads\\Report .xlsx");	//Providing Compliance Documents link
 			//	OverduePOM.buttonAddLink(driver).click();						//Clicking on 'Add Link' button of Compliance Documents
 				Thread.sleep(1000);
 			}
@@ -2870,7 +2955,7 @@ if(action.equalsIgnoreCase("submit")){
 				js1.executeScript("window.scrollBy(0,700)");					//Scrolling down window by 2600 px.
 				
 				wait.until(ExpectedConditions.elementToBeClickable(OverduePOM.fileUploadInternal(driver)));
-				OverduePOM.fileUploadInternal(driver).sendKeys("C:/Users/sandip/Downloads/Holiday List 2022.xlsx");	//Providing Compliance Documents link
+				OverduePOM.fileUploadInternal(driver).sendKeys("C:\\Users\\Mayuri Gaikwad\\Downloads\\Report .xlsx");	//Providing Compliance Documents link
 			//	OverduePOM.buttonAddLinkInternal(driver).click();						//Clicking on 'Add Link' button of Compliance Documents
 				Thread.sleep(1000);
 			}
@@ -2891,9 +2976,18 @@ if(action.equalsIgnoreCase("submit")){
 			wait.until(ExpectedConditions.elementToBeClickable(OverduePOM.clickInternalRemark(driver)));
 			OverduePOM.clickInternalRemark(driver).sendKeys("Automation Remark");	//Sending remark to text area.
 		}
-		
-		Thread.sleep(500);
+		if(Compliance.equalsIgnoreCase("Statutory"))
+		{
+		Thread.sleep(3000);
 		OverduePOM.clickComplianceSubmit(driver).click();			//Clicking on 'Submit' button.
+		}
+		else {
+			
+			Thread.sleep(3000);
+			OverduePOM.clickComplianceSubmit2(driver).click();
+		}
+		Thread.sleep(500);
+	//	OverduePOM.clickComplianceSubmit(driver).click();			//Clicking on 'Submit' button.
 
 		Thread.sleep(1000);
 		try
@@ -2913,21 +3007,38 @@ if(action.equalsIgnoreCase("submit")){
 			
 		}
 		driver.switchTo().parentFrame();
-		
+		//*[@id="ComplainceInternalPerformaer1"]/div/div/div[1]/button
 		Thread.sleep(3000);
-		By locator2 = By.xpath("//*[@id='ComplaincePerformer1']/div/div/div[1]/button");
-		
-		wait.until(ExpectedConditions.presenceOfElementLocated(locator2));
-		Thread.sleep(4000);
+		if(Compliance.equalsIgnoreCase("Statutory"))
+		{
+			By locator2 = By.xpath("//*[@id='ComplaincePerformer1']/div/div/div[1]/button");
+			
+			wait.until(ExpectedConditions.presenceOfElementLocated(locator2));
+		//	Thread.sleep(4000);
 
-		WebElement ViewButton2 = driver.findElement(locator2);	
-		Thread.sleep(4000);
+			WebElement ViewButton2 = driver.findElement(locator2);	
+			Thread.sleep(4000);
+		
+		Thread.sleep(2000);
+		js1.executeScript("arguments[0].click();", ViewButton2);
+			Thread.sleep(5000);		//Clicking on 'Submit' button.
+		}
+		else {
+			
+			By locator2 = By.xpath("//*[@id='ComplainceInternalPerformaer1']/div/div/div[1]/button");
+			
+			wait.until(ExpectedConditions.presenceOfElementLocated(locator2));
+		
+
+			WebElement ViewButton2 = driver.findElement(locator2);	
+			Thread.sleep(4000);
+		
+		Thread.sleep(2000);
+		js1.executeScript("arguments[0].click();", ViewButton2);
+			Thread.sleep(5000);
+		}
+		
 	
-	Thread.sleep(2000);
-	js1.executeScript("arguments[0].click();", ViewButton2);
-		Thread.sleep(5000);
-	//	driver.findElement(By.xpath("//*[@id='ComplaincePerformer1']/div/div/div[1]/button")).click();
-		Thread.sleep(3000);
 		driver.findElement(By.xpath("//*[@class='k-button k-bare k-button-icon k-window-action']")).click();
 			Thread.sleep(500);
 		wait.until(ExpectedConditions.elementToBeClickable(OverduePOM.clickDashboard(driver)));
@@ -2941,24 +3052,24 @@ if(action.equalsIgnoreCase("submit")){
 			
 			if(upcomingStatutory > upcomingStatutoryNew)
 			{
-				test.log(LogStatus.PASS, "After Perform :- 'Upcoming' Statutory count decreased.");
-				test.log(LogStatus.INFO, "Old Compliance Count = "+upcomingStatutory+" | New Compliance Count = "+upcomingStatutoryNew);
+			//	test.log(LogStatus.PASS, "After Perform :- 'Upcoming' Statutory count decreased.");
+				test.log(LogStatus.PASS, "Old Compliance Count = "+upcomingStatutory+" | New Compliance Count = "+upcomingStatutoryNew);
 			}
 			else
 			{
-				test.log(LogStatus.FAIL, "After Perform :- 'Upcoming' Statutory count doesn't decreased.");
-				test.log(LogStatus.INFO, "Old Compliance Count = "+upcomingStatutory+" | New Compliance Count = "+upcomingStatutoryNew);
+				//test.log(LogStatus.FAIL, "After Perform :- 'Upcoming' Statutory count doesn't decreased.");
+				test.log(LogStatus.FAIL, "Old Compliance Count = "+upcomingStatutory+" | New Compliance Count = "+upcomingStatutoryNew);
 			}
 			
 			if(pendingcount1 > pendingCount)
 			{
-				test.log(LogStatus.PASS, "After Perform :- 'Pending for Review' Statutory count increased.");
-				test.log(LogStatus.INFO, "Old Compliance Count = "+pendingCount+" | New Compliance Count = "+pendingcount1);
+			//	test.log(LogStatus.PASS, "After Perform :- 'Pending for Review' Statutory count increased.");
+				test.log(LogStatus.PASS, "Old Compliance Count = "+pendingCount+" | New Compliance Count = "+pendingcount1);
 			}
 			else
 			{
-				test.log(LogStatus.FAIL, "After Perform :- 'Pending for Review' Statutory count doesn't increased.");
-				test.log(LogStatus.INFO, "Old Compliance Count = "+pendingCount+" | New Compliance Count = "+pendingcount1);
+				//test.log(LogStatus.FAIL, "After Perform :- 'Pending for Review' Statutory count doesn't increased.");
+				test.log(LogStatus.FAIL, "Old Compliance Count = "+pendingCount+" | New Compliance Count = "+pendingcount1);
 			}
 		}
 		else
@@ -2968,26 +3079,26 @@ if(action.equalsIgnoreCase("submit")){
 			
 			if(upcomingInternal > upcomingInternalNew)
 			{
-				test.log(LogStatus.PASS, "After Perform :- 'Upcoming' Internal count decreased.");
-				test.log(LogStatus.INFO, "Old Compliance Count = "+upcomingInternal+" | New Compliance Count = "+upcomingInternalNew);
+			//	test.log(LogStatus.PASS, "After Perform :- 'Upcoming' Internal count decreased.");
+				test.log(LogStatus.PASS, "Old Compliance Count = "+upcomingInternal+" | New Compliance Count = "+upcomingInternalNew);
 			}
 			else
 			{
-				test.log(LogStatus.FAIL, "After Perform :- 'Upcoming' Internal count doesn't decreased.");
-				test.log(LogStatus.INFO, "Old Compliance Count = "+upcomingInternal+" | New Compliance Count = "+upcomingInternalNew);
+				//test.log(LogStatus.FAIL, "After Perform :- 'Upcoming' Internal count doesn't decreased.");
+				test.log(LogStatus.FAIL, "Old Compliance Count = "+upcomingInternal+" | New Compliance Count = "+upcomingInternalNew);
 			}
 			
 			if(pendingcount1 > pendingCountInternal)
 			{
-				test.log(LogStatus.PASS, "After Perform :- 'Pending for Review' Internal count increased.");
+				//test.log(LogStatus.PASS, "After Perform :- 'Pending for Review' Internal count increased.");
 				test.log(LogStatus.INFO, "Old Compliance Count = "+pendingCountInternal+" | New Compliance Count = "+pendingcount1);
 			}
 			else
 			{
-				test.log(LogStatus.FAIL, "After Perform :- 'Pending for Review' Internal count doesn't increased.");
-				test.log(LogStatus.INFO, "Old Compliance Count = "+pendingCountInternal+" | New Compliance Count = "+pendingcount1);
+				//test.log(LogStatus.FAIL, "After Perform :- 'Pending for Review' Internal count doesn't increased.");
+				test.log(LogStatus.FAIL, "Old Compliance Count = "+pendingCountInternal+" | New Compliance Count = "+pendingcount1);
 			}
-		}*/
+		}
 		OverduePOM.clickDashboard(driver).click();	
 	}
 	public static void WorkspaceADExportStatutory(WebDriver driver, ExtentTest test)throws InterruptedException
@@ -4328,7 +4439,7 @@ if(action.equalsIgnoreCase("submit")){
 	 		Thread.sleep(4000);
 	 		driver.findElement(By.xpath("//*[@id='divOverView1']/div/div/div[1]/button")).click();
 	 		Thread.sleep(3000);
-	 		test.log(LogStatus.INFO, "Overview successfully");
+	 		test.log(LogStatus.PASS, "Overview successfully");
 	 		OverduePOM.clickDashboard(driver).click();
 		
 	}

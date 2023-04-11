@@ -1160,6 +1160,7 @@ public class ApprovalcountStatutory {
 			Thread.sleep(500);
 			action.moveToElement(CFOcountPOM.clickBack1(driver)).click().build().perform();	 //Clicking on Back button
 			driver.switchTo().parentFrame();
+			Thread.sleep(2000);
 		}
 		else
 		{
@@ -1251,7 +1252,7 @@ public class ApprovalcountStatutory {
 			Thread.sleep(500);
 			action.moveToElement(CFOcountPOM.clickBack1(driver)).click().build().perform();	 //Clicking on Back button
 			driver.switchTo().parentFrame();
-			Thread.sleep(1000);
+			Thread.sleep(2000);
 		}
 		else
 		{
@@ -1367,7 +1368,7 @@ public class ApprovalcountStatutory {
 	{
 		test = extent.startTest("Period-Pie Chart -Not Completed Status- 'Pending For Review' Count Verification");
 	
-		Thread.sleep(500);
+		Thread.sleep(3000);
 		WebDriverWait wait = new WebDriverWait(driver, (40));
 	/*	wait.until(ExpectedConditions.visibilityOf(ApprovalcountPOM.clickManagement(driver)));
 
@@ -1443,8 +1444,8 @@ public class ApprovalcountStatutory {
 			//Thread.sleep(5000);
 		//	action.moveToElement(CFOcountPOM.clickBack2(driver)).click().build().perform();	 //Clicking on Back button
 			Thread.sleep(2000);
-		//	performer.OverduePOM.clickDashboard(driver).click();			//Clicking on Dashboard
-	
+			performer.OverduePOM.clickDashboard(driver).click();			//Clicking on Dashboard
+			Thread.sleep(2000);
 		}
 		else
 		{
@@ -1462,6 +1463,105 @@ public class ApprovalcountStatutory {
 	}
 	
 	@Test(priority = 20)
+	void rejected_PieChartPeriod() throws InterruptedException
+	{
+		test = extent.startTest("Period-Pie Chart -Not Completed Status- 'Rejected' Count Verification");
+	
+		Thread.sleep(3000);
+		WebDriverWait wait = new WebDriverWait(driver, (40));
+	/*	wait.until(ExpectedConditions.visibilityOf(ApprovalcountPOM.clickManagement(driver)));
+
+		ApprovalcountPOM.clickManagement(driver).click();
+		Thread.sleep(5000);
+		Thread.sleep(500);
+		Actions action = new Actions(driver);*/	
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,2000)");			//Scrolling down window by 1000 px.
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("IFNewPeriodGraphCompliance"));                                                            	
+		Thread.sleep(3000);
+		int pendingForReviewValue = Integer.parseInt(CFOcountPOM.clickRejectedPe1(driver).getText());	//Reading value of 'Not Completed'
+		CFOcountPOM.clickRejectedPe1(driver).click();									//CLicking on 'Not Completed' count
+		
+		Thread.sleep(500);
+		int critical = Integer.parseInt(CFOcountPOM.readCritical(driver).getText());	//Reading Critical risk count.
+		int high = Integer.parseInt(CFOcountPOM.readHigh(driver).getText());			//Reading High risk count.
+		int medium = Integer.parseInt(CFOcountPOM.readMedium(driver).getText());		//Reading Medium risk count.
+		int low = Integer.parseInt(CFOcountPOM.readLow(driver).getText());				//Reading Low risk count.
+		
+		int total = critical + high + medium + low;
+		/*
+		if(pendingForReviewValue == total)
+		{
+			test.log(LogStatus.PASS, "' Rejected' Compliance Count matches to sum of all risked compliances.");
+			test.log(LogStatus.PASS, "Total Overdue' Compliances : "+total);
+		}
+		else
+		{
+			test.log(LogStatus.FAIL, "'Rejected' Compliance Count doesn't matches to sum of all risked compliances.");
+			test.log(LogStatus.FAIL, "Total 'Overdue' Compliances : "+total+" | Total Sum : "+pendingForReviewValue);
+		}
+	*/
+		if(pendingForReviewValue > 0)
+		{
+			if(critical > 0)
+			{
+				ApprovalcountPOM.GraphCountPe1(driver, test, "Critical", critical, "Statutory");
+			}
+			else
+			{
+				test.log(LogStatus.PASS, "'Critical' Risk Compliance Count = "+critical);
+			}
+			
+			if(high > 0)
+			{
+				ApprovalcountPOM.GraphCountPe1(driver, test, "High", high, "Statutory");
+			}
+			else
+			{
+				test.log(LogStatus.PASS, "'High' Risk Compliance Count = "+high);
+			}
+			
+			if(medium > 0)
+			{
+				ApprovalcountPOM.GraphCountPe1(driver, test, "Medium", medium, "Statutory");
+			}
+			else
+			{
+				test.log(LogStatus.PASS, "'Medium' Risk Compliance Count = "+medium);
+			}
+			
+			if(low > 0)
+			{
+				ApprovalcountPOM.GraphCountPe1(driver, test, "Low", low, "Statutory");
+			}
+			else
+			{
+				test.log(LogStatus.PASS, "'Low' Risk Compliance Count = "+low);
+			}
+			
+			//Thread.sleep(5000);
+		//	action.moveToElement(CFOcountPOM.clickBack2(driver)).click().build().perform();	 //Clicking on Back button
+			Thread.sleep(2000);
+		//	performer.OverduePOM.clickDashboard(driver).click();			//Clicking on Dashboard
+	
+		}
+		else
+		{
+			test.log(LogStatus.PASS, " 'Rejected' Compliance Count = "+pendingForReviewValue);
+			
+			Thread.sleep(500);
+		//	action.moveToElement(CFOcountPOM.clickBack2(driver)).click().build().perform();	//Clicking on Dashboard
+			Thread.sleep(2000);
+		//	performer.OverduePOM.clickDashboard(driver).click();			//Clicking on Dashboard
+	
+		}
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 21)
 	void GradingReportStatutory() throws InterruptedException, IOException
 	{
 		Thread.sleep(500);		
@@ -1508,11 +1608,11 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[12]/a");
 		extent.flush();
 	}
 	
-	@Test(priority = 21)
+	@Test(priority = 22)
 	void complianceCalendar() throws InterruptedException
 	{
 		test = extent.startTest("compliance Calendar Verifications");
-		//test.log(LogStatus.INFO, "Test Initiated");
+		
 		
 		WebDriverWait wait = new WebDriverWait(driver,(70));
 	
@@ -1544,7 +1644,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 
 			test.log(LogStatus.PASS, "overView successfully");
 			driver.switchTo().parentFrame();
-			js.executeScript("window.scrollBy(0,-50)");
+	/*		js.executeScript("window.scrollBy(0,-50)");
 			CFOcountPOM.clickAll(driver).click();
 			Thread.sleep(4000);
 			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='collapsePerformerCalender']/div/div[1]/div[3]/div")));
@@ -1573,7 +1673,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 				CFOcountPOM.closeView_cal(driver).click();
 				test.log(LogStatus.PASS, "overView Successfully");
 				driver.switchTo().parentFrame();
-				Thread.sleep(1000);
+				Thread.sleep(1000);*/
 			//	performer.OverduePOM.clickDashboard(driver).click();			//Clicking on Dashboard
 				
 				
@@ -1581,7 +1681,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 			extent.flush();
 	}
 	
-		@Test(priority = 22)
+		@Test(priority = 23)
 	void DailyUpdates() throws InterruptedException, IOException
 	{
 		Thread.sleep(2000);		
@@ -1617,7 +1717,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 		extent.flush();
 	}
 	
-	@Test(priority = 23)
+	@Test(priority = 24)
 	void NewsLetter() throws InterruptedException, IOException
 	{
 		Thread.sleep(500);		
@@ -1648,7 +1748,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 		extent.flush();
 	}
 	
-	@Test(priority = 24)
+	@Test(priority = 25)
 	void StandardReportOverall() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Standard Report -Overall Verification");
@@ -1660,7 +1760,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 		extent.flush();
 	}
 	
-	@Test(priority = 25)
+	@Test(priority = 26)
 		void StandardReportLocation() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Standard Report -Location Verification");
@@ -1672,7 +1772,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 			extent.flush();
 		}
 		
-	@Test(priority = 26)
+	@Test(priority = 27)
 		void StandardReportUser() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Standard Report -User Verification");
@@ -1684,7 +1784,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 			extent.flush();
 		}
 		
-	@Test(priority = 27)
+	@Test(priority = 28)
 		void StandardReportCategory() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Standard Report -Category  Verification");
@@ -1696,7 +1796,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 			extent.flush();
 		}
 		
-		@Test(priority = 28)
+		@Test(priority = 29)
 		void StandardReportRisk() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Standard Report -Risk  Verification");
@@ -1708,7 +1808,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 			extent.flush();
 		}
 		
-	@Test(priority = 29)
+	@Test(priority = 30)
 		void StandardReportDetailed() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Standard Report -Detailed  Verification");
@@ -1720,7 +1820,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 			extent.flush();
 		}
 		
-		@Test(priority = 30)
+		@Test(priority = 31)
 		void StandardReportCriticalRisk() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Standard Report -Critical Risk  Verification");
@@ -1732,7 +1832,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 			extent.flush();
 		}
 		
-		@Test(priority = 31)
+		@Test(priority = 32)
 		void StandardReportDepartment () throws InterruptedException, IOException
 		{
 			test = extent.startTest("Standard Report - Department   Verification");
@@ -1744,7 +1844,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 			extent.flush();
 		}
 		
-		@Test(priority = 32)
+		@Test(priority = 33)
 		void StandardReportOverallIN() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Standard Report Internal -Overall Verification");
@@ -1756,7 +1856,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 			extent.flush();
 		}
 		
-	    @Test(priority = 33)
+	    @Test(priority = 34)
 		void StandardReportLocationIN() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Standard Report Internal -Location Verification");
@@ -1768,7 +1868,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 			extent.flush();
 		}
 		
-		@Test(priority = 34)
+		@Test(priority = 35)
 		void StandardReportUserIn() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Standard Report Internal -User Verification");
@@ -1780,7 +1880,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 			extent.flush();
 		}
 		
-		@Test(priority = 35)
+		@Test(priority = 36)
 		void StandardReportCategoryIn() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Standard Report Internal -Category  Verification");
@@ -1792,7 +1892,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 			extent.flush();
 		}
 		
-	@Test(priority = 36)
+	@Test(priority = 37)
 		void StandardReportRiskIN() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Standard Report Internal-Risk  Verification");
@@ -1804,7 +1904,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 			extent.flush();
 		}
 		
-	@Test(priority = 37)
+	@Test(priority = 38)
 		void StandardReportDetailedIN() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Standard Report Internal-Detailed  Verification");
@@ -1816,7 +1916,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 			extent.flush();
 		}
 		
-		@Test(priority = 38)
+		@Test(priority = 39)
 		void StandardReportCriticalRiskIN() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Standard Report Internal -Critical Risk  Verification");
@@ -1828,7 +1928,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 			extent.flush();
 		}
 		
-		@Test(priority = 39)
+		@Test(priority = 40)
 		void StandardReportDepartmentIN() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Standard Report Internal -Department  Verification");
@@ -1839,8 +1939,8 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 			extent.endTest(test);
 			extent.flush();
 		}
-	/*
-	@Test(priority = 40)
+	
+	@Test(priority = 41)
 	void DetailedReport() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Detailed Report Count Verification");
@@ -1852,7 +1952,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 		extent.flush();
 	}
 	
-	@Test(priority = 41) 
+	@Test(priority = 42) 
 	void DetailedReportIn() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Detailed Report -Internal Count Verification");
@@ -1864,7 +1964,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 		extent.flush();
 	}
 	
-	@Test(priority = 42)
+	@Test(priority = 43)
 	void AssignmentReport() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Assignment Report verification");
@@ -1876,7 +1976,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 		extent.flush();
 	}	
 	
-	@Test(priority = 43)
+	@Test(priority = 44)
 	void ComplianceRepository() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Compliance  Repository  verification");
@@ -1888,7 +1988,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 		extent.flush();
 	}
 
-	@Test(priority = 44)
+	@Test(priority = 45)
 	void ComplianceDocuments() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Compliance Documents  verification");
@@ -1900,7 +2000,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 				extent.flush();
 	}
 	
-	@Test(priority = 45)
+//	@Test(priority = 46)
 	void ComplianceDocumentsIN() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Compliance Documents-Internal  verification");
@@ -1912,7 +2012,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 				extent.flush();
 	}
 	
-	@Test(priority = 46) //	pass	
+	@Test(priority = 47) //	pass	
 	void CriticalDocuments() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Critical Document Verification");
@@ -1924,7 +2024,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 		extent.flush();
 	}
 	
-	@Test(priority = 47)
+	//@Test(priority = 48)
 	void ActDocuments() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Act Documents  verification");
@@ -1967,7 +2067,7 @@ WebDriverWait wait = new WebDriverWait(driver,(140));
 	
 	
 	
-//	@Test(priority = 48) // pass
+//	@Test(priority = 49) // pass
 	void MyReminderStatutory() throws InterruptedException, IOException
 	{
 		test = extent.startTest("My Reminder - Statutory Count Verification");
@@ -1979,7 +2079,7 @@ WebDriverWait wait = new WebDriverWait(driver,(140));
 		extent.flush();
 	}
 	
-	 @Test(priority = 49)
+	 @Test(priority = 50)
 		void InternalMsg() throws InterruptedException, IOException
 		{
 			Thread.sleep(500);		
@@ -2015,7 +2115,7 @@ WebDriverWait wait = new WebDriverWait(driver,(140));
 			extent.flush();
 		}
 		
-		 @Test(priority = 50)
+		 @Test(priority = 51)
 			void SupportTicket() throws InterruptedException, IOException
 			{
 				Thread.sleep(1000);		
@@ -2088,7 +2188,7 @@ WebDriverWait wait = new WebDriverWait(driver,(140));
 		
 		extent.endTest(test);
 		extent.flush();
-	}*/
+	}
 	
 	
 	

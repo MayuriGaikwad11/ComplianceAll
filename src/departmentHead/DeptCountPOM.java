@@ -22,7 +22,7 @@ public class DeptCountPOM {
 
 	public static void GraphCount(WebDriver driver, ExtentTest test, String risk, int complianceCount, String Compliance)throws InterruptedException
 	{
-		Thread.sleep(500);
+		Thread.sleep(2000);
 		if(risk.equalsIgnoreCase("Critical"))
 		{
 			CFOcountPOM.readCritical(driver).click();					//Clicking on Critical value of Pie Chart of 'Not Completed'.
@@ -113,12 +113,12 @@ public class DeptCountPOM {
 		
 		if(count == complianceCount)
 		{
-			test.log(LogStatus.PASS, "'"+risk+"' risk compliance count matches to numbers of items from grid.");
+			//test.log(LogStatus.PASS, "'"+risk+"' risk compliance count matches to numbers of items from grid.");
 			test.log(LogStatus.PASS, "'"+risk+"' risk compliance count = " + complianceCount + " | Total number of items from grid = "+count);
 		}
 		else
 		{
-			test.log(LogStatus.FAIL, "'"+risk+"' risk compliance count does not matches to numbers of Items.");
+			//test.log(LogStatus.FAIL, "'"+risk+"' risk compliance count does not matches to numbers of Items.");
 			test.log(LogStatus.FAIL, "'"+risk+"' risk compliance count = " + complianceCount + " | Total number of items from grid = "+count);
 		}
 		}else {
@@ -258,7 +258,7 @@ public class DeptCountPOM {
 	
 	public static void GraphCount2(WebDriver driver, ExtentTest test, String risk, int complianceCount, String Compliance)throws InterruptedException
 	{
-		Thread.sleep(500);
+		Thread.sleep(1000);
 		if(risk.equalsIgnoreCase("Critical"))
 		{
 			CFOcountPOM.readCritical(driver).click();					//Clicking on Critical value of Pie Chart of 'Not Completed'.
@@ -375,12 +375,12 @@ public class DeptCountPOM {
 		
 		if(count == complianceCount)
 		{
-			test.log(LogStatus.PASS, "'"+risk+"' risk compliance count matches to numbers of items from grid.");
+			//test.log(LogStatus.PASS, "'"+risk+"' risk compliance count matches to numbers of items from grid.");
 			test.log(LogStatus.PASS, "'"+risk+"' risk compliance count = " + complianceCount + " | Total number of items from grid = "+count);
 		}
 		else
 		{
-			test.log(LogStatus.FAIL, "'"+risk+"' risk compliance count does not matches to numbers of Items.");
+		//	test.log(LogStatus.FAIL, "'"+risk+"' risk compliance count does not matches to numbers of Items.");
 			test.log(LogStatus.FAIL, "'"+risk+"' risk compliance count = " + complianceCount + " | Total number of items from grid = "+count);
 		}
 		}else {
@@ -1065,15 +1065,17 @@ Thread.sleep(5000);
 
 			wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 			Thread.sleep(4000);
-			// retrieving "foo-button" HTML element
+			
 			List<WebElement> ViewButton = driver.findElements(locator);	
 			Thread.sleep(3000);
 			ViewButton.get(0).click();
 			Thread.sleep(4000);
 			CFOcountPOM.closeDocument1(driver).click();
 			Thread.sleep(3000);
+			test.log(LogStatus.PASS, "View successfully");
 			ViewButton.get(1).click();
 			Thread.sleep(4000);
+			test.log(LogStatus.PASS, "Download Doc successfully");
 			ViewButton.get(2).click();
 		//JavascriptExecutor jse=(JavascriptExecutor)driver;
 		//jse.executeScript("arguments[0].click();", ViewButton);
@@ -1113,12 +1115,12 @@ Thread.sleep(5000);
 		
 		if(count == complianceCount)
 		{
-			test.log(LogStatus.PASS, "'"+risk+"' risk compliance count matches to numbers of items from grid.");
+			//test.log(LogStatus.PASS, "'"+risk+"' risk compliance count matches to numbers of items from grid.");
 			test.log(LogStatus.PASS, "'"+risk+"' risk compliance count = " + complianceCount + " | Total number of items from grid = "+count);
 		}
 		else
 		{
-			test.log(LogStatus.FAIL, "'"+risk+"' risk compliance count does not matches to numbers of Items.");
+		//	test.log(LogStatus.FAIL, "'"+risk+"' risk compliance count does not matches to numbers of Items.");
 			test.log(LogStatus.FAIL, "'"+risk+"' risk compliance count = " + complianceCount + " | Total number of items from grid = "+count);
 		}
 		}	else {

@@ -3,12 +3,22 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="reviewer.ReviewerCount">
+      <class name="auditor.AuditorcountStatutory">
         <methods>
+          <include name="RiskSummaryMediumStatutory"/>
+          <include name="inProgress_PieChart"/>
+          <include name="ClosedDelayed_PieChart"/>
+          <include name="pendingForReview_PieChart"/>
+          <include name="RiskSummaryCriticalStatutory"/>
+          <include name="dueToday_PieChart"/>
+          <include name="NotApplicable_PieChart"/>
+          <include name="RiskSummaryLowStatutory"/>
           <include name="setBrowser"/>
-          <include name="CompletedCountStatutory"/>
+          <include name="Overdue_PieChart"/>
+          <include name="rejected_PieChart"/>
+          <include name="RiskSummaryHighStatutory"/>
         </methods>
-      </class> <!-- reviewer.ReviewerCount -->
+      </class> <!-- auditor.AuditorcountStatutory -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

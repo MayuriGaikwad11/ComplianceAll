@@ -88,16 +88,16 @@ public class ReviewerCount
 		
 		driver = login.Login.UserLogin(uname,password,"PendingReview");		//Method of Login class to login user.
 		
-		test.log(LogStatus.PASS, "Test Passed.");
+		
 		extent.endTest(test);
 		extent.flush();
 	}
 
-	//@Test(priority = 2) //pass
+//	@Test(priority = 2) //pass
        void ReviewCountStatutoryApprove() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Statutory Review Count when Approved");
-		test.log(LogStatus.INFO, "Test initiated");
+	
 		
 		WebDriverWait wait = new WebDriverWait(driver,  30);
 		//Thread.sleep(1000);
@@ -128,7 +128,7 @@ public class ReviewerCount
 			test.log(LogStatus.FAIL, " :- File does not downloaded.");
 		}
 		
-	/*	elementsList = ReviewerPOM.clickStatus(driver);			//CLicking on Status to sort it in ascending order
+		elementsList = ReviewerPOM.clickStatus(driver);			//CLicking on Status to sort it in ascending order
 		elementsList.get(0).click();
 		
 		wait.until(ExpectedConditions.elementToBeClickable(ReviewerPOM.clickAction1(driver)));
@@ -243,13 +243,13 @@ public class ReviewerCount
 		}
 		js.executeScript("window.scrollBy(0,400)"," ");
 		
-	//	Thread.sleep(500);
+		Thread.sleep(500);
 		wait.until(ExpectedConditions.elementToBeClickable(ReviewerPOM.insertTextArea(driver)));
 		Row row6 = sheet.getRow(6);											//Selected 6th index row (Seventh row)
 		Cell c4 = row6.getCell(1);											//Selected cell (6 row,1 column)
 		String remark = c4.getStringCellValue();							//Got the URL stored at position 6,1
 		ReviewerPOM.insertTextArea(driver).sendKeys(remark);		//Inserting remark in Text area
-		
+		Thread.sleep(500);
 		wait.until(ExpectedConditions.elementToBeClickable(ReviewerPOM.clickApprove(driver)));
 		ReviewerPOM.clickApprove(driver).click();					//Clicking on Approve button.
 
@@ -267,13 +267,13 @@ public class ReviewerCount
 		if(newValue < oldValue)
 		{
 			test.log(LogStatus.PASS, "Statutory count of Pending For Review decremented.");
-			test.log(LogStatus.INFO, "Old Count = "+oldValue + " | New Count = "+ newValue);
+			//test.log(LogStatus.INFO, "Old Count = "+oldValue + " | New Count = "+ newValue);
 		}
 		else
 		{
 			test.log(LogStatus.FAIL, "Statutory count of Pending For Review doesn't decremented.");
-			test.log(LogStatus.INFO, "Old Count = "+oldValue + " | New Count = "+ newValue);
-		}*/
+			//test.log(LogStatus.INFO, "Old Count = "+oldValue + " | New Count = "+ newValue);
+		}
 		Thread.sleep(1000);
 		performer.OverduePOM.clickDashboard(driver).click();
 		
@@ -285,7 +285,7 @@ public class ReviewerCount
 	void ReviewCountStatutoryReject() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Statutory 'Pending For Review' and 'Rejected' Count when Rejected");
-		test.log(LogStatus.INFO, "Test initiated");
+		
 		
 		WebDriverWait wait = new WebDriverWait(driver, (30));
 		
@@ -415,8 +415,8 @@ public class ReviewerCount
 		if(newStatutoryReviewValue < oldStatutoryReviewValue && newStatutoryRejectValue > oldStatutoryRejectValue)
 		{
 			test.log(LogStatus.PASS, "Statutory value for 'Pending For Review' decreamented and Statutory value for 'Rejected' incremented.");
-			test.log(LogStatus.INFO, "Old Statutory Pending Review Value = "+oldStatutoryReviewValue+ " | New Statutory Pending Review Value = "+ newStatutoryReviewValue+".");
-			test.log(LogStatus.INFO, "Old Statutory Reject Value = "+oldStatutoryRejectValue+ " | New Statutory Reject Value = "+ newStatutoryRejectValue+".");
+		//	test.log(LogStatus.INFO, "Old Statutory Pending Review Value = "+oldStatutoryReviewValue+ " | New Statutory Pending Review Value = "+ newStatutoryReviewValue+".");
+		//	test.log(LogStatus.INFO, "Old Statutory Reject Value = "+oldStatutoryRejectValue+ " | New Statutory Reject Value = "+ newStatutoryRejectValue+".");
 		}
 		else
 		{
@@ -426,11 +426,11 @@ public class ReviewerCount
 		extent.flush();
 	}
 	
-	//@Test(priority = 4) //pass
+//	@Test(priority = 4) //pass
     void ReviewCountStatutoryASA() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Statutory Review -Advanced Search-Count when Approved");
-		test.log(LogStatus.INFO, "Test initiated");
+		
 		ReMethodsPOM.PendingReviewStatutoryASApprove(driver,test);
 		extent.endTest(test);
 		extent.flush();
@@ -440,14 +440,14 @@ public class ReviewerCount
     void ReviewCountStatutoryASR() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Statutory Review -Advanced Search-Count when Rejected");
-		test.log(LogStatus.INFO, "Test initiated");
+		
 		ReMethodsPOM.PendingReviewStatutoryASReject(driver,test);
 		extent.endTest(test);
 		extent.flush();
 	}
 	
 	
-	//@Test(priority = 6) //pass
+//	@Test(priority = 6) //pass
 	void ReviewCountInternalApprove() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Internal 'Pending For Review' - Approved Verification");
@@ -463,7 +463,7 @@ public class ReviewerCount
 	void ReviewCountInternalReject() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Internal 'Pending For Review' - Rejected Verification");
-		test.log(LogStatus.INFO, "Test initiated");
+	
 		
 		ReMethodsPOM.PendingReviewInternal(driver, test, sheet, "Reject");
 		
@@ -471,27 +471,27 @@ public class ReviewerCount
 		extent.flush();
 	}
 	
-//	@Test(priority = 8) //pass
+	//@Test(priority = 8) //pass
     void ReviewCountInternalASA() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Statutory Review -Advanced Search-Count when Approved");
-		test.log(LogStatus.INFO, "Test initiated");
+		
 		ReMethodsPOM.PendingReviewInternalASApprove(driver,test);
 		extent.endTest(test);
 		extent.flush();
 	}
 	
-//	@Test(priority = 9) //pass
+	//@Test(priority = 9) //pass
     void ReviewCountInternalASR() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Statutory Review -Advanced Search-Count when Rejected");
-		test.log(LogStatus.INFO, "Test initiated");
+		
 		ReMethodsPOM.PendingReviewInternalASReject(driver,test);
 		extent.endTest(test);
 		extent.flush();
 	}
 	
-	@Test(priority = 10) //pass
+//	@Test(priority = 10) //pass
     void CompletedCountStatutory() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Statutory Completed Count Match");
@@ -538,7 +538,7 @@ public class ReviewerCount
 		extent.flush();
 	}
     
-   // @Test(priority = 14) //pass
+  //  @Test(priority = 14) //pass
     void RejectedStatutory() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Rejected Statutory - Export");
@@ -550,7 +550,7 @@ public class ReviewerCount
 		extent.flush();
 	}
 	
- //   @Test(priority = 15) //pass
+//   @Test(priority = 15) //pass
     void RejectedInternal() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Rejected Internal - Export");
@@ -562,11 +562,10 @@ public class ReviewerCount
 		extent.flush();
 	}
     
- //   @Test(priority = 16) //pass
+  // @Test(priority = 16) //pass no record
     void EventsCount() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Statutory Event Count Match");
-		test.log(LogStatus.INFO, "Test initiated");
 		
 		ReMethodsPOM.Events(driver,test);
 		
@@ -574,11 +573,11 @@ public class ReviewerCount
 		extent.flush();
 	}
     
- //  @Test(priority = 8) //pass
+   @Test(priority = 17) //pass
     void ActivatedEventsCount() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Statutory Activated Events Count Match");
-		test.log(LogStatus.INFO, "Test initiated");
+		
 		
 		ReMethodsPOM.ActivatedEvents(driver,test);
 		
@@ -586,11 +585,11 @@ public class ReviewerCount
 		extent.flush();
 	}
     
-  //  @Test(priority = 8) //pass
+  //  @Test(priority = 18) //pass no record
     void ClosedEventsCount() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Statutory Closed  Events Count Match");
-		test.log(LogStatus.INFO, "Test initiated");
+		
 		
 		ReMethodsPOM.ClosedEvents(driver,test);
 		
@@ -599,11 +598,11 @@ public class ReviewerCount
 	}
     
 	
-//	@Test(priority = 6) // pass
+	@Test(priority = 19) // pass
 	void MyReminderStatutory() throws InterruptedException, IOException
 	{
 		test = extent.startTest("My Reminder - Statutory Count Verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		
 		
 		OverduePOM.MyReminder(driver, test, "Statutory");
 		
@@ -611,11 +610,10 @@ public class ReviewerCount
 		extent.flush();
 	}
 	
-//	@Test(priority = 7) //pass
+	@Test(priority = 20) //pass
 	void MyReminderInternal() throws InterruptedException, IOException
 	{
 		test = extent.startTest("My Reminder - Internal Count Verification");
-		test.log(LogStatus.INFO, "Test Initiated");
 		
 		OverduePOM.MyReminder(driver, test, "Internal");
 		
@@ -623,11 +621,11 @@ public class ReviewerCount
 		extent.flush();
 	}
 	
-//	@Test(priority = 8) //pass
+	@Test(priority = 21) //pass
 	void InterimReview() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Interim Review Count Verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		
 		
 		ReMethodsPOM.SubmittedInterimReview(driver, test);
 		
@@ -635,11 +633,11 @@ public class ReviewerCount
 		extent.flush();
 	}
 	
-//	@Test(priority = 9)
+	@Test(priority = 22)
 	void MyEscalation() throws InterruptedException, IOException
 	{
 		test = extent.startTest("My Escalation verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		
 		
 		ReMethodsPOM.MyEscalationReviewer(driver, test);
 		
@@ -647,11 +645,11 @@ public class ReviewerCount
 		extent.flush();
 	}
 	
-	//@Test(priority = 10) //pass
+	@Test(priority = 23) //pass
 	void ReassignUser() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Reassign User verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		
 		
 		ReMethodsPOM.ReassignPerformer(driver, test);
 		
@@ -1423,11 +1421,11 @@ extent.flush();
         	}
         	
         	
-        //	@Test(priority = 15) 
+        	@Test(priority = 24) 
         	void DetailedReport1() throws InterruptedException, IOException
         	{
         		test = extent.startTest("Detailed Report -Statutory Count Verification");
-        		test.log(LogStatus.INFO, "Test Initiated");
+        		
         		
         		ReMethodsPOM.DetailedReport1(test, driver, "performer");
         	//	MethodsPOM.DetailedReportRisk(test,driver,"performer");
@@ -1436,11 +1434,10 @@ extent.flush();
         	}
         	
         	
-        //	@Test(priority = 16) //advance search
+        	@Test(priority = 25) //advance search
         	void DetailedReportIn() throws InterruptedException, IOException
         	{
         		test = extent.startTest("Detailed Report -Internal Count Verification");
-        		test.log(LogStatus.INFO, "Test Initiated");
         		
         		ReMethodsPOM.DetailedReportIn(test, driver, "performer");
         		
@@ -1448,11 +1445,11 @@ extent.flush();
         		extent.flush();
         	}
         	
-        //	@Test(priority = 17) //pass
+        	@Test(priority = 26) //pass
         	void AssignmentReport() throws InterruptedException, IOException
         	{
         		test = extent.startTest("Assignment Report count verification");
-        		test.log(LogStatus.INFO, "Test Initiated");
+        		
         		
         		CFOcountPOM.AssignmentReport(test, driver);
         		
@@ -1460,11 +1457,11 @@ extent.flush();
         		extent.flush();
         	}
         	
-        	// @Test(priority = 15) //pass 
+        	 @Test(priority = 27) //pass 
              void TaskReport() throws InterruptedException
         			{
         				test = extent.startTest("Task Report Verification");
-        				test.log(LogStatus.INFO, "Test Initiated");
+        				
         				
         				MethodsPOM.TaskReport(driver,test);
         				
@@ -1472,11 +1469,11 @@ extent.flush();
         				extent.flush();
         			}
              
-         //	@Test(priority = 16)
+         	@Test(priority = 28)
          	void ComplianceRepository() throws InterruptedException, IOException
          	{
          		test = extent.startTest("Compliance Repository/Act Repository  verification");
-         		test.log(LogStatus.INFO, "Test Initiated");
+         		
          		
          		MethodsPOM.complianceRepository(test,driver);
 
@@ -1484,7 +1481,7 @@ extent.flush();
          		extent.flush();
          	}
          	
-         //	 @Test(priority = 17) //pass 
+         	 @Test(priority = 29) //pass 
   	       void EventReport() throws InterruptedException
   				{
   					test = extent.startTest("Event Report Verification");
@@ -1496,11 +1493,10 @@ extent.flush();
   					extent.flush();
   				}
         	
-        //	@Test(priority = 18) 
+        	@Test(priority = 30) 
         	void ComplianceDocumentsSat() throws InterruptedException, IOException
         	{
         		test = extent.startTest("Compliance Documents Statutory verification");
-        		test.log(LogStatus.INFO, "Test Initiated");
         		
         		MethodsPOM.complianceDocumentSta(test,driver);
         		
@@ -1508,23 +1504,23 @@ extent.flush();
         				extent.flush();
         	}
         	
-       // 	@Test(priority = 19) 
+       // 	@Test(priority = 31) 
         		void ComplianceDocumentsInter() throws InterruptedException, IOException
         		{
         			test = extent.startTest("Compliance Documents Internal verification");
-        			test.log(LogStatus.INFO, "Test Initiated");
+        			
         			
         			MethodsPOM.complianceDocumentIn(test,driver);
         			
-        		extent.endTest(test);
-        					extent.flush();
+        		 extent.endTest(test);
+        		 extent.flush();
         		}
         		
-        	//	@Test(priority = 20) //	pass	
+        		@Test(priority = 32) //	pass	
         		void CriticalDocuments() throws InterruptedException, IOException
         		{
         			test = extent.startTest("Critical Document Verification");
-        			test.log(LogStatus.INFO, "Test Initiated");
+        			
         			
         			OverduePOM.CriticalDocuments(driver, test);
         			
@@ -1532,13 +1528,11 @@ extent.flush();
         			extent.flush();
         		}
         		
-        		
-       
-        	//	@Test(priority = 20) 
+        		@Test(priority = 33) 
         		void Compliancecalendar() throws InterruptedException, IOException
         		{
         			test = extent.startTest("Compliance Documents Internal verification");
-        			test.log(LogStatus.INFO, "Test Initiated");
+        			
         			
         		//	ReMethodsPOM.CalendarApprove(test,driver);
         			Thread.sleep(3000);
@@ -1548,17 +1542,16 @@ extent.flush();
             	extent.flush();
         		}
         		
-        //		@Test(priority = 21)
+        		@Test(priority = 34)
         		void DailyUpdates() throws InterruptedException, IOException
         		{
-        			Thread.sleep(5000);		
+        			Thread.sleep(3000);		
         			test = extent.startTest("'Daily Updates'  OverView");
-        			test.log(LogStatus.INFO, "Test Initiated");
-        			
+        		
         			JavascriptExecutor js = (JavascriptExecutor) driver;
-        		//	js.executeScript("window.scrollBy(0,4600)");					//Scrolling down window by 2600 px.
-        			js.executeScript("window.scrollBy(0,900)");
-        			Thread.sleep(3000);	
+        			//js.executeScript("window.scrollBy(0,4600)");					//Scrolling down window by 2600 px.
+        			js.executeScript("window.scrollBy(0,800)");
+        			Thread.sleep(500);	
         			CFOcountPOM.clickViewAllDU(driver).click();
         			Thread.sleep(4000);	
         		//	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
@@ -1567,6 +1560,17 @@ extent.flush();
         			Thread.sleep(4000);	
         			CFOcountPOM.closeNewsView(driver).click();
         			Thread.sleep(1000);
+        			test.log(LogStatus.PASS, "view Succefully");
+        			OverduePOM.searchBox(driver).sendKeys("NSE issued the MFSS Settlement Calendar");
+        			Thread.sleep(500);
+        			OverduePOM.ClicksearchBtn(driver).click();
+        			Thread.sleep(7000);
+        			test.log(LogStatus.PASS, "Search Succefully");
+        			Thread.sleep(1000);
+        			OverduePOM.ClickClearBtn(driver).click();
+        			Thread.sleep(8000);
+        			test.log(LogStatus.PASS, "Clear button Working Succefully");
+        		
         			performer.OverduePOM.clickDashboard(driver).click();
         			
         			extent.endTest(test);
@@ -1574,17 +1578,17 @@ extent.flush();
         		}
         		
         		
-        	//	@Test(priority = 22)
+        		@Test(priority = 35)
         		void NewsLetter() throws InterruptedException, IOException
         		{
         			Thread.sleep(500);		
         			test = extent.startTest("'News Letters'  OverView");
-        			test.log(LogStatus.INFO, "Test Initiated");
+        			
         			Thread.sleep(3000);
       
         			
         			JavascriptExecutor js = (JavascriptExecutor) driver;
-        			js.executeScript("window.scrollBy(0,900)");					//Scrolling down window by 2600 px.
+        			js.executeScript("window.scrollBy(0,1500)");					//Scrolling down window by 2600 px.
         			Thread.sleep(4000);
         			CFOcountPOM.clickViewAllNL(driver).click();
         			Thread.sleep(4000);	
@@ -1594,6 +1598,7 @@ extent.flush();
         			Thread.sleep(4000);	
         			CFOcountPOM.closeNewsLView(driver).click();
         			Thread.sleep(1000);
+        			test.log(LogStatus.PASS, "OverView Successfully");
         			performer.OverduePOM.clickDashboard(driver).click();
         			
         			extent.endTest(test);
@@ -1601,11 +1606,11 @@ extent.flush();
         		}
         		
         		
-        	//	@Test(priority = 23) // pass
+        		@Test(priority = 36) // pass
         		void MessageCenter() throws InterruptedException, IOException
         		{
         			test = extent.startTest(" Message Center - Verification");
-        			test.log(LogStatus.INFO, "Test Initiated");
+        			
         			WebDriverWait wait = new WebDriverWait(driver, (30));
         			Thread.sleep(8000);
         			CFOcountPOM.clickMessageCenter(driver).click();
@@ -1619,11 +1624,11 @@ extent.flush();
         			extent.flush();
         		}
         		
-        	//	@Test(priority = 24) // pass
+        		@Test(priority = 37) // pass
         		void MyNotifications() throws InterruptedException, IOException
         		{
         			test = extent.startTest("My Notifications - Verification");
-        			test.log(LogStatus.INFO, "Test Initiated");
+        			
         			WebDriverWait wait = new WebDriverWait(driver, (30));
         			Thread.sleep(8000);
         			CFOcountPOM.clickMyNotifications(driver).click();
@@ -1632,7 +1637,7 @@ extent.flush();
         			Thread.sleep(4000);
         			CFOcountPOM.CloseViewNO(driver).click();
         			Thread.sleep(4000);
-        			test.log(LogStatus.INFO, "View Successfully");	
+        			test.log(LogStatus.PASS, "View Successfully");	
         			driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_GridNotifications_chkCompliances_0']")).click();
         			Thread.sleep(1000);
         			driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_GridNotifications_chkCompliances_1']")).click();
@@ -1648,12 +1653,12 @@ extent.flush();
         			extent.flush();
         		}
         		
-        		// @Test(priority =25 )
+        		 @Test(priority =38 )
      			void InternalMsg() throws InterruptedException, IOException
      			{
      				Thread.sleep(500);		
      				test = extent.startTest("'Internal Msg  '  Verification");
-     				test.log(LogStatus.INFO, "Test Initiated");
+     				
      					Thread.sleep(1000);
      				WebDriverWait wait = new WebDriverWait(driver, (40));
      				Thread.sleep(500);
@@ -1665,7 +1670,7 @@ extent.flush();
      				Thread.sleep(1000);
      				OverduePOM.TypeMsg(driver).sendKeys("Automation testing");
      				Thread.sleep(1000);
-     				OverduePOM.choosefile(driver).sendKeys("C:/Users/sandip/Downloads/InternalReport.xlsx");
+     				OverduePOM.choosefile(driver).sendKeys("C:\\Users\\Mayuri Gaikwad\\Downloads\\Report .xlsx");
      				Thread.sleep(1000);
      				//OverduePOM.send(driver).click();
      				By locator = By.xpath("//*[@id='btnsendmailNew']");
@@ -1678,18 +1683,18 @@ extent.flush();
      			JavascriptExecutor jse=(JavascriptExecutor)driver;
      			jse.executeScript("arguments[0].click();", ViewButton);
      				Thread.sleep(5000);
-     				test.log(LogStatus.INFO, "Internal Message working Succefully");
+     				test.log(LogStatus.PASS, "Internal Message working Succefully");
      				Thread.sleep(1000);
      				extent.endTest(test);
      				extent.flush();
      			}
      			
-     		//	 @Test(priority = 26)
+     			 @Test(priority = 39)
      				void SupportTicket() throws InterruptedException, IOException
      				{
      					Thread.sleep(3000);		
      					test = extent.startTest("'Support Ticket  '  Verification");
-     					test.log(LogStatus.INFO, "Test Initiated");
+     					
      					
      					MethodsPOM.SupportTicket(test,driver);
      					

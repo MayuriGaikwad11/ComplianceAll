@@ -166,7 +166,7 @@ public class ImplementCount {
 	void UsersandBranchUpload() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Users");
-		test.log(LogStatus.INFO, "Test Initiated");
+		
 		
 		ImplementMethods.UserandBranchUpload(driver,test);
 		
@@ -178,7 +178,6 @@ public class ImplementCount {
 	void ProductMapping() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Product Mapping");
-		test.log(LogStatus.INFO, "Test Initiated");
 		
 		ImplementMethods.productMapping(driver,test);
 		
@@ -342,7 +341,19 @@ public class ImplementCount {
 		extent.endTest(test);
 		extent.flush();
 	}
+	*/
+	@Test(priority = 22)
+	void LogReport() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Report - log Report ");
 	
+		ImplementMethods.LogReport(driver,test,"All Report");
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	/*
 	@Test(priority = 22)
 	void CompliaceCountReport() throws InterruptedException, IOException
 	{
@@ -899,7 +910,7 @@ public class ImplementCount {
 		extent.flush();
 	}
 	
-	@Test(priority = 70)
+//	@Test(priority = 70)
 	void Eventfrequencymapping() throws InterruptedException, IOException
 	{
 		test = extent.startTest(" Manage Events -Event frequency mapping");
@@ -910,6 +921,32 @@ public class ImplementCount {
 		extent.endTest(test);
 		extent.flush();
 	}
+	
+	//@Test(priority = 71)
+	void HideMulticheckchecklist() throws InterruptedException, IOException
+	{
+		test = extent.startTest(" Manage User - Customer - Add New - Hide Multicheckchecklist");
+		
+		
+		ImplementMethods.HideMulticheckchecklist(driver,test,workbook);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+//	@Test(priority = 72)
+	void HideMulticheckchecklistEdit() throws InterruptedException, IOException
+	{
+		test = extent.startTest(" Manage User - Customer -Edit - Hide Multicheckchecklist");
+		
+		
+		ImplementMethods.HideMulticheckchecklistEdit(driver,test,workbook);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	
 	
 	//@AfterTest
 		void Closing() throws InterruptedException

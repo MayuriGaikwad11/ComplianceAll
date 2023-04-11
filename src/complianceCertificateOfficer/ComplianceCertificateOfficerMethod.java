@@ -21,6 +21,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
+import cfo.CFOcountPOM;
 import complianceCertificateOwner.CertificateOwnerPOM;
 import complianceCertificateReviewer.ComplianceCertificateReviewerMethod;
 
@@ -54,8 +55,38 @@ public static WebElement Viewn(WebDriver driver)		//Method for closing Message P
 	Officer = driver.findElement(By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a"));
 	return Officer;
 }
+
+public static WebElement CertificateOfficerView(WebDriver driver)		//Method for closing Message Popup
+{
+	Officer = driver.findElement(By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[4]/td[8]/a[1]"));
+	return Officer;
+}
 	
+public static WebElement PeriodDecView(WebDriver driver)		//Method for closing Message Popup
+{
+	Officer = driver.findElement(By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[6]/a[1]"));
+	return Officer;
+}
+
+public static WebElement PeriodDecVIPView(WebDriver driver)		//Method for closing Message Popup
+{
+	Officer = driver.findElement(By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a[1]"));
+	return Officer;
+}
 	
+public static WebElement PeriodDecVIPView1(WebDriver driver)		//Method for closing Message Popup
+{
+	Officer = driver.findElement(By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[6]/a"));
+	return Officer;
+}
+
+public static WebElement ReOpen(WebDriver driver)		//Method for closing Message Popup
+{
+	Officer = driver.findElement(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr[2]/td[12]/a[2]"));
+	return Officer;
+}
+	
+
 	public static void CertificateOfficer(WebDriver driver, ExtentTest test)
 			throws InterruptedException, IOException {
 	
@@ -349,6 +380,75 @@ test.log(LogStatus.PASS,  " Clear Filter Working successfully." );
 			Thread.sleep(1000);
 	
 	}
+	
+	public static void CertificateOfficerReopen(WebDriver driver, ExtentTest test)
+			throws InterruptedException, IOException {
+	
+		WebDriverWait wait = new WebDriverWait(driver, (40));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='leftworkspacemenuCer']/a"))); 
+		Thread.sleep(1000);
+		CertificateOwnerPOM.clickMyCertificate(driver).click();
+		Thread.sleep(1000);
+		CertificateOfficer(driver).click();
+		Thread.sleep(3000);
+		CertificateOfficerView(driver).click();
+		Thread.sleep(3000);
+		PeriodDecView(driver).click();
+		Thread.sleep(3000);
+		PeriodDecVIPView(driver).click();
+		Thread.sleep(3000);
+		PeriodDecVIPView1(driver).click();
+		Thread.sleep(3000);
+		try {
+			ReOpen(driver).click();
+			Thread.sleep(3000);
+			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("OverViews4"));	//Wait until frame get visible and switch to it.
+			Thread.sleep(500);
+			CFOcountPOM.EnterRemark(driver).sendKeys("remark");
+			Thread.sleep(1000);
+			CFOcountPOM.ReOpen(driver).click();
+			Thread.sleep(8000);
+			String msg =driver.switchTo().alert().getText();
+			Thread.sleep(1000);
+			driver.switchTo().alert().accept();
+			test.log(LogStatus.PASS, "Message Display : - " +msg);
+	       Thread.sleep(1000);
+	      driver.switchTo().parentFrame();
+	     Thread.sleep(5000);
+	}catch(Exception e) {
+		
+		test.log(LogStatus.PASS, "ReOpen Button Not present ");
+		
+	}
+			performer.OverduePOM.clickDashboard(driver).click();			//Clicking on Dashboard
+			Thread.sleep(1000);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

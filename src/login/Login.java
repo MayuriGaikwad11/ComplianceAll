@@ -178,6 +178,14 @@ public class Login
 			{
 				ans1 = "123";						//Storing the answer in ans variable.
 			}
+			else if(method.equalsIgnoreCase("CertificateOwnerDiy"))
+			{
+				ans1 = "123";						//Storing the answer in ans variable.
+			}
+			else if(method.equalsIgnoreCase("Auditor1"))
+			{
+				ans1 = "123";						//Storing the answer in ans variable.
+			}
 			else
 			{
 				ans1 = getAnswer(que1);							//Storing the answer in ans variable.
@@ -249,6 +257,15 @@ public class Login
 			{
 				ans2 = "123";						//Storing the answer in ans variable.
 			}
+			else if(method.equalsIgnoreCase("CertificateOwnerDiy") )
+			{
+				ans2 = "123";						//Storing the answer in ans variable.
+			}
+			else if(method.equalsIgnoreCase("Auditor1") )
+			{
+				ans2 = "123";						//Storing the answer in ans variable.
+			}
+			
 			else
 			{
 				ans2 = getAnswer(que2);							//Storing the answer in ans variable.

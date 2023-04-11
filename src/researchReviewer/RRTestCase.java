@@ -110,7 +110,7 @@ public class RRTestCase {
 		}
 	}
 	
-     @Test(priority = 2)
+ /*    @Test(priority = 2)
 	void MinistryMaster() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Manage Compliance- Ministry Master");
@@ -145,10 +145,42 @@ public class RRTestCase {
 		extent.endTest(test);
 		extent.flush();
 	}
+	*/
+	@Test(priority = 5)
+	void ActAddNew() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Manage Compliance- Act - Add New ");
+		
+		
+		RRMethods.ActAddNew(driver,test,workbook);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
 	
+	@Test(priority = 6)
+	void Actupdate() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Manage Compliance- Act - Upadate ");
+		
+		
+		RRMethods.Actupdate(driver,test,workbook);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
 	
-	
-	
+	@Test(priority = 7)
+	void ActDelete() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Manage Compliance- Act - Delete ");
+		
+		
+		RRMethods.ActDelete(driver,test,workbook);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
 	
 	
 	

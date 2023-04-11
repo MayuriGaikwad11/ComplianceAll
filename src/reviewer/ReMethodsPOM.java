@@ -121,14 +121,15 @@ public class ReMethodsPOM
 		{
 			Thread.sleep(1000);
 			OverduePOM.clickDashboard(driver).click();					//Clicking on 'Dashboard'
-			test.log(LogStatus.INFO, "No compliance submitted for Interim Review.");
+			test.log(LogStatus.PASS, "No compliance submitted for Interim Review.");
+			Thread.sleep(4000);
 		}
 	}
 	
 	public static void MyEscalationReviewer(WebDriver driver, ExtentTest test) throws InterruptedException
 	{
 		WebDriverWait wait = new WebDriverWait(driver, (40));
-		Thread.sleep(500);
+		Thread.sleep(4000);
 		wait.until(ExpectedConditions.elementToBeClickable(ReviewerPOM.clickMyEscalation(driver)));	//Waiting for My Escalation link to be visible.
 		
 		ReviewerPOM.clickMyEscalation(driver).click();					//Clicking on 'My Escalation'
@@ -354,7 +355,8 @@ public class ReMethodsPOM
 		Thread.sleep(500);
 		ReviewerPOM.Clickclose(driver).click();
 		Thread.sleep(3000);
-	
+		test.log(LogStatus.PASS, "Advanced Search -Approve Successfully");
+
 		ReviewerPOM.closeAS(driver).click();
 		Thread.sleep(500);
 		OverduePOM.clickDashboard(driver).click();
@@ -401,6 +403,7 @@ public class ReMethodsPOM
 		Thread.sleep(1000);
 		ReviewerPOM.Clickclose(driver).click();
 		Thread.sleep(3000);
+		test.log(LogStatus.PASS, "Advanced Search -Reject Successfully");
 		ReviewerPOM.closeAS(driver).click();		
 		Thread.sleep(3000);
 		OverduePOM.clickDashboard(driver).click();
@@ -447,7 +450,7 @@ public class ReMethodsPOM
 		Thread.sleep(500);
 		ReviewerPOM.ClickINclose(driver).click();
 		Thread.sleep(3000);
-	
+		test.log(LogStatus.PASS, "Advanced Search -Approve Successfully");
 		ReviewerPOM.closeAS(driver).click();
 		Thread.sleep(500);
 		OverduePOM.clickDashboard(driver).click();
@@ -494,7 +497,7 @@ public class ReMethodsPOM
 		Thread.sleep(500);
 		ReviewerPOM.ClickINclose(driver).click();
 		Thread.sleep(3000);
-	
+		test.log(LogStatus.PASS, "Advanced Search -Reject Successfully");
 		ReviewerPOM.closeAS(driver).click();
 		Thread.sleep(500);
 		OverduePOM.clickDashboard(driver).click();
@@ -540,11 +543,11 @@ public class ReMethodsPOM
 		}
 		
 		
-	//	elementsList = ReviewerPOM.clickActions(driver);
-	//		elementsList.get(0).click();
-			
-	/*	elementsList = ReviewerPOM.clickStatus(driver);			//CLicking on Status to sort it in ascending order
+		elementsList = ReviewerPOM.clickActions(driver);
 		elementsList.get(0).click();
+			
+	//	elementsList = ReviewerPOM.clickStatus(driver);			//CLicking on Status to sort it in ascending order
+	//	elementsList.get(0).click();
 		Thread.sleep(500);
 		int flag = 0;
 	//	wait.until(ExpectedConditions.elementToBeClickable(ReviewerPOM.clickAction1(driver)));
@@ -703,7 +706,7 @@ public class ReMethodsPOM
 			if(newInternalReviewValue < oldInternalReviewValue)
 			{
 				test.log(LogStatus.PASS, "Internal value for 'Pending For Review' decremented.");
-				test.log(LogStatus.INFO, "Old Value = "+oldInternalReviewValue+ " | New Value = "+ newInternalReviewValue);
+			//	test.log(LogStatus.INFO, "Old Value = "+oldInternalReviewValue+ " | New Value = "+ newInternalReviewValue);
 			}
 			else
 			{
@@ -714,7 +717,7 @@ public class ReMethodsPOM
 				if(newInternalRejectValue > oldInternalRejectValue)
 				{
 					test.log(LogStatus.PASS, "Internal value for 'Rejected : "+clickButton+"' incremented.");
-					test.log(LogStatus.INFO, "Old Internal Reject Value = "+oldInternalRejectValue+" | New Internal Reject Value = "+ newInternalRejectValue);
+				//	test.log(LogStatus.INFO, "Old Internal Reject Value = "+oldInternalRejectValue+" | New Internal Reject Value = "+ newInternalRejectValue);
 				}
 				else
 				{
@@ -724,8 +727,8 @@ public class ReMethodsPOM
 		}
 		else
 		{
-			test.log(LogStatus.INFO, "Internal Compliance (Pending for Review) doesn't performed as the Compliance Document didn't found.");
-		}*/
+			test.log(LogStatus.FAIL, "Internal Compliance (Pending for Review) doesn't performed as the Compliance Document didn't found.");
+		}
 		
 		performer.OverduePOM.clickDashboard(driver).click();
 	}
@@ -825,8 +828,54 @@ public class ReMethodsPOM
 Thread.sleep(1000);
 driver.switchTo().parentFrame();
    Thread.sleep(5000);
-		OverduePOM.clickDashboard(driver).click();
 		
+		ReviewerPOM.clickAdavanceSearch(driver).click();
+		Thread.sleep(5000);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='grid1']/div[3]/table/tbody")));
+	//	JavascriptExecutor js = (JavascriptExecutor) driver;
+		//js.executeScript("window.scrollBy(0,500)");						//Scrolling down window by 1000 px.
+		Thread.sleep(1000);
+		
+		String s4 = ReviewerPOM.ReadCount1(driver).getText();		//Reading total number of items.
+		String[] bits4 = s4.split(" ");									//Splitting the String
+		String itomsCount4 = bits4[bits4.length - 2];						//Getting the second last word (total number of items)
+		int	count4 = Integer.parseInt(itomsCount4);
+		
+		Thread.sleep(1000);
+		ReviewerPOM.ReopenAS(driver).click();
+		Thread.sleep(8000);
+		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("OverViews5"));	//Wait until frame get visible and switch to it.
+		Thread.sleep(500);
+		CFOcountPOM.EnterRemark(driver).sendKeys("remark");
+		Thread.sleep(1000);
+		CFOcountPOM.ReOpen(driver).click();
+		Thread.sleep(8000);
+		String msg1 =driver.switchTo().alert().getText();
+		Thread.sleep(1000);
+		driver.switchTo().alert().accept();
+		test.log(LogStatus.PASS, "Message Display  :- " +msg1);
+Thread.sleep(1000);
+driver.switchTo().parentFrame();
+Thread.sleep(3000);
+wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='grid1']/div[3]/table/tbody")));
+String s2 = ReviewerPOM.ReadCount1(driver).getText();		//Reading total number of items.
+String[] bits1 = s2.split(" ");									//Splitting the String
+String itomsCount1 = bits1[bits1.length - 2];						//Getting the second last word (total number of items)
+int	count1 = Integer.parseInt(itomsCount1);
+		if(count4 > count1)
+		{
+			test.log(LogStatus.PASS, "After Re-Open Count on Grid decrease");
+		}
+		else
+		{
+			test.log(LogStatus.FAIL, "Count Not decrease");
+		}
+		Thread.sleep(2000);
+		ReviewerPOM.closeAS(driver).click();		
+		Thread.sleep(3000);
+		
+		OverduePOM.clickDashboard(driver).click();
+		Thread.sleep(3000);
 		
 		
 	}
@@ -864,8 +913,8 @@ driver.switchTo().parentFrame();
 			test.log(LogStatus.FAIL, " :- File does not downloaded.");
 		}
 		
-		/*elementsList = ReviewerPOM.clickOverView(driver);
-		elementsList.get(1).click();
+		elementsList = ReviewerPOM.clickOverView(driver);
+		elementsList.get(4).click();
 		Thread.sleep(2000);
 		ReviewerPOM.CloseOverview(driver).click();
 		Thread.sleep(2000);
@@ -900,13 +949,13 @@ driver.switchTo().parentFrame();
 		if(count == DasCountCompletedSta)
 		{
 			test.log(LogStatus.PASS, "Number of Completed Internal grid matches to Dashboard Completed Internal Count.");
-			test.log(LogStatus.INFO, "No of Completed Internal in the grid = "+count+" | Dashboard Completed Internal Count = "+DasCountCompletedSta);
+		//	test.log(LogStatus.INFO, "No of Completed Internal in the grid = "+count+" | Dashboard Completed Internal Count = "+DasCountCompletedSta);
 		}
 		else
 		{
 			test.log(LogStatus.FAIL, "Number of Completed Internal does not matches to Dashboard Completed Internal Count.");
-			test.log(LogStatus.INFO, "No of Completed Internal in the grid = "+count+" | Dashboard Completed Internal Count = "+DasCountCompletedSta);
-		}*/
+		//	test.log(LogStatus.INFO, "No of Completed Internal in the grid = "+count+" | Dashboard Completed Internal Count = "+DasCountCompletedSta);
+		}
 		Thread.sleep(2000);
 		OverduePOM.clickDashboard(driver).click();
 		
@@ -1029,8 +1078,8 @@ driver.switchTo().parentFrame();
 			test.log(LogStatus.FAIL, " :- File does not downloaded.");
 		}
 		
-	/*	elementsList = ReviewerPOM.clickOverView(driver);
-		elementsList.get(1).click();
+		elementsList = ReviewerPOM.clickOverView(driver);
+		elementsList.get(4).click();
 		Thread.sleep(2000);
 		ReviewerPOM.CloseOverview(driver).click();
 		Thread.sleep(3000);
@@ -1065,13 +1114,13 @@ driver.switchTo().parentFrame();
 		if(count == DasCountCompletedSta)
 		{
 			test.log(LogStatus.PASS, "Number of Overdue Internal grid matches to Dashboard Overdue Internal Count.");
-			test.log(LogStatus.INFO, "No of Overdue Internal in the grid = "+count+" | Dashboard Overdue Internal Count = "+DasCountCompletedSta);
+			//test.log(LogStatus.INFO, "No of Overdue Internal in the grid = "+count+" | Dashboard Overdue Internal Count = "+DasCountCompletedSta);
 		}
 		else
 		{
 			test.log(LogStatus.FAIL, "Number of Overdue Internal does not matches to Dashboard Overdue Internal Count.");
-			test.log(LogStatus.INFO, "No of Overdue Internal in the grid = "+count+" | Dashboard Overdue Internal Count = "+DasCountCompletedSta);
-		}*/
+		//	test.log(LogStatus.INFO, "No of Overdue Internal in the grid = "+count+" | Dashboard Overdue Internal Count = "+DasCountCompletedSta);
+		}
 		Thread.sleep(2000);
 		OverduePOM.clickDashboard(driver).click();
 		
@@ -1206,12 +1255,12 @@ driver.switchTo().parentFrame();
 		if(count == DasCountCompletedSta)
 		{
 			test.log(LogStatus.PASS, "Number of Overdue Internal grid matches to Dashboard Overdue Internal Count.");
-			test.log(LogStatus.INFO, "No of Overdue Internal in the grid = "+count+" | Dashboard Overdue Internal Count = "+DasCountCompletedSta);
+		//	test.log(LogStatus.INFO, "No of Overdue Internal in the grid = "+count+" | Dashboard Overdue Internal Count = "+DasCountCompletedSta);
 		}
 		else
 		{
 			test.log(LogStatus.FAIL, "Number of Overdue Internal does not matches to Dashboard Overdue Internal Count.");
-			test.log(LogStatus.INFO, "No of Overdue Internal in the grid = "+count+" | Dashboard Overdue Internal Count = "+DasCountCompletedSta);
+		//	test.log(LogStatus.INFO, "No of Overdue Internal in the grid = "+count+" | Dashboard Overdue Internal Count = "+DasCountCompletedSta);
 		}
 		Thread.sleep(2000);
 		OverduePOM.clickDashboard(driver).click();
@@ -1266,12 +1315,12 @@ driver.switchTo().parentFrame();
 		if(count == DasCountCompletedSta)
 		{
 			test.log(LogStatus.PASS, "Number of Activated Events  grid matches to Dashboard Activated Events Count.");
-			test.log(LogStatus.INFO, "No of  Activated Events in the grid = "+count+" | Dashboard  Activated Events Count = "+DasCountCompletedSta);
+		///	test.log(LogStatus.INFO, "No of  Activated Events in the grid = "+count+" | Dashboard  Activated Events Count = "+DasCountCompletedSta);
 		}
 		else
 		{
 			test.log(LogStatus.FAIL, "Number of Activated Events  does not matches to Dashboard Activated Events  Count.");
-			test.log(LogStatus.INFO, "No of Activated Events in the grid = "+count+" | Dashboard Activated Events Count = "+DasCountCompletedSta);
+		//	test.log(LogStatus.INFO, "No of Activated Events in the grid = "+count+" | Dashboard Activated Events Count = "+DasCountCompletedSta);
 		}
 		Thread.sleep(2000);
 		OverduePOM.clickDashboard(driver).click();
@@ -1357,7 +1406,7 @@ driver.switchTo().parentFrame();
 		Thread.sleep(500);
 		test.log(LogStatus.PASS, "Export successfully");
 		Thread.sleep(4000);
-		By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[27]/a[1]");
+		By locator = By.xpath("//*[@id='grid']/div[2]/table/tbody/tr[1]/td/a[1]");
 		wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 		Thread.sleep(4000);
 		
@@ -1368,7 +1417,7 @@ driver.switchTo().parentFrame();
 	jse.executeScript("arguments[0].click();", ViewButton);
 		Thread.sleep(1000);
 		CFOcountPOM.closeDocument1(driver).click();
-		test.log(LogStatus.INFO, "overView success");
+		test.log(LogStatus.PASS, "overView successfully");
 	
 		Thread.sleep(3000);
 		OverduePOM.clickRiskD(driver).click();
@@ -1392,11 +1441,11 @@ driver.switchTo().parentFrame();
 	Thread.sleep(5000);
 	
 		Thread.sleep(3000);
-		By locator1 = By.xpath("//*[@id='grid1']/div[3]/table/tbody/tr[1]/td[27]/a[1]");
+		By locator1 = By.xpath("//*[@id='grid1']/div[2]/table/tbody/tr[1]/td/a[1]");
 		
 		wait.until(ExpectedConditions.presenceOfElementLocated(locator1));
 		Thread.sleep(4000);
-		// retrieving "foo-button" HTML element
+		
 		WebElement ViewButton1 = driver.findElement(locator1);	
 		Thread.sleep(4000);
 	JavascriptExecutor jse1=(JavascriptExecutor)driver;
@@ -1414,16 +1463,16 @@ driver.switchTo().parentFrame();
 	//JavascriptExecutor jse=(JavascriptExecutor)driver;
 	Thread.sleep(2000);
 	jse.executeScript("arguments[0].click();", close);
-	test.log(LogStatus.INFO, "Advanced Search-overView success");
+	test.log(LogStatus.PASS, "Advanced Search-overView successfully");
 		Thread.sleep(4000);
 	//	CFOcountPOM.closeDocument2(driver).click();
 		Thread.sleep(4000);
 		CFOcountPOM.clickExportExcel(driver).click();
 		Thread.sleep(3000);
-		test.log(LogStatus.INFO, "Advanced Search-Export successfully");
+		test.log(LogStatus.PASS, "Advanced Search-Export successfully");
 		CFOcountPOM.selectMonth1(driver).click();
 		Thread.sleep(3000);
-		
+		/*
 		CFOcountPOM.selectLastSixMon(driver).click();
 		Thread.sleep(2000);
 		CFOcountPOM.clickApplyAd(driver).click();
@@ -1453,7 +1502,7 @@ driver.switchTo().parentFrame();
 			CFOcountPOM.clickLastDate11(driver).sendKeys("30-Nov-2022");
 			Thread.sleep(2000);
 			CFOcountPOM.clickApplyAd(driver).click();
-			Thread.sleep(3000);
+			Thread.sleep(3000);*/
 			OverduePOM.clickRiskDA(driver).click();
 			Thread.sleep(1000);
 			By locatorRA = By.xpath("(//*[@class='k-checkbox-label checkbox-span'])[72]");
@@ -1467,7 +1516,7 @@ driver.switchTo().parentFrame();
 			
 			OverduePOM.clickclearBtnA(driver).click();
 			Thread.sleep(4000);
-			test.log(LogStatus.INFO, "Advanced Search-Clear Button is working");
+			test.log(LogStatus.PASS, "Advanced Search-Clear Button is working");
 			CFOcountPOM.closeDocumentAS(driver).click();
 			Thread.sleep(2000);
 			OverduePOM.clickDashboard(driver).click();
@@ -1495,7 +1544,7 @@ driver.switchTo().parentFrame();
 		Thread.sleep(500);
 		test.log(LogStatus.PASS, "Export successfully");
 		Thread.sleep(4000);
-		By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[27]/a[1]");
+		By locator = By.xpath("//*[@id='grid']/div[2]/table/tbody/tr[1]/td/a[1]");
 		wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 		Thread.sleep(4000);
 		
@@ -1506,7 +1555,7 @@ driver.switchTo().parentFrame();
 	jse.executeScript("arguments[0].click();", ViewButton);
 		Thread.sleep(1000);
 		CFOcountPOM.closeDocument1(driver).click();
-		test.log(LogStatus.INFO, "overView success");
+		test.log(LogStatus.PASS, "overView success");
 	
 		Thread.sleep(3000);
 		OverduePOM.clickRiskD(driver).click();

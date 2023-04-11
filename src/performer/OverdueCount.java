@@ -72,7 +72,7 @@ public class OverdueCount
 		
 		login.Login.BrowserSetup(URL);					//Method of Login class to set browser.
 		
-		test.log(LogStatus.PASS, "Test Passed.");
+		
 		extent.endTest(test);
 		extent.flush();
 	}
@@ -94,7 +94,7 @@ public class OverdueCount
 		
 		driver = login.Login.UserLogin(uname,password,"Overdue");		//Method of Login class to login user.
 		
-		test.log(LogStatus.PASS, "Test Passed.");
+		
 		extent.endTest(test);
 		extent.flush();
 	}
@@ -116,7 +116,7 @@ public class OverdueCount
 		}
 	}
 	
-//	@Test(priority = 2)//pass
+	@Test(priority = 2)//pass
 	void Upcoming_ComplianceStatutory() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Statutory Upcoming Compliance Verification");
@@ -128,7 +128,7 @@ public class OverdueCount
 		extent.flush();
 	}
 	
-	//@Test(priority = 3)//pass
+//	@Test(priority = 3)//pass
 	void Upcoming_ComplianceStatutoryCkeckView() throws InterruptedException
 	{
 		test = extent.startTest("Statutory Upcoming Compliance Check View Button Verification");
@@ -140,7 +140,7 @@ public class OverdueCount
 		extent.flush();
 	}
 	
-//	 @Test(priority = 4) //pass
+	 @Test(priority = 4) //pass
 	void Upcoming_ComplianceInternal() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Internal Upcoming Compliance Verification");
@@ -152,7 +152,7 @@ public class OverdueCount
 		extent.flush();
 	}
 	 
-//	@Test(priority = 5)
+	@Test(priority = 5)
 	void DashboardStatutoryOverdue() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Dashboard Statutory Overdue Value Verification");
@@ -161,7 +161,7 @@ public class OverdueCount
 		WebDriverWait wait = new WebDriverWait(driver,(30));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		
-		test.log(LogStatus.PASS, "***********Statutory Overdue************ ");
+	//	test.log(LogStatus.PASS, "***********Statutory Overdue************ ");
 		wait.until(ExpectedConditions.visibilityOf(OverduePOM.clickStatutoryOverdue(driver)));
 		
 		String string_overdueStatutory = OverduePOM.clickStatutoryOverdue(driver).getText();		//Storing old value of Statutory overdue.
@@ -176,7 +176,7 @@ public class OverdueCount
 		Thread.sleep(2000);
 		MethodsPOM.StatutoryOverdueExport(driver,test,workbook);	
 		Thread.sleep(500);
-	/*	MethodsPOM.StatutoryOverdue(driver);							//Calling method of Statutory Overdue
+		MethodsPOM.StatutoryOverdue(driver);							//Calling method of Statutory Overdue
 		
 		Thread.sleep(3000);		
 		js.executeScript("window.scrollBy(0,2000)");
@@ -201,54 +201,54 @@ public class OverdueCount
 		if(overdueStatutory > newOverdueStatutory && reviewStatutory < newReviewStatutory)
 		{
 			test.log(LogStatus.PASS, "Stautory 'Overudue' value decremented and Statutory 'Pending For Reveiew' value increamented");
-			test.log(LogStatus.INFO, "Old Statutory Count = "+overdueStatutory+" | New Statutory Count = "+newOverdueStatutory+". Old Pending for Review Count = "+reviewStatutory+ " | New Pending for Riview Count = "+newReviewStatutory);
+			//test.log(LogStatus.INFO, "Old Statutory Count = "+overdueStatutory+" | New Statutory Count = "+newOverdueStatutory+". Old Pending for Review Count = "+reviewStatutory+ " | New Pending for Riview Count = "+newReviewStatutory);
 		}
 		else
 		{
 			if(overdueStatutory > newOverdueStatutory)
 			{
 				test.log(LogStatus.PASS, "Stautory 'Overudue' value decremented on Dashboard");
-				test.log(LogStatus.INFO, "Old Statutory Count = "+overdueStatutory+" | New Statutory Count = "+newOverdueStatutory+".");
+				//test.log(LogStatus.INFO, "Old Statutory Count = "+overdueStatutory+" | New Statutory Count = "+newOverdueStatutory+".");
 			}
 			else
 			{
 				test.log(LogStatus.FAIL, "Stautory 'Overudue' value didn't decremented");
-				test.log(LogStatus.INFO, "Old Statutory Count = "+overdueStatutory+" | New Statutory Count = "+newOverdueStatutory+". Old Pending for Review Count = "+reviewStatutory+ " | New Pending for Riview Count = "+newReviewStatutory);
+				//test.log(LogStatus.INFO, "Old Statutory Count = "+overdueStatutory+" | New Statutory Count = "+newOverdueStatutory+". Old Pending for Review Count = "+reviewStatutory+ " | New Pending for Riview Count = "+newReviewStatutory);
 			}
 			if(reviewStatutory < newReviewStatutory)
 			{
 				test.log(LogStatus.PASS, "Statutory 'Pending For Reveiew' value incremented");
-				test.log(LogStatus.INFO, "Old Pending for Review Count = "+reviewStatutory+" | New Pending for Riview Count = "+newReviewStatutory);
+			//	test.log(LogStatus.INFO, "Old Pending for Review Count = "+reviewStatutory+" | New Pending for Riview Count = "+newReviewStatutory);
 			}
 			else
 			{
 				test.log(LogStatus.FAIL, "Statutory 'Pending For Reveiew' value didn't incremented");
-				test.log(LogStatus.INFO, "Old Pending for Review Count = "+reviewStatutory+" | New Pending for Riview Count = "+newReviewStatutory);
+			//	test.log(LogStatus.INFO, "Old Pending for Review Count = "+reviewStatutory+" | New Pending for Riview Count = "+newReviewStatutory);
 			}
 		}
 		if(count == newOverdueStatutory)
 		{
 			test.log(LogStatus.PASS, "Number of compliances matches to Dashboard Statutory Overdue Count.");
-			test.log(LogStatus.INFO, "No of Compliances in the grid = "+count+" | Dashboard Statutory Overdue Count = "+newOverdueStatutory);
+		//	test.log(LogStatus.INFO, "No of Compliances in the grid = "+count+" | Dashboard Statutory Overdue Count = "+newOverdueStatutory);
 		}
 		else
 		{
 			test.log(LogStatus.FAIL, "Number of compliances does not matches to Dashboard Statutory Overdue Count.");
-			test.log(LogStatus.INFO, "No of Compliances in the grid = "+count+" | Dashboard Statutory Overdue Count = "+newOverdueStatutory);
-		}*/
+			//test.log(LogStatus.INFO, "No of Compliances in the grid = "+count+" | Dashboard Statutory Overdue Count = "+newOverdueStatutory);
+		}
 		OverduePOM.clickDashboard(driver).click();	
 		Thread.sleep(1000);
 		extent.endTest(test);
 		extent.flush();
 	}
 	
-	//@Test(priority = 6)  //pass
+	@Test(priority = 6)  //pass
 	void DashboardInternalOverdue() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Dashboard Internal Overdue Value Verification");
 		
 		
-		test.log(LogStatus.PASS, "***********Internal Overdue************ ");
+	//	test.log(LogStatus.PASS, "***********Internal Overdue************ ");
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		Thread.sleep(1000);
 		String string_internalOverdue = OverduePOM.clickInternalOverdue(driver).getText();		//Storing old value of Statutory overdue.
@@ -264,13 +264,15 @@ public class OverdueCount
 		
 		
 		driver.findElement(By.xpath("//*[@id='grid']"));		//Searching grid/kendo.
-		
-		Thread.sleep(2000);
-	//	MethodsPOM.InternalOverdue(driver);							//Calling InternalOverdue() method.
 		Thread.sleep(2000);
 		MethodsPOM.StatutoryOverdueExport(driver,test,workbook);	
 		Thread.sleep(500);
-	/*	Thread.sleep(3000);		
+		Thread.sleep(2000);
+		MethodsPOM.InternalOverdue(driver);							//Calling InternalOverdue() method.
+		Thread.sleep(2000);
+	//	MethodsPOM.StatutoryOverdueExport(driver,test,workbook);	
+		Thread.sleep(500);
+	Thread.sleep(3000);		
 		js.executeScript("window.scrollBy(0,3000)");
 		
 		CFOcountPOM.readTotalItems1(driver).click();
@@ -291,41 +293,41 @@ public class OverdueCount
 		if(newOverdueInternal < overdueInternal && newReviewInternal > reviewInternal)
 		{
 			test.log(LogStatus.PASS, "Internal 'Overudue' value decremented and Internal 'Pending For Reveiew' value increamented");
-			test.log(LogStatus.INFO, "Old Internal Count = "+overdueInternal+" | New Internal Count = "+newOverdueInternal+". Old Pending for Review Count = "+reviewInternal+" | New Pending for Riview Count = "+newReviewInternal);
+			//test.log(LogStatus.INFO, "Old Internal Count = "+overdueInternal+" | New Internal Count = "+newOverdueInternal+". Old Pending for Review Count = "+reviewInternal+" | New Pending for Riview Count = "+newReviewInternal);
 		}
 		else
 		{
 			if(newOverdueInternal < overdueInternal)
 			{
 				test.log(LogStatus.PASS, "Internal 'Overudue' value decremented on Dashboard");
-				test.log(LogStatus.INFO, "Old Internal Overdue Count = "+overdueInternal+" | New Internal Overdue Count = "+newOverdueInternal);
+			//	test.log(LogStatus.INFO, "Old Internal Overdue Count = "+overdueInternal+" | New Internal Overdue Count = "+newOverdueInternal);
 			}
 			else
 			{
 				test.log(LogStatus.FAIL, "Internal 'Overudue' value didn't decremented");
-				test.log(LogStatus.INFO, "Old Internal Overdue Count = "+overdueInternal+" | New Internal Overdue Count = "+newOverdueInternal);
+			//	test.log(LogStatus.INFO, "Old Internal Overdue Count = "+overdueInternal+" | New Internal Overdue Count = "+newOverdueInternal);
 			}
 			if(newReviewInternal > reviewInternal)
 			{
 				test.log(LogStatus.PASS, "Internal 'Pending For Reveiew' value incremented");
-				test.log(LogStatus.INFO, "Old Pending for Review Count = "+reviewInternal+" | New Pending for Riview Count = "+newReviewInternal);
+			//	test.log(LogStatus.INFO, "Old Pending for Review Count = "+reviewInternal+" | New Pending for Riview Count = "+newReviewInternal);
 			}
 			else
 			{
 				test.log(LogStatus.FAIL, "Internal 'Pending For Reveiew' value didn't incremented");
-				test.log(LogStatus.INFO, "Old Pending for Review Count = "+reviewInternal+" | New Pending for Riview Count = "+newReviewInternal);
+			//	test.log(LogStatus.INFO, "Old Pending for Review Count = "+reviewInternal+" | New Pending for Riview Count = "+newReviewInternal);
 			}
 		}
 		if(count1 == newOverdueInternal)
 		{
 			test.log(LogStatus.PASS, "Number of compliances matches to Dashboard Internal Overdue Count.");
-			test.log(LogStatus.INFO, "No of Compliances in the grid = "+count1+" | Dashboard Internal Overdue Count = "+newOverdueInternal);
+		//	test.log(LogStatus.INFO, "No of Compliances in the grid = "+count1+" | Dashboard Internal Overdue Count = "+newOverdueInternal);
 		}
 		else
 		{
 			test.log(LogStatus.FAIL, "Number of compliances does not matches to Internal Overdue Count.");
-			test.log(LogStatus.INFO, "No of Compliances in the grid = "+count1+" | Dashboard Internal Overdue Count = "+newOverdueInternal);
-		}*/
+		//	test.log(LogStatus.INFO, "No of Compliances in the grid = "+count1+" | Dashboard Internal Overdue Count = "+newOverdueInternal);
+		}
 		Thread.sleep(3000);
 		OverduePOM.clickDashboard(driver).click();						//Clicking on Dashboard link. 
 		
@@ -333,7 +335,19 @@ public class OverdueCount
 		extent.flush();
 	}
 	
-//	@Test(priority = 7) //pass
+	@Test(priority = 7) //pass
+	void StatutoryOverdueMitigationplan() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Statutory Overdue - Mitigation Plan");
+		
+		
+		MethodsPOM.StatutoryOverdueMitigationplan(driver, test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	//@Test(priority = 8) //pass
 	void StatutoryChecklistAction() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Statutory Checklist Count Through Action");
@@ -345,7 +359,7 @@ public class OverdueCount
 		extent.flush();
 	}
 	
-	//@Test(priority = 8) //pass
+	@Test(priority = 9) //pass
 	void StatutoryChecklistBox() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Statutory Checklist CheckBoxes check ");
@@ -357,7 +371,7 @@ public class OverdueCount
 		extent.flush();
 	}
 	
-	@Test(priority = 9) //pass
+	@Test(priority = 10) //pass
 	void StatutoryCheckListCBNotComplied() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Statutory Checklist CheckBoxes check  -Not Complied");
@@ -394,7 +408,19 @@ public class OverdueCount
 		extent.flush();
 	}
 	
-	@Test(priority =11) // pass
+//	@Test(priority = 10)  //pass
+	void StatutoryCheckListMitigationP() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Internal Checklist CheckBoxes check");
+		
+		
+		MethodsPOM.StatutoryCheckListMitigationP(driver, test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+//	@Test(priority =11) // pass
 	void DashboardRejectStatutory() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Statutory Rejected Compliance Count - Dashboard");
@@ -406,7 +432,7 @@ public class OverdueCount
 		extent.flush();
 	}
 	
-	@Test(priority = 12)  // pass
+	//@Test(priority = 12)  // pass
 	void DashboardRejectInternal() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Internal Rejected Compliance Count - Dashboard");

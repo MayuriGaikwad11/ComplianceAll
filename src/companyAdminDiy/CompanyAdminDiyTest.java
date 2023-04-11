@@ -149,6 +149,7 @@ public class CompanyAdminDiyTest {
 		extent.endTest(test);
 		extent.flush();
 	}
+	
 	 @AfterTest
 		void Closing() throws InterruptedException
 		{

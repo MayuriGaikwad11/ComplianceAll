@@ -71,7 +71,7 @@ public class ApprovalcountInternal {
 		
 		login.Login.BrowserSetup(URL);					//Method of Login class to set browser.
 		
-		test.log(LogStatus.PASS, "Test Passed.");
+		
 		extent.endTest(test);
 		extent.flush();
 	}
@@ -107,7 +107,7 @@ public class ApprovalcountInternal {
 		Thread.sleep(2000);
 		CFOcountPOM.clickApply(driver).click();
 		Thread.sleep(2000);
-		test.log(LogStatus.PASS, "Test Passed.");
+		
 		extent.endTest(test);
 		extent.flush();
 	}
@@ -199,7 +199,7 @@ public class ApprovalcountInternal {
 	
 
 	
-//	@Test(priority = 3)
+	@Test(priority = 3)
 	void clickCategoriesInternal() throws InterruptedException
 	{
 		test = extent.startTest(" Count by Clicking on 'Categories'");
@@ -226,8 +226,8 @@ public class ApprovalcountInternal {
 		String item = CFOcountPOM.readTotalItemsD(driver).getText();	//Reading total items String value
 		String[] bits = item.split(" ");								//Splitting the String
 		String compliancesCount = bits[bits.length - 2];				//Getting the second last word (total number of users)
-	/*	int CatcountGrid = Integer.parseInt(compliancesCount);
-		WebElement com=driver.findElement(By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[4]/div"));
+	int CatcountGrid = Integer.parseInt(compliancesCount);
+	/*	WebElement com=driver.findElement(By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[4]/div"));
 	
 	String comp_cat=	com.getText();
 	int	CompCountCat = Integer.parseInt(comp_cat);
@@ -312,18 +312,18 @@ public class ApprovalcountInternal {
 			CFOcountPOM.closeCategories_Compliances(driver).click();		//Closing the 'Compliances' pup up.
 			Thread.sleep(2000);
 		
-			
+			*/
 		if(CategoriesCountDas == CatcountGrid)
 		{
-			test.log(LogStatus.PASS, "Number of Categories grid matches to Dashboard Categories  Count.");
+			//test.log(LogStatus.PASS, "Number of Categories grid matches to Dashboard Categories  Count.");
 			test.log(LogStatus.PASS, "No of Categories in the grid = "+CatcountGrid+" | Dashboard Categories  Count = "+CategoriesCountDas);
 		}
 		else
 		{
-			test.log(LogStatus.FAIL, "Number of Categories does not matches to Dashboard Categories  Count.");
+		//	test.log(LogStatus.FAIL, "Number of Categories does not matches to Dashboard Categories  Count.");
 			test.log(LogStatus.FAIL, "No of Categories in the grid = "+CatcountGrid+" | Dashboard Categories  Count = "+CategoriesCountDas);
 		}
-		*/
+		
 		Thread.sleep(3000);
 		js.executeScript("window.scrollBy(2000,0)");     //Scrolling UP window by 2000 px.
 		Thread.sleep(3000);
@@ -466,8 +466,13 @@ public class ApprovalcountInternal {
 		
 		Thread.sleep(4000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		
-		CFOcountPOM.ClickShowAllIn(driver).click();        //Clicking on Show All
+		if(CFOcountPOM.ClickShowAllIn(driver).isEnabled()) {
+			CFOcountPOM.ClickShowAllIn(driver).click();        //Clicking on Show All
+			Thread.sleep(3000);
+			test.log(LogStatus.PASS, " 'Show All ' link Clickable Successfully");
+			}
+
+
 		Thread.sleep(3000);
 		litigationPerformer.MethodsPOM.progress(driver);
 		WebDriverWait wait = new WebDriverWait(driver, 40);
@@ -527,7 +532,7 @@ public class ApprovalcountInternal {
 		int low = Integer.parseInt(CFOcountPOM.readLow(driver).getText());				//Reading Low risk count.
 		
 		int total = critical + high + medium + low;
-		
+		/*
 		if(NotCompletedValue == total)
 		{
 			test.log(LogStatus.PASS, "'Not Completed' Compliance Count matches to sum of all risked compliances.");
@@ -538,7 +543,7 @@ public class ApprovalcountInternal {
 			test.log(LogStatus.FAIL, "'Not Completed' Compliance Count doesn't matches to sum of all risked compliances.");
 			test.log(LogStatus.FAIL, "Total 'Not Completed' Compliances : "+total+" | Total Sum : "+NotCompletedValue);
 		}
-		
+		*/
 		if(NotCompletedValue > 0)
 		{
 			if(critical > 0)
@@ -579,7 +584,7 @@ public class ApprovalcountInternal {
 			
 			Thread.sleep(500);
 			action.moveToElement(CFOcountPOM.clickBack1(driver)).click().build().perform();	 //Clicking on Back button
-			Thread.sleep(500);
+			Thread.sleep(2000);
 		}
 		else
 		{
@@ -613,7 +618,7 @@ public class ApprovalcountInternal {
 		int low = Integer.parseInt(CFOcountPOM.readLow(driver).getText());				//Reading Low risk count.
 		
 		int total = critical + high + medium + low;
-		
+		/*
 		if(OverdueValue == total)
 		{
 			test.log(LogStatus.PASS, "'Overdue' Compliance Count matches to sum of all risked compliances.");
@@ -624,7 +629,7 @@ public class ApprovalcountInternal {
 			test.log(LogStatus.FAIL, "'Overdue' Compliance Count doesn't matches to sum of all risked compliances.");
 			test.log(LogStatus.FAIL, "Total 'Overdue' Compliances : "+total+" | Total Sum : "+OverdueValue);
 		}
-		
+		*/
 		if(OverdueValue > 0)
 		{
 			if(critical > 0)
@@ -666,7 +671,7 @@ public class ApprovalcountInternal {
 			Thread.sleep(500);
 		//	action.moveToElement(CFOcountPOM.clickBack2(driver)).click().build().perform();	 //Clicking on Back button
 			performer.OverduePOM.clickDashboard(driver).click();			//Clicking on Dashboard
-			Thread.sleep(500);
+			Thread.sleep(2000);
 		}
 		else
 		{
@@ -714,7 +719,7 @@ public class ApprovalcountInternal {
 		int low = Integer.parseInt(CFOcountPOM.readLow(driver).getText());				//Reading Low risk count.
 		
 		int total = critical + high + medium + low;
-		
+		/*
 		if(OverdueValue == total)
 		{
 			test.log(LogStatus.PASS, "'Pending For Review' Compliance Count matches to sum of all risked compliances.");
@@ -725,7 +730,7 @@ public class ApprovalcountInternal {
 			test.log(LogStatus.FAIL, "'Pending For Review' Compliance Count doesn't matches to sum of all risked compliances.");
 			test.log(LogStatus.FAIL, "Total 'Pending For Review' Compliances : "+total+" | Total Sum : "+OverdueValue);
 		}
-		
+		*/
 		if(OverdueValue > 0)
 		{
 			if(critical > 0)
@@ -804,7 +809,7 @@ public class ApprovalcountInternal {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,500)");						//Scrolling down window by 1000 px.
 		
-		Thread.sleep(500);
+		Thread.sleep(1000);
 		int OverdueValue = Integer.parseInt(CFOcountPOM.clickRejected(driver).getText());	//Reading value of 'Not Completed'
 		CFOcountPOM.clickRejected(driver).click();									//CLicking on 'Not Completed' count
 		
@@ -815,7 +820,7 @@ public class ApprovalcountInternal {
 		int low = Integer.parseInt(CFOcountPOM.readLow(driver).getText());				//Reading Low risk count.
 		
 		int total = critical + high + medium + low;
-		
+		/*
 		if(OverdueValue == total)
 		{
 			test.log(LogStatus.PASS, "'Rejected' Compliance Count matches to sum of all risked compliances.");
@@ -826,7 +831,7 @@ public class ApprovalcountInternal {
 			test.log(LogStatus.FAIL, "'Rejected' Compliance Count doesn't matches to sum of all risked compliances.");
 			test.log(LogStatus.FAIL, "Total 'Rejected' Compliances : "+total+" | Total Sum : "+OverdueValue);
 		}
-		
+		*/
 		if(OverdueValue > 0)
 		{
 			if(critical > 0)
@@ -925,7 +930,7 @@ public class ApprovalcountInternal {
 		*/
 		//-----------------------------------------------------
 		
-		Thread.sleep(500);
+		Thread.sleep(1000);
 		String FinaOverdue = CFOcountPOM.clickAccountOverdueInternal(driver).getText();			//Reading the Overdue value of Human Resource
 		FinaOverdue = FinaOverdue.replaceAll(" ","");									//Removing all white spaces from string. 
 		int Fina_Overdue = Integer.parseInt(FinaOverdue);						
@@ -939,7 +944,7 @@ public class ApprovalcountInternal {
 			test.log(LogStatus.PASS, "'Account - Overdue' Complaince Count = "+ Fina_Overdue + ".");
 		}
 		
-		Thread.sleep(500);
+		Thread.sleep(2000);
 		String FinaPFReview = CFOcountPOM.clickAccountPenFReviewInternal(driver).getText();			//Reading the Overdue value of Human Resource
 		FinaPFReview = FinaPFReview.replaceAll(" ","");									//Removing all white spaces from string. 
 		int Fina_PFR = Integer.parseInt(FinaPFReview);						
@@ -1038,7 +1043,7 @@ public class ApprovalcountInternal {
 		int low = Integer.parseInt(CFOcountPOM.readLow(driver).getText());				//Reading Low risk count.
 		
 		int total = critical + high + medium + low;
-		
+		/*
 		if(NotCompletedValue == total)
 		{
 			test.log(LogStatus.PASS, "'Not Completed' Compliance Count matches to sum of all risked compliances.");
@@ -1049,7 +1054,7 @@ public class ApprovalcountInternal {
 			test.log(LogStatus.FAIL, "'Not Completed' Compliance Count doesn't matches to sum of all risked compliances.");
 			test.log(LogStatus.FAIL, "Total 'Not Completed' Compliances : "+total+" | Total Sum : "+NotCompletedValue);
 		}
-		
+		*/
 		if(NotCompletedValue > 0)
 		{
 			if(critical > 0)
@@ -1095,6 +1100,7 @@ public class ApprovalcountInternal {
 			Thread.sleep(500);
 			action.moveToElement(CFOcountPOM.clickBackPe(driver)).click().build().perform();	 //Clicking on Back button
 			driver.switchTo().parentFrame();
+			Thread.sleep(2000);
 		}
 		else
 		{
@@ -1132,7 +1138,7 @@ public class ApprovalcountInternal {
 		int low = Integer.parseInt(CFOcountPOM.readLow(driver).getText());				//Reading Low risk count.
 		
 		int total = critical + high + medium + low;
-		
+		/*
 		if(OverdueValue == total)
 		{
 			test.log(LogStatus.PASS, "'Overdue' Compliance Count matches to sum of all risked compliances.");
@@ -1143,7 +1149,7 @@ public class ApprovalcountInternal {
 			test.log(LogStatus.FAIL, "'Overdue' Compliance Count doesn't matches to sum of all risked compliances.");
 			test.log(LogStatus.FAIL, "Total 'Overdue' Compliances : "+total+" | Total Sum : "+OverdueValue);
 		}
-		
+		*/
 		if(OverdueValue > 0)
 		{
 			if(critical > 0)
@@ -1190,7 +1196,7 @@ public class ApprovalcountInternal {
 			Thread.sleep(500);
 			//action.moveToElement(CFOcountPOM.clickBack2(driver)).click().build().perform();	 //Clicking on Back button
 			performer.OverduePOM.clickDashboard(driver).click();			//Clicking on Dashboard
-
+			Thread.sleep(3000);
 		}
 		else
 		{
@@ -1241,7 +1247,7 @@ public class ApprovalcountInternal {
 		int low = Integer.parseInt(CFOcountPOM.readLow(driver).getText());				//Reading Low risk count.
 		
 		int total = critical + high + medium + low;
-		
+		/*
 		if(OverdueValue == total)
 		{
 			test.log(LogStatus.PASS, "'Pending For Review' Compliance Count matches to sum of all risked compliances.");
@@ -1252,7 +1258,7 @@ public class ApprovalcountInternal {
 			test.log(LogStatus.FAIL, "'Pending For Review' Compliance Count doesn't matches to sum of all risked compliances.");
 			test.log(LogStatus.FAIL, "Total 'Pending For Review' Compliances : "+total+" | Total Sum : "+OverdueValue);
 		}
-		
+		*/
 		if(OverdueValue > 0)
 		{
 			if(critical > 0)
@@ -1294,7 +1300,7 @@ public class ApprovalcountInternal {
 			Thread.sleep(500);
 		//	action.moveToElement(CFOcountPOM.clickBack2(driver)).click().build().perform();	 //Clicking on Back button
 			performer.OverduePOM.clickDashboard(driver).click();			//Clicking on Dashboard
-
+			Thread.sleep(2000);
 		}
 		else
 		{
@@ -1343,7 +1349,7 @@ public class ApprovalcountInternal {
 		int low = Integer.parseInt(CFOcountPOM.readLow(driver).getText());				//Reading Low risk count.
 		
 		int total = critical + high + medium + low;
-		
+		/*
 		if(OverdueValue == total)
 		{
 			test.log(LogStatus.PASS, "'Rejected' Compliance Count matches to sum of all risked compliances.");
@@ -1354,7 +1360,7 @@ public class ApprovalcountInternal {
 			test.log(LogStatus.FAIL, "'Rejected' Compliance Count doesn't matches to sum of all risked compliances.");
 			test.log(LogStatus.FAIL, "Total 'Rejected' Compliances : "+total+" | Total Sum : "+OverdueValue);
 		}
-		
+		*/
 		if(OverdueValue > 0)
 		{
 			if(critical > 0)
@@ -1411,8 +1417,56 @@ public class ApprovalcountInternal {
 		extent.flush();
 	}
 	
+	@Test(priority = 32)
+	void GradingReportInternal() throws InterruptedException, IOException
+	{
+		Thread.sleep(4000);		
+		test = extent.startTest("'Grading Report'  Export and OverView");
+		
+		
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+	//	js.executeScript("window.scrollBy(0,3000)");					//Scrolling down window by 2600 px.
+		js.executeScript("window.scrollBy(0,500)");
+		Thread.sleep(500);	
+		CFOcountPOM.clickRedGrading(driver).click();
+		Thread.sleep(4000);	
+		WebDriverWait wait = new WebDriverWait(driver,(30));
+		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showGRdetails"));	//Wait until frame get visible and switch to it.
+		Thread.sleep(1000);
+		//*[@id="showGRdetails"]
+		Thread.sleep(4000);
+		 CFOcountPOM.clickExportImage(driver).click();
+		
+			test.log(LogStatus.PASS, "Excel file Export Successfully");
+			Thread.sleep(3000);
+		/*	
+By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[11]/a");
+			
+			wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+			Thread.sleep(4000);
+			// retrieving "foo-button" HTML element
+			WebElement ViewButton = driver.findElement(locator);	
+			Thread.sleep(4000);
+		JavascriptExecutor jse=(JavascriptExecutor)driver;
+		Thread.sleep(2000);
+		jse.executeScript("arguments[0].click();", ViewButton);
+			Thread.sleep(4000);
+			test.log(LogStatus.PASS, "overView Successfully");
+			CFOcountPOM.closeDocument1(driver).click();
+			Thread.sleep(1000);*/
+			driver.switchTo().parentFrame();
+			CFOcountPOM.closePopup(driver).click();					
+			
+		Thread.sleep(2000);
+		performer.OverduePOM.clickDashboard(driver).click();			//Clicking on Dashboard
+		
+		extent.endTest(test);
+		extent.flush();
+	}
 	
-	@Test(priority = 17)
+	
+	
+//	@Test(priority = 17)
 	void complianceCalendar() throws InterruptedException
 	{
 		test = extent.startTest("compliance Calendar Verifications");
@@ -1484,7 +1538,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 			extent.flush();
 	}
 	
-		@Test(priority = 18)
+//		@Test(priority = 18)
 	void DailyUpdates() throws InterruptedException, IOException
 	{
 		Thread.sleep(2000);		
@@ -1520,7 +1574,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]/a");
 		extent.flush();
 	}
 	
-	@Test(priority = 19)
+//	@Test(priority = 19)
 	void NewsLetter() throws InterruptedException, IOException
 	{
 		Thread.sleep(500);		

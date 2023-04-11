@@ -16,6 +16,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
+import cfo.CFOcountPOM;
 import implementation.ImplementPOM;
 
 public class CertificateOwnerMethod {
@@ -281,5 +282,155 @@ test.log(LogStatus.PASS,  " Clear Filter Working successfully." );
 		
 		
 	}
+	
+	public static void CertificateOwnerReopen(WebDriver driver, ExtentTest test)
+			throws InterruptedException, IOException {
+	
+		WebDriverWait wait = new WebDriverWait(driver, (40));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='leftworkspacemenuCer']/a"))); 
+		Thread.sleep(1000);
+		CertificateOwnerPOM.clickMyCertificate(driver).click();
+		Thread.sleep(1000);
+		CertificateOwnerPOM.CertificateOwner(driver).click();
+		Thread.sleep(3000);
+		
+		CertificateOwnerPOM.CertificateOwnerview(driver).click();
+		Thread.sleep(2000);
+		CertificateOwnerPOM.PeriodView1(driver).click();
+		Thread.sleep(3000);
+		CertificateOwnerPOM.PeriodDec22View1(driver).click();
+		Thread.sleep(3000);
+		try {
+		CertificateOwnerPOM.ReopenButton(driver).click();
+		Thread.sleep(3000);
+		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("OverViews4"));	//Wait until frame get visible and switch to it.
+		Thread.sleep(500);
+		CFOcountPOM.EnterRemark(driver).sendKeys("remark");
+		Thread.sleep(1000);
+		CFOcountPOM.ReOpen(driver).click();
+		Thread.sleep(8000);
+		String msg =driver.switchTo().alert().getText();
+		Thread.sleep(1000);
+		driver.switchTo().alert().accept();
+		test.log(LogStatus.PASS, "Message Display : - " +msg);
+       Thread.sleep(1000);
+      driver.switchTo().parentFrame();
+     Thread.sleep(5000);
+}catch(Exception e) {
+	
+	test.log(LogStatus.PASS, "ReOpen Button Not present ");
+	
+}
+		performer.OverduePOM.clickDashboard(driver).click();			//Clicking on Dashboard
+		Thread.sleep(1000);
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }

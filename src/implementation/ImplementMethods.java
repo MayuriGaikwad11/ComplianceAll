@@ -3,6 +3,8 @@ package implementation;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Iterator;
+import java.util.Set;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -1395,6 +1397,77 @@ public class ImplementMethods {
 		}
 
 	}
+	
+	public static void LogReport(WebDriver driver, ExtentTest test, String report)
+			throws InterruptedException, IOException {
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (40));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[4]"))); 
+																												
+
+		action.moveToElement(ImplementPOM.ClickReport(driver)).click().build().perform();
+		Thread.sleep(2000);
+		//ImplementPOM.LogReport(driver).click();
+		Thread.sleep(3000);
+		 By locator = By.linkText("Log report");
+
+			wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+			Thread.sleep(4000);
+		
+			WebElement ViewButton = driver.findElement(locator);	
+			Thread.sleep(3000);
+		JavascriptExecutor jse=(JavascriptExecutor)driver;
+		jse.executeScript("arguments[0].click();", ViewButton);
+			Thread.sleep(4000);
+		Thread.sleep(3000);
+		
+		Set w = driver.getWindowHandles();    // window handles
+		Thread.sleep(3000);
+	      Iterator t = w.iterator();  // window handles iterate
+	      String pw = (String) t.next();
+	      String ch = (String) t.next();
+	      
+	      driver.switchTo().window(ch);         // switching child window
+	      Thread.sleep(3000);
+		ImplementPOM.SelectCustomerAR(driver).click();
+		Thread.sleep(3000);
+		ImplementPOM.BitademopuneAR(driver).click();
+		Thread.sleep(2000);
+		ImplementPOM.ClickApply(driver).click();
+		Thread.sleep(3000);
+		File dir = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
+
+		Thread.sleep(1000);
+		ImplementPOM.ClickExportLR(driver).click(); // Exporting (Downloading) file
+
+		Thread.sleep(3000);// C://Users//jiya//Downloads//
+		File dir1 = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
+		Thread.sleep(3000);
+		if (dirContents.length < allFilesNew.length) {
+			test.log(LogStatus.PASS, report + " :- File downloaded successfully.");
+		} else {
+			test.log(LogStatus.FAIL, report + " :- File does not downloaded.");
+		}
+		
+		if(ImplementPOM.ClickClearLR(driver).isEnabled()) {
+			
+			ImplementPOM.ClickClearLR(driver).click();
+			test.log(LogStatus.PASS, " Clear Button Working successfully.");
+			
+		}
+		
+		 Thread.sleep(3000);
+		 driver.close();
+		 Thread.sleep(3000);
+	      driver.switchTo().window(pw);         // switching child window
+	      Thread.sleep(3000);
+
+	}
+	
 	
 	public static void CompliaceCountReport(WebDriver driver, ExtentTest test, String report)
 			throws InterruptedException, IOException {
@@ -2800,6 +2873,21 @@ String Msg2=ImplementPOM.ReadMsg1(driver).getText();
 		Thread.sleep(1000);
 		ImplementPOM.UploadAssignmentMC(driver).click();
 		Thread.sleep(3000);
+		File dir = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
+
+		Thread.sleep(1000);
+		ImplementPOM.DownloadExcelFormat(driver).click(); // Exporting (Downloading) file
+
+		Thread.sleep(3000);// C://Users//jiya//Downloads//
+		File dir1 = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
+		Thread.sleep(3000);
+		if (dirContents.length < allFilesNew.length) {
+			test.log(LogStatus.PASS, " :- File downloaded successfully.");
+		} else {
+			test.log(LogStatus.FAIL,  " :- File does not downloaded.");
+		}
 		ImplementPOM.SelectCustomerUA(driver).click();
 		Thread.sleep(1000);
 		ImplementPOM.BitademopuneU(driver).click();
@@ -2829,6 +2917,22 @@ String Msg1=ImplementPOM.ReadMsg(driver).getText();
 		Thread.sleep(1000);
 		ImplementPOM.UploadEventBasedComplianceAssignment(driver).click();
 		Thread.sleep(3000);
+		Thread.sleep(3000);
+		File dir = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
+
+		Thread.sleep(1000);
+		ImplementPOM.DownloadExcelFormat(driver).click(); // Exporting (Downloading) file
+
+		Thread.sleep(3000);// C://Users//jiya//Downloads//
+		File dir1 = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
+		Thread.sleep(3000);
+		if (dirContents.length < allFilesNew.length) {
+			test.log(LogStatus.PASS, " :- File downloaded successfully.");
+		} else {
+			test.log(LogStatus.FAIL,  " :- File does not downloaded.");
+		}
 		ImplementPOM.SelectCustomerUE(driver).click();
 		Thread.sleep(1000);
 		ImplementPOM.BitademopuneUE(driver).click();
@@ -2858,6 +2962,22 @@ String Msg1=ImplementPOM.ReadMsg(driver).getText();
 		Thread.sleep(1000);
 		ImplementPOM.UploadAssignmentAll(driver).click();
 		Thread.sleep(3000);
+		Thread.sleep(3000);
+		File dir = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
+
+		Thread.sleep(1000);
+		ImplementPOM.DownloadExcelFormat(driver).click(); // Exporting (Downloading) file
+
+		Thread.sleep(3000);// C://Users//jiya//Downloads//
+		File dir1 = new File("C:\\Users\\Mayuri Gaikwad\\Downloads");
+		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
+		Thread.sleep(3000);
+		if (dirContents.length < allFilesNew.length) {
+			test.log(LogStatus.PASS, " :- File downloaded successfully.");
+		} else {
+			test.log(LogStatus.FAIL,  " :- File does not downloaded.");
+		}
 		ImplementPOM.SelectCustomerUA(driver).click();
 		Thread.sleep(1000);
 		ImplementPOM.BitademopuneU(driver).click();
@@ -4780,9 +4900,67 @@ test.log(LogStatus.PASS, Msg1);
 			if (dirContents.length < allFilesNew.length) {
 				test.log(LogStatus.PASS,  " :- File downloaded successfully.");
 			} else {
-				test.log(LogStatus.INFO,  " :- File does not downloaded.");
+				test.log(LogStatus.FAIL,  " :- File does not downloaded.");
 			}
 			
+		
+	}
+	
+	public static void HideMulticheckchecklist(WebDriver driver, ExtentTest test, XSSFWorkbook workbook)
+			throws InterruptedException, IOException {
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (40));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[1]"))); 
+
+		action.moveToElement(ImplementPOM.clickManageUser(driver)).click().build().perform();
+		Thread.sleep(1000);
+		ImplementPOM.clickCustomers(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.ClickAddNew(driver).click();
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(
+				By.xpath("//*[@id='BodyContent_udcInputForm_upCustomers']/div[1]/div[3]/span[3]/a/span[1]"))); 
+		
+		Thread.sleep(1000);
+		ImplementPOM.HideMulticheckchecklist(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.HideMulticheckchecklistYes(driver).click();
+
+		ImplementPOM.ClickSave(driver).click();
+		Thread.sleep(4000);
+		test.log(LogStatus.PASS, " Hide Multicheckchecklist Saved Successfully'");
+	
+		
+	}
+	
+	public static void HideMulticheckchecklistEdit(WebDriver driver, ExtentTest test, XSSFWorkbook workbook)
+			throws InterruptedException, IOException {
+		Actions action = new Actions(driver);
+		WebDriverWait wait = new WebDriverWait(driver, (40));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='CMPMenuBar']/ul/li[1]"))); 
+
+		action.moveToElement(ImplementPOM.clickManageUser(driver)).click().build().perform();
+		Thread.sleep(1000);
+		ImplementPOM.clickCustomers(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.HideMulticheckchecklistEdit(driver).click();
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(
+				By.xpath("//*[@id='BodyContent_udcInputForm_upCustomers']/div[1]/div[3]/span[3]/a/span[1]"))); 
+		
+		Thread.sleep(1000);
+		ImplementPOM.HideMulticheckchecklist(driver).click();
+		Thread.sleep(4000);
+		ImplementPOM.HideMulticheckchecklistNo(driver).click();
+
+		ImplementPOM.ClickSave(driver).click();
+		Thread.sleep(4000);
+		test.log(LogStatus.PASS, "Edit - Hide Multicheckchecklist Saved Successfully'");
+	
 		
 	}
 	

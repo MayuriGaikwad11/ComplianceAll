@@ -64,7 +64,7 @@ public class ReviewerPOM
 	
 	public static List<WebElement> clickAction2(WebDriver driver)			//Method for searching action button
 	{
-		elementsList = driver.findElements(By.xpath("//*[@id='grid1']/div[3]/table/tbody/tr/td[22]/a[1]"));	//XPath for clicking first action button  
+		elementsList = driver.findElements(By.xpath("//*[@id='grid1']/div[3]/table/tbody/tr/td[24]/a[1]"));	//XPath for clicking first action button  
 		return elementsList;
 	}
 	//*[@class='k-button k-button-icontext ob-overview k-grid-edit2'])[1]
@@ -372,18 +372,29 @@ public class ReviewerPOM
 		return statutoryAction;
 	}
 	
+	public static WebElement ReadCount1(WebDriver driver)
+	{
+		statutoryAction = driver.findElement(By.xpath("//*[@id='grid1']/div[4]/span[2]"));
+		return statutoryAction;
+	}
+	
 	public static WebElement ReadCountEvent(WebDriver driver)
 	{
 		statutoryAction = driver.findElement(By.xpath("//*[@id='grid']/div[4]/span[2]"));
 		return statutoryAction;
 	}
-	
+	//*[@id="grid1"]/div[4]/span[2]
 	public static WebElement CalendarDownload(WebDriver driver)
 	{
 		statutoryAction = driver.findElement(By.xpath("//*[@id='export']"));
 		return statutoryAction;
 	}
 	
+	public static WebElement ReopenAS(WebDriver driver)
+	{
+		statutoryAction = driver.findElement(By.xpath("//*[@id='grid1']/div[3]/table/tbody/tr[1]/td[24]/a[5]"));
+		return statutoryAction;
+	}
 	
 	
 	public static List<WebElement> clickCheckboxes(WebDriver driver)
@@ -481,7 +492,7 @@ public class ReviewerPOM
 	public static WebElement ClickCompletedIn(WebDriver driver)		//Searching first checkbox
 	{
 		statutoryAction = driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_divCompletedInternalPREOcount']"));
-		return statutoryAction;
+		return statutoryAction;//*[@id="grid"]/div[4]/table/tbody/tr[1]/td[25]/a[5]
 	}
 	
 	public static WebElement ClickOverdueSta(WebDriver driver)		//Searching first checkbox

@@ -16,7 +16,7 @@ private static WebElement owner = null;				//WebElement variable created for 'Ca
 	public static WebElement clickMyCertificate(WebDriver driver)		//Method for closing Message Popup
 	{
 		owner = driver.findElement(By.xpath("//*[@id='leftworkspacemenuCer']/a"));
-		return owner;
+		return owner;//*[@id="leftworkspacemenuCer"]/a
 	}
 	
 	public static WebElement CertificateOwner(WebDriver driver)		//Method for closing Message Popup
@@ -191,11 +191,29 @@ private static WebElement owner = null;				//WebElement variable created for 'Ca
 	}
 	
 	
+	public static WebElement CertificateOwnerview(WebDriver driver)		//Method for closing Message Popup
+	{
+		owner = driver.findElement(By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[4]/td[8]/a[1]"));
+		return owner;
+	}
 	
+	public static WebElement PeriodView1(WebDriver driver)		//Method for closing Message Popup
+	{
+		owner = driver.findElement(By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[6]/a[1]"));
+		return owner;
+	}
 	
+	public static WebElement PeriodDec22View1(WebDriver driver)		//Method for closing Message Popup
+	{
+		owner = driver.findElement(By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[6]/a"));
+		return owner;
+	}
 	
-	
-	
+	public static WebElement ReopenButton(WebDriver driver)		//Method for closing Message Popup
+	{
+		owner = driver.findElement(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr[1]/td[12]/a[2]"));
+		return owner;
+	}
 	
 	
 	
